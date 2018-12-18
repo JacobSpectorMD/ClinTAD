@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %} {% load widget_tweaks %}
+
+{% block head %}
+    {{ block.super }}
+    <script src="{% static 'js/tracks.js' %}"></script>
+{% endblock %}
+
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/tracks.css' %}">
+{% endblock styles %}
+
+{% block content %}
+<head>
+    <title>ClinTAD | Tracks</title>
+</head>
+
+<script>
+    window.onload = function(){
+        var tracks = {{tracks|safe}};
+        initialize_tracks(tracks);
+    };
+</script>
+
+<div class="track-header">Create New Track</div>
+<form method="post" enctype="multipart/form-data" action="/user/new_track/">
+    {% csrf_token %}
+    <div class="outlined">
+        <div class="row">
+            <div class="col">Build<br>{{ form.build }}</div>
+            <div class="col">Track Name/Label<br>{{ form.label }}</div>
+            <div class="col">Track Type<br>{{ form.track_type }}</div>
+            <div class="col-4">Details/Comments<br>{{ form.details }}</div>
+            <div class="col">File<br>{{ form.uploaded_file }}</div>
+        </div>
+        <div class="row">
+            <div style="width:20%; height: 5%; margin: 0 auto; margin-top: 0.4em;">
+                <button type="submit" style="width: 100%; height: 100%;">Submit</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="track-header">TAD Tracks</div>
+<div class="track-row col-titles">
+    <div class="toggle-col"><b>Use Track</b></div>
+    <div class="label-col"><b>Track Label</b></div>
+    <div class="build-col"><b>Build</b></div>
+    <div class="color-col"></div>
+    <div class="details-col"><b>Details</b></div>
+    <div class=""></div>
+</div>
+<div class="tracks" id="TAD">
+    <div class="track-row">
+        <div class="toggle-col">
+            <input class='color-picker' type="checkbox" id="tad-toggle" data-toggle="toggle" data-on="Yes" data-off="No">
+        </div>
+        <div class="label-col">Default TADs</div>
+        <div class="build-col">hg19 / GRCh37</div>
+        <div class="color-col"></div>
+        <div class="details-col">The default TAD boundary set was provided by Dr. Jesse Dixon (University of California,
+            San Diego). The data was generated using H1 human embryonic stem cells (hESCs),
+            chromosome build GRCh37, a bin size of 40kb, and a window size of 2Mb. Please see the About section
+            for reference and details.</div>
+        <div class=""></div>
+    </div>
+</div>
+
+
+<div class="track-header">Enhancer Tracks</div>
+<div class="track-row col-titles">
+    <div class="toggle-col"><b>Use Track</b></div>
+    <div class="label-col"><b>Track Label</b></div>
+    <div class="build-col"><b>Build</b></div>
+    <div class="color-col"><b>Color</b></div>
+    <div class="details-col"><b>Details</b></div>
+    <div class=""></div>
+</div>
+<div class="tracks" id="Enhancer">
+    <div class="track-row">
+        <div class="toggle-col"><input type="checkbox" id='enhancer-toggle' data-toggle="toggle" data-on="Yes" data-off="No"></div>
+        <div class="label-col">Default Enhancers</div>
+        <div class="build-col">hg19 / GRCh37</div>
+        <div class="color-col"></div>
+        <div class="details-col">The default set of enhancers is based on data from the VISTA Enhancer Browser. We include
+            only human enhancers that were positive for in vivo enhancer activity as defined by VISTA. Please see
+            the about section for reference and details.</div>
+        <div class=""></div>
+    </div>
+</div>
+
+{% endblock %}

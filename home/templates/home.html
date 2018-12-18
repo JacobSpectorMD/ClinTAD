@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<head>
+    <title>ClinTAD | Home</title>
+</head>
+<style>
+
+</style>
+
+<div class='home'>
+<p>
+<br>
+ClinTAD is a tool to quickly evaluate the clinical relevance of copy number
+variants (CNVs) in the context of topologically associated domains (TADs). Instructions 
+for using the tool are below.<br><br>
+
+<b><u>Single</u></b><br>
+If you have data for a single patient, the <span class="tab">Single</span> tab can be used to visualize
+the relationship between a copy number variant and nearby TADs.
+<br><br>
+<b>Chromsome:</b> Enter the chromosome number as an integer (e.g. 1 or 2), X, or Y<br>
+<b>Start:</b> Enter the coordinate of the start of the CNV <br>
+<b>End:</b> Enter the coordinate of the end of the CNV<br>
+<b>Phenotype:</b> Optional. Enter any relevant phenotypes for your patient using HPO IDs. 
+Phenotypes can be entered as integers or as full HPO ID numbers. For example, if 
+a relevant phenotype is "cleft upper lip", enter HP:0000204 or just 204.<br><br>
+The <b>HPO Phenotype Lookup</b> form can be used to look up the HPO ID number for relevant phenotypes. For
+example if your patient has a cleft lip, enter "cleft" and press the lookup button. A list of HPO IDs with
+the word "cleft" in the name, def, or comment field will then be added to the dropdown menu. Press the add
+button once a phenotype is selected to move the ID to the <b>Phenotypes</b> form.<br>
+<br>
+<div class="video" style="width:100%; text-align:center;">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/CCNPZsWgCoM?rel=0" frameborder="0"
+        allow="autoplay; encrypted-media" allowfullscreen></iframe><br><br></span>
+</div>
+
+<p>
+<b><u>Multiple</u></b><br>
+If you have data for multiple patients, the <span class="tab">Multiple</span> tab can be used to determine 
+if there are genes with the specified phenotypes near a CNV. Phenotypes must be seperated
+by commas, and each patient/case should be on it's own line. Input is in the following format:<br>
+<br>
+Patient Identifier (tab) Chromosome Number (tab) CNV Start (tab) CNV End (tab) Phenotypes (new line)<br>
+Patient Identifier (tab) Chromosome Number (tab) CNV Start (tab) CNV End (tab) Phenotypes
+
+</p>
+</div>
+{% endblock content %}
+

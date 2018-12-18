@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block head %}
+    {{ block.super }}
+    <script src="{% static 'js/single.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/single.css' %}">
+{% endblock %}
+
+{% block content %}
+<head>
+    <title>ClinTAD | Single</title>
+</head>
+
+<body>
+  <div class="panel panel-custom" id="accordion1">
+    <div class="panel-heading">
+      <span class="panel-title">
+        <a data-toggle="collapse" href="#collapse1" data-parent="#accordion1">Patient Data (Single)</a>
+      </span>
+    </div>
+    <div id="collapse1" class="panel-collapse collapse show">
+      <div class="panel-body">
+          <form method="post"> 
+            {% csrf_token %}
+            {{ form.chromosome.label}} {{ form.chromosome }}  {{ form.start.label}} {{ form.start }}
+            {{ form.end.label }} {{ form.end }} {{ form.phenotypes.label    }} {{ form.phenotypes}}
+            <button type="submit" name="action" value="Submit">Submit</button>
+            <button type="button" onclick="open_statistics()">Statistics</button>
+            <button type="submit" name="action" value="out">Zoom Out</button>
+            <button type="submit" name="action" value="in">Zoom In</button>
+          </form>
+                          
+            <br>
+            <table >
+            <tr>
+                <td>HPO Phenotype Lookup:</td>
+                <td><input type="text" id="HPO_lookup" list="HPO" style="width:300">
+                <button id="HPO_lookup_button" onclick="lookup_HPO()">Lookup</button></td>
+            </tr>
+            <tr >
+                <td></td>
+                <td style="padding-top:3px"><select id="HPO" style="width:300; height:24; border: 1px solid grey" ></select>
+                <button id="HPO_add_button" onclick="add_HPO()">Add</button></td>
+            </tr>
+            </table>
+      </div>
+    </div>
+  </div>
+
+<div id="container"></div>
+
+<div class="panel panel-custom" id="accordion2">
+    <div class="panel-heading">
+        <span class="panel-title"><a data-toggle="collapse" data-parent="#accordion2"
+        href="#collapse2">Selected Data</a></span>
+    </div>
+    <div id="collapse2" class="panel-collapse collapse">
+        <div class="panel-body" id="patient-data-display">
+        </div>
+    </div>
+</div>
+</body>
+{% endblock %}

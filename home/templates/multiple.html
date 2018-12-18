@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<head>
+    <title>ClinTAD | Multiple</title>
+</head>
+<style>
+    td {
+        padding-right: 0.5em;
+    }
+</style>
+<body>
+<div class="panel panel-custom" style="width:100%">
+    <div class="panel-heading">
+      <span class="panel-title">
+        <a data-toggle="collapse" href="#collapse1">Patient Data (Multiple)</a>
+      </span>
+    </div>
+    <div id="collapse1" class="panel-collapse collapse show">
+      <div class="panel-body">
+          <p style="font-size:1em">
+          Using tabs between inputs and seperating phenotypes with commas, enter data in the following format:
+          </p>
+          <p>
+          <table style="font-size:1em">
+          <tr><td>PatientID</td><td>Chromosome</td><td>Start</td><td>End</td><td>Phenotypes (optional)</td></tr>
+          <tr><td>&nbsp</td></tr>
+          <tr><td>Example:</td></tr>
+          <tr><td>Case1</td><td>1</td><td>5,000,000</td><td>8,500,000</td><td>7, 10, 512</td></tr>
+          <tr><td>Case2</td><td>2</td><td>4,000,000</td><td>7,000,000</td><td>6, 204, 509</td></tr>
+          </table>
+          </p>
+          <form method="post"> 
+            <p>
+            {% csrf_token %} 
+            {{ multiple_form }}
+            <br>
+            <button type="submit" style="margin-top:3px">Submit</button>
+            </p>
+          </form></div>
+    </div>
+  </div>
+  
+<p>
+    <table id="results_table">
+    </table>
+</p>
+</body>
+
+<script type="text/javascript">
+    var multipleInput = document.getElementById("id_multiple");
+    if(multipleInput.addEventListener ) {
+        multipleInput.addEventListener('keydown',this.keyHandler, false);
+    } else if(multipleInput.attachEvent ) {
+        multipleInput.attachEvent('onkeydown', this.keyHandler);
+    }
+
+    function keyHandler(e) {
+        var TABKEY = 9;
+        if(e.keyCode == TABKEY) {
+            e.preventDefault();
+            this.value += "\t";
+            return false;
+        }
+    }
+</script>
+{% endblock content %}
+

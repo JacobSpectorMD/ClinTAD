@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}{% load widget_tweaks %}
+
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'user.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="outlined" style="width: 100%">
+<div class="form">
+    <h2>Sign Up</h2>
+    <div class="form-inputs">
+        <form method="post">
+            {% csrf_token %}
+            <span class="form-label">{{ form.email.label }}</span>
+            {{ form.email|add_class:"form-control" }}
+            <span class="form-label">{{ form.name.label }}</span>
+            {{ form.name|add_class:"form-control" }}
+            <span class="form-label">{{ form.password1.label }}</span>
+            {{ form.password1|add_class:"form-control" }}
+            <span class="form-label">{{ form.password2.label }}</span>
+            {{ form.password2|add_class:"form-control" }}
+
+            <button type="submit" class="form-button">Submit</button>
+        </form>
+    </div>
+</div>
+</div>
+{% endblock %}
