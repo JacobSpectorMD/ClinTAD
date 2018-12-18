@@ -421,7 +421,7 @@ function draw_cnvs(data, scale, num_tracks){
     for(var i = 0; i < variants.length; i++){
         if (variants[i].subtype == 'gain'){var stroke_color = 'blue'}
         else {var stroke_color = 'red'}
-        var opacity = (variants[i].frequency >= 1) ? 1 : 0.6;
+        var opacity = (variants[i].frequency >= 1) ? 1 : 0.5;
 
         // End of gene rectangle
         var end_point = scale(variants[i].outer_start)+10;

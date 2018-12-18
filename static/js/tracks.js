@@ -100,24 +100,25 @@ $(document).on('click', '.toggle', function(){
     var toggle = $(this).parent();
     var row = $(toggle).parent();
     var input = this.querySelector('input');
+    if ($(this).hasClass('off')) {var active = false}
+    else {var active = true}
+
+    // Uncheck all other TAD tracks, because only one is needed
+    if ($(row).parent().attr('id') == 'TAD' && active){
+        var tad_div = document.querySelector('#TAD')
+        var tad_toggles = tad_div.querySelectorAll('.toggle');
+        for (var i = 0; i < tad_toggles.length; i++){
+            console.log(tad_toggles[i]);
+            if (tad_toggles[i]!=this){
+                var input2 = tad_toggles[i].firstChild;
+                $(input2).bootstrapToggle('off');
+            };
+        }
+    }
 
     if (!$(input).hasClass('default')){
         var ut_id = input.dataset.ut_id;
         var color = $(row).find('.color-picker').val();
-        if ($(this).hasClass('off')) {var active = false}
-        else {var active = true}
-
-        // Uncheck all other TAD tracks, because only one is needed
-        if ($(row).parent().attr('id') == 'TAD' && active){
-            var tad_div = document.querySelector('#TAD')
-            var tad_toggles = tad_div.querySelectorAll('.toggle');
-            for (var i = 0; i < tad_toggles.length; i++){
-                if (tad_toggles[i]!=this){
-                    var input2 = tad_toggles[i].firstChild;
-                    $(input2).bootstrapToggle('off');
-                };
-            }
-        }
 
         $.ajax({
             type: 'POST',

@@ -125,7 +125,7 @@ def GetTADs(request, chromosome_input, CNV_start, CNV_end, phenotypes, zoom):
     variants = Variant.objects.filter(Q(outer_start__range=(minimum_coordinate, maximum_coordinate)) |
                                       Q(outer_end__range=(minimum_coordinate, maximum_coordinate)) |
                                       Q(outer_start__lte=minimum_coordinate, outer_end__gte=maximum_coordinate))\
-                              .filter(chromosome=chromosome).all()
+                              .filter(chromosome=chromosome).order_by('outer_start').all()
     variant_list = [variant.to_dict() for variant in variants]
 
     # Get all genes that are within the search area
