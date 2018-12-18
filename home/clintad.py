@@ -30,10 +30,6 @@ def get_single_data(request):
                        request.session['phenotypes'], request.session['zoom'])
     data = json.loads(data_str)
 
-    data['default_enhancers'] = request.user.track_manager.default_enhancers
-    data['default_tads'] = request.user.track_manager.default_tads
-    data['default_cnvs'] = request.user.track_manager.default_cnvs
-
     data['tracks'] = []
     if request.user.is_authenticated:
         active_tracks = [ut for ut in UT.objects.filter(user=request.user, active=True)
@@ -41,6 +37,14 @@ def get_single_data(request):
         for track in active_tracks:
             data['tracks'].append(get_track_data(track, request.session['chromosome'], data['minimum']['coord'],
                                                  data['maximum']['coord']))
+        data['default_enhancers'] = request.user.track_manager.default_enhancers
+        data['default_tads'] = request.user.track_manager.default_tads
+        data['default_cnvs'] = request.user.track_manager.default_cnvs
+    else:
+        data['default_enhancers'] = True
+        data['default_tads'] = True
+        data['default_cnvs'] = True
+
     return json.dumps(data)
 
 
