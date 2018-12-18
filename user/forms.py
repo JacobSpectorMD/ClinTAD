@@ -94,7 +94,7 @@ class UserAdminChangeForm(forms.ModelForm):
 class TrackForm(forms.Form):
     builds_list = (('hg18 / 36.1', 'hg18 / 36.1'), ('hg19 / GRCh37', 'hg19 / GRCh37'),
                    ('hg38 / GRCh38', 'hg38 / GRCh38'))
-    track_types = (('Enhancer', 'Enhancer'), ('TAD', 'TAD'))
+    track_types = (('CNV', 'CNV'), ('Enhancer', 'Enhancer'), ('TAD', 'TAD'), )
 
     build = forms.ChoiceField(required=True, choices=builds_list)
     label = forms.CharField(required=True, max_length=200)

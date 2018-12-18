@@ -1,7 +1,7 @@
 import os
 import json
 import io
-from home.models import Chromosome, Enhancer, Gene, TAD, Track, UT
+from home.models import Chromosome, Enhancer, Gene, TAD, Track, UT, Variant
 from home.forms import SingleForm
 from django.db.models import Q
 
@@ -32,6 +32,7 @@ def get_single_data(request):
 
     data['default_enhancers'] = request.user.track_manager.default_enhancers
     data['default_tads'] = request.user.track_manager.default_tads
+    data['default_cnvs'] = request.user.track_manager.default_cnvs
 
     data['tracks'] = []
     if request.user.is_authenticated:
@@ -120,9 +121,18 @@ def GetTADs(request, chromosome_input, CNV_start, CNV_end, phenotypes, zoom):
                                 Q(end__range=(minimum_coordinate, maximum_coordinate))).filter(chromosome=chromosome).all()
     enhancer_list = [enhancer.to_dict() for enhancer in enhancers]
 
+    # Get benign variants
+    variants = Variant.objects.filter(Q(outer_start__range=(minimum_coordinate, maximum_coordinate)) |
+                                      Q(outer_end__range=(minimum_coordinate, maximum_coordinate)) |
+                                      Q(outer_start__lte=minimum_coordinate, outer_end__gte=maximum_coordinate))\
+                              .filter(chromosome=chromosome).all()
+    variant_list = [variant.to_dict() for variant in variants]
+
     # Get all genes that are within the search area
     genes = Gene.objects.filter(Q(start__range=(minimum_coordinate, maximum_coordinate)) |
-                                Q(end__range=(minimum_coordinate, maximum_coordinate))).filter(chromosome=chromosome).all()
+                                Q(end__range=(minimum_coordinate, maximum_coordinate)) |
+                                Q(start__lte=minimum_coordinate, end__gte=maximum_coordinate))\
+                        .filter(chromosome=chromosome).all()
 
     if custom_tad_track:
         tads = custom_tad_track.track.elements.filter(chromosome=chromosome).filter(start__gte=minimum_coordinate)\
@@ -158,6 +168,7 @@ def GetTADs(request, chromosome_input, CNV_start, CNV_end, phenotypes, zoom):
                  'minimum': {'coord': minimum_coordinate, 'type': min_type},
                  'maximum': {'coord': maximum_coordinate, 'type': max_type},
                  'genes': gene_list,
+                 'variants': variant_list,
                  'enhancers': enhancer_list,
                  'hpo_matches': hpo_matches,
                  'gene_matches': gene_matches,

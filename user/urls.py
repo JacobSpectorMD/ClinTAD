@@ -13,5 +13,6 @@ urlpatterns = [
     url(r'^edit_track/$', edit_track, name='edit_track'),
     url(r'^delete_track/$', delete_track, name='delete_track'),
     url(r'^default_enhancers/$', default_enhancers, name='default_enhancers'),
-    url(r'^default_tads/$', default_tads, name='default_tads')
+    url(r'^default_tads/$', default_tads, name='default_tads'),
+    url(r'^default_cnvs/$', default_cnvs , name='default_cnvs')
 ]

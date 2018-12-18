@@ -19,11 +19,13 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         options['elements'] = [x.lower() for x in options['elements']]
         if 'all' in options['elements']:
+            print('Loading all required data.')
             self.load_chromosomes()
             self.load_genes()
             self.load_enhancers()
             self.load_hpos()
             self.load_tads()
+            self.load_cnvs()
             print('Finished loading data!!')
         else:
             if 'enhancers' in options['elements']:
@@ -34,6 +36,8 @@ class Command(BaseCommand):
                 self.load_genes()
             if 'hpos' in options['elements']:
                 self.load_hpos()
+            if 'cnvs' in options['elements']:
+                self.load_cnvs()
 
     def load_chromosomes(self):
         print('Loading chromosomes.')
@@ -166,3 +170,29 @@ class Command(BaseCommand):
                 tad.save()
         print('TAD boundaries loaded.')
 
+    def load_cnvs(self):
+        print('Loading benign CNVs.')
+        Variant.objects.all().delete()
+        with open('home/files/Gold Standard Variants.txt', 'r') as infile:
+            # The first line has the column names, skip it
+            infile.readline()
+
+            for line in infile:
+                line = line.rstrip()
+                col = line.split('\t')
+                variant_acc = col[0]
+                subtype = col[1]
+                chromosome_num = col[2]
+                outer_start = int(col[3])
+                inner_start = int(col[4])
+                inner_end = int(col[5])
+                outer_end = int(col[6])
+                studies = col[7]
+                frequency = float(col[8])
+                sample_size = int(col[9])
+                print(line)
+                chromosome = Chromosome.objects.get(number=chromosome_num)
+                Variant.objects.create(chromosome=chromosome, outer_start=outer_start, inner_start=inner_start,
+                                       inner_end=inner_end, outer_end=outer_end, subtype=subtype, accession=variant_acc,
+                                       study=studies, frequency=frequency, sample_size=sample_size)
+        print('Benign CNVs loaded.')

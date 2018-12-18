@@ -54,7 +54,7 @@
 <div class="tracks" id="TAD">
     <div class="track-row">
         <div class="toggle-col">
-            <input class='color-picker' type="checkbox" id="tad-toggle" data-toggle="toggle" data-on="Yes" data-off="No">
+            <input class='default' type="checkbox" id="tad-toggle" data-toggle="toggle" data-on="Yes" data-off="No">
         </div>
         <div class="label-col">Default TADs</div>
         <div class="build-col">hg19 / GRCh37</div>
@@ -67,6 +67,27 @@
     </div>
 </div>
 
+<div class="track-header">CNV Tracks</div>
+<div class="track-row col-titles">
+    <div class="toggle-col"><b>Use Track</b></div>
+    <div class="label-col"><b>Track Label</b></div>
+    <div class="build-col"><b>Build</b></div>
+    <div class="color-col"><b>Color</b></div>
+    <div class="details-col"><b>Details</b></div>
+    <div class=""></div>
+</div>
+<div class="tracks" id="CNV">
+    <div class="track-row">
+        <div class="toggle-col"><input type="checkbox" class='default' id='cnv-toggle' data-toggle="toggle" data-on="Yes" data-off="No"></div>
+        <div class="label-col">DGV CNVs</div>
+        <div class="build-col">hg19 / GRCh37</div>
+        <div class="color-col"></div>
+        <div class="details-col">The default set of CNVs uses data from DGV (Database of Genomic Variants). The CNVs
+            include those in the "DGV Gold Standard Variants", a curated list of variants from select studies, with some
+            variants merged if they had sufficient overlap.</div>
+        <div class=""></div>
+    </div>
+</div>
 
 <div class="track-header">Enhancer Tracks</div>
 <div class="track-row col-titles">
@@ -79,7 +100,7 @@
 </div>
 <div class="tracks" id="Enhancer">
     <div class="track-row">
-        <div class="toggle-col"><input type="checkbox" id='enhancer-toggle' data-toggle="toggle" data-on="Yes" data-off="No"></div>
+        <div class="toggle-col"><input type="checkbox" class='default' id='enhancer-toggle' data-toggle="toggle" data-on="Yes" data-off="No"></div>
         <div class="label-col">Default Enhancers</div>
         <div class="build-col">hg19 / GRCh37</div>
         <div class="color-col"></div>

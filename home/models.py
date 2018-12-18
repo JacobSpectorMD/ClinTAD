@@ -114,3 +114,22 @@ class UT(models.Model):  # User Track association class
                     ut.save()
             self.active = True
         self.save()
+
+
+class Variant(models.Model):
+    chromosome = models.ForeignKey(Chromosome, related_name='variants', on_delete=models.CASCADE)
+    outer_start = models.IntegerField(default=-1)
+    inner_start = models.IntegerField(default=-1)
+    inner_end = models.IntegerField(default=-1)
+    outer_end = models.IntegerField(default=-1)
+    subtype = models.CharField(default='', max_length=5)
+    accession = models.CharField(default='', max_length=200)
+    study = models.CharField(default='', max_length=200)
+    sample_size = models.IntegerField(default=-1)
+    frequency = models.FloatField(default=-1)
+
+    def to_dict(self):
+        return {'chromosome': self.chromosome.number, 'outer_start': self.outer_start, 'inner_start': self.inner_start,
+                'inner_end': self.inner_end, 'outer_end': self.outer_end, 'subtype': self.subtype,
+                'accession': self.accession, 'study': self.study, 'sample_size': self.sample_size,
+                'frequency': self.frequency}

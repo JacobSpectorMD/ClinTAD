@@ -83,7 +83,9 @@ class TrackManager(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='track_manager')
     default_tads = models.BooleanField(default=True)
     default_enhancers = models.BooleanField(default=True)
+    default_cnvs = models.BooleanField(default=True)
 
     def track_json(self):
         tracks = [track.to_dict() for track in self.user.tracks.all()]
-        return {'default_tads': self.default_tads, 'default_enhancers': self.default_enhancers, 'tracks': tracks}
+        return {'default_tads': self.default_tads, 'default_enhancers': self.default_enhancers,
+                'default_cnvs': self.default_cnvs, 'tracks': tracks}

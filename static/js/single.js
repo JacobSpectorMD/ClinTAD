@@ -79,25 +79,51 @@ d3.json("/single/get_genes/", function(response){
                     .domain([start_coord-(scale_factor*0.05), end_coord+(scale_factor*0.03)])
                     .range([5, width]);
 
-    // Create the different SVGs
+    // Keep track of total height of all tracks
+    var total_height = 165;
+    // Keep track of the number of tracks drawn, so the background colors can alternate
+    var num_tracks = 2;
+
+    // Create the TAD svg
     var tad_svg = draw_tads(data, data.tads, scale);
     draw_boundaries(tad_svg, scale, data.tads, 110, start_coord, end_coord, boundaries_only=false);
+
+    // Create the user CNV and genes svg
     var cnv_gene_svg = draw_cnv_genes(data, scale);
     draw_boundaries(cnv_gene_svg, scale, data.tads, 0, start_coord, end_coord);
+    total_height += parseInt(cnv_gene_svg.style('height').replace("px", ""));
 
+    // Enhancer svg
     if (data.default_enhancers){
-        var enhancer_svg = draw_enhancers(data, scale);
+        var enhancer_svg = draw_enhancers(data, scale, num_tracks);
         draw_boundaries(enhancer_svg, scale, data.tads, 0, start_coord, end_coord);
+        num_tracks++;
+        console.log(parseInt(enhancer_svg.style('height').replace("px", "")));
+        total_height += parseInt(enhancer_svg.style('height').replace("px", ""));
+        console.log(total_height);
     }
 
+    // Benign CNV svg (from Database of Genomic Variants)
+    if (data.default_cnvs){
+        var cnv_svg = draw_cnvs(data, scale, num_tracks);
+        draw_boundaries(cnv_svg, scale, data.tads, 0, start_coord, end_coord);
+        num_tracks++;
+        console.log(parseInt(cnv_svg.style('height').replace("px", "")));
+        total_height += parseInt(cnv_svg.style('height').replace("px", ""));
+        console.log(total_height);
+    }
+
+    // Draw all of the users custom tracks
     data.tracks.forEach(function(track){
-        var track_svg = draw_track(data, track, scale);
+        var track_svg = draw_track(data, track, scale, num_tracks);
         draw_boundaries(track_svg, scale, data.tads, 0, start_coord, end_coord);
+        num_tracks++;
+        console.log(parseInt(track_svg.style('height').replace("px", "")));
+        total_height += parseInt(track_svg.style('height').replace("px", ""));
+        console.log(total_height);
     })
 
-
-    // Draw all other tracks
-
+    $('#container').css('height', total_height);
 })
 
 function draw_tads(data, tads, scale){
@@ -127,19 +153,19 @@ function draw_tads(data, tads, scale){
 //    var zoom_out_button = g_1.append('rect').attr('x', bbox.x-7).attr('y', bbox.y).attr('width', bbox.width+14).attr('cursor', 'pointer')
 //                            .attr('height', bbox.height+1).attr('fill', 'rgb(178, 220, 255)').attr('rx', '4').attr('ry', '4');
 //
-//    var labels_text = g_2.append('text').text('Labels').attr('x', 65).attr('y', 24).attr('fill', 'white').attr('pointer-events', 'none')
-//                          .attr('font-size', '20');
-//    var bbox = labels_text.node().getBBox();
-//    var labels_button = g_1.append('rect').attr('x', bbox.x-3).attr('y', bbox.y).attr('width', bbox.width+6).attr('cursor', 'pointer')
-//                            .attr('height', bbox.height+1).attr('fill', 'rgb(178, 220, 255)').attr('rx', '4').attr('ry', '4')
-//                            .on('click', function(){
-//                                $('.track-label').toggleClass('off');
-//                            });
+    var labels_text = g_2.append('text').text('Labels').attr('x', 10).attr('y', 24).attr('fill', 'white').attr('pointer-events', 'none')
+                          .attr('font-size', '20');
+    var bbox = labels_text.node().getBBox();
+    var labels_button = g_1.append('rect').attr('x', bbox.x-3).attr('y', bbox.y).attr('width', bbox.width+6).attr('cursor', 'pointer')
+                            .attr('height', bbox.height+1).attr('fill', 'rgb(178, 220, 255)').attr('rx', '4').attr('ry', '4')
+                            .on('click', function(){
+                                $('.track-label').toggleClass('hidden');
+                            });
 
     return svg;
 }
 
-function draw_cnv_genes(data, scale){
+function draw_cnv_genes(data, scale, num_tracks){
     var height = 40;
     var width=data.width;
     var svg = d3.select('#container').append('svg').attr('width', width).attr('height', height);
@@ -217,6 +243,7 @@ function draw_cnv_genes(data, scale){
             .attr("y2", 31+row*11)
             .attr("stroke", stroke_color)
             .attr("stroke-width", 10)
+            .attr("cursor", "pointer")
             .attr("data-name", genes[i].name)
             .attr("data-x1", scale(genes[i].start))
             .attr("data-stroke_color", stroke_color)
@@ -376,15 +403,152 @@ function draw_enhancers(data, scale){
     return svg;
 }
 
-function draw_track(data, track, scale){
+function draw_cnvs(data, scale, num_tracks){
+    var height = 40;
+    var width = data.width;
+    var svg = d3.select('#container').append('svg').attr('width', width).attr('height', height);
+    var g_0 = svg.append('g').attr('class', 'g_0'),
+        g_1 = svg.append('g').attr('class', 'g_1'),
+        g_2 = svg.append('g').attr('class', 'g_2');
+    var color = track_color(num_tracks);
+    var background = g_0.append('rect').attr('width', width).attr('height', height).attr('x', 0).attr('y', 0)
+                        .attr('fill', color['fill']);
+
+    var last_end_point = [0];
+    var data_to_display = [];
+    var variants = data.variants;
+    var max_row = 0;
+    for(var i = 0; i < variants.length; i++){
+        if (variants[i].subtype == 'gain'){var stroke_color = 'blue'}
+        else {var stroke_color = 'red'}
+        var opacity = (variants[i].frequency >= 1) ? 1 : 0.6;
+
+        // End of gene rectangle
+        var end_point = scale(variants[i].outer_start)+10;
+        if (scale(variants[i].outer_end)>end_point){end_point = scale(variants[i].outer_end);}
+
+        var row = 0;
+        var overlap = true;
+        while(overlap){
+            if (i == 0){
+                last_end_point.push(end_point);
+                overlap = false;
+            }
+            else if (row >= last_end_point.length){
+                last_end_point.push(end_point);
+                overlap = false;
+            }
+            else if (scale(variants[i].outer_start) >= last_end_point[row] + 3){
+                last_end_point[row] = end_point;
+                overlap = false;
+            }
+            else if (scale(variants[i].outer_start) < last_end_point[row] + 3){
+                    row += 1;
+            }
+        };
+
+        if (row > max_row){max_row = row};
+
+        data_to_display.push({
+            "Variant ID/Accession": variants[i].accession,
+            "Gain or Loss": variants[i].subtype,
+            "Chromosome": variants[i].chromosome,
+            "Outer Start": variants[i].outer_start,
+            "Inner Start": variants[i].inner_start,
+            "Inner End": variants[i].inner_end,
+            "Outer End": variants[i].outer_end,
+            "Studies": variants[i].study,
+            "Sample Size": variants[i].sample_size,
+            "Frequency": variants[i].frequency+'%',
+        });
+
+        // Draw the gene
+        svg.append("line")
+            .attr("x1", scale(variants[i].outer_start))
+            .attr("y1", 30+row*11)
+            .attr("x2", end_point)
+            .attr("y2", 30+row*11)
+            .attr("stroke", stroke_color)
+            .attr("stroke-width", 10)
+            .attr("data-x1", scale(variants[i].outer_start))
+            .attr("data-stroke_color", stroke_color)
+            .attr("data-gene_number", i)
+            .attr("data-accession", variants[i].accession)
+            .attr("opacity", opacity)
+            .attr("cursor", "pointer")
+            .on("mouseover", function(){
+                svg.append("text")
+                    .text($(this).data("accession")).attr("text-anchor", "middle")
+                    .attr("x", $(this).data("x1"))
+                    .attr("y", 15)
+                    .attr("id", "hoverText")
+                    .style("font-family", "Arial")
+                    .style("font-weight", 700)
+            })
+            .on("mouseout", function(){
+                d3.select("#hoverText").remove()
+            })
+            .on("click", function(){
+                //Clears all data from the Selected Data panel
+                var element = document.getElementById("patient-data-display");
+                while (element.firstChild) {
+                    element.removeChild(element.firstChild);
+                }
+
+                $("#collapse2").collapse("show");
+                $("#collapse1").collapse("hide");
+
+                //Adds information about the clicked object to the Patient Data Display panel
+                //Need to work on how these are added!
+                var gene_number = this.getAttribute("data-gene_number");
+                var selectedDataDisplay = document.getElementById("patient-data-display");
+                var selectedBody = document.createElement("tbody");
+                var selectedTable = document.createElement("table");
+                selectedTable.setAttribute("class", "selected-data");
+                var values = data_to_display[gene_number];
+                Object.keys(values).forEach(function(key) {
+                    if(key!="Phenotypes" && key!="Matches"){
+                        var row = document.createElement("tr");
+                        var cell = document.createElement("td");
+                        cell.setAttribute("width", "20%");
+                        var cellText = document.createTextNode(key+": ");
+                        cell.appendChild(cellText);
+                        row.appendChild(cell);
+                        var cell = document.createElement("td");
+                        var cellText = document.createTextNode(values[key]);
+                        cell.appendChild(cellText);
+                        row.appendChild(cell);
+                        selectedBody.appendChild(row);
+                    }
+                });
+
+                selectedTable.appendChild(selectedBody);
+                selectedDataDisplay.appendChild(selectedTable);
+        });
+    };
+
+    if (max_row > 0){
+        height += max_row*12;
+        svg.attr('height', height);
+        background.attr('height', height);
+    }
+    var label = g_0.append('text').text('DGV').attr('y', 3+(height/2)).attr('x', 10).attr('font-size', '2em')
+                              .attr('fill', color['text']).attr('pointer-events', 'none')
+                              .attr('class', 'track-label').attr('alignment-baseline', 'middle');
+    return svg;
+}
+
+
+function draw_track(data, track, scale, num_tracks){
     var height = 40;
     var width=data.width;
     var svg = d3.select('#container').append('svg').attr('width', width).attr('height', height);
     var g_0 = svg.append('g').attr('class', 'g_0'),
         g_1 = svg.append('g').attr('class', 'g_1'),
         g_2 = svg.append('g').attr('class', 'g_2');
+    var color = track_color(num_tracks);
     var background = g_0.append('rect').attr('width', width).attr('height', height).attr('x', 0).attr('y', 0)
-                        .attr('fill', 'aliceblue');
+                        .attr('fill', color['fill']);
 
     var last_end_point = [0];
     var data_to_display = [];
@@ -421,9 +585,9 @@ function draw_track(data, track, scale){
         if (row > max_row){max_row = row};
 
         data_to_display.push({
-            "Details": elements[i].details,
             "Start": elements[i].start,
             "End": elements[i].end,
+            "Details": elements[i].details,
         });
 
         // Draw the gene
@@ -476,14 +640,14 @@ function draw_track(data, track, scale){
         });
     };
 
-    console.log(max_row);
     if (max_row > 0){
         height += max_row*10;
         svg.attr('height', height);
         background.attr('height', height);
     }
     var label = g_0.append('text').text(track.label).attr('y', 3+(height/2)).attr('x', 10).attr('font-size', '2em')
-                              .attr('fill', 'rgb(212, 235, 254)').attr('pointer-events', 'none').attr('alignment-baseline', 'middle');
+                              .attr('fill', color['text']).attr('pointer-events', 'none')
+                              .attr('class', 'track-label').attr('alignment-baseline', 'middle');
     return svg;
 }
 
@@ -545,3 +709,12 @@ function draw_boundaries(svg, scale, tads, y1, start_coord, end_coord, boundarie
     if (data.minimum['type']=='chromosome'){draw_dashed(start_coord, "l", true);}
     if (data.maximum['type']=='chromosome'){draw_dashed(end_coord, "r", true);}
 } // End of draw_boundaries
+
+function track_color(num_tracks){
+    console.log(num_tracks);
+    if (num_tracks%2==0){
+        return {'fill': 'aliceblue', 'text': 'var(--light-blue)'}
+    } else {
+        return {'fill': 'var(--light-blue)', 'text': 'white'}
+    }
+}

@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.shortcuts import redirect
 from home.models import Track, Element, Chromosome, UT
 from user.forms import TrackForm
 
@@ -29,4 +30,4 @@ def create_track(request):
             else:
                 end = -1
             element = Element.objects.create(track=track, chromosome=chromosome, start=start, end=end)
-    return HttpResponse('')
+    return redirect('/user/tracks/')

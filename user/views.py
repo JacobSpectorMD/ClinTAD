@@ -55,11 +55,20 @@ def delete_track(request):
 
 def default_enhancers(request):
     active = request.POST.get('active')
-    print(active)
     if active == 'true':
         request.user.track_manager.default_enhancers = True
     else:
         request.user.track_manager.default_enhancers = False
+    request.user.track_manager.save()
+    return HttpResponse('')
+
+
+def default_cnvs(request):
+    active = request.POST.get('active')
+    if active == 'true':
+        request.user.track_manager.default_cnvs = True
+    else:
+        request.user.track_manager.default_cnvs = False
     request.user.track_manager.save()
     return HttpResponse('')
 
