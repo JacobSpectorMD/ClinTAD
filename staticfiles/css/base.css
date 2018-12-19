@@ -1,0 +1,151 @@
+:root {
+    --light-green: rgb(127, 167, 119);
+    --green: rgb(84, 138, 73);
+
+    --light-blue: rgb(212, 235, 254);
+}
+
+body {overflow-y: scroll; margin: 0.5%;}
+input {border:1px solid grey;}
+label {margin-right: 0.2em;}
+    .tab{
+        background-color: grey;
+        color: white;
+        font-weight: bold;
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+    .home {
+      font-size:1em;
+      border: 1px solid grey;
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-bottom: 20px;
+      color: black;
+      margin-left:  auto;
+      margin-right: auto;
+      }
+
+    p {
+        width: 85%;
+        margin: auto;
+    }
+
+    .form-text {
+      font-size:1em;
+      border: 1px solid grey;
+    }
+
+    .selected-data {
+        table-layout: fixed;
+        width: 100%;
+        word-wrap: break-word;
+    }
+
+    button {
+        background-color: light-grey;
+        color: black;
+        border-radius: 2px;
+        border: 1px solid grey;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: grey;
+        color: white;
+        border-radius: 2px;
+        border: 1px solid grey;
+    }
+
+    .panel {
+        margin:0px;
+    }
+    .panel-body {border: 1px solid #808080; padding: 0.3em;}
+    .panel-custom {
+        border-color: #808080;
+    }
+    .panel-title {font-size: 1.2em;}
+    .panel-title a {color: white; margin-left: 0.3em;}
+    .panel-custom > .panel-heading{
+        background-color: #808080;
+        color: #ffffff;
+    }
+
+    .graph-svg-component{
+        background-color: AliceBlue;
+        float: left;
+    }
+
+    div#container {
+        height: 420px;
+        width: 100%;
+        overflow-x: scroll;
+        margin: auto;
+    }
+
+.search-heading{
+   font-weight: 700;
+}
+
+tbody{
+    width: 100%;
+}
+
+.search-table > td{
+      height: 70px;
+}
+
+.navbar-default {
+    background-color: #ffffff;
+    border: 1px solid #808080;
+    font-weight: 700;
+    margin: 0px;
+    height: 6%;
+    padding: 0;
+    margin-bottom: 7px;
+    border-radius: 0 !important;
+}
+
+.navbar-nav > .show {background-color: #808080; color: white;}
+.dropdown-menu {border-radius: 0;}
+.dropdown-menu a:hover {background-color: #808080; color: white;}
+
+.nav-item {height: 100%;}
+.nav-link:not(.active) > a {text-decoration: none;}
+.nav-link a {font-size: 0.9em; padding-bottom: 0.5em; padding-top: 0.5em;}
+.navbar-default .navbar-brand {color: #000000;}
+.navbar-brand img {height: 1em; margin-left: 0.3em;}
+.navbar-default .navbar-text {color: #000000;}
+.navbar-default .navbar-nav > li:hover {background-color: #808080; color: white;}
+.navbar-default .navbar-nav > li:hover > a {color: white;}
+.navbar-default .navbar-nav > .active {color: #ffffff; background-color: #808080;}
+.navbar-default .navbar-nav > li > a {color: #000000;}
+.navbar-default .navbar-nav > .active > a {color: white;}
+
+body{
+    margin: 0.5%;
+    overflow-y: scroll;
+}
+
+.track-header {font-size: 1.2em; width: 100%; background-color: #808080; color: white;
+               padding-left: 0.3em;}
+
+.add-track div {display: inline-block;}
+
+.row {width: 100%; margin-left: 0;}
+.outlined {border: 1px solid #808080; padding-bottom: 15px;}
+
+.toggle:not(.off) {border: 1px solid var(--green);}
+.toggle-on {background-color: var(--green);}
+.toggle-on:active {background-color: var(--green);}
+.toggle-on:hover {background-color: var(--light-green);}
+.toggle-off {background-color: grey; color: white;}
+.toggle-off:hover {background-color: rgb(144, 144, 144);}
+.toggle-handle {background-color: lightgray;}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active {
+    background-color: var(--green) !important;
+    border-color: var(--green);
+}
+
+.hidden {display: none;}
