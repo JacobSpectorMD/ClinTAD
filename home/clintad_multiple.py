@@ -35,7 +35,7 @@ def sort_genes(gene_list):
     return None
 
 
-def process_multiple_patients(patient_data):
+def process_multiple_patients(request, patient_data):
     patient_data_split = patient_data.splitlines()
 
     result = "Chromosome\tStart\tEnd\t Matches\r\n"
@@ -44,7 +44,7 @@ def process_multiple_patients(patient_data):
             continue
         col = line.split('\t')
         patient_ID, chromosome, start, end, phenotypes = col[0], col[1], col[2], col[3], col[4]
-        data = json.loads(GetTADs(chromosome, start, end, phenotypes, 0))
+        data = json.loads(GetTADs(request, chromosome, start, end, phenotypes, 0))
 
         matches = ''
         for gene in data['genes']:

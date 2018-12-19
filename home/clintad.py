@@ -51,11 +51,10 @@ def get_single_data(request):
 def get_track_data(ut, chromosome_number, minimum_coordinate, maximum_coordinate):
     chromosome = Chromosome.objects.get(number=chromosome_number)
     elements = ut.track.elements.filter(Q(start__range=(minimum_coordinate, maximum_coordinate)) |
-                                     Q(end__range=(minimum_coordinate, maximum_coordinate)))\
-                    .filter(chromosome=chromosome).all()
+                                        Q(end__range=(minimum_coordinate, maximum_coordinate)))\
+                                .filter(chromosome=chromosome).all()
     element_list = [element.to_dict() for element in elements]
     return {'label': ut.track.label, 'color': ut.color, 'elements': element_list}
-    # Return a list of elements within the TAD boundaries for a single track
 
 
 def GetTADs(request, chromosome_input, CNV_start, CNV_end, phenotypes, zoom):

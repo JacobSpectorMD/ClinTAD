@@ -31,32 +31,16 @@ class demonstration(TemplateView):
                                     "HP:0000718, HP:0000717, HP:0000729, HP:0002315, HP:0002076, HP:0000735," \
                                     "HP:0025161, HP:0025160, HP:0002232, HP:0001596, HP:0001595, HP:0002209," \
                                     "HP:0002231, HP:0000771, HP:0008202"
-        genes = GetTADs(request.session['chromosome'], request.session['start'], request.session['end'],
+        genes = GetTADs(request, request.session['chromosome'], request.session['start'], request.session['end'],
                         request.session['phenotypes'], request.session['zoom'])
         request.session['genes'] = genes
-        chromosome = ChromosomeForm(initial={"chromosome":"6"})
-        start = CNVStartForm(initial={"start":"33202640"})
-        end = CNVEndForm(initial={"end":"33429672"})
-        phenotypes = PhenotypesForm(initial={"phenotypes":"HP:0001263, HP:0011342, HP:0011343, HP:0000823, HP:0100702, " \
-                                    "HP:0000718, HP:0000717, HP:0000729, HP:0002315, HP:0002076, HP:0000735," \
-                                    "HP:0025161, HP:0025160, HP:0002232, HP:0001596, HP:0001595, HP:0002209," \
-                                    "HP:0002231, HP:0000771, HP:0008202"})
 
-        try:
-            request.session['zoom']
-        except:
-            chromosome.fields['chromosome'].required = True
-            start.fields['start'].required = True
-            end.fields['end'].required = True
-
-        try:
-            profile = request.user.profile
-            print(profile.location)
-        except:
-            pass
-        return render(request, self.template_name,
-                      {'chromosome': chromosome, 'start': start, 'end': end, 'phenotypes': phenotypes,
-                       'navbar': 'single'})
+        form = SingleForm(initial={"chromosome": "6", "start":"33202640", "end": "33429672", "phenotypes":"HP:0001263,"
+                                   "HP:0011342, HP:0011343, HP:0000823, HP:0100702, HP:0000718, HP:0000717, "
+                                   "HP:0000729, HP:0002315, HP:0002076, HP:0000735, HP:0025161, HP:0025160, "
+                                   "HP:0002232, HP:0001596, HP:0001595, HP:0002209, HP:0002231, HP:0000771, "
+                                   "HP:0008202"})
+        return render(request, self.template_name, {'form': form, 'navbar': 'single'})
 
     def post(self, request):
         if request.POST.get('action') == "Submit":
@@ -72,28 +56,21 @@ class demonstration(TemplateView):
                     request.session['zoom'] -= 1
             except:
                 request.session['zoom'] = 0
-        chromosome = ChromosomeForm(request.POST)
-        start_form = CNVStartForm(request.POST)
-        end_form = CNVEndForm(request.POST)
-        phenotypes_form = PhenotypesForm(request.POST)
 
-        if (chromosome.is_valid() and start_form.is_valid() and end_form.is_valid()
-        and phenotypes_form.is_valid()):
-            if chromosome.cleaned_data['chromosome'] != "":
-                request.session['chromosome'] = chromosome.cleaned_data['chromosome']
-                request.session['phenotypes'] = phenotypes_form.cleaned_data['phenotypes']
-            if start_form.cleaned_data['start'] != "":
-                request.session['start'] = start_form.cleaned_data['start']
-            if end_form.cleaned_data['end'] != "":
-                request.session['end'] = end_form.cleaned_data['end']
-            genes = GetTADs (request.session['chromosome'], request.session['start'], request.session['end'],
-                             request.session['phenotypes'], request.session['zoom'])
-
+        form = SingleForm(request.POST)
+        if form.is_valid():
+            if form.cleaned_data['chromosome'] != "":
+                request.session['chromosome'] = form.cleaned_data['chromosome']
+                request.session['phenotypes'] = form.cleaned_data['phenotypes']
+            if form.cleaned_data['start'] != "":
+                request.session['start'] = form.cleaned_data['start']
+            if form.cleaned_data['end'] != "":
+                request.session['end'] = form.cleaned_data['end']
+            genes = GetTADs(request, request.session['chromosome'], request.session['start'], request.session['end'],
+                            request.session['phenotypes'], request.session['zoom'])
             request.session['genes'] = genes
-            print('post', request.session.session_key)
-        args = {'chromosome': chromosome, 'start': start_form, 'end': end_form,
-                'phenotypes': phenotypes_form, 'navbar':'single'}
-        return render(request, self.template_name, args)
+
+        return render(request, self.template_name, {'form': form, 'navbar': 'single'})
 
 
 class multiple(TemplateView):
@@ -107,7 +84,7 @@ class multiple(TemplateView):
         multiple_form = MultiLineForm(request.POST)
         if multiple_form.is_valid():
             multiple_text = multiple_form.cleaned_data['multiple']
-        multiple_patients_results = process_multiple_patients(multiple_text)
+        multiple_patients_results = process_multiple_patients(request, multiple_text)
         response = HttpResponse(multiple_patients_results)
         response['Content-Disposition'] = 'attachment; filename="results.txt"'
         return response
