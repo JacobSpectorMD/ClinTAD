@@ -7,7 +7,7 @@ from django.urls import path
 urlpatterns = [
     path(r'', include('django.contrib.auth.urls')),
     url(r'^register/$', RegisterView.as_view(), name='register'),
-    url(r'^login/$', LoginView.as_view(), name='login'),
+    # url(r'^login/$', LoginView.as_view(), name='login'),
     url(r'^tracks/$', tracks, name='tracks'),
     url(r'^new_track/$', new_track, name='new_track'),
     url(r'^edit_track/$', edit_track, name='edit_track'),

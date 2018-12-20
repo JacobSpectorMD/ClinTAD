@@ -31,6 +31,10 @@ function clear_data(){
         <li><a href="#clintad-installation">ClinTAD Installation</a></li>
 
     <br>
+    <b>Getting Started</b>
+        <li><a href="#custom-tracks">Custom Tracks</a></li>
+
+    <br>
     <b>How It Works</b>
     <li><a href="#basics">Basics</a></li>
     <li><a href="#files-used">Files Used</a></li>
@@ -60,11 +64,68 @@ function clear_data(){
     </a>
     Instructions(including a video tutorial) for local installation to be posted soon.
 
+<br><br>
+<b><u>Getting Started</u></b><br>
+<b><span id="custom-tracks">3. Custom Tracks</span></b><br>
+Once you have ClinTAD running locally, adding custom tracks is easy.  Click on the Login button on the top right side
+of the website, create an account if needed, and login. Once you are logged in, click on your name in the top right
+and then click on the Tracks button in the dropdown menu. Fill out the Create New Track form, upload the file with your
+data, and click submit.  The required file format is shown below with examples (columns are separated by tabs):
+<br><br>
+<b>TADs</b><br>
+<table cellpadding="10">
+    <tr>
+        <td>Chromosome Number</td>
+        <td>Start Coordinate</td>
+        <td>End Coordinate</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>1000000</td>
+        <td>2000000</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>2000000</td>
+        <td>3500000</td>
+    </tr>
+</table><br>
+
+<b>CNVs and Enhancers</b><br>
+<table cellpadding="10">
+    <tr>
+        <td>Chromosome Number</td>
+        <td>Start Coordinate</td>
+        <td>End Coordinate</td>
+        <td>Element ID, Name, or Label</td>
+        <td>Element Details</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>1000000</td>
+        <td>1009000</td>
+        <td>Element 1</td>
+        <td>Element 1 is a very important element!</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>2000000</td>
+        <td>2050000</td>
+        <td>Element 2</td>
+        <td>Element 2 is important for gene expression in several tissues!</td>
+    </tr>
+</table>
+<div class="video" style="width:100%; text-align:center;">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7LT-TcgFjhw" frameborder="0" allow="accelerometer;
+    autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
 
 <br><br>
+<p>
 <b><u>How It Works</u></b><br>
-<b><span id="basics">1. Basics</span></b><br>
-<b><span id="files-used">2. Files Used</span></b><br>
+<b><span id="basics">4. Basics</span></b><br>
+<b><span id="files-used">5. Files Used</span></b><br>
 <b><span id="tad-boundaries">a. TAD Boundary Files</span></b><br>
 The default TAD boundary file was provided by Jesse Dixon. The boundaries are derived from human embryonic
 stem cell data described in <a href="https://www.ncbi.nlm.nih.gov/pubmed/25693564" target="_blank">Chromatin architecture 

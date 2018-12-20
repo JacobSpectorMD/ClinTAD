@@ -21,13 +21,25 @@ def create_track(request):
         file_data = uploaded_file.read().decode("utf-8")
         lines = file_data.split("\n")
         for line in lines:
+            if "NUMBER" in line.upper() or "START" in line.upper():
+                continue
             line = line.strip()
             col = line.split('\t')
-            chromosome = Chromosome.objects.get(number=col[0].upper())
-            start = int(col[1])
+            chromosome_num = col[0].replace('CHR', '').upper()
+            chromosome = Chromosome.objects.get(number=chromosome_num)
+            start = int(col[1].replace(',', ''))
             if col[2] != '':
-                end = int(col[2])
+                end = int(col[2].replace(',', ''))
             else:
                 end = -1
-            element = Element.objects.create(track=track, chromosome=chromosome, start=start, end=end)
+            if len(col) >= 4:
+                label = col[3]
+            else:
+                label = ''
+            if len(col) >= 5:
+                details = col[4]
+            else:
+                details = ''
+            element = Element.objects.create(track=track, chromosome=chromosome, start=start, end=end, label=label,
+                                             details=details)
     return redirect('/user/tracks/')

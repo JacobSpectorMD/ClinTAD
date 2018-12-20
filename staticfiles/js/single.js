@@ -98,9 +98,7 @@ d3.json("/single/get_genes/", function(response){
         var enhancer_svg = draw_enhancers(data, scale, num_tracks);
         draw_boundaries(enhancer_svg, scale, data.tads, 0, start_coord, end_coord);
         num_tracks++;
-        console.log(parseInt(enhancer_svg.style('height').replace("px", "")));
         total_height += parseInt(enhancer_svg.style('height').replace("px", ""));
-        console.log(total_height);
     }
 
     // Benign CNV svg (from Database of Genomic Variants)
@@ -108,9 +106,7 @@ d3.json("/single/get_genes/", function(response){
         var cnv_svg = draw_cnvs(data, scale, num_tracks);
         draw_boundaries(cnv_svg, scale, data.tads, 0, start_coord, end_coord);
         num_tracks++;
-        console.log(parseInt(cnv_svg.style('height').replace("px", "")));
         total_height += parseInt(cnv_svg.style('height').replace("px", ""));
-        console.log(total_height);
     }
 
     // Draw all of the users custom tracks
@@ -118,9 +114,7 @@ d3.json("/single/get_genes/", function(response){
         var track_svg = draw_track(data, track, scale, num_tracks);
         draw_boundaries(track_svg, scale, data.tads, 0, start_coord, end_coord);
         num_tracks++;
-        console.log(parseInt(track_svg.style('height').replace("px", "")));
         total_height += parseInt(track_svg.style('height').replace("px", ""));
-        console.log(total_height);
     })
 
     $('#container').css('height', total_height);
@@ -208,7 +202,7 @@ function draw_cnv_genes(data, scale, num_tracks){
         var overlap = true;
         while(overlap){
             if (i == 0){
-                last_end_point.push(end_point);
+                last_end_point[0] = end_point;
                 overlap = false;
             }
             else if (row >= last_end_point.length){
@@ -221,6 +215,7 @@ function draw_cnv_genes(data, scale, num_tracks){
             }
             else if (scale(genes[i].start) < last_end_point[row] + 3){
                     row += 1;
+                    console.log(scale(genes[i].start));
             }
         };
 
@@ -349,7 +344,6 @@ function draw_cnv_genes(data, scale, num_tracks){
         });
     };
 
-    console.log(max_row);
     if (max_row > 0){
         height += max_row*11;
         svg.attr('height', height);
@@ -585,12 +579,13 @@ function draw_track(data, track, scale, num_tracks){
         if (row > max_row){max_row = row};
 
         data_to_display.push({
+            "Chromosome": elements[i].chromosome,
             "Start": elements[i].start,
             "End": elements[i].end,
             "Details": elements[i].details,
         });
 
-        // Draw the gene
+        // Draw the element
         svg.append("line")
             .attr("x1", scale(elements[i].start))
             .attr("y1", 30+row*11)
@@ -601,6 +596,20 @@ function draw_track(data, track, scale, num_tracks){
             .attr("data-x1", scale(elements[i].start))
             .attr("data-stroke_color", stroke_color)
             .attr("data-gene_number", i)
+            .attr("data-label", elements[i].label)
+            .attr("cursor", "pointer")
+            .on("mouseover", function(){
+                svg.append("text")
+                    .text($(this).data("label")).attr("text-anchor", "middle")
+                    .attr("x", $(this).data("x1"))
+                    .attr("y", 15)
+                    .attr("id", "hoverText")
+                    .style("font-family", "Arial")
+                    .style("font-weight", 700)
+            })
+            .on("mouseout", function(){
+                d3.select("#hoverText").remove()
+            })
             .on("click", function(){
                 //Clears all data from the Selected Data panel
                 var element = document.getElementById("patient-data-display");
@@ -711,7 +720,6 @@ function draw_boundaries(svg, scale, tads, y1, start_coord, end_coord, boundarie
 } // End of draw_boundaries
 
 function track_color(num_tracks){
-    console.log(num_tracks);
     if (num_tracks%2==0){
         return {'fill': 'aliceblue', 'text': 'var(--light-blue)'}
     } else {

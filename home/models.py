@@ -65,13 +65,15 @@ class Track(models.Model):
 
 class Element(models.Model):
     track = models.ForeignKey(Track, on_delete=models.CASCADE, related_name='elements')
+    label = models.CharField(default='', max_length=200)
     chromosome = models.ForeignKey(Chromosome, on_delete=models.CASCADE)
     start = models.IntegerField(default=-1)
     end = models.IntegerField(default=-1, null=True)
     details = models.CharField(default='', max_length=2000)
 
     def to_dict(self):
-        return {'chromosome': self.chromosome.number, 'start': self.start, 'end': self.end, 'details': self.details}
+        return {'chromosome': self.chromosome.number, 'start': self.start, 'end': self.end, 'label': self.label,
+                'details': self.details}
 
 
 class UT(models.Model):  # User Track association class
