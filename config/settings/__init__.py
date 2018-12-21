@@ -1,7 +1,7 @@
 from .local import *
 # from .dev import *
 # from .production import *
-# from .digit-ocean import *
+# from .digital_ocean import *
 
 #try:
 #   from .local import *
