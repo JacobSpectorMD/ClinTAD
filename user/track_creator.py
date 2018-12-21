@@ -20,6 +20,7 @@ def create_track(request):
         UT.objects.create(user=user, track=track)
         file_data = uploaded_file.read().decode("utf-8")
         lines = file_data.split("\n")
+        element_list = []
         for line in lines:
             if "NUMBER" in line.upper() or "START" in line.upper():
                 continue
@@ -40,6 +41,7 @@ def create_track(request):
                 details = col[4]
             else:
                 details = ''
-            element = Element.objects.create(track=track, chromosome=chromosome, start=start, end=end, label=label,
-                                             details=details)
+            element_list.append(Element(track=track, chromosome=chromosome, start=start, end=end, label=label,
+                                             details=details))
+        Element.objects.bulk_create(element_list)
     return redirect('/user/tracks/')

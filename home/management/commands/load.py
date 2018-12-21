@@ -28,6 +28,8 @@ class Command(BaseCommand):
             self.load_cnvs()
             print('Finished loading data!!')
         else:
+            if 'chromosomes' in options['elements']:
+                self.load_chromosomes()
             if 'enhancers' in options['elements']:
                 self.load_enhancers()
             if 'tads' in options['elements']:
@@ -41,10 +43,12 @@ class Command(BaseCommand):
 
     def load_chromosomes(self):
         print('Loading chromosomes.')
+        Chromosome.objects.all().delete()
         with open('home/files/chromosomeLengthsHG19.txt', 'r') as infile:
             for line in infile:
                 col = line.split('\t')
                 chr = col[0].replace('chr', '')
+                print(chr)
                 length = int(col[1])
                 chromosome = Chromosome.objects.filter(number=chr).first()
                 if chromosome is None:
@@ -57,6 +61,7 @@ class Command(BaseCommand):
         path = 'home/files/genes/'
         files = os.listdir(path)
         for file in files:
+            gene_list = []
             with open(path+file, 'r') as infile:
                 for line in infile:
                     col = line.rstrip().split('\t')
@@ -67,15 +72,15 @@ class Command(BaseCommand):
                     name = col[3].strip()
                     gene = Gene.objects.filter(name=name).first()
                     if gene is None:
-                        gene = Gene(chromosome=chromosome, name=name, start=start, end=end)
-                        gene.save()
-                        print(gene.name, start, end)
+                        gene_list.append(Gene(chromosome=chromosome, name=name, start=start, end=end))
+            Gene.objects.bulk_create(gene_list)
         print('Genes loaded.')
 
     def load_enhancers(self):
         print('Loading enhancers.')
         Enhancer.objects.all().delete()
         with open('home/files/vista enhancers.txt', 'r') as infile:
+            enhancer_list = []
             for line in infile:
                 if line[0] != '>':
                     continue
@@ -87,23 +92,17 @@ class Command(BaseCommand):
                     start, end = int(coords[0]), int(coords[1])
 
                     vista_element = int(cell[2].replace('element', ''))
-
-                    tissues = []
-                    for tissue in cell[4:]:
-                        split = tissue.split('[')
-                        tissue_name, ratio = split[0].strip(), '['+split[1].strip()
-                        tissues.append({'tissue': tissue_name, 'ratio': ratio})
-                    print('Vista element', vista_element, chromosome_num)
-                    try:
-                        chromosome = Chromosome.objects.get(number=chromosome_num)
-                        Enhancer.objects.create(chromosome=chromosome, start=start, end=end, vista_element=vista_element)
-                    except:
-                        print("Couldn't add it!!")
+                    chromosome = Chromosome.objects.get(number=chromosome_num)
+                    enhancer_list.append(Enhancer(chromosome=chromosome, start=start, end=end,
+                                                 vista_element=vista_element))
+            Enhancer.objects.bulk_create(enhancer_list)
         print('Enhancers loaded.')
 
     def load_hpos(self):
         print('Creating HPO objects.')
+        HPO.objects.all().delete()
         hpo_list = []
+        hpo_objs = []
         with open('home/files/hp-obo.txt', 'r') as infile:
             for i in range(29):
                 infile.readline()
@@ -122,8 +121,8 @@ class Command(BaseCommand):
                     col = line.rstrip().split(':')
                     hpo.comment = col[1]
         for hpo in hpo_list:
-            new_hpo = HPO(hpoid=hpo.id, name=hpo.name, definition=hpo.definition, comment=hpo.comment)
-            new_hpo.save()
+            hpo_objs.append(HPO(hpoid=hpo.id, name=hpo.name, definition=hpo.definition, comment=hpo.comment))
+        HPO.objects.bulk_create(hpo_objs)
         print('HPO objects created.')
 
         print('Creating gene to HPO relationships.')
@@ -159,24 +158,28 @@ class Command(BaseCommand):
     def load_tads(self):
         print('Loading in TAD boundaries.')
         # Load TAD boundaries
+        TAD.objects.all().delete()
+        tad_list = []
         with open('home/files/boundary.txt', 'r') as infile:
             for line in infile:
                 col = line.split('\t')
                 chr_num = col[0].strip().replace('chr', '')
                 chromosome = Chromosome.objects.get(number=chr_num)
-                left = int(col[1])
-                right = int(col[2])
-                tad = TAD(chromosome=chromosome, left=left, right=right)
-                tad.save()
+                start = int(col[1])
+                end = int(col[2])
+                tad_list.append(TAD(chromosome=chromosome, start=end, end=end))
+        TAD.objects.bulk_create(tad_list)
         print('TAD boundaries loaded.')
 
     def load_cnvs(self):
-        print('Loading benign CNVs.')
+        print('Loading CNVs from DGV.')
         Variant.objects.all().delete()
+        variant_list = []
         with open('home/files/Gold Standard Variants.txt', 'r') as infile:
             # The first line has the column names, skip it
             infile.readline()
 
+            i = 0
             for line in infile:
                 line = line.rstrip()
                 col = line.split('\t')
@@ -190,9 +193,15 @@ class Command(BaseCommand):
                 studies = col[7]
                 frequency = float(col[8])
                 sample_size = int(col[9])
-                print(line)
                 chromosome = Chromosome.objects.get(number=chromosome_num)
-                Variant.objects.create(chromosome=chromosome, outer_start=outer_start, inner_start=inner_start,
-                                       inner_end=inner_end, outer_end=outer_end, subtype=subtype, accession=variant_acc,
-                                       study=studies, frequency=frequency, sample_size=sample_size)
-        print('Benign CNVs loaded.')
+                variant_list.append(Variant(chromosome=chromosome, outer_start=outer_start, inner_start=inner_start,
+                                    inner_end=inner_end, outer_end=outer_end, subtype=subtype, accession=variant_acc,
+                                    study=studies, frequency=frequency, sample_size=sample_size))
+                if len(variant_list) >= 1000:
+                    print(i+1)
+                    Variant.objects.bulk_create(variant_list)
+                    variant_list = []
+                i += 1
+            if len(variant_list) > 0:
+                Variant.objects.bulk_create(variant_list)
+        print('CNVs from DGV loaded.')

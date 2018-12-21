@@ -3,7 +3,7 @@ from user.models import User
 
 
 class Chromosome(models.Model):
-    number = models.CharField(default='', max_length=1)
+    number = models.CharField(default='', max_length=2)
     length = models.IntegerField(default=-1)
 
     def __str__(self):
@@ -13,8 +13,8 @@ class Chromosome(models.Model):
 class HPO(models.Model):
     hpoid = models.IntegerField(default=-1)
     name = models.CharField(default='', max_length=500)
-    definition = models.CharField(default='', max_length=500)
-    comment = models.CharField(default='', max_length=500)
+    definition = models.CharField(default='', max_length=2100)
+    comment = models.CharField(default='', max_length=2100)
     weight = models.FloatField(default=-1)
 
     def to_dict(self):
@@ -126,7 +126,7 @@ class Variant(models.Model):
     outer_end = models.IntegerField(default=-1)
     subtype = models.CharField(default='', max_length=5)
     accession = models.CharField(default='', max_length=200)
-    study = models.CharField(default='', max_length=200)
+    study = models.CharField(default='', max_length=300)
     sample_size = models.IntegerField(default=-1)
     frequency = models.FloatField(default=-1)
 
