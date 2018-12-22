@@ -23,12 +23,12 @@ def get_one_variant(request, chromosome, start, end, phenotypes):
     return json.dumps(variant.__dict__)
 
 
-def get_500_variants(request, chromosome, start, end, phenotypes):
+def get_100_variants(request, chromosome, start, end, phenotypes):
     start = start.replace(',', '')
     end = end.replace(',', '')
 
     variant_list = []
-    for i in range(500):
+    for i in range(100):
         sim_chr, sim_start, sim_end = generate_CNV(int(end)-int(start))
         result = json.loads(GetTADs(request, sim_chr, sim_start, sim_end, phenotypes, 0))
         variant_list.append(Variant(chromosome, result['cnv_start'], result['cnv_end'], result['hpo_matches'],
