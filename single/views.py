@@ -5,7 +5,7 @@ from home.forms import *
 from home.clintad import hpo_lookup
 from urllib.parse import unquote
 from home.clintad import GetTADs
-from home.statistics import get_25_variants, get_one_variant
+from home.statistics import get_500_variants, get_one_variant
 from home.clintad import get_single_data
 
 
@@ -78,7 +78,7 @@ def get_variant(request):
     start = request.POST.get('start')
     end = request.POST.get('end')
     phenotypes = request.POST.get('phenotypes')
-    response = get_one_variant(chromosome, start, end, phenotypes)
+    response = get_one_variant(request, chromosome, start, end, phenotypes)
     return JsonResponse(response, safe=False)
 
 
@@ -87,5 +87,5 @@ def get_variants(request):
     start = request.POST.get('start')
     end = request.POST.get('end')
     phenotypes = request.POST.get('phenotypes')
-    response = get_25_variants(chromosome, start, end, phenotypes)
+    response = get_500_variants(request, chromosome, start, end, phenotypes)
     return JsonResponse(response, safe=False)

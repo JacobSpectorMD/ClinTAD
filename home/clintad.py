@@ -141,7 +141,8 @@ def GetTADs(request, chromosome_input, CNV_start, CNV_end, phenotypes, zoom):
         tads = custom_tad_track.track.elements.filter(chromosome=chromosome).filter(start__gte=minimum_coordinate)\
             .filter(end__lte=maximum_coordinate).all()
     else:
-        tads = TAD.objects.filter(chromosome=chromosome).filter(start__gte=minimum_coordinate).filter(end__lte=maximum_coordinate).all()
+        tads = TAD.objects.filter(chromosome=chromosome).filter(start__gte=minimum_coordinate)\
+                  .filter(end__lte=maximum_coordinate).all()
 
     # For every gene in the area, determine if there are HPO matches
     gene_list = []

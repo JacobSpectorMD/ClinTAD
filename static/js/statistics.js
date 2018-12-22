@@ -143,7 +143,7 @@ function draw_graph(svg_id, domain, my_matches, matches){
 }
 
 function draw_weights(my_weight, weights){
-    console.log(my_weight);
+
     var svg = d3.select('#weighted-scores');
     var width = $('#weighted-scores').width()-50;
 
@@ -205,5 +205,14 @@ function draw_weights(my_weight, weights){
         .attr("width", "40")
         .attr("height", function(d) {return y(d.y);})
         .attr("fill", "#A9CCE3");
+
+    bar.append("text")
+        .attr("x", 20)
+        .attr("y", function(d){return 264-y(d.y)})
+        .attr("text-anchor", "middle")
+        .text(function(d){
+            if (d.length > 0){return d.length}
+            else {return ''}
+        });
 }
 
