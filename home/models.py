@@ -40,7 +40,7 @@ class TAD(models.Model):
     end = models.IntegerField(default=-1)
 
     def to_dict(self):
-        return {'start': self.start, 'end': self.end}
+        return {'chromosome': self.chromosome.number, 'start': self.start, 'end': self.end, 'label': '', 'details': ''}
 
 
 class Enhancer(models.Model):

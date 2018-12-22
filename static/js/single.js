@@ -694,14 +694,16 @@ function draw_boundaries(svg, scale, tads, y1, start_coord, end_coord, boundarie
         var right = tads[i]['end'];
         var mid = (left+right)/2;
 
-        if (!boundaries_only){
+        if (boundaries_only==false){
+            console.log(mid);
             //Draws a triangle path to represent the TAD
             layer.append("path")
-            .attr("d", "M "+scale(left)+" 110"+"L "+scale(mid)+" 10"
-                  +"L "+scale(right)+" 110")
+            .attr("d", "M "+scale(left)+" 110 "+
+                       "L "+scale(mid)+" 10 "+
+                       "L "+scale(right)+" 110")
             .style("stroke", "red")
             .style("stroke-width", 3)
-            .style("fill", "none")
+            .style("fill", "none");
         }
 
         //Draws dashed lines at the boundary coordinates

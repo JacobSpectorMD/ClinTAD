@@ -167,7 +167,7 @@ class Command(BaseCommand):
                 chromosome = Chromosome.objects.get(number=chr_num)
                 start = int(col[1])
                 end = int(col[2])
-                tad_list.append(TAD(chromosome=chromosome, start=end, end=end))
+                tad_list.append(TAD(chromosome=chromosome, start=start, end=end))
         TAD.objects.bulk_create(tad_list)
         print('TAD boundaries loaded.')
 
