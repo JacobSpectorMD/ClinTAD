@@ -1,5 +1,11 @@
 from django import forms
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
+from django.core.mail import EmailMessage
+from django.template.loader import render_to_string
+from django.utils.http import urlsafe_base64_encode
+from django.utils.encoding import force_bytes
+
+from .tokens import account_activation_token
 from user.models import Profile, TrackManager, User
 
 
@@ -36,6 +42,14 @@ class RegisterForm(forms.ModelForm):
             user.save()
             Profile.objects.create(user=user)
             TrackManager.objects.create(user=user)
+            mail_subject = 'Activate your ClinTAD account.'
+            message = render_to_string('activation_email.html',
+                                       {'user': user, 'domain': 'www.clintad.com',
+                                        'uid': urlsafe_base64_encode(force_bytes(user.id)).decode(),
+                                        'token': account_activation_token.make_token(user)})
+            email = EmailMessage(mail_subject, message, to=[user.email])
+            email.send()
+
         return user
 
 

@@ -6,7 +6,10 @@ from django.urls import path
 
 urlpatterns = [
     path(r'', include('django.contrib.auth.urls')),
+    url(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
+        activate, name='activate'),
     url(r'^register/$', RegisterView.as_view(), name='register'),
+    url(r'^register2/$', register, name='register2'),
     url(r'^login/$', LoginView.as_view(), name='login'),
     url(r'^tracks/$', tracks, name='tracks'),
     url(r'^new_track/$', new_track, name='new_track'),
@@ -14,5 +17,5 @@ urlpatterns = [
     url(r'^delete_track/$', delete_track, name='delete_track'),
     url(r'^default_enhancers/$', default_enhancers, name='default_enhancers'),
     url(r'^default_tads/$', default_tads, name='default_tads'),
-    url(r'^default_cnvs/$', default_cnvs , name='default_cnvs')
+    url(r'^default_cnvs/$', default_cnvs, name='default_cnvs')
 ]
