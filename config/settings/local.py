@@ -130,7 +130,8 @@ SECURE_HSTS_SECONDS             = None
 SECURE_HSTS_INCLUDE_SUBDOMAINS  = False
 SECURE_FRAME_DENY               = False
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/user/tracks'
+LOGOUT_REDIRECT_URL = '/'
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'

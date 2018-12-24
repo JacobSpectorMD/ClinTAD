@@ -18,7 +18,7 @@ class single(TemplateView):
             if request.session.get(var, None):
                 initial[var] = request.session[var]
         form = SingleForm(initial=initial)
-        return render(request, self.template_name, {'form': form})
+        return render(request, self.template_name, {'form': form, 'navbar': 'single'})
 
     def post(self, request):
         if request.POST.get('action') == "Submit":

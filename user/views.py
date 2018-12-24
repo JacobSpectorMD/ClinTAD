@@ -1,7 +1,7 @@
 import json
 
 from django.contrib import messages
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, logout, authenticate
 from django.core.mail import EmailMessage
 from django.http import HttpResponse
 from django.views.generic import CreateView, FormView
@@ -37,7 +37,30 @@ class LoginView(FormView):
         if user is not None:
             login(request, user)
             return redirect('/')
-        return super(LoginView, self).form_invalid()
+        return super(LoginView, self).form_invalid(form)
+
+
+def login_view(request):
+    if request.method == 'GET':
+        form = LoginForm()
+        return render(request, 'login.html', {'form': form})
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data.get('email')
+            raw_password = form.cleaned_data.get('password')
+            user = authenticate(username=email, password=raw_password)
+            if user is not None:
+                login(request, user)
+                return redirect('/user/tracks')
+            else:
+                messages.add_message(request, messages.INFO, "Invalid login information.")
+                return redirect('/user/login')
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('/')
 
 
 def register(request):
@@ -55,7 +78,7 @@ def register(request):
             Profile.objects.create(user=user)
             TrackManager.objects.create(user=user)
 
-            mail_subject = 'Activate your ClinTAD account.'
+            mail_subject = 'Activate your ClinTAD account'
             current_site = get_current_site(request)
             message = render_to_string('activation_email.html',
                                        {'user': user, 'domain': current_site.domain,
