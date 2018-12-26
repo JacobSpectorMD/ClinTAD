@@ -35,7 +35,7 @@
     - In the terminal type:
         - `python manage.py runserver`
 
-- You can updates for ClinTAD by typing:
+- You can get updates for ClinTAD by typing:
     - `git pull`
     - It's possible this could cause you to lose your custom tracks, so make sure to have that data backed up!
 
