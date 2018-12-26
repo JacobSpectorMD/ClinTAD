@@ -107,6 +107,4 @@ environmental_variables.py
 .mypy_cache/
 
 .idea/
-db.sqlite3
-*.sqlite3
 dev.py
