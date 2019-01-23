@@ -2,6 +2,7 @@ import json
 
 from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import EmailMessage
 from django.http import HttpResponse
 from django.views.generic import CreateView, FormView
@@ -83,7 +84,7 @@ def register(request):
             message = render_to_string('activation_email.html',
                                        {'user': user, 'domain': current_site.domain,
                                         'uid': urlsafe_base64_encode(force_bytes(user.id)).decode(),
-                                        'token': account_activation_token.make_token(user)})
+                                        'token': default_token_generator.make_token(user)})
             email = EmailMessage(mail_subject, message, to=[user.email])
             email.send()
             messages.add_message(request, messages.INFO, 'An email has been sent to your email address. Please click on'
@@ -98,7 +99,7 @@ def activate(request, uidb64, token):
     except(TypeError, ValueError, OverflowError, User.DoesNotExist):
         user = None
 
-    if user is not None and account_activation_token.check_token(user, token):
+    if user is not None and default_token_generator.check_token(user, token):
         user.is_active = True
         user.save()
         login(request, user)
