@@ -39,6 +39,7 @@ class User(AbstractBaseUser):
     timestamp = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=False)
     last_login = models.DateTimeField(auto_now_add=True)
+    token = models.CharField(max_length=500, default='')
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['name']

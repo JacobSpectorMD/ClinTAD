@@ -78,13 +78,15 @@ def register(request):
 
             Profile.objects.create(user=user)
             TrackManager.objects.create(user=user)
-
+            token = default_token_generator.make_token(user)
+            user.token = token
+            user.save()
             mail_subject = 'Activate your ClinTAD account'
             current_site = get_current_site(request)
             message = render_to_string('activation_email.html',
                                        {'user': user, 'domain': current_site.domain,
                                         'uid': urlsafe_base64_encode(force_bytes(user.id)).decode(),
-                                        'token': default_token_generator.make_token(user)})
+                                        'token': token})
             email = EmailMessage(mail_subject, message, to=[user.email])
             email.send()
             messages.add_message(request, messages.INFO, 'An email has been sent to your email address. Please click on'
@@ -98,8 +100,8 @@ def activate(request, uidb64, token):
         user = User.objects.get(id=uid)
     except(TypeError, ValueError, OverflowError, User.DoesNotExist):
         user = None
-
-    if user is not None and default_token_generator.check_token(user, token):
+    print(uid, user, token, user.token)
+    if user is not None and user.token == token:
         user.is_active = True
         user.save()
         login(request, user)
