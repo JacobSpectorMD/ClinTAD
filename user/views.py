@@ -1,4 +1,5 @@
 import json
+from axes.decorators import axes_dispatch
 
 from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
@@ -41,6 +42,7 @@ class LoginView(FormView):
         return super(LoginView, self).form_invalid(form)
 
 
+@axes_dispatch
 def login_view(request):
     if request.method == 'GET':
         form = LoginForm()
@@ -50,12 +52,13 @@ def login_view(request):
         if form.is_valid():
             email = form.cleaned_data.get('email')
             raw_password = form.cleaned_data.get('password')
-            user = authenticate(username=email, password=raw_password)
+            user = authenticate(request=request, username=email, password=raw_password)
             if user is not None:
                 login(request, user)
                 return redirect('/user/tracks')
             else:
-                messages.add_message(request, messages.INFO, "Invalid login information.")
+                messages.add_message(request, messages.INFO, "The login information you entered was invalid. "
+                                     "After 5 unsuccess9ful login attempts your account will be locked for 1 hour.")
                 return redirect('/user/login')
 
 
@@ -100,7 +103,6 @@ def activate(request, uidb64, token):
         user = User.objects.get(id=uid)
     except(TypeError, ValueError, OverflowError, User.DoesNotExist):
         user = None
-    print(uid, user, token, user.token)
     if user is not None and user.token == token:
         user.is_active = True
         user.save()

@@ -6,8 +6,11 @@ certifi==2017.7.27.1
 chardet==3.0.4
 dj-database-url==0.4.2
 Django==2.1.4
+django-appconf==1.0.3
+django-axes==4.5.4
 django-contact-form==1.4.2
 django-crispy-forms==1.7.0
+django-ipware==2.1.0
 django-storages==1.6.5
 django-widget-tweaks==1.4.1
 docutils==0.14

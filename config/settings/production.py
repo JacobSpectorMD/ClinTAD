@@ -33,7 +33,8 @@ INSTALLED_APPS = [
     'home',
     'single',
     'user',
-    'widget_tweaks'
+    'widget_tweaks',
+    'axes'
 ]
 
 AUTH_USER_MODEL = 'user.User'
@@ -99,20 +100,25 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = [
+    'axes.backends.AxesModelBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': 'my_cache_table',
+    }
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'US/Pacific'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
@@ -135,4 +141,13 @@ SECURE_HSTS_SECONDS             = 1000000
 SECURE_FRAME_DENY               = True
 
 LOGIN_REDIRECT_URL = '/'
+
+# Django-axes settings, prevents multiple login attempts
+AXES_COOLOFF_TIME = 1
+AXES_FAILURE_LIMIT = 5
+AXES_LOCK_OUT_AT_FAILURE = True
+AXES_LOCKOUT_URL = '/user/account_locked/'
+AXES_USERNAME_FORM_FIELD = 'email'
+AXES_ONLY_USER_FAILURES = False
+AXES_RESET_ON_SUCCESS = True
 

@@ -1,8 +1,7 @@
 from django.conf.urls import url, include
-from user.views import *
 from django.contrib.auth import views as auth_views
-from django.contrib import admin
-from django.urls import path
+
+from user.views import *
 
 urlpatterns = [
     # path(r'', include('django.contrib.auth.urls')),
