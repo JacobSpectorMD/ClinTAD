@@ -58,7 +58,7 @@ def login_view(request):
                 return redirect('/user/tracks')
             else:
                 messages.add_message(request, messages.INFO, "The login information you entered was invalid. "
-                                     "After 5 unsuccess9ful login attempts your account will be locked for 1 hour.")
+                                     "After 5 unsuccessful login attempts your account will be locked for 1 hour.")
                 return redirect('/user/login')
 
 
