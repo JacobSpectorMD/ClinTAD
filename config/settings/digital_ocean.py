@@ -169,6 +169,10 @@ LOGGING = {
         'verbose': {
             'format': '%(levelname)s [%(asctime)s] %(module)s %(message)s'
         },
+        'simple': {
+            'format': '{levelname} {message}',
+            'style': '{',
+        },
     },
     'handlers': {
         'console': {
