@@ -97,6 +97,28 @@ def register(request):
         return redirect('/user/login')
 
 
+# def reset_password(request):
+#     if request.method == 'GET':
+#         form = PasswordResetForm()
+#         return render(request, 'register.html', {'form': form})
+#     if request.method == 'POST':
+#         form = PasswordResetForm(request.POST)
+#         if form.is_valid():
+#             email = form.cleaned_data['email']
+#             user = User.objects.get(email=email)
+#             token = default_token_generator.make_token(user)
+#             user.token = token
+#             user.save()
+#             mail_subject = 'Reset your ClinTAD password'
+#             current_site = get_current_site(request)
+#             message = render_to_string('activation_email.html',
+#                                        {'user': user, 'domain': current_site.domain,
+#                                         'uid': urlsafe_base64_encode(force_bytes(user.id)).decode(),
+#                                         'token': token})
+#             email = EmailMessage(mail_subject, message, to=[user.email])
+#             email.send()
+
+
 def activate(request, uidb64, token):
     try:
         uid = force_text(urlsafe_base64_decode(uidb64))
@@ -108,7 +130,6 @@ def activate(request, uidb64, token):
         user.save()
         login(request, user)
         return redirect('/')
-
 
 def tracks(request):
     return render(request, 'tracks.html', {'form': TrackForm,
