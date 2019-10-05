@@ -64,6 +64,7 @@ const numberWithCommas = (x) => {
 
 d3.json("/single/get_genes/", function(response){
     data = JSON.parse(response);
+    if (!data){return}
     console.log(data);
     var width=$(window).width()*1.03,
         start_coord = data.minimum['coord'],

@@ -24,6 +24,7 @@ class demonstration(TemplateView):
     template_name = 'single.html'
 
     def get(self, request):
+        request.session['zoom'] = 0
         request.session['chromosome'] = "6"
         request.session['start'] = "33202640"
         request.session['end'] = "33429672"
