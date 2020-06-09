@@ -49,37 +49,41 @@ function draw_statistics(){
     var gene_matches = {},
         hpo_matches = {},
         weights = [];
-    // Get data for 500 random variants
-    $.ajax({
-        url: '/single/get_variants/',
-        type: 'POST',
-        headers: {"X-CSRFToken": csrftoken},
-        data: post_data,
-        success: function(d){
-            d3.selectAll(".loading").remove();
-            data = JSON.parse(d);
-            data.forEach(function(variant){
-                weights.push(variant.weighted_score);
-                if (gene_matches[variant.gene_matches]==undefined){
-                    gene_matches[variant.gene_matches] = 1;
-                } else {
-                    gene_matches[variant.gene_matches] += 1;
-                }
-                if (hpo_matches[variant.hpo_matches]==undefined){
-                    hpo_matches[variant.hpo_matches] = 1;
-                } else {
-                    hpo_matches[variant.hpo_matches] += 1;
-                }
-            })
-            draw_graph("#gene-matches", 10, my_variant['gene_matches'], gene_matches);
-            draw_graph("#hpo-matches", 15, my_variant['hpo_matches'], hpo_matches);
-            draw_weights(my_variant['weighted_score'], weights);
-        }
-    })
+
+    for (var i=0; i<=4; i++){
+        // Get data for 500 random variants
+        $.ajax({
+            url: '/single/get_variants/',
+            type: 'POST',
+            headers: {"X-CSRFToken": csrftoken},
+            data: post_data,
+            success: function(d){
+                d3.selectAll(".loading").remove();
+                data = JSON.parse(d);
+                data.forEach(function(variant){
+                    weights.push(variant.weighted_score);
+                    if (gene_matches[variant.gene_matches]==undefined){
+                        gene_matches[variant.gene_matches] = 1;
+                    } else {
+                        gene_matches[variant.gene_matches] += 1;
+                    }
+                    if (hpo_matches[variant.hpo_matches]==undefined){
+                        hpo_matches[variant.hpo_matches] = 1;
+                    } else {
+                        hpo_matches[variant.hpo_matches] += 1;
+                    }
+                })
+                draw_graph("#gene-matches", 10, my_variant['gene_matches'], gene_matches);
+                draw_graph("#hpo-matches", 15, my_variant['hpo_matches'], hpo_matches);
+                draw_weights(my_variant['weighted_score'], weights);
+            }
+        })
+    }
 }
 
 function draw_graph(svg_id, domain, my_matches, matches){
     var svg = d3.select(svg_id);
+    svg.selectAll(".el").remove();
     var width = $(svg_id).width()-50;
 
     var x = d3.scale.linear()
@@ -105,6 +109,7 @@ function draw_graph(svg_id, domain, my_matches, matches){
 
     var axis_g = svg.append("g")
         .attr("transform", "translate(20, 276)")
+        .attr("class", "el")
         .call(xAxis);
 
     var x_label = svg.append("text")
@@ -113,6 +118,7 @@ function draw_graph(svg_id, domain, my_matches, matches){
         .attr("font-size", "1.2em")
         .attr("font-weight", "550")
         .attr("text-anchor", "middle")
+        .attr("class", "el")
         .text($(svg_id).data("label")+" (500 Similar Variants)");
 
     var circle = svg.append("circle")
@@ -143,8 +149,8 @@ function draw_graph(svg_id, domain, my_matches, matches){
 }
 
 function draw_weights(my_weight, weights){
-    console.log(my_weight);
     var svg = d3.select('#weighted-scores');
+    svg.selectAll('.el').remove();
     var width = $('#weighted-scores').width()-50;
 
     var x = d3.scale.linear()
@@ -173,6 +179,7 @@ function draw_weights(my_weight, weights){
 
     var axis_g = svg.append("g")
         .attr("transform", "translate(20, 276)")
+        .attr("class", "el")
         .call(xAxis);
 
     var x_label = svg.append("text")
@@ -181,6 +188,7 @@ function draw_weights(my_weight, weights){
         .attr("font-size", "1.2em")
         .attr("font-weight", "550")
         .attr("text-anchor", "middle")
+        .attr("class", "el")
         .text($('#weighted-scores').data("label")+" (500 Similar Variants)");
 
     var circle = svg.append("circle")
@@ -192,18 +200,50 @@ function draw_weights(my_weight, weights){
         .style("stroke-width", "2")
         .attr("class", "el");
 
-    var bar = svg.selectAll(".bar")
-        .data(weight_bins)
-        .enter()
-        .append("g")
-            .attr("class", "bar")
-            .attr("transform", function(d) {return "translate(" + x(d.x)+", 0)";});
+    for (var bin_no in weight_bins){
+        var bin = weight_bins[bin_no];
 
-    bar.append("rect")
-        .attr("x", 0)
-        .attr("y", function(d){return 274-y(d.y)})
-        .attr("width", "40")
-        .attr("height", function(d) {return y(d.y);})
-        .attr("fill", "#A9CCE3");
+        var bar = svg.append("rect")
+            .attr("x", x(bin.x))
+            .attr("y", function(){return 274-y(bin.y)})
+            .attr("width", "40")
+            .attr("height", function(){return y(bin.y)})
+            .attr("class", "el")
+            .attr("fill", "#A9CCE3");
+
+        var text = svg.append("text")
+            .attr("x", x(bin.x)+20)
+            .attr("y", 273-y(bin.y))
+            .attr("text-anchor", "middle")
+            .text(function(){
+                if (bin.y > 0) {return bin.y}
+                else {return ''};
+            })
+            .attr("class", "el");
+    }
+
+//    var bar = svg.selectAll(".bar")
+//        .data(weight_bins)
+//        .enter()
+//        .append("g")
+//            .attr("class", "bar")
+//            .attr("transform", function(d) {return "translate(" + x(d.x)+", 0)";});
+//
+//    bar.append("rect")
+//        .attr("x", 0)
+//        .attr("y", function(d){return 274-y(d.y)})
+//        .attr("width", "40")
+//        .attr("height", function(d) {return y(d.y);})
+//        .attr("fill", "#A9CCE3");
+//
+//    bar.append("text")
+//        .attr("x", 20)
+//        .attr("y", function(d){return 264-y(d.y)})
+//        .attr("text-anchor", "middle")
+//        .attr("class", "el")
+//        .text(function(d){
+//            if (d.length > 0){return d.length}
+//            else {return ''};
+//        });
 }
 
