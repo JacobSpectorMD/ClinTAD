@@ -68,9 +68,13 @@ class single(TemplateView):
                 request.session['start'] = form.cleaned_data['start']
             if form.cleaned_data['end'] != "":
                 request.session['end'] = form.cleaned_data['end']
-
+        
+        if 'show_feedback' not in request.session.keys():
+            request.session['show_feedback'] = True
+        show_feedback = request.session.get('show_feedback')
+        
         form = SingleForm(request.POST)
-        args = {'form': form, 'navbar': 'single'}
+        args = {'form': form, 'navbar': 'single', 'show_feedback': show_feedback}
         return render(request, self.template_name, args)
 
 
