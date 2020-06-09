@@ -16,7 +16,8 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['104.248.217.74', 'clintad.com', '127.0.0.1', 'clintad.herokuapp.com', 'www.clintad.com']
+ALLOWED_HOSTS = ['104.248.217.74', 'clintad.com', '127.0.0.1', 'clintad.herokuapp.com', 'www.clintad.com', 
+                 '167.172.215.35']
 
 # Application definition
 INSTALLED_APPS = [

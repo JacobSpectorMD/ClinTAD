@@ -7,7 +7,7 @@ class Chromosome(models.Model):
     length = models.IntegerField(default=-1)
 
     def __str__(self):
-        return str(self.number)
+        return 'Chromosome '+str(self.number)
 
 
 class Omim(models.Model):
