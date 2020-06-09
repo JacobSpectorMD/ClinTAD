@@ -9,7 +9,7 @@ class SingleForm(forms.Form):
 
 
 class MultiLineForm(forms.Form):
-    multiple = forms.CharField(widget=forms.Textarea(attrs={'cols':'80'}), label ="", strip=False)
+    multiple = forms.CharField(widget=forms.Textarea(), label ="", strip=False)
 
 
 class HPOLookup(forms.Form):

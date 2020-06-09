@@ -1,54 +1,173 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    {{ block.super }}
+    <title>ClinTAD | Multiple</title>
+{% endblock head %}
+
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/multiple.css' %}">
+{% endblock styles %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static 'js/multiple.js' %}"></script>
+{% endblock scripts %}
+
 
 {% block content %}
-<head>
-    <title>ClinTAD | Multiple</title>
-</head>
-<style>
-    td {
-        padding-right: 0.5em;
-    }
-</style>
 <body>
-<div class="panel panel-custom" style="width:100%">
+<div class="panel panel-custom" style="width:100%" id="accordion1">
     <div class="panel-heading">
       <span class="panel-title">
-        <a data-toggle="collapse" href="#collapse1">Patient Data (Multiple)</a>
+        <a data-toggle="collapse" href="#collapse1" data-parent="#accordion1">Patient Data (Multiple)</a>
       </span>
     </div>
+    
     <div id="collapse1" class="panel-collapse collapse show">
       <div class="panel-body">
-          <p style="font-size:1em">
-          Using tabs between inputs and seperating phenotypes with commas, enter data in the following format:
-          </p>
-          <p>
-          <table style="font-size:1em">
-          <tr><td>PatientID</td><td>Chromosome</td><td>Start</td><td>End</td><td>Phenotypes (optional)</td></tr>
-          <tr><td>&nbsp</td></tr>
-          <tr><td>Example:</td></tr>
-          <tr><td>Case1</td><td>1</td><td>5,000,000</td><td>8,500,000</td><td>7, 10, 512</td></tr>
-          <tr><td>Case2</td><td>2</td><td>4,000,000</td><td>7,000,000</td><td>6, 204, 509</td></tr>
+          <div id="width-div">
+          <div id="case-toggle-div">
+              <span id="multiple_cases_text">Multiple Cases</span>
+              <svg id="toggle_svg" height="1em" viewBox="26.333 3 220.333 55" enable-background="new 26.333 3 220.333 55">
+              <rect id="toggle_rect" x="70.98" y="22.929" fill="#CCCCCC" width="132.02" height="15.297"/>
+              <g id="toggle_triangle">
+                <polygon fill="#FF0000" points="41.648,30.578 35.635,34.416 29.622,30.578 35.635,26.739 	"/>
+                <polygon fill="#F4ADAE" points="47.661,26.739 41.648,30.578 35.635,26.739 41.648,22.902 	"/>
+                <polygon fill="#F4292B" points="47.661,34.416 41.648,38.251 35.635,34.416 41.648,30.578 	"/>
+                <polygon fill="#F58283" points="53.674,30.578 47.661,34.416 41.648,30.578 47.661,26.739 	"/>
+                <polygon fill="#F4ADAE" points="53.674,22.902 47.661,26.739 41.648,22.902 47.661,19.063 	"/>
+                <polygon fill="#FF0000" points="53.674,38.251 47.661,42.091 41.648,38.251 47.661,34.416 	"/>
+                <polygon fill="#F6969C" points="59.687,34.416 53.674,38.251 47.661,34.416 53.674,30.578 	"/>
+                <polygon fill="#F64849" points="59.687,26.739 53.674,30.578 47.661,26.739 53.674,22.902 	"/>
+                <polygon fill="#F64849" points="59.687,42.091 53.674,45.927 47.661,42.091 53.674,38.251 	"/>
+                <polygon fill="#F64849" points="59.687,19.063 53.674,22.902 47.661,19.063 53.674,15.228 	"/>
+                <polygon fill="#F6969C" points="65.7,38.251 59.687,42.091 53.674,38.251 59.687,34.416 	"/>
+                <polygon fill="#F6969C" points="65.7,30.578 59.687,34.416 53.674,30.578 59.687,26.739 	"/>
+                <polygon fill="#FF0000" points="65.7,45.927 59.687,49.765 53.674,45.927 59.687,42.091 	"/>
+                <polygon fill="#F6969C" points="65.7,22.902 59.687,26.739 53.674,22.902 59.687,19.063 	"/>
+                <polygon fill="#FF0000" points="65.7,15.228 59.687,19.063 53.674,15.228 59.687,11.39 	"/>
+                <polygon fill="#FF0000" points="71.713,42.091 65.7,45.927 59.687,42.091 65.7,38.251 	"/>
+                <polygon fill="#F6969C" points="71.713,34.416 65.7,38.251 59.687,34.416 65.7,30.578 	"/>
+                <polygon fill="#F62F31" points="71.713,49.765 65.7,53.603 59.687,49.765 65.7,45.927 	"/>
+                <polygon fill="#F6969C" points="71.713,26.739 65.7,30.578 59.687,26.739 65.7,22.902 	"/>
+                <polygon fill="#F73436" points="71.713,19.063 65.7,22.902 59.687,19.063 65.7,15.228 	"/>
+                <polygon fill="#F73436" points="71.713,11.39 65.7,15.228 59.687,11.39 65.7,7.552 	"/>
+                <polygon fill="#FF0000" points="71.713,45.927 71.713,49.765 65.7,45.927 71.713,42.091 	"/>
+                <polygon fill="#F62F31" points="71.713,38.251 71.713,42.091 65.7,38.251 71.713,34.416 	"/>
+                <polygon fill="#FF0000" points="71.713,53.603 71.713,57.441 65.7,53.603 71.713,49.765 	"/>
+                <polygon fill="#F28188" points="71.713,30.578 71.713,34.416 65.7,30.578 71.713,26.739 	"/>
+                <polygon fill="#FF0000" points="71.713,22.902 71.713,26.739 65.7,22.902 71.713,19.063 	"/>
+                <polygon fill="#FF0000" points="71.713,15.228 71.713,19.063 65.7,15.228 71.713,11.39 	"/>
+                <polygon fill="#F73436" points="71.713,7.552 71.713,11.39 65.7,7.552 71.713,3.714 	"/>
+            </g>
+              </svg>
+              <span id="multiple_regions_text">Mutiple Regions</span>
+           </div>
+          
+          <div id="info-div">
+              <span id="multiple_cases_info">Enter data for multiple cases with different phenotypes.</span>
+              <span id="multiple_regions_info" style="display: none;">Enter data for a single case with multiple regions but a single phenotype list.</span>
+          </div>
+              
+          <div id="outline-div">
+          <table style="margin-bottom: 1em;">
+          <tr>
+              <td>HPO Phenotype Lookup:</td>
+              <td><input type="text" id="HPO_lookup" list="HPO" style="width:300">
+              <button id="HPO_lookup_button" onclick="lookup_HPO()">Lookup</button></td>
+          </tr>
+          <tr >
+              <td></td>
+              <td style="padding-top:3px"><select id="HPO" style="width:300; height:24; border: 1px solid grey" ></select>
+              <button id="HPO_add_button" onclick="add_HPO()">Add</button></td>
+          </tr>
           </table>
-          </p>
-          <form method="post"> 
-            <p>
-            {% csrf_token %} 
-            {{ multiple_form }}
-            <br>
-            <button type="submit" style="margin-top:3px">Submit</button>
-            </p>
-          </form></div>
+              
+          <div id="cases_and_regions_div">
+          <div id="multiple_cases_div">
+              <div class="multiple-input-row">
+              <div>Case ID</div>
+              <div>Coordinates</div>
+              <div>Phenotypes</div>
+              <div></div>
+              </div>
+              <div class="multiple-input-row" id="input-section">
+                  <div><input id="case-id-input" placeholder="e.g. Case1"></div>
+                  <div><input id="coordinates-input" placeholder="e.g. Chr1:5,000,000-8,500,000"></div>
+                  <div><input id="phenotypes-input" class="phenotype_input" placeholder="e.g. 6, 204, 509"></div>
+                  <div><button id="add-input-button">Add</button></div>
+              </div>
+          </div>
+              
+              
+          <div id="multiple_regions_div">
+              <div>Coordinates</div>
+              <div class="input-inline" id="regions-coordinates-div">
+                  <input id="regions-coordinates-input" placeholder="e.g. Chr1:5,000,000-8,500,000">
+              </div>
+              <div class="input-inline" style="margin-bottom: 0.5em;"><button id="regions-add-button">Add</button></div>
+                     
+              <div>Phenotypes</div>
+              <div class="input-inline" id="regions-phenotypes-input"><input class="phenotype_input" placeholder="e.g. 6, 204, 509"></div>
+              <div class="input-inline"><button id="set-phenotypes-button">Set Phenotypes</button></div>
+          </div>    
+          </div>
+              
+          <div id="textarea-div">
+              <textarea id="multiple-textarea" rows="5" placeholder="Enter data separated by tabs. For example: &#10;Case1 Chr1:5,000,000-8,500,000 7, 10, 512"></textarea>
+          </div>
+          
+          <button type="submit" style="margin-top:3px" onclick="submit_multiple()">Submit</button>
+
+          </div>
+          </div>
+      </div>
     </div>
-  </div>
-  
-<p>
-    <table id="results_table">
-    </table>
-</p>
+</div>
+
+<div class="panel panel-custom" style="width:100%" id="accordion2">
+    <div class="panel-heading" id="results_panel_heading">
+      <span class="panel-title">
+          <a data-toggle="collapse" href="#collapse2" data-parent="#accordion2">Results</a>
+      </span>
+      <span id="save_as_text_button"><img src="{% static 'img/txt_file.svg' %}"></span>
+    </div>
+    
+    <div id="collapse2" class="panel-collapse collapse show">
+      <div class="panel-body">
+        <div id="results-options-div">
+            Column Options
+            <button class="show autosomal_dominant">Autosomal Dominant</button>
+            <button class="show autosomal_recessive">Autosomal Recessive</button>
+            <button class="show x_linked_dominant">X-Linked Dominant</button>
+            <button class="show x_linked_recessive">X-Linked Recessive</button>        
+        </div>
+          
+        <div id="table-div">
+            <table id="results_table"><tbody>
+            <tr>
+                <td>Case ID</td>
+                <td>Coordinates</td>
+                <td>Phenotypes</td>
+                <td>Gene Matches</td>
+                <td class="autosomal_dominant">Autosomal Dominant</td>
+                <td class="autosomal_recessive">Autosomal Recessive</td>
+                <td class="x_linked_dominant">X-Linked Dominant</td>
+                <td class="x_linked_recessive">X-Linked Recessive</td>
+            </tr>
+            </tbody></table>
+              </div>
+        </div>
+    </div>
+</div>
+          
 </body>
 
 <script type="text/javascript">
-    var multipleInput = document.getElementById("id_multiple");
+    var multipleInput = document.getElementById("multiple-textarea");
     if(multipleInput.addEventListener ) {
         multipleInput.addEventListener('keydown',this.keyHandler, false);
     } else if(multipleInput.attachEvent ) {

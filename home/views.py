@@ -1,16 +1,17 @@
+from urllib.parse import unquote
+
 from django.http import JsonResponse, HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
-from home.forms import *
-from home.clintad import GetTADs, hpo_lookup
-from home.statistics_old import GetStatistics
-from home.clintad_multiple import process_multiple_patients
-from urllib.parse import unquote
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from django.db import transaction
 
+from home.forms import *
+from home.clintad import GetTADs, hpo_lookup
+from home.statistics_old import GetStatistics
+from home.clintad_multiple import process_multiple_patients
 
 # Views for the pages home, single, multiple, about and contact
 class home(TemplateView):
@@ -31,7 +32,7 @@ class demonstration(TemplateView):
                                     "HP:0000718, HP:0000717, HP:0000729, HP:0002315, HP:0002076, HP:0000735," \
                                     "HP:0025161, HP:0025160, HP:0002232, HP:0001596, HP:0001595, HP:0002209," \
                                     "HP:0002231, HP:0000771, HP:0008202"
-        genes = GetTADs(request, request.session['chromosome'], request.session['start'], request.session['end'],
+        genes = GetTADs(request, '', request.session['chromosome'], request.session['start'], request.session['end'],
                         request.session['phenotypes'], request.session['zoom'])
         request.session['genes'] = genes
 
@@ -66,7 +67,7 @@ class demonstration(TemplateView):
                 request.session['start'] = form.cleaned_data['start']
             if form.cleaned_data['end'] != "":
                 request.session['end'] = form.cleaned_data['end']
-            genes = GetTADs(request, request.session['chromosome'], request.session['start'], request.session['end'],
+            genes = GetTADs(request, '', request.session['chromosome'], request.session['start'], request.session['end'],
                             request.session['phenotypes'], request.session['zoom'])
             request.session['genes'] = genes
 
@@ -75,11 +76,11 @@ class demonstration(TemplateView):
 
 class multiple(TemplateView):
     template_name = 'multiple.html'
-    
+
     def get(self, request):
         multiple_input = MultiLineForm()
         return render(request, self.template_name, {'navbar': 'multiple', 'multiple_form': multiple_input})
-    
+
     def post(self, request):
         multiple_form = MultiLineForm(request.POST)
         if multiple_form.is_valid():
@@ -90,22 +91,30 @@ class multiple(TemplateView):
         return response
 
 
+def multiple_submit(request):
+    clintad_data = process_multiple_patients(request)
+    return JsonResponse({'status': 'success', 'clintad_data': clintad_data})
+
+
 class about(TemplateView):
     template_name = 'about.html'
+
     def get(self, request):
         return render(request, self.template_name, {'navbar': 'about'})
 
 
 class data(TemplateView):
     template_name = 'data.html'
+
     def get(self, request):
         return render(request, self.template_name, {'navbar': 'data'})
 
 
 class contact(TemplateView):
     template_name = 'contact.html'
+
     def get(self, request):
-        return render(request, self.template_name, {'navbar': 'contact'})    
+        return render(request, self.template_name, {'navbar': 'contact'})
 
 
 def get_genes(request):
@@ -114,13 +123,13 @@ def get_genes(request):
     return JsonResponse(genes, safe=False)
 
 
-def get_phenotypes(request):    
+def get_phenotypes(request):
     entered_string = unquote(request.META['QUERY_STRING'])
     hpo_list = hpo_lookup(entered_string)
     return JsonResponse(hpo_list, safe=False);
 
 
-def clear_data(request):    
+def clear_data(request):
     del request.session['genes']
     return JsonResponse('Data cleared', safe=False);
 
