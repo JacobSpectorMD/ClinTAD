@@ -32,11 +32,14 @@ class TempGene:
 
 
 def get_single_data(request):
+    for key, val in request.session.items():
+        print(str(key), ' --- ', str(val))
+    print(request, '', request.session['chromosome'], request.session['start'], request.session['end'],
+                       request.session['phenotypes'], request.session['zoom'])
     data_str = GetTADs(request, '', request.session['chromosome'], request.session['start'], request.session['end'],
                        request.session['phenotypes'], request.session['zoom'])
     data = json.loads(data_str)
-    for key, val in request.session.items():
-        print(str(key), ' --- ', str(val))
+
 
     data['tracks'] = []
     if request.user.is_authenticated:
