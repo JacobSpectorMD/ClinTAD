@@ -55,7 +55,7 @@ def GetStatistics(chromosome, CNV_start, CNV_end, phenotypes, zoom):
     #Get results with the actual CNV first
     matched_actual= []
     genes, genes_with_matches, total_phenotype_score_actual, weighted_score, unique_weighted_score, \
-        unique_matches_actual = GetTADs (chromosome, start, end, phenotypes, zoom)
+        unique_matches_actual = GetTADs(chromosome, start, end, phenotypes, zoom)
 
     for j in range(4, len(genes)):
             gene_phenotypes = genes[j].phenotypes
@@ -75,7 +75,7 @@ def GetStatistics(chromosome, CNV_start, CNV_end, phenotypes, zoom):
         matched= []
         sim_chromosome, sim_start, sim_end = generate_CNV(CNV_length)
         genes, genes_with_matches, total_phenotype_score, weighted_score, unique_weighted_score, unique_matches\
-            = GetTADs (sim_chromosome, sim_start, sim_end, phenotypes, zoom)
+            = GetTADs(sim_chromosome, sim_start, sim_end, phenotypes, zoom)
         for j in range(4, len(genes)):
             gene_phenotypes = genes[j].phenotypes
             for k in range(len(gene_phenotypes)):

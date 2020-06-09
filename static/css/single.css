@@ -7,3 +7,11 @@
     background-color: #A9CCE3;
     margin-right: 4px;
 }
+
+.feedback-item {
+    margin-left: 2em;
+}
+
+#accordion-feedback {
+    margin-bottom: 7px;
+}

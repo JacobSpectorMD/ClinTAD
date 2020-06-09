@@ -728,3 +728,13 @@ function track_color(num_tracks){
         return {'fill': 'var(--light-blue)', 'text': 'white'}
     }
 }
+
+$(document).on('click', '#hide-feedback-button', function(){
+    $.ajax({
+        type: "GET",
+        url: "/single/hide_feedback/",
+        success: function(response){
+            $('#accordion-feedback').remove();
+        },
+    })
+})

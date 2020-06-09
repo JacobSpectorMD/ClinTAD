@@ -1,28 +1,50 @@
-from django.http import JsonResponse
-from django.shortcuts import render
-from django.views.generic import TemplateView
-from home.forms import *
-from home.clintad import hpo_lookup
+import datetime
+from datetime import timedelta
 from urllib.parse import unquote
-from home.clintad import GetTADs
-from home.statistics import get_100_variants, get_one_variant
+
+from django.http import HttpResponse, JsonResponse
+from django.shortcuts import render
+from django.utils import timezone
+from django.views.generic import TemplateView
+
+from home.forms import *
 from home.clintad import get_single_data
+from home.clintad import hpo_lookup
+from home.clintad import GetTADs
+from home.models import SingleViewer
+from home.statistics import get_100_variants, get_one_variant
 
 
 class single(TemplateView):
     template_name = 'single.html'
 
     def get(self, request):
+        for key, value in request.session.items():
+            print('{} => {}'.format(key, value))
         initial = {}
         for var in ['chromosome', 'start', 'end', 'phenotypes']:
             if request.session.get(var, None):
                 initial[var] = request.session[var]
         form = SingleForm(initial=initial)
-        return render(request, self.template_name, {'form': form, 'navbar': 'single'})
+
+        if 'show_feedback' not in request.session.keys():
+            request.session['show_feedback'] = True
+        show_feedback = request.session.get('show_feedback')
+
+        two_weeks = timezone.now() + timedelta(weeks=2)
+        request.session.set_expiry(two_weeks)
+        return render(request, self.template_name, {'form': form, 'navbar': 'single', 'show_feedback': show_feedback})
 
     def post(self, request):
         if request.POST.get('action') == "Submit":
             request.session['zoom'] = 0
+
+            ip_address = request.META['REMOTE_ADDR']
+            viewer = SingleViewer.objects.filter(ip_address=ip_address).first()
+            if not viewer:
+                viewer = SingleViewer.objects.create(ip_address=ip_address)
+            viewer.views += 1
+            viewer.save()
         elif request.POST.get('action') == "out":
             try:
                 request.session['zoom'] += 1
@@ -61,6 +83,11 @@ def get_phenotypes(request):
     entered_string = unquote(request.META['QUERY_STRING'])
     hpo_list = hpo_lookup(entered_string)
     return JsonResponse(hpo_list, safe=False)
+
+
+def hide_feedback(request):
+    request.session['show_feedback'] = False
+    return HttpResponse('', 200)
 
 
 def statistics(request):

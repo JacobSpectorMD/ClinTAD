@@ -10,6 +10,24 @@ class Chromosome(models.Model):
         return str(self.number)
 
 
+class Omim(models.Model):
+    hpos = models.ManyToManyField('home.HPO', related_name='omims')
+    omim_number = models.IntegerField(default=-1)
+    title = models.CharField(default='', max_length=500)
+
+    autosomal_dominant = models.BooleanField(default=False)
+    autosomal_recessive = models.BooleanField(default=False)
+    digenic = models.BooleanField(default=False)
+    digenic_dominant = models.BooleanField(default=False)
+    digenic_recessive = models.BooleanField(default=False)
+    mitochondrial = models.BooleanField(default=False)
+    multifactorial = models.BooleanField(default=False)
+    x_linked = models.BooleanField(default=False)
+    x_linked_dominant = models.BooleanField(default=False)
+    x_linked_recessive = models.BooleanField(default=False)
+    y_linked = models.BooleanField(default=False)
+
+
 class HPO(models.Model):
     hpoid = models.IntegerField(default=-1)
     name = models.CharField(default='', max_length=500)
@@ -24,10 +42,13 @@ class HPO(models.Model):
 
 class Gene(models.Model):
     chromosome = models.ForeignKey(Chromosome, on_delete=models.CASCADE)
-    name = models.CharField(default='', max_length=100)
-    start = models.IntegerField(default=-1)
     end = models.IntegerField(default=-1)
+    ensembl_id = models.IntegerField(default=-1)
     hpos = models.ManyToManyField(HPO)
+    name = models.CharField(default='', max_length=100)
+    omims = models.ManyToManyField('home.Omim', related_name='genes')
+    start = models.IntegerField(default=-1)
+    symbols = models.IntegerField(default=0)
 
     def to_dict(self):
         return {'chromosome': self.chromosome, 'name': self.name, 'start': self.start, 'end': self.end,
@@ -135,3 +156,11 @@ class Variant(models.Model):
                 'inner_end': self.inner_end, 'outer_end': self.outer_end, 'subtype': self.subtype,
                 'accession': self.accession, 'study': self.study, 'sample_size': self.sample_size,
                 'frequency': self.frequency}
+
+
+class SingleViewer(models.Model):
+    ip_address = models.CharField(default='', max_length=100)
+    views = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.ip_address

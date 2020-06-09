@@ -5,6 +5,10 @@
 {% block head %}
     {{ block.super }}
     <title>ClinTAD | Statistics</title>
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
     <script src="{% static 'js/statistics.js' %}"></script>
 {% endblock %}
 
