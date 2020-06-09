@@ -15,10 +15,10 @@ from home.models import SingleViewer
 from home.statistics import get_100_variants, get_one_variant
 
 
-class single(TemplateView):
+def single(request):
     template_name = 'single.html'
 
-    def get(self, request):
+    if request.method == 'GET':
         for key, value in request.session.items():
             print('{} => {}'.format(key, value))
         initial = {}
@@ -32,9 +32,9 @@ class single(TemplateView):
         show_feedback = request.session.get('show_feedback')
 
         request.session.set_expiry(86400)
-        return render(request, self.template_name, {'form': form, 'navbar': 'single', 'show_feedback': show_feedback})
+        return render(request, template_name, {'form': form, 'navbar': 'single', 'show_feedback': show_feedback})
 
-    def post(self, request):
+    elif request.method == 'POST':
         if request.POST.get('action') == "Submit":
             request.session['zoom'] = 0
 
@@ -70,7 +70,7 @@ class single(TemplateView):
 
         form = SingleForm(request.POST)
         args = {'form': form, 'navbar': 'single', 'show_feedback': False}
-        return render(request, self.template_name, args)
+        return render(request, template_name, args)
 
 
 def get_genes(request):
