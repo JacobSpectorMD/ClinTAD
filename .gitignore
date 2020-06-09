@@ -1,5 +1,7 @@
 *.gtf
 
+*database_backup.json
+
 commands/*
 !load.py
 ensembl/
