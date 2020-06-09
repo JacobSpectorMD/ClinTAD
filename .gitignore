@@ -1,4 +1,4 @@
-Homo_sapiens.GRCh37.87.gtf
+*.gtf
 
 commands/*
 !load.py
