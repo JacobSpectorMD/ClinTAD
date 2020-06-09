@@ -149,6 +149,47 @@ AXES_COOLOFF_TIME = 1
 AXES_FAILURE_LIMIT = 5
 AXES_LOCK_OUT_AT_FAILURE = True
 AXES_LOCKOUT_URL = '/user/account_locked/'
+AXES_LOCKOUT_TEMPLATE = 'account_locked.html'
 AXES_USERNAME_FORM_FIELD = 'email'
 AXES_ONLY_USER_FAILURES = False
 AXES_RESET_ON_SUCCESS = True
+
+ADMINS = [('Jacob', 'clinicaltad@gmail.com')]
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s [%(asctime)s] %(module)s %(message)s'
+        },
+        'simple': {
+            'format': '{levelname} {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple'
+        },
+        'file': {
+            'class': 'logging.handlers.RotatingFileHandler',
+            'formatter': 'verbose',
+            'filename': '/var/www/logs/ibiddjango.log',
+            'maxBytes': 1024000,
+            'backupCount': 3,
+        },
+        'mail_admins': {
+            'level': 'ERROR',
+            'class': 'django.utils.log.AdminEmailHandler'
+        }
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file', 'console', 'mail_admins'],
+            'propagate': True,
+            'level': 'DEBUG',
+        },
+    }
+}

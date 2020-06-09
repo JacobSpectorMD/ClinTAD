@@ -75,8 +75,11 @@ class single(TemplateView):
 
 
 def get_genes(request):
-    data = get_single_data(request)
-    return JsonResponse(data, safe=False)
+    if request.session.get('chromosome', None) and request.session.get('start', None) and request.session.get('end', None):
+        data = get_single_data(request)
+        return JsonResponse(data, safe=False)
+    else:
+        return JsonResponse({}, safe=False)
 
 
 def get_phenotypes(request):

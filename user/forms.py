@@ -9,6 +9,10 @@ from .tokens import account_activation_token
 from user.models import Profile, TrackManager, User
 
 
+class PasswordResetForm(forms.ModelForm):
+    email = forms.EmailField(label='Email')
+
+
 class RegisterForm(forms.ModelForm):
     email = forms.EmailField(label='Email')
     name = forms.CharField(label='Name')

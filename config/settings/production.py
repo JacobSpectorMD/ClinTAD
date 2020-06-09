@@ -19,7 +19,7 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'clintad.herokuapp.com', 'www.clintad.com']
-
+ADMINS = [('Jacob', 'clinicaltad@gmail.com')]
 
 # Application definition
 
@@ -150,3 +150,38 @@ AXES_LOCKOUT_URL = '/user/account_locked/'
 AXES_USERNAME_FORM_FIELD = 'email'
 AXES_ONLY_USER_FAILURES = False
 AXES_RESET_ON_SUCCESS = True
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s [%(asctime)s] %(module)s %(message)s'
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple'
+        },
+        'file': {
+            'class': 'logging.handlers.RotatingFileHandler',
+            'formatter': 'verbose',
+            'filename': '/var/www/logs/ibiddjango.log',
+            'maxBytes': 1024000,
+            'backupCount': 3,
+        },
+        'mail_admins': {
+            'level': 'ERROR',
+            'class': 'django.utils.log.AdminEmailHandler'
+        }
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file', 'console', 'mail_admins'],
+            'propagate': True,
+            'level': 'DEBUG',
+        },
+    }
+}
