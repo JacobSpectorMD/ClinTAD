@@ -32,10 +32,6 @@ class TempGene:
 
 
 def get_single_data(request):
-    for key, val in request.session.items():
-        print(str(key), ' --- ', str(val))
-    print(request, '', request.session['chromosome'], request.session['start'], request.session['end'],
-                       request.session['phenotypes'], request.session['zoom'])
     data_str = GetTADs(request, '', request.session['chromosome'], request.session['start'], request.session['end'],
                        request.session['phenotypes'], request.session['zoom'])
     data = json.loads(data_str)
@@ -69,11 +65,12 @@ def get_track_data(ut, chromosome_number, minimum_coordinate, maximum_coordinate
 
 
 def GetTADs(request, case_id, chromosome_input, CNV_start, CNV_end, phenotypes, zoom, source_function='single'):
-    print('chromosome input', chromosome_input)
-    chromosome_input = chromosome_input.upper()
+    chromosome_input = chromosome_input.upper().strip()
+    for letter in chromosome_input:
+        print('letter:', letter)
+    print(Chromosome.objects.filter(number=chromosome_input).first())
     chromosome = Chromosome.objects.filter(number=chromosome_input).first()
     chromosome_length = chromosome.length
-
     patient_CNV_start = int(CNV_start.replace(',', ''))
     patient_CNV_end = int(CNV_end.replace(',', ''))
 
