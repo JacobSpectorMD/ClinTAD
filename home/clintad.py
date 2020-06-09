@@ -66,6 +66,7 @@ def get_track_data(ut, chromosome_number, minimum_coordinate, maximum_coordinate
 
 
 def GetTADs(request, case_id, chromosome_input, CNV_start, CNV_end, phenotypes, zoom, source_function='single'):
+    print('chromosome input', chromosome_input)
     chromosome_input = chromosome_input.upper()
     chromosome = Chromosome.objects.filter(number=chromosome_input).first()
     chromosome_length = chromosome.length
