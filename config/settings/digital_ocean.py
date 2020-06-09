@@ -33,6 +33,8 @@ INSTALLED_APPS = [
     'axes'
 ]
 
+SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
+
 AUTH_USER_MODEL = 'user.User'
 
 MIDDLEWARE = [
