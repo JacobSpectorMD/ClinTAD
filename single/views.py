@@ -18,6 +18,11 @@ from home.statistics import get_100_variants, get_one_variant
 def single(request):
     template_name = 'single.html'
 
+    if 'show_feedback' not in request.session.keys():
+        request.session['show_feedback'] = True
+    show_feedback = request.session.get('show_feedback')
+    request.session.set_expiry(86400)
+
     if request.method == 'GET':
         for key, value in request.session.items():
             print('{} => {}'.format(key, value))
@@ -27,11 +32,6 @@ def single(request):
                 initial[var] = request.session[var]
         form = SingleForm(initial=initial)
 
-        if 'show_feedback' not in request.session.keys():
-            request.session['show_feedback'] = True
-        show_feedback = request.session.get('show_feedback')
-
-        request.session.set_expiry(86400)
         return render(request, template_name, {'form': form, 'navbar': 'single', 'show_feedback': show_feedback})
 
     elif request.method == 'POST':
@@ -69,7 +69,7 @@ def single(request):
                 request.session['end'] = form.cleaned_data['end']
 
         form = SingleForm(request.POST)
-        args = {'form': form, 'navbar': 'single', 'show_feedback': False}
+        args = {'form': form, 'navbar': 'single', 'show_feedback': show_feedback}
         return render(request, template_name, args)
 
 
