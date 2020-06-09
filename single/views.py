@@ -21,7 +21,6 @@ def single(request):
     if 'show_feedback' not in request.session.keys():
         request.session['show_feedback'] = True
     show_feedback = request.session.get('show_feedback')
-    request.session.set_expiry(86400)
 
     if request.method == 'GET':
         for key, value in request.session.items():
