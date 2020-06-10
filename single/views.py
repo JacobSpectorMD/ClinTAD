@@ -23,8 +23,6 @@ def single(request):
     show_feedback = request.session.get('show_feedback')
 
     if request.method == 'GET':
-        for key, value in request.session.items():
-            print('{} => {}'.format(key, value))
         initial = {}
         for var in ['chromosome', 'start', 'end', 'phenotypes']:
             if request.session.get(var, None):
@@ -37,7 +35,10 @@ def single(request):
         if request.POST.get('action') == "Submit":
             request.session['zoom'] = 0
 
-            ip_address = request.META['REMOTE_ADDR']
+            ip_address = get_client_ip(request)
+            if not ip_address:
+                ip_address = 'No IP'
+
             viewer = SingleViewer.objects.filter(ip_address=ip_address).first()
             if not viewer:
                 viewer = SingleViewer.objects.create(ip_address=ip_address)
@@ -70,6 +71,15 @@ def single(request):
         form = SingleForm(request.POST)
         args = {'form': form, 'navbar': 'single', 'show_feedback': show_feedback}
         return render(request, template_name, args)
+
+
+def get_client_ip(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR', None)
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[-1].strip()
+    else:
+        ip = request.META.get('REMOTE_ADDR', None)
+    return ip
 
 
 def get_genes(request):

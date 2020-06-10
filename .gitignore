@@ -1,7 +1,8 @@
 *.gtf
-
+polygenic.py
 *database_backup.json
 
+commands/
 commands/*
 !load.py
 ensembl/
@@ -125,3 +126,5 @@ db.sqlite3
 dev.py
 home/files/ensembl/Homo_sapiens.GRCh37.87.gtf
 home/files/ensembl/Homo_sapiens.GRCh37.87.gtf
+home/management/commands/polygenic.py
+home/management/commands/polygenic.py
