@@ -54,7 +54,7 @@ def login_view(request):
             raw_password = form.cleaned_data.get('password')
             user = authenticate(request=request, username=email, password=raw_password)
             if user is not None:
-                login(request, user)
+                login(request, user, backend='django.contrib.auth.backends.ModelBackend')
                 return redirect('/user/tracks')
             else:
                 messages.add_message(request, messages.INFO, "The login information you entered was invalid. "
