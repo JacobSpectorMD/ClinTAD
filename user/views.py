@@ -131,6 +131,7 @@ def activate(request, uidb64, token):
         login(request, user, backend='django.contrib.auth.backends.ModelBackend')
         return redirect('/')
 
+
 def tracks(request):
     return render(request, 'tracks.html', {'form': TrackForm,
                                            'tracks': json.dumps(request.user.track_manager.track_json())})

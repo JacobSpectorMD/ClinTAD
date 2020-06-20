@@ -1,1905 +1,1905 @@
-Autism	114	82.04545454545453
-Intellectual disability	93	14.809956917185255
-Seizures	86	14.352508361204013
-Global developmental delay	86	14.112023653088041
-Short stature	82	17.393407534246574
-Strabismus	69	21.378395860284606
-Cryptorchidism	65	21.75043936731107
-Microcephaly	64	16.478940397350993
-Muscular hypotonia	63	16.586956521739133
-Scoliosis	60	16.770293609671846
-Autosomal dominant inheritance	53	6.954467917596116
-Attention deficit hyperactivity disorder	52	38.311764705882354
-Micrognathia	48	16.233747260774287
-Cataract	48	15.545549012816071
-Obesity	45	25.386346586646663
-Gastroesophageal reflux	44	26.359817351598174
-Failure to thrive	43	12.60254854368932
-Epicanthus	43	19.338251366120218
-Constipation	43	26.58538812785388
-Clinodactyly of the 5th finger	41	22.34131736526946
-Hypertelorism	41	14.239984882842025
-Myopia	40	23.625730994152047
-Long philtrum	40	23.30065359477124
-Anxiety	40	25.78140960163432
-Delayed speech and language development	39	22.0
-Hearing impairment	39	14.017041053446942
-Ventricular septal defect	38	19.25560538116592
-Nystagmus	38	10.054274084124831
-Feeding difficulties in infancy	38	19.117283950617285
-Ptosis	38	13.494488188976378
-Hypothyroidism	38	26.307692307692307
-Brachydactyly	37	19.823357664233576
-Generalized hypotonia	37	9.753638814016172
-Kyphosis	37	21.802426343154245
-Wide nasal bridge	36	15.621621621621623
-Hypospadias	35	19.444444444444443
-Sensorineural hearing impairment	35	10.823111684958038
-Depressed nasal bridge	34	16.356973995271865
-Cleft palate	34	13.91988821611551
-Macrotia	33	22.858736059479554
-Cerebral cortical atrophy	33	20.803625377643506
-High palate	32	13.73191899710704
-Pectus excavatum	32	19.748571428571427
-Vesicoureteral reflux	32	23.070889894419306
-Atrial septal defect	32	17.56911196911197
-Deeply set eye	31	22.305949008498583
-Ventriculomegaly	31	16.185478547854785
-Downslanted palpebral fissures	31	15.702349869451696
-Brachycephaly	31	20.703440094899168
-Patent ductus arteriosus	31	18.10571923743501
-Hypoplasia of penis	30	17.216494845360824
-Low-set ears	30	12.673410404624276
-Sporadic	30	23.361702127659573
-Upslanted palpebral fissure	29	19.466666666666665
-Joint stiffness	29	19.24393063583815
-Intrauterine growth retardation	29	13.508820286659315
-Glaucoma	29	16.23369565217391
-Narrow mouth	29	19.82842509603073
-Delayed skeletal maturation	28	15.439824945295404
-Optic atrophy	28	11.229813664596275
-Depressivity	28	17.349532710280375
-Low-set, posteriorly rotated ears	27	15.908233276157803
-Short nose	27	16.386042402826856
-Conductive hearing impairment	27	15.504511894995899
-Joint hyperflexibility	27	17.12750263435195
-Short foot	26	20.073529411764707
-Obsessive-compulsive behavior	26	21.894736842105264
-Tetralogy of Fallot	26	18.99543378995434
-Visual impairment	26	11.231073725878277
-Inguinal hernia	26	16.599601593625497
-Anteverted nares	25	11.743721461187214
-Short neck	25	13.512544802867385
-Carious teeth	25	17.302452316076295
-Frontal bossing	25	13.15698478561549
-Malar flattening	25	15.886939571150098
-Hypogonadotrophic hypogonadism	25	18.709415584415584
-Delayed puberty	24	15.674008810572687
-Sleep disturbance	24	18.790352504638218
-Autosomal recessive inheritance	24	2.0011673476194445
-Umbilical hernia	24	14.554128440366974
-Macrocephaly	23	12.751643535427318
-Aplasia/Hypoplasia of the cerebellum	23	17.768627450980393
-Hyperactivity	23	18.363273453093814
-Specific learning disability	23	16.495626822157433
-Renal hypoplasia	23	18.88914027149321
-Osteopenia	23	14.675732217573222
-Intellectual disability, severe	22	13.711048158640226
-Renal insufficiency	22	12.479430379746836
-Wide mouth	22	15.975794251134642
-Intellectual disability, mild	22	14.97258641239571
-Pes planus	22	13.330152671755725
-Micropenis	21	13.968539325842697
-Aggressive behavior	21	15.08910891089109
-EEG abnormality	21	13.876651982378855
-Microphthalmia	21	12.493670886075948
-Chronic otitis media	21	16.342915811088297
-Precocious puberty	21	18.173076923076923
-Prominent nasal bridge	20	13.135011441647597
-Choanal atresia	20	15.348837209302326
-Stereotypy	20	17.050938337801608
-Long face	20	13.897058823529413
-Midface retrusion	20	12.773109243697478
-Hydrocephalus	20	11.063829787234042
-Mandibular prognathia	19	14.14576802507837
-Thin upper lip vermilion	19	13.702189781021897
-Hip dysplasia	19	14.70238095238095
-Macroglossia	19	14.72
-Abnormality of dental enamel	19	14.89816700610998
-Ataxia	19	6.951219512195122
-Agenesis of corpus callosum	19	12.268463073852296
-Bulbous nose	19	15.319819819819822
-Dysarthria	19	8.624539231174301
-Recurrent respiratory infections	19	9.793943383805134
-Osteoporosis	19	11.41994750656168
-Protruding ear	18	13.15170278637771
-Primary amenorrhea	18	13.71266540642722
-Self-injurious behavior	18	15.874015748031496
-Cholelithiasis	18	15.5098814229249
-Patellar dislocation	18	16.0
-Multiple renal cysts	18	15.940298507462687
-Coarse facial features	18	12.286764705882353
-Genu valgum	18	14.041884816753926
-Failure to thrive in infancy	18	15.209726443768997
-Broad forehead	18	13.627659574468087
-Intestinal malrotation	17	14.418224299065422
-Small hand	17	14.204244031830239
-Neurological speech impairment	17	12.581125827814569
-Downturned corners of mouth	17	13.758474576271187
-Pyloric stenosis	17	13.814898419864559
-Highly arched eyebrow	17	12.236714975845409
-Hypopigmented skin patches	17	12.839160839160838
-Abnormal form of the vertebral bodies	17	12.966666666666667
-Myopathy	17	10.986021505376344
-Short philtrum	17	12.482704402515722
-Nasal speech	17	14.072222222222221
-Retinal arteriolar tortuosity	17	15.335664335664337
-Nausea and vomiting	17	11.46090047393365
-Phenotypic variability	17	10.124069478908188
-Tracheoesophageal fistula	17	13.767337807606264
-Tremor	17	9.899761336515514
-Abnormality of cardiovascular system morphology	17	11.504651162790697
-Narrow face	17	13.946380697050937
-Developmental regression	17	11.24561403508772
-Congestive heart failure	17	11.77423469387755
-Hyperreflexia	16	5.9761415055532705
-Talipes equinovarus	16	9.135525260625501
-Increased nuchal translucency	16	14.896551724137929
-Thin vermilion border	16	12.8
-Gynecomastia	16	12.87191011235955
-Open mouth	16	13.229268292682928
-Hemiplegia/hemiparesis	16	11.854660347551343
-Pointed chin	16	14.020066889632108
-Dysphagia	16	9.602739726027398
-Dysphasia	16	13.94059405940594
-Posterior embryotoxon	16	14.43404255319149
-Thick lower lip vermilion	16	12.618117229129663
-Type II diabetes mellitus	16	11.7
-High forehead	16	11.30779392338177
-Clinodactyly	15	12.428571428571429
-Short palm	15	11.804733727810651
-Spasticity	15	7.016129032258065
-Abnormality of the uterus	15	13.72340425531915
-Radioulnar synostosis	15	12.797783933518005
-Generalized hirsutism	15	11.498054474708171
-Cognitive impairment	15	8.732452518579686
-Hypertonia	15	10.283600493218248
-Splenomegaly	15	7.537783375314861
-Abnormality of the neck	15	13.733766233766234
-Hypogonadism	15	9.3393536121673
-Gait disturbance	15	7.922755741127349
-High hypermetropia	15	13.565217391304348
-Aortic arch aneurysm	15	13.961538461538462
-Hydronephrosis	15	10.486555697823304
-Polyhydramnios	15	10.038084874863982
-Hand polydactyly	15	11.729857819905213
-Gastrointestinal hemorrhage	15	12.024793388429751
-Blepharophimosis	15	11.208487084870848
-Fatigue	15	8.271334792122538
-Growth hormone deficiency	15	13.366336633663366
-Motor delay	15	7.859554355165429
-Joint laxity	15	10.911111111111111
-X-linked recessive inheritance	14	9.376000000000001
-Hypoplasia of the maxilla	14	10.874773139745917
-Thick eyebrow	14	11.661252900232018
-Synophrys	14	11.251141552511415
-Dolichocephaly	14	10.229985443959244
-Macule	14	12.786127167630058
-Foot polydactyly	14	11.375
-Corneal opacity	14	10.844364937388194
-Laryngomalacia	14	12.047619047619047
-Arachnodactyly	14	10.738955823293173
-Feeding difficulties	14	7.482758620689656
-Everted lower lip vermilion	14	10.66294227188082
-Syndactyly	14	11.75
-Psychosis	14	11.820359281437126
-Dental malocclusion	14	11.310185185185185
-Abdominal pain	14	9.496259351620948
-Decreased testicular size	13	9.40340030911901
-Hip dislocation	13	9.355648535564853
-Narrow forehead	13	10.853968253968254
-Truncal obesity	13	11.866279069767442
-Toe syndactyly	13	9.617886178861788
-Infantile onset	13	5.4311663479923515
-Renal cyst	13	11.09020618556701
-Polyphagia	13	11.628440366972477
-Depressed nasal ridge	13	9.452743902439025
-Schizophrenia	13	11.689516129032256
-Aganglionic megacolon	13	9.233070866141732
-Telecanthus	13	9.760797342192692
-Blue irides	13	11.98581560283688
-Proteinuria	13	9.612121212121211
-Multiple cafe-au-lait spots	12	10.391752577319588
-Hypermetropia	12	9.478991596638656
-Smooth philtrum	12	9.979591836734695
-Low anterior hairline	12	10.436363636363636
-Microcornea	12	8.807692307692307
-Hallux valgus	12	10.721311475409836
-Renal cell carcinoma	12	10.919431279620854
-Increased intracranial pressure	12	10.549848942598187
-Thrombocytopenia	12	7.617497456765006
-Hypocalcemia	12	10.524590163934427
-Immunodeficiency	12	8.61734693877551
-Anal atresia	12	8.654014598540146
-Arnold-Chiari malformation	12	11.004366812227076
-Nevus flammeus	12	10.916666666666666
-Open bite	12	10.73972602739726
-Hoarse voice	12	10.488549618320612
-Mitral regurgitation	12	10.392059553349876
-Microdontia	12	9.372781065088757
-Multicystic kidney dysplasia	11	8.299509001636661
-Congenital diaphragmatic hernia	11	9.35
-Peripheral neuropathy	11	7.459926017262639
-Micromelia	11	8.521415270018622
-Delayed eruption of teeth	11	8.746741154562383
-Cutis marmorata	11	9.374570446735396
-Heterogeneous	11	6.103857566765578
-Proptosis	11	7.055555555555556
-Abnormal lung lobation	11	10.24736842105263
-Hyperthyroidism	11	10.607142857142858
-Papule	11	9.35483870967742
-Diabetes insipidus	11	10.300578034682081
-Subcutaneous nodule	11	9.023809523809524
-Colonic diverticula	11	10.38888888888889
-Microtia	11	8.574235807860262
-Dry skin	11	8.10077519379845
-Abnormal aortic valve morphology	11	9.364312267657994
-Overfolded helix	11	10.020942408376964
-Radial deviation of finger	11	9.673151750972762
-Death in early adulthood	11	10.111801242236023
-Nephrolithiasis	11	9.153664302600474
-Hyperacusis	11	10.516483516483516
-Dysmetria	11	8.583162217659137
-Mitral valve prolapse	11	9.201072386058982
-Pulmonic stenosis	11	9.185567010309278
-Polycystic ovaries	11	9.726851851851851
-Sacral dimple	11	9.293103448275863
-Long eyelashes	10	8.4
-Talipes	10	8.289473684210527
-Hypertrophic cardiomyopathy	10	6.271676300578035
-Low posterior hairline	10	8.520408163265307
-Proximal placement of thumb	10	9.477124183006534
-Poor speech	10	8.516624040920716
-Widely spaced teeth	10	8.96694214876033
-Cerebral atrophy	10	6.687565308254963
-Growth delay	10	6.184331797235023
-Round face	10	8.455497382198953
-Sudden cardiac death	10	8.241469816272966
-Decreased muscle mass	10	9.036144578313253
-Abnormality of metabolism/homeostasis	10	6.726256983240224
-Finger syndactyly	10	6.685144124168514
-Melanocytic nevus	10	8.960573476702509
-Abnormal cardiac septum morphology	10	8.741007194244606
-Bowel incontinence	10	9.074074074074074
-Arrhinencephaly	10	9.213483146067414
-Truncus arteriosus	10	9.694656488549619
-Atelectasis	10	9.312977099236642
-Hypoplasia of the corpus callosum	10	5.930331350892098
-Recurrent urinary tract infections	10	7.862903225806452
-Scrotal hypoplasia	10	8.795180722891565
-Abnormality of the dentition	10	7.294469357249626
-Infertility	10	8.327868852459016
-Hypercalcemia	10	9.185520361990951
-Hypoplastic toenails	10	8.789237668161435
-Abnormality of extrapyramidal motor function	10	8.421052631578947
-Abnormal dermatoglyphics	10	8.823529411764707
-Dysphonia	10	8.649635036496349
-Down-sloping shoulders	10	8.924050632911392
-Cardiomegaly	10	8.12324929971989
-Peripheral pulmonary artery stenosis	10	9.696969696969697
-Lacrimation abnormality	10	8.9937106918239
-Phonophobia	10	9.43661971830986
-Hypodontia	10	7.44
-Adducted thumb	10	8.388888888888888
-Hypoplasia of the zygomatic bone	10	9.375
-Spina bifida occulta	10	8.495297805642632
-Malabsorption	10	6.902313624678664
-Hyperlordosis	10	7.2180451127819545
-Dental crowding	10	8.204419889502763
-Camptodactyly of finger	9	5.986562150055991
-Premature birth	9	6.760629921259842
-X-linked dominant inheritance	9	7.443458980044347
-Bilateral single transverse palmar creases	9	7.675675675675675
-Blepharitis	9	8.130252100840336
-Absent speech	9	7.581081081081081
-Self-mutilation	9	8.598214285714286
-Bone cyst	9	8.651162790697676
-Facial asymmetry	9	7.012048192771084
-Reduced number of teeth	9	7.378378378378378
-Spinal canal stenosis	9	8.458646616541353
-Adenoma sebaceum	9	8.788235294117646
-Adult onset	9	6.88909090909091
-Hypohidrosis	9	7.526315789473684
-Seborrheic dermatitis	9	8.485714285714286
-Acne	9	8.149090909090908
-Asthma	9	8.166023166023166
-Arthritis	9	7.179069767441861
-Polycystic kidney dysplasia	9	8.138755980861244
-Bipolar affective disorder	9	8.574803149606298
-Autoimmunity	9	8.020408163265307
-Abnormality of the thorax	9	8.340314136125654
-Myalgia	9	7.072691552062868
-Autistic behavior	9	7.581661891117478
-Flexion contracture	9	5.925646551724138
-Renal agenesis	9	7.468965517241379
-Muscle weakness	9	4.979827089337175
-Polydipsia	9	8.104972375690608
-Anosmia	9	8.235849056603774
-Pes cavus	9	5.717647058823529
-Esophageal atresia	9	8.107758620689655
-Decreased fetal movement	9	7.114624505928854
-Impaired pain sensation	9	8.660377358490566
-Frontal upsweep of hair	9	8.842105263157896
-Hyperinsulinemia	9	7.011049723756906
-Stroke	9	7.924778761061947
-Dysgraphia	9	7.9783783783783795
-Cerebral ischemia	9	7.9631336405529956
-Aplasia/Hypoplasia of the iris	9	7.705685618729097
-Nephrocalcinosis	9	7.906249999999999
-Pelvic kidney	9	8.485714285714286
-Elevated serum creatine phosphokinase	9	5.414374445430346
-Abnormality of the diencephalon	9	8.526315789473683
-Insomnia	9	8.376237623762377
-Overfriendliness	9	8.517857142857142
-Abnormality of the fingernails	9	6.982456140350878
-Renovascular hypertension	9	8.382352941176471
-Gingival overgrowth	9	7.298630136986302
-Urethral stenosis	9	8.37062937062937
-Rectal prolapse	9	8.470588235294118
-Behavioral abnormality	9	7.3890214797136045
-Incomplete penetrance	9	7.2963671128107075
-Single transverse palmar crease	9	7.831858407079645
-Cleft upper lip	9	6.7646103896103895
-Iris coloboma	9	6.492413793103449
-Broad thumb	9	7.696969696969697
-Arrhythmia	9	6.573033707865169
-Respiratory insufficiency	9	4.934873949579832
-Furrowed tongue	8	7.106796116504855
-Volvulus	8	7.8181818181818175
-Severe postnatal growth retardation	8	7.529411764705882
-Elbow dislocation	8	6.808510638297872
-Hypoplastic nipples	8	7.594202898550725
-Severe global developmental delay	8	6.567774936061381
-Lipoma	8	7.8048780487804885
-Cavernous hemangioma	8	7.728813559322033
-Hamartomatous polyposis	8	7.794871794871794
-Intellectual disability, moderate	8	6.841750841750843
-Melanoma	8	7.0
-Breast carcinoma	8	7.464114832535885
-Lower limb asymmetry	8	7.744000000000001
-Palmoplantar keratoderma	8	5.4947368421052625
-Enlarged polycystic ovaries	8	7.473684210526317
-Cranial nerve paralysis	8	6.829736211031175
-Abnormality of female external genitalia	8	7.909090909090908
-Tetany	8	7.25925925925926
-Turricephaly	8	7.669421487603306
-Hypoplasia of the thymus	8	7.798742138364779
-Abnormal aortic arch morphology	8	7.894736842105263
-Impaired T cell function	8	7.458646616541354
-Varicose veins	8	7.398496240601504
-Multiple suture craniosynostosis	8	7.688311688311688
-Hypoparathyroidism	8	7.571428571428571
-Abnormality of the pharynx	8	7.641791044776119
-Occipital myelomeningocele	8	7.7377049180327875
-Abnormal pulmonary valve morphology	8	7.406113537117903
-Chronic obstructive pulmonary disease	8	7.829787234042552
-Hypertensive crisis	8	7.433628318584071
-Small earlobe	8	7.614457831325301
-Platybasia	8	7.727272727272727
-Tricuspid atresia	8	7.857142857142858
-Abnormality of the tonsils	8	7.8730158730158735
-Purpura	8	7.366336633663367
-Corneal neovascularization	8	7.741935483870967
-Postnatal growth retardation	8	6.202247191011236
-Abnormality of the voice	8	6.927113702623907
-Sleep apnea	8	7.3743016759776525
-Narrow nasal bridge	8	7.083969465648854
-Hypopigmentation of hair	8	7.302325581395349
-Poor fine motor coordination	8	7.735537190082644
-Arthralgia	8	5.8069930069930065
-Bladder diverticulum	8	7.2835820895522385
-Functional abnormality of male internal genitalia	8	7.418181818181819
-Supravalvular aortic stenosis	8	7.569892473118279
-Flat cornea	8	7.636363636363636
-Redundant skin	8	7.093117408906883
-Peptic ulcer	8	7.700934579439252
-Abnormality of lipid metabolism	8	7.4766355140186915
-Overriding aorta	8	7.483870967741936
-Prematurely aged appearance	8	7.216494845360825
-Renal duplication	8	7.533980582524272
-Elfin facies	8	7.586206896551725
-Nystagmus-induced head nodding	8	7.555555555555555
-Abnormality of pelvic girdle bone morphology	8	7.042071197411003
-Gait imbalance	8	7.611111111111111
-Vertebral segmentation defect	8	7.203619909502263
-Hypercalciuria	8	7.25
-Bicuspid aortic valve	8	6.713826366559485
-Myocardial infarction	8	6.780487804878049
-Tubulointerstitial abnormality	8	7.5636363636363635
-Periorbital edema	8	7.5636363636363635
-Abnormality of the gastric mucosa	8	7.428571428571429
-Atrophy/Degeneration involving the corticospinal tracts	8	7.5102040816326525
-Abnormal endocardium morphology	8	7.083969465648854
-Abnormality of the ankles	8	7.523809523809525
-Abnormal carotid artery morphology	8	7.315508021390374
-Megalocornea	8	7.466666666666667
-Increased bone mineral density	8	7.595505617977528
-Cafe-au-lait spot	8	6.776119402985074
-Broad hallux	8	7.090909090909091
-Coarctation of aorta	8	6.723646723646724
-Aplasia/Hypoplasia of the corpus callosum	8	6.201550387596899
-Camptodactyly	8	6.4170212765957455
-Diabetes mellitus	8	6.275
-Intellectual disability, progressive	7	6.209677419354839
-Prenatal movement abnormality	7	7.0
-Short 1st metacarpal	7	6.615384615384615
-Hypoplastic labia majora	7	6.331460674157303
-Abnormally low-pitched voice	7	6.87719298245614
-Oligodactyly	7	6.669811320754716
-Phthisis bulbi	7	6.7627118644067785
-Atresia of the external auditory canal	7	6.363636363636363
-Hirsutism	7	5.596774193548387
-Curly eyelashes	7	6.818181818181818
-Skeletal muscle atrophy	7	3.532710280373832
-X-linked inheritance	7	5.9449275362318845
-Abnormality of the penis	7	7.0
-Abnormal cerebellum morphology	7	6.735849056603773
-Meningioma	7	6.4112149532710285
-Follicular thyroid carcinoma	7	6.867924528301887
-Endometrial carcinoma	7	7.0
-Goiter	7	6.536423841059602
-Skeletal dysplasia	7	5.432098765432099
-Skin tags	7	7.0
-Colorectal polyposis	7	7.0
-Recurrent infections	7	5.5912863070539425
-Conjunctival hamartoma	7	7.0
-Papilloma	7	7.0
-Generalized hyperkeratosis	7	6.737500000000001
-Mucosal telangiectasiae	7	6.737500000000001
-Cellular immunodeficiency	7	6.554140127388535
-Rib fusion	7	6.689873417721519
-Delayed cranial suture closure	7	6.169491525423729
-Neuroblastoma	7	6.60126582278481
-Dilated cardiomyopathy	7	5.25
-Telangiectasia	7	6.426900584795321
-Hepatic steatosis	7	5.638443935926774
-Coloboma	7	5.927927927927928
-Anemia	7	4.060109289617486
-Maternal diabetes	7	6.746987951807228
-Anterior pituitary hypoplasia	7	6.538461538461538
-Septo-optic dysplasia	7	6.533333333333333
-Esotropia	7	5.808108108108108
-Generalized hypopigmentation	7	6.797101449275361
-Cutaneous photosensitivity	7	5.621483375959079
-Poor suck	7	6.24892703862661
-Abnormality of the pinna	7	5.983240223463687
-Wide nose	7	5.567058823529411
-Retrognathia	7	4.8591370558375635
-Short metacarpal	7	5.877005347593583
-Short toe	7	5.930909090909091
-Hyporeflexia	7	3.9945054945054945
-High, narrow palate	6	4.586387434554974
-Poor eye contact	6	5.5
-Myoclonus	6	4.188387096774194
-Neoplasm of the stomach	6	5.416216216216216
-Somatic mutation	6	5.024630541871922
-Lymphedema	6	5.282608695652174
-11 pairs of ribs	6	5.631578947368421
-Abnormal heart valve morphology	6	5.466666666666666
-Ichthyosis	6	4.422535211267606
-Tented upper lip vermilion	6	5.240816326530612
-Hemivertebrae	6	5.5233644859813085
-Hepatomegaly	6	2.554054054054054
-Death in infancy	6	4.259842519685039
-Bimanual synkinesia	6	5.506329113924051
-Holoprosencephaly	6	5.418367346938775
-Recurrent fractures	6	4.388467374810318
-Absence of secondary sex characteristics	6	5.066666666666667
-Acromicria	6	6.0
-Iris hypopigmentation	6	5.4519230769230775
-Narrow palm	6	5.76
-Clitoral hypoplasia	6	5.823529411764706
-Narrow palate	6	5.454545454545454
-Hypoplastic labia minora	6	5.809523809523809
-Almond-shaped palpebral fissure	6	5.406976744186046
-Abdominal obesity	6	6.0
-Adrenal insufficiency	6	5.425531914893616
-Temperature instability	6	5.612903225806452
-Hypoventilation	6	5.621052631578948
-Poor gross motor coordination	6	6.0
-Oligomenorrhea	6	5.627586206896551
-2-3 toe syndactyly	6	5.230088495575221
-Fine hair	6	5.090425531914894
-Prominent forehead	6	4.373205741626794
-Small for gestational age	6	4.707182320441989
-Joint hypermobility	6	5.090909090909091
-Neonatal hypotonia	6	4.340425531914894
-Echolalia	6	5.63855421686747
-Prominent supraorbital ridges	6	5.337016574585635
-Short metatarsal	6	5.339449541284404
-Abnormality of immune system physiology	6	5.439024390243902
-Short phalanx of finger	6	5.395348837209303
-Renal hypoplasia/aplasia	6	4.9950738916256165
-Hallucinations	6	4.992366412213741
-Hypotelorism	6	4.978021978021978
-Chest pain	6	5.0296495956873315
-Male hypogonadism	6	5.6000000000000005
-Large hands	5	4.75
-Tapered finger	5	4.4243421052631575
-Abnormal facial shape	5	3.961456102783726
-Gait ataxia	5	4.011741682974559
-Macrodactyly	5	5.0
-Macroorchidism	5	4.850746268656717
-Craniosynostosis	5	3.97979797979798
-Transitional cell carcinoma of the bladder	5	4.705882352941177
-Visceral angiomatosis	5	4.782608695652174
-Capillary hemangioma	5	4.642857142857143
-Cachexia	5	4.323770491803279
-Abnormal blistering of the skin	5	4.129901960784314
-Abnormality of the anus	5	4.809523809523809
-Abnormal intestine morphology	5	4.75
-Annular pancreas	5	4.767441860465116
-Abnormality of the spleen	5	4.642857142857143
-Ocular albinism	5	4.803149606299213
-Horizontal eyebrow	5	4.8999999999999995
-Bifid ribs	5	5.0
-Posteriorly rotated ears	5	3.539253539253539
-Drooling	5	4.517241379310345
-Weight loss	5	3.3612440191387556
-Shawl scrotum	5	4.6000000000000005
-Hypotension	5	4.506172839506172
-Elevated hepatic transaminase	5	3.2435344827586206
-Erectile abnormalities	5	4.76
-Paraplegia	5	4.65625
-Anterior hypopituitarism	5	4.644970414201183
-Hypoglycemia	5	3.698529411764706
-Jaundice	5	3.6777456647398843
-Polydactyly	5	4.3604651162790695
-Reduced bone mineral density	5	4.168865435356201
-Plagiocephaly	5	4.484126984126984
-Dislocated radial head	5	4.763513513513514
-Transposition of the great arteries	5	4.653846153846154
-Thick vermilion border	5	4.4603174603174605
-Broad-based gait	5	4.577114427860696
-Underdeveloped nasal alae	5	4.0861618798955615
-Migraine	5	4.097888675623801
-Arthrogryposis multiplex congenita	5	3.7918871252204585
-Preauricular skin tag	5	4.631147540983607
-Cerebral calcification	5	4.043280182232347
-Broad nasal tip	5	4.315642458100559
-Wide intermamillary distance	5	4.187192118226601
-Sclerocornea	5	4.349593495934959
-Full cheeks	5	4.02970297029703
-Hypertension	5	3.067765567765568
-Memory impairment	5	3.9461883408071747
-Retinal detachment	5	4.061032863849765
-Accelerated skeletal maturation	5	4.348591549295775
-Hematuria	5	4.110275689223057
-Neoplasm of the pancreas	5	4.408602150537635
-Happy demeanor	4	4.0
-Hemangioma	4	3.9398496240601504
-Subcutaneous lipoma	4	3.8260869565217392
-Intention tremor	4	3.4036363636363633
-Thyroiditis	4	3.75
-Chorioretinal coloboma	4	3.607843137254902
-Hereditary nonpolyposis colorectal carcinoma	4	3.7727272727272725
-Abnormality of the nail	4	3.487738419618528
-Uterine leiomyosarcoma	4	3.764705882352941
-Thyroid adenoma	4	3.92
-Retinal hamartoma	4	4.0
-Fibroadenoma of the breast	4	4.0
-Abnormality of the metacarpal bones	4	3.6513761467889907
-Nevus	4	3.772357723577236
-Hyperkeratosis	4	3.2280701754385968
-Palmoplantar hyperkeratosis	4	3.7681159420289854
-Irregular hyperpigmentation	4	3.5838926174496644
-Multiple lipomas	4	3.9420289855072466
-Unilateral renal agenesis	4	3.695652173913044
-Abnormality of color vision	4	3.4317548746518107
-Pituitary hypothyroidism	4	3.7777777777777777
-Hyposmia	4	3.568627450980392
-Dyspareunia	4	3.616161616161616
-Hypothalamic gonadotropin-releasing hormone deficiency	4	3.789473684210526
-Optic nerve hypoplasia	4	3.872611464968153
-Decreased circulating ACTH level	4	3.79746835443038
-Breast hypoplasia	4	3.5728155339805823
-Decreased fertility	4	3.4981549815498156
-Abnormal prolactin level	4	3.8545454545454545
-Oral cleft	4	3.2216216216216216
-Ectopic posterior pituitary	4	3.7037037037037033
-Unsteady gait	4	3.411371237458194
-Sandal gap	4	3.4054054054054053
-Astigmatism	4	3.3518987341772153
-Sparse hair	4	3.1672597864768686
-Tall stature	4	3.4407294832826745
-Short thumb	4	3.49618320610687
-Conspicuously happy disposition	4	4.0
-Wide anterior fontanel	4	3.37888198757764
-Hypoplastic iliac wing	4	3.723076923076923
-Respiratory distress	4	3.157057654075547
-Convex nasal ridge	4	3.5604395604395602
-Anophthalmia	4	3.4335260115606934
-Language impairment	4	3.5454545454545454
-Metatarsus adductus	4	3.6781609195402303
-Abnormality of the ribs	4	3.5502958579881656
-Abnormality of female internal genitalia	4	3.8769230769230765
-Dandy-Walker malformation	4	3.1297989031078615
-Interrupted aortic arch	4	3.935483870967742
-Aqueductal stenosis	4	3.697478991596639
-Facial palsy	4	2.953662182361734
-Hypoplasia of the ulna	4	3.4230769230769234
-Abnormality of vision	4	3.164179104477612
-Congenital onset	4	2.1838006230529596
-Biparietal narrowing	4	3.4055727554179565
-Aplasia/Hypoplasia of the radius	4	3.586776859504132
-Postnatal microcephaly	4	3.6268656716417906
-Long nose	4	3.658914728682171
-Emphysema	4	3.6037735849056602
-Hemoptysis	4	3.4133333333333336
-Pneumothorax	4	3.727891156462585
-Amblyopia	4	3.5731225296442686
-Aortic aneurysm	4	3.56989247311828
-Hypoplasia of the uterus	4	3.6398104265402846
-Broad palm	4	3.6691729323308273
-Sparse body hair	4	3.3020134228187916
-Impotence	4	3.7660818713450297
-Congenital sensorineural hearing impairment	4	3.6590909090909087
-Subcortical cerebral atrophy	4	3.8596491228070176
-Ophthalmoplegia	4	2.737327188940092
-Intestinal polyposis	4	3.6763005780346822
-Mask-like facies	4	3.5555555555555554
-Menstrual irregularities	4	4.0
-Dementia	4	3.0472854640980733
-Triangular face	4	3.1704312114989732
-Congenital cataract	4	3.4216867469879517
-Lymphadenopathy	4	3.070707070707071
-Abnormality of the metaphysis	4	3.2735042735042734
-Irritability	4	3.0653594771241828
-Fair hair	4	3.940298507462687
-Elevated calcitonin	4	3.9499999999999997
-Fever	4	2.7905824039653035
-Abnormality of the liver	4	3.3427762039660056
-Low frustration tolerance	3	2.9444444444444446
-Flat occiput	3	2.73568281938326
-Cerebellar atrophy	3	1.8950276243093924
-Increased serum serotonin	3	2.7777777777777777
-Ovarian neoplasm	3	2.727272727272727
-Abnormality of retinal pigmentation	3	1.856177606177606
-Hydrocele testis	3	3.0
-Long penis	3	2.9032258064516125
-Varicocele	3	3.0
-Angioid streaks of the fundus	3	3.0
-Abnormality of the cardiovascular system	3	2.7950310559006213
-Epibulbar dermoid	3	2.911764705882353
-Narrow internal auditory canal	3	2.9655172413793105
-Bronchogenic cyst	3	3.0
-Progressive macrocephaly	3	2.9716981132075473
-Ovarian cyst	3	2.9210526315789473
-Calvarial hyperostosis	3	2.8421052631578947
-Pulmonary embolism	3	2.6779661016949152
-Exostoses	3	2.905263157894737
-Arteriovenous malformation	3	2.6009174311926606
-Kyphoscoliosis	3	2.27319587628866
-Thick nasal alae	3	2.9625
-Abnormality of the wrist	3	3.0
-Heterotopia	3	2.8527607361963194
-Disproportionate tall stature	3	2.8461538461538463
-Opacification of the corneal stroma	3	2.582142857142857
-Acute leukemia	3	2.654320987654321
-Episodic abdominal pain	3	2.8609271523178808
-Dyspnea	3	2.29695885509839
-Protruding tongue	3	2.8706896551724137
-Ambiguous genitalia	3	2.616071428571429
-Exotropia	3	2.7419354838709675
-Flat face	3	2.5161290322580645
-Blindness	3	1.8601735776277724
-Paraganglioma	3	2.8285714285714287
-Palpitations	3	2.6447368421052633
-Bruising susceptibility	3	2.3654916512059367
-Absent septum pellucidum	3	2.7049180327868854
-Pituitary dwarfism	3	2.8867924528301883
-Aplasia/Hypoplasia of the breasts	3	2.797752808988764
-Amenorrhea	3	2.809090909090909
-Abnormality of secondary sexual hair	3	2.8604651162790695
-Ectopic anterior pituitary gland	3	2.8604651162790695
-Large fontanelles	3	2.514360313315927
-Osteoporosis of vertebrae	3	2.8604651162790695
-Prominent nasal tip	3	2.916666666666667
-Pneumonia	3	2.746987951807229
-Hypoplasia of the radius	3	2.6666666666666665
-Supernumerary ribs	3	2.9277108433734935
-Joint contracture of the hand	3	2.575657894736842
-Abnormality of epiphysis morphology	3	2.4292035398230087
-Increased number of teeth	3	2.79020979020979
-Ureteropelvic junction obstruction	3	2.8275862068965516
-Webbed neck	3	2.467866323907455
-Retinal coloboma	3	2.7777777777777777
-Abnormality of the outer ear	3	2.823529411764706
-Osteolysis	3	2.6238532110091746
-Microretrognathia	3	2.7777777777777777
-Cupped ear	3	2.7259615384615388
-Facial grimacing	3	3.0
-High axial triradius	3	3.0
-Abnormality of refraction	3	2.9454545454545453
-Obstructive sleep apnea	3	2.7983193277310927
-Poor coordination	3	2.923076923076923
-Premature thelarche	3	2.9189189189189193
-Abnormality of the kidney	3	2.7531645569620253
-Tethered cord	3	2.913043478260869
-Prominent fingertip pads	3	2.9318181818181817
-Short attention span	3	2.941176470588235
-Papillary cystadenoma of the epididymis	3	3.0
-Variable expressivity	3	1.6238334529791816
-Hyperuricemia	3	2.8125
-Aortic regurgitation	3	2.541176470588235
-Short palpebral fissure	3	2.4123711340206184
-Generalized seizures	3	3.0
-Bifid uvula	3	2.4205378973105134
-High pitched voice	3	2.727272727272727
-Abnormality of bone mineral density	3	2.8823529411764706
-Omphalocele	3	2.6306306306306304
-Aplasia/Hypoplasia of the thymus	3	2.9250000000000003
-Gonadotropin deficiency	3	2.75
-Bifid scrotum	3	2.867088607594937
-Horseshoe kidney	3	2.617241379310345
-Parathyroid hypoplasia	3	2.888888888888889
-Eyelid coloboma	3	2.8509316770186333
-Double outlet right ventricle	3	2.854838709677419
-Anal stenosis	3	2.838323353293413
-Narrow chest	3	2.478787878787879
-Congenital hypothyroidism	3	2.82
-Eczema	3	2.6153846153846154
-Split hand	3	2.6619718309859155
-Recurrent otitis media	3	2.6517857142857144
-Epiphyseal stippling	3	2.692307692307692
-Abnormal localization of kidney	3	2.7364016736401675
-Rhizomelia	3	2.7439024390243905
-Periventricular gray matter heterotopia	3	2.8536585365853657
-Delayed myelination	3	2.6334405144694535
-Abnormal heart morphology	3	2.526315789473684
-Prominent nose	3	2.7081712062256806
-Emotional lability	3	2.4459724950884083
-Decreased body weight	3	2.63135593220339
-Tetraplegia	3	2.941747572815534
-Vocal cord paralysis	3	2.9019607843137254
-Cerebellar hypoplasia	3	2.097826086956522
-Glucose intolerance	3	2.871794871794872
-Portal hypertension	3	2.792682926829268
-Delayed gross motor development	3	2.6853146853146854
-Abnormality of body height	3	2.898876404494382
-Absence of pubertal development	3	2.803738317757009
-Rigidity	3	2.359683794466403
-Hypoplasia of the ovary	3	2.6623376623376624
-Decreased testosterone in males	3	2.642857142857143
-Pulmonary arterial hypertension	3	2.3628865979381444
-Alopecia	3	2.088888888888889
-Aortic valve stenosis	3	2.7341772151898733
-Female hypogonadism	3	2.735294117647059
-Oligodontia	3	2.715
-Non-obstructive azoospermia	3	2.733644859813084
-Eunuchoid habitus	3	2.88
-Generalized joint laxity	3	2.7434210526315788
-Hemiparesis	3	2.568
-Mutism	3	2.8342541436464086
-Increased female libido	3	2.898876404494382
-Secondary amenorrhea	3	2.6381322957198443
-Aplasia/Hypoplasia of the thumb	3	2.859060402684564
-Platyspondyly	3	2.544776119402985
-Cortical dysplasia	3	2.8333333333333335
-Trichilemmoma	3	3.0
-Hypertriglyceridemia	3	2.517857142857143
-Abnormal renal morphology	3	2.830188679245283
-Underdeveloped supraorbital ridges	3	2.6593406593406597
-Nuclear cataract	3	3.0
-Cerebral hemorrhage	3	2.803921568627451
-Cone-shaped epiphysis	3	2.687732342007435
-Vertebral fusion	3	2.872340425531915
-Colon cancer	3	2.783132530120482
-Femoral hernia	3	2.921739130434783
-Telangiectasia of the skin	3	2.596551724137931
-Polymicrogyria	3	2.2591304347826084
-Abnormal pyramidal sign	3	2.3319587628865976
-Abnormality of the eye	3	2.7664670658682633
-Tinnitus	3	2.8205128205128203
-Neoplasm of the rectum	3	3.0
-Ascites	3	2.5701492537313433
-Recurrent paroxysmal headache	3	3.0
-Hypertension associated with pheochromocytoma	3	3.0
-Adrenal pheochromocytoma	3	3.0
-Shagreen patch	3	3.0
-Infantile spasms	3	2.8636363636363633
-Gingivitis	3	2.8187919463087248
-Short distal phalanx of finger	2	1.6404494382022472
-Babinski sign	2	1.3797169811320755
-Facial hypotonia	2	1.8888888888888888
-Shuffling gait	2	1.8852459016393441
-Diastema	2	1.9310344827586206
-Restlessness	2	2.0
-Lower limb hypertonia	2	1.9655172413793103
-Limited elbow movement	2	1.90625
-Inappropriate laughter	2	2.0
-Childhood onset	2	1.7357142857142855
-Lack of spontaneous play	2	2.0
-Multifactorial inheritance	2	2.0
-Restrictive behavior	2	2.0
-Impaired use of nonverbal behaviors	2	2.0
-Inflexible adherence to routines or rituals	2	2.0
-Sirenomelia	2	2.0
-Metatarsus valgus	2	1.8813559322033897
-Vascular skin abnormality	2	2.0
-Dysgerminoma	2	2.0
-Generalized hyperpigmentation	2	1.8823529411764706
-Asymmetry of the thorax	2	2.0
-Thymus hyperplasia	2	2.0
-Testicular neoplasm	2	1.9333333333333331
-Buphthalmos	2	1.9074074074074074
-Epidermal nevus	2	2.0
-Thrombophlebitis	2	2.0
-Arterial thrombosis	2	1.8561151079136693
-Progressive	2	1.1750599520383693
-Ovarian papillary adenocarcinoma	2	2.0
-Abnormal subcutaneous fat tissue distribution	2	2.0
-Myofibrillar myopathy	2	1.9555555555555555
-Central heterochromia	2	2.0
-Lymphangioma	2	1.9000000000000001
-Neoplasm of the thymus	2	2.0
-Neoplasm of the lung	2	1.9130434782608696
-Venous malformation	2	2.0
-Upper limb asymmetry	2	1.9354838709677418
-Retinal nonattachment	2	2.0
-Hemihypertrophy	2	2.0
-Neoplasm	2	1.7846153846153847
-Widely-spaced maxillary central incisors	2	2.0
-Poor appetite	2	1.8356164383561644
-U-Shaped upper lip vermilion	2	2.0
-Tricuspid regurgitation	2	1.9038461538461537
-Talipes calcaneovalgus	2	2.0
-Hepatic failure	2	1.541740674955595
-Microcytic anemia	2	1.8686131386861313
-Abnormality of movement	2	1.9135802469135803
-Intermittent diarrhea	2	1.9540229885057472
-Slender finger	2	1.8805970149253732
-Vomiting	2	1.4086294416243657
-Paroxysmal bursts of laughter	2	2.0
-Infantile muscular hypotonia	2	1.8681318681318682
-Anorexia	2	1.7709923664122136
-Decreased cervical spine mobility	2	1.826086956521739
-Median cleft lip and palate	2	1.89873417721519
-Adrenal hypoplasia	2	1.9285714285714286
-Anterior pituitary agenesis	2	1.911111111111111
-Short finger	2	1.894736842105263
-Thick hair	2	1.957446808510638
-Optic nerve coloboma	2	1.9669421487603307
-Limited elbow extension	2	1.8646616541353385
-Sparse and thin eyebrow	2	1.7023809523809523
-Microphallus	2	2.0
-Toe clinodactyly	2	1.9500000000000002
-High anterior hairline	2	1.8461538461538463
-Medial flaring of the eyebrow	2	1.8028169014084507
-Radial deviation of thumb terminal phalanx	2	2.0
-Vascular ring	2	2.0
-Low hanging columella	2	2.0
-Flared iliac wings	2	1.8653846153846154
-Deviated nasal septum	2	1.9130434782608696
-Keloids	2	2.0
-Nasolacrimal duct obstruction	2	1.92
-Talon cusp	2	2.0
-Duplication of phalanx of hallux	2	1.9512195121951221
-Abnormal number of teeth	2	2.0
-Impulsivity	2	1.9124087591240875
-Avascular necrosis of the capital femoral epiphysis	2	1.9175257731958764
-Chorioretinal dystrophy	2	1.9375
-Bifid uterus	2	2.0
-Parietal foramina	2	1.9666666666666668
-Large foramen magnum	2	2.0
-Hypoplasia of dental enamel	2	1.8098859315589353
-Plantar crease between first and second toes	2	2.0
-Duane anomaly	2	1.9215686274509802
-Abnormal cornea morphology	2	2.0
-Recurrent upper respiratory tract infections	2	1.782312925170068
-Agoraphobia	2	2.0
-Abnormality of the cervical spine	2	1.9666666666666668
-Chronic constipation	2	1.8222222222222222
-Headache	2	1.6781609195402298
-Premature graying of hair	2	1.8484848484848484
-Focal seizures	2	1.8692810457516338
-Amaurosis fugax	2	1.8686131386861313
-Square face	2	2.0
-Labial hypoplasia	2	2.0
-Abnormality of the adrenal glands	2	1.8545454545454547
-Lymphopenia	2	1.8143459915611815
-Hypoplasia of the semicircular canal	2	2.0
-External ear malformation	2	1.613953488372093
-Abnormal soft palate morphology	2	2.0
-Absent radius	2	1.9036144578313252
-Lop ear	2	2.0
-Posterior choanal atresia	2	2.0
-Mixed hearing impairment	2	1.8965517241379313
-Abnormality of tibia morphology	2	1.942857142857143
-Aplasia/Hypoplasia of the earlobes	2	1.9466666666666665
-Duodenal atresia	2	1.8909090909090909
-Bifid femur	2	2.0
-Hand monodactyly	2	2.0
-Abnormal palmar dermatoglyphics	2	1.9259259259259258
-Dimple chin	2	1.8507462686567164
-Sparse scalp hair	2	1.6648351648351647
-Hypergonadotropic hypogonadism	2	1.7176470588235295
-Subvalvular aortic stenosis	2	1.9354838709677418
-Broad face	2	1.9701492537313434
-Nephroblastoma	2	1.8010471204188483
-Gastrointestinal dysmotility	2	1.96875
-Bicornuate uterus	2	1.7999999999999998
-Overlapping toe	2	1.8928571428571428
-Abnormality of the larynx	2	1.8888888888888888
-Sleep-wake cycle disturbance	2	1.9393939393939394
-Hypocholesterolemia	2	2.0
-Abnormality of dental morphology	2	1.8645833333333333
-Microglossia	2	1.8571428571428572
-Abnormality of the eyelashes	2	1.7999999999999998
-Neurogenic bladder	2	2.0
-Hypernatremia	2	1.9487179487179485
-Ascending tubular aorta aneurysm	2	1.878787878787879
-Postnatal macrocephaly	2	2.0
-Lumbar hyperlordosis	2	1.6895306859205776
-Abnormality of the nasopharynx	2	1.9250000000000003
-Abnormality of the sternum	2	1.8099173553719008
-Febrile seizures	2	1.855072463768116
-Large earlobe	2	1.875
-Obsessive-compulsive trait	2	2.0
-Subarachnoid hemorrhage	2	1.8285714285714285
-Periorbital fullness	2	1.8800000000000001
-Prenatal maternal abnormality	2	1.8363636363636362
-Transient ischemic attack	2	1.7641509433962264
-Exertional dyspnea	2	1.695538057742782
-Dilatation of the cerebral artery	2	1.7872340425531914
-Renal artery stenosis	2	1.8924731182795698
-Arnold-Chiari type I malformation	2	1.9333333333333331
-Shallow orbits	2	1.9423076923076923
-Abnormal anterior chamber morphology	2	1.9375
-Increased susceptibility to fractures	2	1.8529411764705883
-Broad foot	2	1.8823529411764706
-Trigonocephaly	2	1.843971631205674
-Hemiplegia	2	1.83739837398374
-Broad hallux phalanx	2	1.9272727272727272
-Aphasia	2	1.8201058201058202
-Arachnoid cyst	2	1.9500000000000002
-Hypoplastic scapulae	2	1.9619047619047618
-Neoplasm of the skeletal system	2	2.0
-Craniofacial hyperostosis	2	1.905511811023622
-Severe short stature	2	1.6462264150943395
-Hypoplasia of the iris	2	1.92
-Intellectual disability, profound	2	1.731629392971246
-Urinary incontinence	2	1.6895522388059703
-Truncal ataxia	2	1.8105263157894738
-Dystonia	2	1.2531280076997113
-Hyperkinesis	2	1.9393939393939394
-Papillary thyroid carcinoma	2	1.9583333333333335
-Hashimoto thyroiditis	2	1.9148936170212765
-Parkinsonism	2	1.6675603217158177
-Abnormal autonomic nervous system physiology	2	1.8289473684210524
-Abnormality of brainstem morphology	2	1.9466666666666665
-Large forehead	2	2.0
-Dysesthesia	2	1.9272727272727272
-Hypercholesterolemia	2	1.8446601941747571
-Abnormality of the ureter	2	1.8545454545454547
-Abnormality of chromosome segregation	2	1.8181818181818181
-Corticospinal tract hypoplasia	2	1.9444444444444446
-Large face	2	2.0
-Taurodontia	2	1.879396984924623
-Delayed eruption of primary teeth	2	1.9318181818181817
-Expressive language delay	2	2.0
-Oral-pharyngeal dysphagia	2	1.967741935483871
-Velopharyngeal insufficiency	2	2.0
-Abnormal tracheobronchial morphology	2	2.0
-Abnormality of creatine metabolism	2	1.9692307692307693
-Abnormal nasal morphology	2	1.8611111111111112
-Preauricular pit	2	1.7989417989417988
-Abnormality of abdomen morphology	2	1.9000000000000001
-Epistaxis	2	1.755244755244755
-Distal muscle weakness	2	1.5451127819548873
-Slender build	2	1.8989898989898992
-Bruxism	2	1.9512195121951221
-Short chin	2	1.8529411764705883
-Cortical visual impairment	2	1.6917293233082706
-Renal dysplasia	2	1.831858407079646
-Pancreatic aplasia	2	2.0
-Ureterocele	2	1.9500000000000002
-Oligohydramnios	2	1.54296875
-Thickened skin	2	1.8387096774193548
-Respiratory failure	2	1.3923739237392374
-Pancreatic adenocarcinoma	2	1.9340659340659339
-Cirrhosis	2	1.5381944444444444
-Thickened calvaria	2	1.8656716417910446
-EMG abnormality	2	1.5640535372848947
-Exocrine pancreatic insufficiency	2	1.860759493670886
-Increased level of L-fucose in urine	2	1.9493670886075949
-Ovarian carcinoma	2	2.0
-Motor deterioration	2	1.9298245614035088
-Apnea	2	1.4873323397913563
-Apraxia	2	1.8640776699029125
-Choreoathetosis	2	1.6824324324324327
-Progressive microcephaly	2	1.7250859106529208
-Long palpebral fissure	2	1.9066666666666667
-Thoracic kyphosis	2	2.0
-Parathyroid adenoma	2	1.943661971830986
-Patent foramen ovale	2	1.8692810457516338
-Renal neoplasm	2	2.0
-Peripheral axonal neuropathy	2	1.678018575851393
-Paresthesia	2	1.6298200514138819
-Abnormal chorioretinal morphology	2	1.8118811881188122
-Retinal vascular tortuosity	2	2.0
-Venous insufficiency	2	1.9642857142857144
-Abnormal pupil morphology	2	1.8727272727272728
-Visual loss	2	1.5262267343485618
-Aplasia/Hypoplasia of the eyebrow	2	1.7408637873754151
-Hypopigmentation of the skin	2	1.8121546961325965
-Narrow vertebral interpedicular distance	2	1.9411764705882353
-Hypoplastic vertebral bodies	2	1.9649122807017545
-Hypoplasia of the nasal bone	2	2.0
-Mild short stature	2	1.9074074074074074
-Congenital craniofacial dysostosis	2	2.0
-Cerebral venous thrombosis	2	1.8499999999999999
-Absent/hypoplastic paranasal sinuses	2	1.942857142857143
-Pseudohypoparathyroidism	2	2.0
-Hyperphosphatemia	2	1.957446808510638
-Elevated circulating parathyroid hormone level	2	1.9148936170212765
-Red hair	2	2.0
-Numerous nevi	2	2.0
-Visual field defect	2	1.8303571428571428
-Neoplasm of the thyroid gland	2	1.8653846153846154
-Lipoatrophy	2	1.6473988439306357
-Dyskinesia	2	1.751937984496124
-Pituitary adenoma	2	1.8571428571428572
-Stomach cancer	2	1.8653846153846154
-Uterine neoplasm	2	2.0
-Thyroid carcinoma	2	1.9649122807017545
-Pheochromocytoma	2	2.0
-Thin skin	2	1.6898395721925132
-Cone-shaped epiphyses of the phalanges of the hand	2	1.9139784946236558
-Pectus carinatum	2	1.4666666666666668
-Lymphoma	2	1.6521739130434783
-Genu recurvatum	2	1.826086956521739
-Communicating hydrocephalus	2	2.0
-Abdominal wall muscle weakness	2	1.9615384615384617
-Absent hand	2	1.9215686274509802
-Aplasia of the pectoralis major muscle	2	2.0
-Aplasia/Hypoplasia involving the metacarpal bones	2	1.96
-Breast aplasia	2	1.9036144578313252
-Abnormality of the ulna	2	1.9722222222222223
-Aplasia/Hypoplasia of the tongue	2	1.8333333333333335
-Abnormality of the sense of smell	2	2.0
-Absence seizures	2	1.8313253012048194
-Status epilepticus	2	1.7285714285714286
-Epileptic spasms	2	2.0
-Clumsiness	2	1.9072847682119205
-Generalized tonic-clonic seizures	2	1.7249283667621778
-Esophoria	2	2.0
-Urticaria	2	1.7727272727272727
-Cranial nerve compression	2	2.0
-Aniridia	2	1.8775510204081631
-Elevated urinary norepinephrine	2	2.0
-Paroxysmal vertigo	2	2.0
-Neurofibromas	2	2.0
-Episodic hyperhidrosis	2	1.9506172839506175
-Paraganglioma of head and neck	2	2.0
-Flushing	2	2.0
-Elevated urinary epinephrine	2	2.0
-Hypertensive retinopathy	2	2.0
-Extraadrenal pheochromocytoma	2	2.0
-Intestinal obstruction	2	1.8128654970760234
-Glomerulosclerosis	2	1.9325842696629212
-Tachycardia	2	1.884892086330935
-Gastrointestinal stroma tumor	2	1.8974358974358976
+Autism	114	30.97346600331675
+Intellectual disability	93	2.6889492858382007
+Seizures	86	2.578787969654263
+Global developmental delay	86	2.5527620291489805
+Short stature	82	3.106884401166976
+Strabismus	69	3.9886698653101336
+Cryptorchidism	65	4.124103800520272
+Microcephaly	64	3.0889521695062503
+Muscular hypotonia	63	3.0637552886252006
+Scoliosis	60	3.184375331705764
+Autosomal dominant inheritance	53	1.241915830911988
+Attention deficit hyperactivity disorder	52	13.843243243243244
+Micrognathia	48	3.2085561497326203
+Cataract	48	2.9994376054489784
+Obesity	45	6.036217303822937
+Gastroesophageal reflux	44	7.4620760184080455
+Failure to thrive	43	2.3206864914458416
+Epicanthus	43	4.294417257565165
+Constipation	43	6.958041958041958
+Clinodactyly of the 5th finger	41	5.668281206753391
+Hypertelorism	41	2.7986348122866893
+Myopia	40	5.830903790087463
+Long philtrum	40	5.98142043751873
+Anxiety	40	7.089326940152726
+Delayed speech and language development	39	5.577005577005576
+Hearing impairment	39	2.73492286115007
+Ventricular septal defect	38	4.523271039162005
+Nystagmus	38	1.8453768453768455
+Feeding difficulties in infancy	38	4.424991257722345
+Ptosis	38	2.78653662829068
+Hypothyroidism	38	8.506437768240344
+Brachydactyly	37	4.738238687347776
+Generalized hypotonia	37	1.8086718482670967
+Kyphosis	37	5.516865671641791
+Wide nasal bridge	36	3.283173734610123
+Hypospadias	35	4.84264522390129
+Sensorineural hearing impairment	35	1.9998857208159533
+Depressed nasal bridge	34	3.53356890459364
+Cleft palate	34	2.994275649493615
+Macrotia	33	7.029543994861914
+Cerebral cortical atrophy	33	5.765025407394428
+High palate	32	2.823612459189976
+Pectus excavatum	32	5.714490417338348
+Vesicoureteral reflux	32	8.942263279445728
+Atrial septal defect	32	4.675734971478718
+Deeply set eye	31	8.02132140036852
+Ventriculomegaly	31	3.7745038353829297
+Downslanted palpebral fissures	31	3.5967049541710177
+Brachycephaly	31	6.549946751863685
+Patent ductus arteriosus	31	5.0513280104285485
+Hypoplasia of penis	30	4.63644801980198
+Low-set ears	30	2.627660506262591
+Sporadic	30	10.399709302325581
+Upslanted palpebral fissure	29	5.619103313840156
+Joint stiffness	29	6.016246615288481
+Intrauterine growth retardation	29	2.9166247611384897
+Glaucoma	29	3.925815622038717
+Narrow mouth	29	6.749882684185829
+Delayed skeletal maturation	28	3.66732154551408
+Optic atrophy	28	2.2394625289930414
+Depressivity	28	4.44988864142539
+Low-set, posteriorly rotated ears	27	4.400977995110025
+Short nose	27	4.2678939850817335
+Conductive hearing impairment	27	4.169302325581396
+Joint hyperflexibility	27	5.097616345062429
+Short foot	26	8.095454545454546
+Obsessive-compulsive behavior	26	13.797707349966284
+Tetralogy of Fallot	26	7.471264367816092
+Visual impairment	26	2.3343508708924405
+Inguinal hernia	26	4.548861646234676
+Anteverted nares	25	2.56910903298736
+Short neck	25	3.2782585890375033
+Carious teeth	25	6.347381864623244
+Frontal bossing	25	3.082234003205523
+Malar flattening	25	4.478081207330219
+Hypogonadotrophic hypogonadism	25	7.182973691989359
+Delayed puberty	24	4.7371553263241415
+Sleep disturbance	24	7.791137066300241
+Autosomal recessive inheritance	24	0.3558033000756082
+Umbilical hernia	24	4.04184947688154
+Macrocephaly	23	2.9029408052505365
+Aplasia/Hypoplasia of the cerebellum	23	7.720963172804533
+Hyperactivity	23	8.066716362281028
+Specific learning disability	23	6.0229333333333335
+Renal hypoplasia	23	8.529987760097919
+Osteopenia	23	4.20984027905269
+Intellectual disability, severe	22	3.5249398556535687
+Renal insufficiency	22	3.22108345534407
+Wide mouth	22	5.7266684392448814
+Intellectual disability, mild	22	4.631578947368421
+Pes planus	22	3.8431647120602133
+Micropenis	21	4.050988755331524
+Aggressive behavior	21	5.470494417862839
+EEG abnormality	21	4.150578380534503
+Microphthalmia	21	3.3434166533991405
+Chronic otitis media	21	7.806413301662707
+Precocious puberty	21	9.218717683557394
+Prominent nasal bridge	20	4.4414595925677185
+Choanal atresia	20	7.0212765957446805
+Stereotypy	20	8.936825885978429
+Long face	20	4.629715882626922
+Midface retrusion	20	3.7335834896810507
+Hydrocephalus	20	2.7443970851093087
+Mandibular prognathia	19	5.089377886443901
+Thin upper lip vermilion	19	4.846034214618974
+Hip dysplasia	19	6.4686707714596166
+Macroglossia	19	6.0817906428811845
+Abnormality of dental enamel	19	6.561710037174721
+Ataxia	19	1.2912872094603778
+Agenesis of corpus callosum	19	3.489581412502305
+Bulbous nose	19	7.088638195004029
+Dysarthria	19	1.6952177016416845
+Recurrent respiratory infections	19	2.3066650479543522
+Osteoporosis	19	2.9959003468937246
+Protruding ear	18	4.852989577619309
+Primary amenorrhea	18	5.805286048845768
+Self-injurious behavior	18	10.600671140939596
+Cholelithiasis	18	9.590782122905027
+Patellar dislocation	18	11.026717557251908
+Multiple renal cysts	18	10.768281938325991
+Coarse facial features	18	3.668176204199259
+Genu valgum	18	5.59546191247974
+Failure to thrive in infancy	18	8.304025423728813
+Broad forehead	18	5.305495855081364
+Intestinal malrotation	17	7.1746871992300285
+Small hand	17	7.038568773234201
+Neurological speech impairment	17	4.754154727793696
+Downturned corners of mouth	17	5.923278443113772
+Pyloric stenosis	17	6.729634522236901
+Highly arched eyebrow	17	5.023787740164685
+Hypopigmented skin patches	17	5.04447900466563
+Abnormal form of the vertebral bodies	17	5.946792452830189
+Myopathy	17	3.2589320015366887
+Short philtrum	17	4.56027972027972
+Nasal speech	17	7.335787923416789
+Retinal arteriolar tortuosity	17	12.020435967302452
+Nausea and vomiting	17	3.4760829398480806
+Phenotypic variability	17	2.5114492539518394
+Tracheoesophageal fistula	17	6.711111111111111
+Tremor	17	2.401469134058483
+Abnormality of cardiovascular system morphology	17	3.420077377316229
+Narrow face	17	7.116092496460595
+Developmental regression	17	2.9210526315789473
+Congestive heart failure	17	3.733644859813084
+Hyperreflexia	16	1.1385469294812496
+Talipes equinovarus	16	2.349831105889264
+Increased nuchal translucency	16	10.660170523751521
+Thin vermilion border	16	5.5762137749341365
+Gynecomastia	16	5.739064282997337
+Open mouth	16	6.748815165876778
+Hemiplegia/hemiparesis	16	4.835689601005341
+Pointed chin	16	8.158872517616912
+Dysphagia	16	2.3152095113817603
+Dysphasia	16	8.293963254593175
+Posterior embryotoxon	16	9.060240963855422
+Thick lower lip vermilion	16	4.951524879614767
+Type II diabetes mellitus	16	4.343551505109086
+High forehead	16	3.627885714285714
+Clinodactyly	15	5.287810383747178
+Short palm	15	5.190825688073394
+Spasticity	15	1.413494157557482
+Abnormality of the uterus	15	9.625922023182298
+Radioulnar synostosis	15	6.782334384858044
+Generalized hirsutism	15	4.951100244498777
+Cognitive impairment	15	2.195980636643685
+Hypertonia	15	3.13277133825079
+Splenomegaly	15	1.675416061655311
+Abnormality of the neck	15	10.161290322580644
+Hypogonadism	15	2.51131221719457
+Gait disturbance	15	1.8879798615481433
+High hypermetropia	15	8.834745762711863
+Aortic arch aneurysm	15	11.164383561643836
+Hydronephrosis	15	3.449197860962567
+Polyhydramnios	15	2.990401919616077
+Hand polydactyly	15	6.352261790182868
+Gastrointestinal hemorrhage	15	4.648639896373057
+Blepharophimosis	15	4.855371900826446
+Fatigue	15	1.8550581251545881
+Growth hormone deficiency	15	7.324805339265851
+Motor delay	15	1.791472590469366
+Joint laxity	15	4.003836667580159
+X-linked recessive inheritance	14	2.9553571428571432
+Hypoplasia of the maxilla	14	4.457734714333445
+Thick eyebrow	14	5.476962457337884
+Synophrys	14	5.319767441860465
+Dolichocephaly	14	3.683221476510067
+Macule	14	9.461962513781698
+Foot polydactyly	14	6.576104746317512
+Corneal opacity	14	4.132841328413284
+Laryngomalacia	14	7.702970297029703
+Arachnodactyly	14	5.121553398058253
+Feeding difficulties	14	1.6726403823178018
+Everted lower lip vermilion	14	4.632496513249651
+Syndactyly	14	5.617360496014172
+Psychosis	14	6.320459290187891
+Dental malocclusion	14	5.579268292682927
+Abdominal pain	14	2.9126131817224676
+Decreased testicular size	13	3.327864583333333
+Hip dislocation	13	3.1001689596910453
+Narrow forehead	13	6.271206001154068
+Truncal obesity	13	8.149809160305344
+Toe syndactyly	13	3.885935085007728
+Infantile onset	13	1.1666517095934668
+Renal cyst	13	5.8159633960345705
+Polyphagia	13	8.110091743119266
+Depressed nasal ridge	13	3.6049170954831333
+Schizophrenia	13	7.305864884929473
+Aganglionic megacolon	13	3.7997561718988115
+Telecanthus	13	3.843788063337393
+Blue irides	13	9.292533659730722
+Proteinuria	13	3.3531881395959067
+Multiple cafe-au-lait spots	12	6.018484288354899
+Hypermetropia	12	4.358934169278997
+Smooth philtrum	12	4.8153214774281805
+Low anterior hairline	12	5.694682675814751
+Microcornea	12	3.3547646383467282
+Hallux valgus	12	6.862529457973292
+Renal cell carcinoma	12	6.695517774343122
+Increased intracranial pressure	12	5.22502522704339
+Thrombocytopenia	12	2.112169312169312
+Hypocalcemia	12	6.593974175035868
+Immunodeficiency	12	2.774420238931834
+Anal atresia	12	3.3291642978965323
+Arnold-Chiari malformation	12	7.227758007117438
+Nevus flammeus	12	8.017241379310345
+Open bite	12	7.417582417582418
+Hoarse voice	12	6.277294038847957
+Mitral regurgitation	12	4.798951048951049
+Microdontia	12	3.910295616717635
+Multicystic kidney dysplasia	11	3.4316851008458036
+Congenital diaphragmatic hernia	11	4.612060778727445
+Peripheral neuropathy	11	2.3351166274341963
+Micromelia	11	3.466600529100529
+Delayed eruption of teeth	11	3.3953261927945473
+Cutis marmorata	11	5.668542839274546
+Heterogeneous	11	1.4711873492361296
+Proptosis	11	2.072765072765073
+Abnormal lung lobation	11	7.428089887640449
+Hyperthyroidism	11	8.226086956521739
+Papule	11	4.811463046757165
+Diabetes insipidus	11	6.890804597701149
+Subcutaneous nodule	11	4.064554455445545
+Colonic diverticula	11	8.83271375464684
+Microtia	11	4.13614262560778
+Dry skin	11	2.968447273733739
+Abnormal aortic valve morphology	11	5.924252953439889
+Overfolded helix	11	6.910390848427073
+Radial deviation of finger	11	5.650390625
+Death in early adulthood	11	7.027455121436114
+Nephrolithiasis	11	4.131160896130346
+Hyperacusis	11	8.75883575883576
+Dysmetria	11	3.8187593423019432
+Mitral valve prolapse	11	4.661650485436893
+Pulmonic stenosis	11	4.545662100456622
+Polycystic ovaries	11	6.308956450287592
+Sacral dimple	11	5.590714722052535
+Long eyelashes	10	4.563260984647962
+Talipes	10	4.262215771649734
+Hypertrophic cardiomyopathy	10	1.719316416364578
+Low posterior hairline	10	4.163130598774163
+Proximal placement of thumb	10	6.479357798165137
+Poor speech	10	3.9867549668874176
+Widely spaced teeth	10	5.425158116654954
+Cerebral atrophy	10	1.8367722918201916
+Growth delay	10	1.6025641025641024
+Round face	10	4.2084942084942085
+Sudden cardiac death	10	3.9196857267568745
+Decreased muscle mass	10	5.3
+Abnormality of metabolism/homeostasis	10	1.8575158522939201
+Finger syndactyly	10	2.0412796697626416
+Melanocytic nevus	10	4.87040385774563
+Abnormal cardiac septum morphology	10	5.181695827725437
+Bowel incontinence	10	6.218637992831542
+Arrhinencephaly	10	6.782006920415225
+Truncus arteriosus	10	7.474302496328928
+Atelectasis	10	7.48407643312102
+Hypoplasia of the corpus callosum	10	1.5495579339227548
+Recurrent urinary tract infections	10	3.4820415879017013
+Scrotal hypoplasia	10	5.58932542624166
+Abnormality of the dentition	10	2.611821086261981
+Infertility	10	4.5508658008658
+Hypercalcemia	10	5.484598046581517
+Hypoplastic toenails	10	5.793327908868999
+Abnormality of extrapyramidal motor function	10	3.9879414298018947
+Abnormal dermatoglyphics	10	5.610130468150422
+Dysphonia	10	5.375914836992681
+Down-sloping shoulders	10	6.410788381742739
+Cardiomegaly	10	4.283611383709519
+Peripheral pulmonary artery stenosis	10	7.731397459165155
+Lacrimation abnormality	10	6.831566548881036
+Phonophobia	10	8.526315789473683
+Hypodontia	10	2.8223703274413214
+Adducted thumb	10	4.386934673366834
+Hypoplasia of the zygomatic bone	10	6.838638858397366
+Spina bifida occulta	10	4.645449469570073
+Malabsorption	10	2.1575043630017454
+Hyperlordosis	10	2.776034236804565
+Dental crowding	10	4.388888888888888
+Camptodactyly of finger	9	1.8760987861029719
+Premature birth	9	2.6701765252400125
+X-linked dominant inheritance	9	3.2079905992949476
+Bilateral single transverse palmar creases	9	4.098299681190223
+Blepharitis	9	4.800853485064011
+Absent speech	9	3.2168106834249808
+Self-mutilation	9	6.89516129032258
+Bone cyst	9	6.4637482900136805
+Facial asymmetry	9	3.085714285714286
+Reduced number of teeth	9	4.29757785467128
+Spinal canal stenosis	9	6.303595206391479
+Adenoma sebaceum	9	6.942408376963351
+Adult onset	9	2.6681901279707496
+Hypohidrosis	9	4.022508038585209
+Seborrheic dermatitis	9	6.952293577981651
+Acne	9	4.83225806451613
+Asthma	9	5.116438356164384
+Arthritis	9	3.4668367346938775
+Polycystic kidney dysplasia	9	5.376838235294118
+Bipolar affective disorder	9	6.801047120418848
+Autoimmunity	9	4.452923076923077
+Abnormality of the thorax	9	5.507462686567164
+Myalgia	9	3.1427500936680404
+Autistic behavior	9	4.159621802002225
+Flexion contracture	9	1.6900452488687785
+Renal agenesis	9	3.5691021126760565
+Muscle weakness	9	1.1645962732919255
+Polydipsia	9	5.431318681318682
+Anosmia	9	5.350125944584383
+Pes cavus	9	1.6387568555758685
+Esophageal atresia	9	5.23051948051948
+Decreased fetal movement	9	2.8603723404255317
+Impaired pain sensation	9	6.197414806110459
+Frontal upsweep of hair	9	7.927899686520376
+Hyperinsulinemia	9	2.858612678393628
+Stroke	9	4.674232309746328
+Dysgraphia	9	5.287788215200683
+Cerebral ischemia	9	5.1900958466453675
+Aplasia/Hypoplasia of the iris	9	4.525391849529781
+Nephrocalcinosis	9	4.202579258463191
+Pelvic kidney	9	7.552763819095477
+Elevated serum creatine phosphokinase	9	1.470559371933268
+Abnormality of the diencephalon	9	7.925806451612903
+Insomnia	9	6.7088186356073205
+Overfriendliness	9	7.886287625418061
+Abnormality of the fingernails	9	3.0554347826086956
+Renovascular hypertension	9	7.193116634799235
+Gingival overgrowth	9	3.810656517602284
+Urethral stenosis	9	6.57
+Rectal prolapse	9	6.593655589123867
+Behavioral abnormality	9	3.5855935971542907
+Incomplete penetrance	9	2.763915547024952
+Single transverse palmar crease	9	4.109012412304371
+Cleft upper lip	9	2.625
+Iris coloboma	9	2.2994246861924683
+Broad thumb	9	4.440072639225182
+Arrhythmia	9	2.138290142891741
+Respiratory insufficiency	9	1.1327879169288861
+Furrowed tongue	8	4.990403071017274
+Volvulus	8	6.6633416458852865
+Severe postnatal growth retardation	8	5.759577278731836
+Elbow dislocation	8	3.864897466827503
+Hypoplastic nipples	8	5.61090458488228
+Severe global developmental delay	8	3.3676042677012608
+Lipoma	8	6.985507246376812
+Cavernous hemangioma	8	5.853932584269663
+Hamartomatous polyposis	8	6.92354740061162
+Intellectual disability, moderate	8	3.985203452527744
+Melanoma	8	3.9262899262899262
+Breast carcinoma	8	4.445108289768484
+Lower limb asymmetry	8	6.068554396423249
+Palmoplantar keratoderma	8	1.8923702463525474
+Enlarged polycystic ovaries	8	6.378378378378378
+Cranial nerve paralysis	8	3.0597335625268585
+Abnormality of female external genitalia	8	6.681318681318681
+Tetany	8	6.067114093959732
+Turricephaly	8	5.978159126365055
+Hypoplasia of the thymus	8	5.490589711417817
+Abnormal aortic arch morphology	8	6.60968660968661
+Impaired T cell function	8	5.894736842105263
+Varicose veins	8	5.877300613496932
+Multiple suture craniosynostosis	8	6.857142857142857
+Hypoparathyroidism	8	6.052631578947369
+Abnormality of the pharynx	8	6.006230529595016
+Occipital myelomeningocele	8	6.925795053003533
+Abnormal pulmonary valve morphology	8	4.765817584223501
+Chronic obstructive pulmonary disease	8	5.7229987293519695
+Hypertensive crisis	8	6.04225352112676
+Small earlobe	8	6.72
+Platybasia	8	6.486997635933806
+Tricuspid atresia	8	7.027450980392157
+Abnormality of the tonsils	8	6.909090909090909
+Purpura	8	4.692436974789916
+Corneal neovascularization	8	6.545454545454545
+Postnatal growth retardation	8	2.6378830083565457
+Abnormality of the voice	8	3.5690308608554413
+Sleep apnea	8	5.472727272727273
+Narrow nasal bridge	8	5.902439024390244
+Hypopigmentation of hair	8	5.514018691588785
+Poor fine motor coordination	8	6.420107719928187
+Arthralgia	8	1.9117434289848083
+Bladder diverticulum	8	5.706371191135734
+Functional abnormality of male internal genitalia	8	7.131578947368421
+Supravalvular aortic stenosis	8	6.301587301587301
+Flat cornea	8	6.946107784431137
+Redundant skin	8	4.29146426092991
+Peptic ulcer	8	6.097902097902098
+Abnormality of lipid metabolism	8	6.146189735614308
+Overriding aorta	8	6.5631929046563195
+Prematurely aged appearance	8	4.989880404783809
+Renal duplication	8	6.4
+Elfin facies	8	6.836363636363636
+Nystagmus-induced head nodding	8	7.0769230769230775
+Abnormality of pelvic girdle bone morphology	8	4.084158415841585
+Gait imbalance	8	5.633074935400517
+Vertebral segmentation defect	8	4.723549488054608
+Hypercalciuria	8	4.93969396939694
+Bicuspid aortic valve	8	4.042633228840126
+Myocardial infarction	8	3.7475935828877005
+Tubulointerstitial abnormality	8	7.067961165048544
+Periorbital edema	8	6.108374384236454
+Abnormality of the gastric mucosa	8	6.731707317073171
+Atrophy/Degeneration involving the corticospinal tracts	8	7.131086142322097
+Abnormal endocardium morphology	8	5.667546174142481
+Abnormality of the ankles	8	6.456470588235294
+Abnormal carotid artery morphology	8	5.031093279839519
+Megalocornea	8	5.411488862837046
+Increased bone mineral density	8	4.7874564459930316
+Cafe-au-lait spot	8	4.2652232746955345
+Broad hallux	8	4.808013355592654
+Coarctation of aorta	8	3.7362162162162162
+Aplasia/Hypoplasia of the corpus callosum	8	2.766983199415632
+Camptodactyly	8	2.831511496419148
+Diabetes mellitus	8	2.127104834329169
+Intellectual disability, progressive	7	3.594221930400525
+Prenatal movement abnormality	7	5.876056338028169
+Short 1st metacarpal	7	5.364485981308411
+Hypoplastic labia majora	7	4.634837355718783
+Abnormally low-pitched voice	7	5.989304812834225
+Oligodactyly	7	5.532467532467533
+Phthisis bulbi	7	6.069364161849711
+Atresia of the external auditory canal	7	3.904163393558523
+Hirsutism	7	2.7136027813993917
+Curly eyelashes	7	5.640625
+Skeletal muscle atrophy	7	0.8262511803588292
+X-linked inheritance	7	3.166488222698073
+Abnormality of the penis	7	6.32258064516129
+Abnormal cerebellum morphology	7	5.214076246334311
+Meningioma	7	5.065277777777778
+Follicular thyroid carcinoma	7	6.033742331288344
+Endometrial carcinoma	7	5.653206650831354
+Goiter	7	4.683453237410072
+Skeletal dysplasia	7	2.1439441978440077
+Skin tags	7	6.051724137931035
+Colorectal polyposis	7	6.128205128205128
+Recurrent infections	7	2.448698884758364
+Conjunctival hamartoma	7	6.125
+Papilloma	7	5.464426877470356
+Generalized hyperkeratosis	7	5.440147329650093
+Mucosal telangiectasiae	7	5.560878243512974
+Cellular immunodeficiency	7	4.728211009174312
+Rib fusion	7	4.7899262899262895
+Delayed cranial suture closure	7	3.996879875195008
+Neuroblastoma	7	4.607184241019699
+Dilated cardiomyopathy	7	2.049969715324046
+Telangiectasia	7	4.570841889117043
+Hepatic steatosis	7	2.610458046209972
+Coloboma	7	3.4312090530077426
+Anemia	7	0.9406073636119322
+Maternal diabetes	7	5.419354838709677
+Anterior pituitary hypoplasia	7	5.6265822784810124
+Septo-optic dysplasia	7	5.48581560283688
+Esotropia	7	3.1818181818181817
+Generalized hypopigmentation	7	5.8275862068965525
+Cutaneous photosensitivity	7	2.684076433121019
+Poor suck	7	3.812965722801789
+Abnormality of the pinna	7	3.0880281690140845
+Wide nose	7	2.6416184971098264
+Retrognathia	7	1.6240918678228262
+Short metacarpal	7	3.0678571428571426
+Short toe	7	3.6430889033095393
+Hyporeflexia	7	0.9933304952462041
+High, narrow palate	6	1.9736019451198332
+Poor eye contact	6	4.288111888111888
+Myoclonus	6	1.3764541647277804
+Neoplasm of the stomach	6	3.7363896848137537
+Somatic mutation	6	2.449817518248175
+Lymphedema	6	3.0946555054732774
+11 pairs of ribs	6	4.52027027027027
+Abnormal heart valve morphology	6	3.9434389140271495
+Ichthyosis	6	1.6739757645701097
+Tented upper lip vermilion	6	3.3179723502304146
+Hemivertebrae	6	3.629692832764505
+Hepatomegaly	6	0.5097272958966952
+Death in infancy	6	1.4185990915610807
+Bimanual synkinesia	6	4.219451371571072
+Holoprosencephaly	6	3.7769376181474477
+Recurrent fractures	6	1.6158317187932465
+Absence of secondary sex characteristics	6	3.4384615384615387
+Acromicria	6	5.349753694581281
+Iris hypopigmentation	6	3.522708505367465
+Narrow palm	6	5.095384615384615
+Clitoral hypoplasia	6	4.2
+Narrow palate	6	3.6819512195121953
+Hypoplastic labia minora	6	4.314516129032258
+Almond-shaped palpebral fissure	6	3.9188900747065105
+Abdominal obesity	6	4.815189873417721
+Adrenal insufficiency	6	3.7356426618049228
+Temperature instability	6	4.950391644908616
+Hypoventilation	6	4.770318021201413
+Poor gross motor coordination	6	5.252747252747253
+Oligomenorrhea	6	3.9793103448275864
+2-3 toe syndactyly	6	3.539383561643836
+Fine hair	6	2.4623303696771175
+Prominent forehead	6	1.5858178887993553
+Small for gestational age	6	1.8215306446490949
+Joint hypermobility	6	2.743961352657005
+Neonatal hypotonia	6	1.611645152430651
+Echolalia	6	4.176949941792782
+Prominent supraorbital ridges	6	3.8057482656095143
+Short metatarsal	6	3.860420650095602
+Abnormality of immune system physiology	6	3.4838709677419355
+Short phalanx of finger	6	3.3766423357664235
+Renal hypoplasia/aplasia	6	2.4864616796695733
+Hallucinations	6	2.2813021702838063
+Hypotelorism	6	2.7580390089615183
+Chest pain	6	2.7576243980738364
+Male hypogonadism	6	3.93502538071066
+Large hands	5	3.275299238302503
+Tapered finger	5	2.267348036578806
+Abnormal facial shape	5	1.6556865464632455
+Gait ataxia	5	1.5829986613119145
+Macrodactyly	5	4.632352941176471
+Macroorchidism	5	4.008528784648187
+Craniosynostosis	5	1.7144432194046306
+Transitional cell carcinoma of the bladder	5	3.764705882352941
+Visceral angiomatosis	5	3.756137479541735
+Capillary hemangioma	5	3.7842465753424657
+Cachexia	5	2.802197802197802
+Abnormal blistering of the skin	5	2.017703132092601
+Abnormality of the anus	5	3.8847583643122676
+Abnormal intestine morphology	5	3.9059500959692897
+Annular pancreas	5	4.1551246537396125
+Abnormality of the spleen	5	3.5828877005347595
+Ocular albinism	5	3.90302066772655
+Horizontal eyebrow	5	4.444444444444445
+Bifid ribs	5	4.434628975265017
+Posteriorly rotated ears	5	1.171782060433024
+Drooling	5	3.35972850678733
+Weight loss	5	1.018651362984218
+Shawl scrotum	5	3.9777777777777774
+Hypotension	5	2.8193832599118944
+Elevated hepatic transaminase	5	1.0014076010456465
+Erectile abnormalities	5	3.675832127351664
+Paraplegia	5	3.444948921679909
+Anterior hypopituitarism	5	3.2866379310344827
+Hypoglycemia	5	1.2926249008723236
+Jaundice	5	1.225453641561024
+Polydactyly	5	2.6327868852459018
+Reduced bone mineral density	5	2.119670542635659
+Plagiocephaly	5	2.888030888030888
+Dislocated radial head	5	3.6046511627906974
+Transposition of the great arteries	5	3.483072916666667
+Thick vermilion border	5	2.2325102880658436
+Broad-based gait	5	2.9614093959731544
+Underdeveloped nasal alae	5	2.1309465424227563
+Migraine	5	1.601892531260561
+Arthrogryposis multiplex congenita	5	1.5417867435158503
+Preauricular skin tag	5	2.7625739644970415
+Cerebral calcification	5	1.8732106339468302
+Broad nasal tip	5	2.1772978402812657
+Wide intermamillary distance	5	2.0302474793767185
+Sclerocornea	5	3.008968609865471
+Full cheeks	5	1.656763369451241
+Hypertension	5	0.828775070445881
+Memory impairment	5	1.7475545522949587
+Retinal detachment	5	2.020944741532977
+Accelerated skeletal maturation	5	2.4823943661971835
+Hematuria	5	1.9688566552901023
+Neoplasm of the pancreas	5	2.5718015665796345
+Happy demeanor	4	3.7396449704142016
+Hemangioma	4	2.7796610169491527
+Subcutaneous lipoma	4	3.6190476190476186
+Intention tremor	4	2.0569948186528495
+Thyroiditis	4	3.145161290322581
+Chorioretinal coloboma	4	2.4189991518235794
+Hereditary nonpolyposis colorectal carcinoma	4	3.0352112676056335
+Abnormality of the nail	4	1.7773258769700053
+Uterine leiomyosarcoma	4	3.2304250559284116
+Thyroid adenoma	4	3.477744807121662
+Retinal hamartoma	4	3.8000000000000003
+Fibroadenoma of the breast	4	3.819354838709677
+Abnormality of the metacarpal bones	4	2.3338788870703766
+Nevus	4	2.882191780821918
+Hyperkeratosis	4	1.401197604790419
+Palmoplantar hyperkeratosis	4	2.932178932178932
+Irregular hyperpigmentation	4	1.9384615384615382
+Multiple lipomas	4	3.2788259958071277
+Unilateral renal agenesis	4	2.58989898989899
+Abnormality of color vision	4	1.7482376636455188
+Pituitary hypothyroidism	4	3.1111111111111107
+Hyposmia	4	2.458681522748375
+Dyspareunia	4	2.481777777777778
+Hypothalamic gonadotropin-releasing hormone deficiency	4	3.062295081967213
+Optic nerve hypoplasia	4	2.7300832342449466
+Decreased circulating ACTH level	4	3.194860813704497
+Breast hypoplasia	4	2.4746376811594204
+Decreased fertility	4	2.0803267528931246
+Abnormal prolactin level	4	3.5379537953795377
+Oral cleft	4	1.837119113573407
+Ectopic posterior pituitary	4	3.343680709534368
+Unsteady gait	4	1.955043227665706
+Sandal gap	4	2.051813471502591
+Astigmatism	4	1.585840707964602
+Sparse hair	4	1.2132283464566929
+Tall stature	4	1.8241525423728813
+Short thumb	4	2.1538461538461537
+Conspicuously happy disposition	4	3.668789808917198
+Wide anterior fontanel	4	1.9009900990099011
+Hypoplastic iliac wing	4	2.944606413994169
+Respiratory distress	4	1.318007662835249
+Convex nasal ridge	4	2.0611464968152866
+Anophthalmia	4	1.9216832261835184
+Language impairment	4	2.5348837209302326
+Metatarsus adductus	4	2.517711171662125
+Abnormality of the ribs	4	1.8084210526315792
+Abnormality of female internal genitalia	4	2.656716417910448
+Dandy-Walker malformation	4	1.2412894822533378
+Interrupted aortic arch	4	3.4608150470219434
+Aqueductal stenosis	4	3.0891840607210628
+Facial palsy	4	1.027915470910514
+Hypoplasia of the ulna	4	1.9733009708737863
+Abnormality of vision	4	1.5113683340223232
+Congenital onset	4	0.5675368898978433
+Biparietal narrowing	4	1.9156829679595277
+Aplasia/Hypoplasia of the radius	4	2.2622432859399684
+Postnatal microcephaly	4	2.158904109589041
+Long nose	4	2.8849557522123894
+Emphysema	4	2.3958868894601544
+Hemoptysis	4	2.053629823413996
+Pneumothorax	4	2.9037037037037035
+Amblyopia	4	2.1591397849462366
+Aortic aneurysm	4	2.6812227074235806
+Hypoplasia of the uterus	4	2.4925503943908853
+Broad palm	4	3.076443057722309
+Sparse body hair	4	2.0037429819089208
+Impotence	4	2.6377708978328176
+Congenital sensorineural hearing impairment	4	2.5370548604427334
+Subcortical cerebral atrophy	4	3.158273381294964
+Ophthalmoplegia	4	0.8282490597576264
+Intestinal polyposis	4	2.4496707431796803
+Mask-like facies	4	2.277117973079968
+Menstrual irregularities	4	3.4826498422712935
+Dementia	4	1.1469026548672567
+Triangular face	4	1.375
+Congenital cataract	4	1.8076109936575053
+Lymphadenopathy	4	1.1276718659734257
+Abnormality of the metaphysis	4	1.339929328621908
+Irritability	4	1.1300552807681117
+Fair hair	4	3.431578947368421
+Elevated calcitonin	4	3.3103448275862073
+Fever	4	0.8700218818380744
+Abnormality of the liver	4	1.7757390417940877
+Low frustration tolerance	3	2.7096774193548385
+Flat occiput	3	1.7502116850127012
+Cerebellar atrophy	3	0.4665317559153176
+Increased serum serotonin	3	2.9495798319327733
+Ovarian neoplasm	3	1.8211306765523634
+Abnormality of retinal pigmentation	3	0.5236763934999127
+Hydrocele testis	3	2.6454545454545455
+Long penis	3	2.478609625668449
+Varicocele	3	2.9318181818181817
+Angioid streaks of the fundus	3	2.5956112852664575
+Abnormality of the cardiovascular system	3	1.926984126984127
+Epibulbar dermoid	3	2.810526315789474
+Narrow internal auditory canal	3	2.4295774647887325
+Bronchogenic cyst	3	2.8943661971830985
+Progressive macrocephaly	3	2.106469002695418
+Ovarian cyst	3	2.585858585858586
+Calvarial hyperostosis	3	2.5702005730659025
+Pulmonary embolism	3	1.799465240641711
+Exostoses	3	2.3548387096774195
+Arteriovenous malformation	3	1.702639751552795
+Kyphoscoliosis	3	0.8339011925042589
+Thick nasal alae	3	2.4
+Abnormality of the wrist	3	2.6103896103896105
+Heterotopia	3	1.9328657314629258
+Disproportionate tall stature	3	2.257234726688103
+Opacification of the corneal stroma	3	1.4610271903323264
+Acute leukemia	3	1.6578947368421053
+Episodic abdominal pain	3	2.066105769230769
+Dyspnea	3	0.8925161687711733
+Protruding tongue	3	2.2220566318926975
+Ambiguous genitalia	3	1.333505420753743
+Exotropia	3	1.9128712871287128
+Flat face	3	1.1768240343347638
+Blindness	3	0.5153912295786759
+Paraganglioma	3	2.8358208955223883
+Palpitations	3	1.5
+Bruising susceptibility	3	0.9142857142857143
+Absent septum pellucidum	3	1.7045454545454546
+Pituitary dwarfism	3	2.6785714285714284
+Aplasia/Hypoplasia of the breasts	3	2.345776031434185
+Amenorrhea	3	2.2597402597402594
+Abnormality of secondary sexual hair	3	2.6987447698744766
+Ectopic anterior pituitary gland	3	2.6987447698744766
+Large fontanelles	3	1.2623339658444022
+Osteoporosis of vertebrae	3	2.3607594936708862
+Prominent nasal tip	3	2.7738693467336684
+Pneumonia	3	1.650214592274678
+Hypoplasia of the radius	3	1.890566037735849
+Supernumerary ribs	3	2.4987893462469737
+Joint contracture of the hand	3	1.463151587777112
+Abnormality of epiphysis morphology	3	1.1000781860828774
+Increased number of teeth	3	2.077966101694915
+Ureteropelvic junction obstruction	3	2.3797468354430378
+Webbed neck	3	1.1899070385126163
+Retinal coloboma	3	2.2597402597402594
+Abnormality of the outer ear	3	2.7480916030534353
+Osteolysis	3	1.4242928452579033
+Microretrognathia	3	1.7218649517684887
+Cupped ear	3	1.8877755511022045
+Facial grimacing	3	2.7745664739884393
+High axial triradius	3	2.967032967032967
+Abnormality of refraction	3	2.602787456445993
+Obstructive sleep apnea	3	2.2478991596638656
+Poor coordination	3	2.3807339449541285
+Premature thelarche	3	2.825581395348837
+Abnormality of the kidney	3	2.0063897763578273
+Tethered cord	3	2.7094017094017095
+Prominent fingertip pads	3	2.7875
+Short attention span	3	2.4124293785310735
+Papillary cystadenoma of the epididymis	3	2.916666666666667
+Variable expressivity	3	0.41326530612244894
+Hyperuricemia	3	2.463157894736842
+Aortic regurgitation	3	1.4482758620689653
+Short palpebral fissure	3	1.2382503489995347
+Generalized seizures	3	2.5218508997429305
+Bifid uvula	3	1.2349701698026618
+High pitched voice	3	1.9
+Abnormality of bone mineral density	3	2.093877551020408
+Omphalocele	3	1.463157894736842
+Aplasia/Hypoplasia of the thymus	3	2.81151832460733
+Gonadotropin deficiency	3	2.6470588235294117
+Bifid scrotum	3	2.154652686762778
+Horseshoe kidney	3	1.6045038705137227
+Parathyroid hypoplasia	3	2.856
+Eyelid coloboma	3	2.168032786885246
+Double outlet right ventricle	3	2.560344827586207
+Anal stenosis	3	2.120754716981132
+Narrow chest	3	1.0074468085106383
+Congenital hypothyroidism	3	2.3155080213903743
+Eczema	3	1.360952874158467
+Split hand	3	1.523191094619666
+Recurrent otitis media	3	1.3885245901639345
+Epiphyseal stippling	3	1.9988839285714286
+Abnormal localization of kidney	3	1.7607615894039734
+Rhizomelia	3	1.6644144144144144
+Periventricular gray matter heterotopia	3	2.695652173913044
+Delayed myelination	3	1.3833240067151649
+Abnormal heart morphology	3	1.6898148148148149
+Prominent nose	3	1.5373525557011796
+Emotional lability	3	0.9699628754640567
+Decreased body weight	3	1.673119880863738
+Tetraplegia	3	2.4031413612565444
+Vocal cord paralysis	3	2.104534005037783
+Cerebellar hypoplasia	3	0.6509495743287492
+Glucose intolerance	3	2.2054794520547945
+Portal hypertension	3	1.595482546201232
+Delayed gross motor development	3	1.5425867507886435
+Abnormality of body height	3	2.4120000000000004
+Absence of pubertal development	3	2.253565768621236
+Rigidity	3	0.9950495049504952
+Hypoplasia of the ovary	3	1.7537022603273578
+Decreased testosterone in males	3	1.9348249027237354
+Pulmonary arterial hypertension	3	1.0406353897303287
+Alopecia	3	0.659560293137908
+Aortic valve stenosis	3	1.6619508562918839
+Female hypogonadism	3	2.1869158878504673
+Oligodontia	3	1.8138297872340425
+Non-obstructive azoospermia	3	1.8128755364806868
+Eunuchoid habitus	3	2.3506261180679786
+Generalized joint laxity	3	2.1106043329532493
+Hemiparesis	3	1.5954907161803715
+Mutism	3	1.9235474006116207
+Increased female libido	3	2.4120000000000004
+Secondary amenorrhea	3	1.6122004357298476
+Aplasia/Hypoplasia of the thumb	3	2.18577648766328
+Platyspondyly	3	1.1259198691741619
+Cortical dysplasia	3	2.3600000000000003
+Trichilemmoma	3	2.8941176470588235
+Hypertriglyceridemia	3	1.3925549915397633
+Abnormal renal morphology	3	2.7524271844660193
+Underdeveloped supraorbital ridges	3	1.5132075471698112
+Nuclear cataract	3	2.6068965517241383
+Cerebral hemorrhage	3	1.9344933469805528
+Cone-shaped epiphysis	3	1.503826530612245
+Vertebral fusion	3	2.0010952902519166
+Colon cancer	3	1.8821178821178821
+Femoral hernia	3	2.264423076923077
+Telangiectasia of the skin	3	1.4536817102137767
+Polymicrogyria	3	0.9279742765273312
+Abnormal pyramidal sign	3	0.964793500338524
+Abnormality of the eye	3	2.0113636363636362
+Tinnitus	3	2.1584302325581395
+Neoplasm of the rectum	3	2.3150943396226413
+Ascites	3	1.3048659384309833
+Recurrent paroxysmal headache	3	2.5334928229665072
+Hypertension associated with pheochromocytoma	3	2.908163265306122
+Adrenal pheochromocytoma	3	2.5725388601036268
+Shagreen patch	3	2.9433962264150946
+Infantile spasms	3	2.296875
+Gingivitis	3	2.0946291560102304
+Short distal phalanx of finger	2	0.7895189003436426
+Babinski sign	2	0.3896612492657137
+Facial hypotonia	2	1.6367521367521367
+Shuffling gait	2	1.562700964630225
+Diastema	2	1.8150289017341041
+Restlessness	2	1.5439189189189189
+Lower limb hypertonia	2	1.6666666666666667
+Limited elbow movement	2	1.7118155619596542
+Inappropriate laughter	2	1.8588235294117648
+Childhood onset	2	1.008860759493671
+Lack of spontaneous play	2	1.9607843137254901
+Multifactorial inheritance	2	1.9491525423728813
+Restrictive behavior	2	1.7388535031847134
+Impaired use of nonverbal behaviors	2	1.9607843137254901
+Inflexible adherence to routines or rituals	2	1.9607843137254901
+Sirenomelia	2	1.830985915492958
+Metatarsus valgus	2	1.4518072289156627
+Vascular skin abnormality	2	1.7802197802197801
+Dysgerminoma	2	1.765258215962441
+Generalized hyperpigmentation	2	1.2658227848101264
+Asymmetry of the thorax	2	1.7608695652173914
+Thymus hyperplasia	2	1.9701492537313434
+Testicular neoplasm	2	1.8198198198198197
+Buphthalmos	2	1.5859519408502771
+Epidermal nevus	2	1.9701492537313434
+Thrombophlebitis	2	1.9777777777777776
+Arterial thrombosis	2	1.3642857142857143
+Progressive	2	0.29066045970322957
+Ovarian papillary adenocarcinoma	2	1.8852459016393441
+Abnormal subcutaneous fat tissue distribution	2	1.7964601769911506
+Myofibrillar myopathy	2	1.765079365079365
+Central heterochromia	2	1.8453038674033149
+Lymphangioma	2	1.6708860759493671
+Neoplasm of the thymus	2	1.9701492537313434
+Neoplasm of the lung	2	1.4762684124386252
+Venous malformation	2	1.826086956521739
+Upper limb asymmetry	2	1.745583038869258
+Retinal nonattachment	2	1.7903930131004364
+Hemihypertrophy	2	1.817391304347826
+Neoplasm	2	1.0980392156862746
+Widely-spaced maxillary central incisors	2	1.891304347826087
+Poor appetite	2	1.3607990012484394
+U-Shaped upper lip vermilion	2	1.8372093023255813
+Tricuspid regurgitation	2	1.5687732342007437
+Talipes calcaneovalgus	2	1.7661290322580647
+Hepatic failure	2	0.5723625557206538
+Microcytic anemia	2	1.4053295932678822
+Abnormality of movement	2	1.3174431202600216
+Intermittent diarrhea	2	1.5944333996023858
+Slender finger	2	1.7176470588235295
+Vomiting	2	0.45569620253164556
+Paroxysmal bursts of laughter	2	1.8796992481203008
+Infantile muscular hypotonia	2	1.5144927536231885
+Anorexia	2	1.0723291307232914
+Decreased cervical spine mobility	2	1.7641921397379914
+Median cleft lip and palate	2	1.6507276507276507
+Adrenal hypoplasia	2	1.4777618364418939
+Anterior pituitary agenesis	2	1.8022813688212929
+Short finger	2	1.4653739612188366
+Thick hair	2	1.6964769647696476
+Optic nerve coloboma	2	1.5166666666666666
+Limited elbow extension	2	1.436865021770682
+Sparse and thin eyebrow	2	0.8931016324381253
+Microphallus	2	1.842105263157895
+Toe clinodactyly	2	1.8206278026905829
+High anterior hairline	2	1.6254980079681274
+Medial flaring of the eyebrow	2	1.3791348600508906
+Radial deviation of thumb terminal phalanx	2	1.9661016949152543
+Vascular ring	2	1.9661016949152543
+Low hanging columella	2	1.7402597402597402
+Flared iliac wings	2	1.5504761904761903
+Deviated nasal septum	2	1.9375
+Keloids	2	1.9166666666666667
+Nasolacrimal duct obstruction	2	1.7095890410958903
+Talon cusp	2	1.958762886597938
+Duplication of phalanx of hallux	2	1.8317757009345794
+Abnormal number of teeth	2	1.9775280898876402
+Impulsivity	2	1.4528301886792452
+Avascular necrosis of the capital femoral epiphysis	2	1.5706214689265536
+Chorioretinal dystrophy	2	1.8555555555555554
+Bifid uterus	2	1.8469945355191257
+Parietal foramina	2	1.7801418439716314
+Large foramen magnum	2	1.8705882352941177
+Hypoplasia of dental enamel	2	1.0752990851513018
+Plantar crease between first and second toes	2	1.9661016949152543
+Duane anomaly	2	1.7793103448275862
+Abnormal cornea morphology	2	1.8651685393258426
+Recurrent upper respiratory tract infections	2	1.3716915995397008
+Agoraphobia	2	1.9333333333333331
+Abnormality of the cervical spine	2	1.8045602605863194
+Chronic constipation	2	1.610503282275711
+Headache	2	0.920734908136483
+Premature graying of hair	2	1.2804020100502513
+Focal seizures	2	1.366504854368932
+Amaurosis fugax	2	1.3610062893081762
+Square face	2	1.927927927927928
+Labial hypoplasia	2	1.819277108433735
+Abnormality of the adrenal glands	2	1.8131487889273357
+Lymphopenia	2	1.0896057347670252
+Hypoplasia of the semicircular canal	2	1.979381443298969
+External ear malformation	2	0.771809196390202
+Abnormal soft palate morphology	2	1.9449541284403669
+Absent radius	2	1.3846153846153846
+Lop ear	2	1.8823529411764706
+Posterior choanal atresia	2	1.9729729729729728
+Mixed hearing impairment	2	1.4258970358814353
+Abnormality of tibia morphology	2	1.6818181818181817
+Aplasia/Hypoplasia of the earlobes	2	1.729064039408867
+Duodenal atresia	2	1.5594405594405596
+Bifid femur	2	1.9729729729729728
+Hand monodactyly	2	1.9729729729729728
+Abnormal palmar dermatoglyphics	2	1.8596491228070176
+Dimple chin	2	1.6310679611650485
+Sparse scalp hair	2	0.8571428571428571
+Hypergonadotropic hypogonadism	2	1.0369881109643329
+Subvalvular aortic stenosis	2	1.6428571428571428
+Broad face	2	1.642691415313225
+Nephroblastoma	2	1.1763713080168776
+Gastrointestinal dysmotility	2	1.6987012987012988
+Bicornuate uterus	2	1.1667984189723322
+Overlapping toe	2	1.5022091310751104
+Abnormality of the larynx	2	1.779359430604982
+Sleep-wake cycle disturbance	2	1.8316831683168318
+Hypocholesterolemia	2	1.735593220338983
+Abnormality of dental morphology	2	1.311965811965812
+Microglossia	2	1.7063291139240506
+Abnormality of the eyelashes	2	1.1538461538461537
+Neurogenic bladder	2	1.6619718309859157
+Hypernatremia	2	1.875
+Ascending tubular aorta aneurysm	2	1.62882096069869
+Postnatal macrocephaly	2	1.9746835443037976
+Lumbar hyperlordosis	2	1.029781601588352
+Abnormality of the nasopharynx	2	1.619047619047619
+Abnormality of the sternum	2	1.2153443766346992
+Febrile seizures	2	1.3990267639902678
+Large earlobe	2	1.588118811881188
+Obsessive-compulsive trait	2	1.8735632183908044
+Subarachnoid hemorrhage	2	1.4442793462109955
+Periorbital fullness	2	1.5841995841995842
+Prenatal maternal abnormality	2	1.5655430711610487
+Transient ischemic attack	2	1.224526600541028
+Exertional dyspnea	2	0.9019200830306174
+Dilatation of the cerebral artery	2	1.441988950276243
+Renal artery stenosis	2	1.550094517958412
+Arnold-Chiari type I malformation	2	1.639269406392694
+Shallow orbits	2	1.5770020533880902
+Abnormal anterior chamber morphology	2	1.631578947368421
+Increased susceptibility to fractures	2	1.2832699619771863
+Broad foot	2	1.3098290598290598
+Trigonocephaly	2	1.4587280108254397
+Hemiplegia	2	1.423913043478261
+Broad hallux phalanx	2	1.5984555984555984
+Aphasia	2	1.2408236347358996
+Arachnoid cyst	2	1.6676384839650145
+Hypoplastic scapulae	2	1.539708265802269
+Neoplasm of the skeletal system	2	1.6226415094339623
+Craniofacial hyperostosis	2	1.3408239700374533
+Severe short stature	2	0.772093023255814
+Hypoplasia of the iris	2	1.48440065681445
+Intellectual disability, profound	2	0.9695550351288057
+Urinary incontinence	2	0.8937273198548471
+Truncal ataxia	2	1.1621187800963082
+Dystonia	2	0.3437715072264281
+Hyperkinesis	2	1.7057057057057055
+Papillary thyroid carcinoma	2	1.8064516129032258
+Hashimoto thyroiditis	2	1.8564102564102565
+Parkinsonism	2	0.8424591738712777
+Abnormal autonomic nervous system physiology	2	1.3157315731573158
+Abnormality of brainstem morphology	2	1.5845410628019323
+Large forehead	2	1.7676348547717844
+Dysesthesia	2	1.7784615384615385
+Hypercholesterolemia	2	1.2273972602739724
+Abnormality of the ureter	2	1.5547024952015356
+Abnormality of chromosome segregation	2	1.858695652173913
+Corticospinal tract hypoplasia	2	1.8214285714285712
+Large face	2	1.7568389057750762
+Taurodontia	2	1.2392156862745098
+Delayed eruption of primary teeth	2	1.669291338582677
+Expressive language delay	2	1.8742138364779877
+Oral-pharyngeal dysphagia	2	1.821705426356589
+Velopharyngeal insufficiency	2	1.8272727272727274
+Abnormal tracheobronchial morphology	2	1.9032258064516128
+Abnormality of creatine metabolism	2	1.5593952483801297
+Abnormal nasal morphology	2	1.3838254172015405
+Preauricular pit	2	1.2659675881792183
+Abnormality of abdomen morphology	2	1.4072992700729927
+Epistaxis	2	0.9441680486456607
+Distal muscle weakness	2	0.6506189821182943
+Slender build	2	1.5742971887550201
+Bruxism	2	1.811659192825112
+Short chin	2	1.3973684210526316
+Cortical visual impairment	2	1.1026011560693643
+Renal dysplasia	2	1.1885038038884193
+Pancreatic aplasia	2	1.96
+Ureterocele	2	1.8272727272727274
+Oligohydramnios	2	0.6790564689063616
+Thickened skin	2	1.2640610104861774
+Respiratory failure	2	0.4243070362473348
+Pancreatic adenocarcinoma	2	1.4716369529983793
+Cirrhosis	2	0.5882352941176471
+Thickened calvaria	2	1.3888888888888888
+EMG abnormality	2	0.636241610738255
+Exocrine pancreatic insufficiency	2	1.3082872928176796
+Increased level of L-fucose in urine	2	1.640552995391705
+Ovarian carcinoma	2	1.700534759358289
+Motor deterioration	2	1.740072202166065
+Apnea	2	0.5340599455040872
+Apraxia	2	1.1417260490894694
+Choreoathetosis	2	0.9641841955656623
+Progressive microcephaly	2	0.9686946249261666
+Long palpebral fissure	2	1.4126778783958602
+Thoracic kyphosis	2	1.7051282051282053
+Parathyroid adenoma	2	1.6082004555808656
+Patent foramen ovale	2	1.365566037735849
+Renal neoplasm	2	1.84070796460177
+Peripheral axonal neuropathy	2	0.9343715239154616
+Paresthesia	2	0.7488697081792026
+Abnormal chorioretinal morphology	2	1.2504780114722753
+Retinal vascular tortuosity	2	1.8371040723981902
+Venous insufficiency	2	1.7571884984025559
+Abnormal pupil morphology	2	1.5977011494252873
+Visual loss	2	0.6201298701298702
+Aplasia/Hypoplasia of the eyebrow	2	1.0388782664117273
+Hypopigmentation of the skin	2	1.3037037037037036
+Narrow vertebral interpedicular distance	2	1.9000000000000001
+Hypoplastic vertebral bodies	2	1.7553516819571866
+Hypoplasia of the nasal bone	2	1.9607843137254901
+Mild short stature	2	1.5968379446640317
+Congenital craniofacial dysostosis	2	1.9238095238095236
+Cerebral venous thrombosis	2	1.7916666666666667
+Absent/hypoplastic paranasal sinuses	2	1.852760736196319
+Pseudohypoparathyroidism	2	1.9176470588235295
+Hyperphosphatemia	2	1.5925925925925926
+Elevated circulating parathyroid hormone level	2	1.5478927203065134
+Red hair	2	1.837837837837838
+Numerous nevi	2	1.859872611464968
+Visual field defect	2	1.0656934306569343
+Neoplasm of the thyroid gland	2	1.4505813953488371
+Lipoatrophy	2	0.830843373493976
+Dyskinesia	2	0.9880578252671276
+Pituitary adenoma	2	1.4814814814814814
+Stomach cancer	2	1.5085910652920962
+Uterine neoplasm	2	1.9682539682539684
+Thyroid carcinoma	2	1.7894736842105263
+Pheochromocytoma	2	1.879396984924623
+Thin skin	2	0.8405931417979611
+Cone-shaped epiphyses of the phalanges of the hand	2	1.6211812627291242
+Pectus carinatum	2	0.5557471264367816
+Lymphoma	2	0.828611240130051
+Genu recurvatum	2	1.4763313609467454
+Communicating hydrocephalus	2	1.70392749244713
+Abdominal wall muscle weakness	2	1.7549407114624507
+Absent hand	2	1.609942638623327
+Aplasia of the pectoralis major muscle	2	1.8761061946902653
+Aplasia/Hypoplasia involving the metacarpal bones	2	1.7777777777777777
+Breast aplasia	2	1.6553398058252426
+Abnormality of the ulna	2	1.6601941747572815
+Aplasia/Hypoplasia of the tongue	2	1.5511669658886893
+Abnormality of the sense of smell	2	1.7643097643097643
+Absence seizures	2	1.3707865168539326
+Status epilepticus	2	1.0433096315449257
+Epileptic spasms	2	1.8404255319148939
+Clumsiness	2	1.337129840546697
+Generalized tonic-clonic seizures	2	0.8642964446670005
+Esophoria	2	1.9761904761904763
+Urticaria	2	1.2851323828920571
+Cranial nerve compression	2	1.6441717791411041
+Aniridia	2	1.2291861552853134
+Elevated urinary norepinephrine	2	1.7478510028653296
+Paroxysmal vertigo	2	1.7478510028653296
+Neurofibromas	2	1.84180790960452
+Episodic hyperhidrosis	2	1.6968325791855203
+Paraganglioma of head and neck	2	1.7478510028653296
+Flushing	2	1.7478510028653296
+Elevated urinary epinephrine	2	1.7478510028653296
+Hypertensive retinopathy	2	1.7416020671834624
+Extraadrenal pheochromocytoma	2	1.7478510028653296
+Intestinal obstruction	2	1.2931562819203268
+Glomerulosclerosis	2	1.6037383177570093
+Tachycardia	2	1.3997509339975094
+Gastrointestinal stroma tumor	2	1.6640316205533596
 Chemodectoma	2	2.0
-Esophageal neoplasm	2	2.0
-Sarcoma	2	1.9117647058823528
-Neoplasm of the colon	2	1.956521739130435
-Panic attack	2	2.0
-Pulsatile tinnitus	2	2.0
-Sinus tachycardia	2	1.9729729729729728
+Esophageal neoplasm	2	1.8733031674208143
+Sarcoma	2	1.727493917274939
+Neoplasm of the colon	2	1.7581699346405226
+Panic attack	2	1.6153846153846154
+Pulsatile tinnitus	2	1.7478510028653296
+Sinus tachycardia	2	1.5821501014198784
 Glomus jugular tumor	2	2.0
-Hyperpigmentation of the skin	2	1.6897689768976898
-Arachnoid hemangiomatosis	2	2.0
-Elevated urinary dopamine	2	2.0
-Hyperhidrosis	2	1.5081967213114755
-Neoplasm of the gastrointestinal tract	2	2.0
-Pallor	2	1.763440860215054
-Skin rash	2	1.637883008356546
-Neoplasm of the small intestine	2	1.9473684210526316
-Nausea	2	1.8043478260869565
-Episodic paroxysmal anxiety	2	2.0
-Retinal capillary hemangioma	2	2.0
-Positive regitine blocking test	2	2.0
-Narrow nose	2	1.878787878787879
-Missing ribs	2	1.956521739130435
-Abnormality of the hand	2	1.7923076923076924
-Glomerulopathy	2	1.8369098712446352
-Insulin resistance	2	1.8227848101265822
-Cardiac rhabdomyoma	2	2.0
-Optic nerve glioma	2	2.0
+Hyperpigmentation of the skin	2	0.982311320754717
+Arachnoid hemangiomatosis	2	1.7017994858611825
+Elevated urinary dopamine	2	1.7158176943699732
+Hyperhidrosis	2	0.6190476190476191
+Neoplasm of the gastrointestinal tract	2	1.9183673469387754
+Pallor	2	0.8209934395501406
+Skin rash	2	0.8437649307214525
+Neoplasm of the small intestine	2	1.7865612648221343
+Nausea	2	1.2814371257485029
+Episodic paroxysmal anxiety	2	1.7478510028653296
+Retinal capillary hemangioma	2	1.7478510028653296
+Positive regitine blocking test	2	1.7478510028653296
+Narrow nose	2	1.6816816816816818
+Missing ribs	2	1.6135881104033971
+Abnormality of the hand	2	1.1084695393759285
+Glomerulopathy	2	1.1432813659985153
+Insulin resistance	2	1.2755214050493962
+Cardiac rhabdomyoma	2	1.909090909090909
+Optic nerve glioma	2	1.9268292682926829
 Chordoma	2	2.0
-Prominent occiput	2	1.8275862068965518
-Confetti-like hypopigmented macules	2	1.945945945945946
-Restrictive ventilatory defect	2	1.7952755905511812
-Abnormal urinary color	2	1.9607843137254901
-Dilatation	2	1.9361702127659572
-Pulmonary infiltrates	2	1.8341968911917097
-Chylothorax	2	1.9642857142857144
-Ependymoma	2	1.9473684210526316
+Prominent occiput	2	1.0952727272727274
+Confetti-like hypopigmented macules	2	1.8785046728971961
+Restrictive ventilatory defect	2	1.0737588652482268
+Abnormal urinary color	2	1.8507462686567164
+Dilatation	2	1.5248226950354609
+Pulmonary infiltrates	2	1.2267657992565055
+Chylothorax	2	1.7508196721311478
+Ependymoma	2	1.829059829059829
 Chylopericardium	2	2.0
-Focal seizures with impairment of consciousness or awareness	2	1.909090909090909
-Renal angiomyolipoma	2	2.0
-Angiofibromas	2	1.945945945945946
-Astrocytoma	2	1.9117647058823528
-Focal white matter lesions	2	1.9310344827586206
-Astrocytosis	2	1.8888888888888888
-Gingival fibromatosis	2	1.9480519480519483
-Wolff-Parkinson-White syndrome	2	2.0
-Cough	2	1.6666666666666667
+Focal seizures with impairment of consciousness or awareness	2	1.453781512605042
+Renal angiomyolipoma	2	1.945945945945946
+Angiofibromas	2	1.8785046728971961
+Astrocytoma	2	1.6567505720823799
+Focal white matter lesions	2	1.7992565055762082
+Astrocytosis	2	1.57085020242915
+Gingival fibromatosis	2	1.6985645933014355
+Wolff-Parkinson-White syndrome	2	1.842105263157895
+Cough	2	1.0136476426799008
 Ungual fibroma	2	2.0
-Abnormality of skin pigmentation	2	1.7517241379310344
+Abnormality of skin pigmentation	2	1.012234385061172
 Subependymal nodules	2	2.0
 Cortical tubers	2	2.0
 Subependymal giant-cell astrocytoma	2	2.0
-Dental enamel pits	2	2.0
+Dental enamel pits	2	1.855855855855856
 Subungual fibromas	2	2.0
 Pulmonary lymphangiomyomatosis	2	2.0
 Achromatic retinal patches	2	2.0
-Progressive sensorineural hearing impairment	2	1.9008264462809918
-Pigmentary retinopathy	2	1.4824707846410683
-Alopecia areata	1	1.0
-Talipes calcaneovarus	1	1.0
-Lower limb hyperreflexia	1	0.9407407407407407
-Small forehead	1	1.0
-Progressive spastic paraplegia	1	0.914691943127962
-Distal lower limb amyotrophy	1	0.9452054794520548
-Opisthotonus	1	0.9555555555555555
-Brisk reflexes	1	0.9692307692307691
-Cerebral hypomyelination	1	0.9500000000000001
-CNS hypomyelination	1	0.9365079365079365
-Inability to walk	1	0.8902439024390244
-Prominent metopic ridge	1	0.9470198675496688
-Hypointensity of cerebral white matter on MRI	1	1.0
+Progressive sensorineural hearing impairment	2	1.447562776957164
+Pigmentary retinopathy	2	0.5855719891337157
+Alopecia areata	1	0.9739130434782609
+Talipes calcaneovarus	1	0.9782608695652175
+Lower limb hyperreflexia	1	0.685121107266436
+Small forehead	1	0.9818181818181817
+Progressive spastic paraplegia	1	0.6128747795414462
+Distal lower limb amyotrophy	1	0.8191721132897604
+Opisthotonus	1	0.6919315403422983
+Brisk reflexes	1	0.8253164556962025
+Cerebral hypomyelination	1	0.8087954110898662
+CNS hypomyelination	1	0.7058080808080809
+Inability to walk	1	0.5646417445482866
+Prominent metopic ridge	1	0.632065775950668
+Hypointensity of cerebral white matter on MRI	1	0.9072847682119205
 Lack of peer relationships	1	1.0
-Epidermal acanthosis	1	0.90521327014218
+Epidermal acanthosis	1	0.5981308411214953
 Depigmentation/hyperpigmentation of skin	1	1.0
-Deep venous thrombosis	1	0.9756097560975611
-Facial hyperostosis	1	1.0
+Deep venous thrombosis	1	0.8963210702341137
+Facial hyperostosis	1	0.9465648854961832
 Mandibular hyperostosis	1	1.0
-Spinal cord compression	1	0.9411764705882353
-Thin bony cortex	1	0.9677419354838709
+Spinal cord compression	1	0.7889733840304183
+Thin bony cortex	1	0.8826666666666667
 Hypertrophy of skin of soles	1	1.0
-Congenital ichthyosiform erythroderma	1	0.9295774647887325
-Testicular seminoma	1	1.0
-Abnormality of the stomach	1	1.0
+Congenital ichthyosiform erythroderma	1	0.8902077151335311
+Testicular seminoma	1	0.9743589743589742
+Abnormality of the stomach	1	0.9550561797752809
 Abdominal wall defect	1	1.0
-Lissencephaly	1	0.9305555555555556
-Cerebellar vermis hypoplasia	1	0.8402061855670103
-Broad eyebrow	1	0.9722222222222223
-Protracted diarrhea	1	0.9433962264150942
-Male pseudohermaphroditism	1	0.8649789029535866
-Myelodysplasia	1	0.855457227138643
+Lissencephaly	1	0.8406466512702079
+Cerebellar vermis hypoplasia	1	0.42585365853658536
+Broad eyebrow	1	0.9578947368421052
+Protracted diarrhea	1	0.9036144578313253
+Male pseudohermaphroditism	1	0.5952380952380952
+Myelodysplasia	1	0.4650273224043716
 Abnormality of fontanelles	1	1.0
 Abnormal pulmonary valve cusp morphology	1	1.0
-Abnormality of blood and blood-forming tissues	1	0.9642857142857143
-Encephalitis	1	0.9122807017543859
-Increased circulating ACTH level	1	0.9538461538461539
-Neutropenia	1	0.8177777777777778
-Bronchospasm	1	1.0
-Iron deficiency anemia	1	1.0
-Coxa valga	1	0.8620689655172414
-Abnormal hemoglobin	1	0.9607843137254901
-Hemoglobin H	1	1.0
-Absent frontal sinuses	1	1.0
-Reduced alpha/beta synthesis ratio	1	1.0
-Bowel urgency	1	1.0
-Perimembranous ventricular septal defect	1	1.0
-Chronic noninfectious lymphadenopathy	1	1.0
-Right ventricular failure	1	1.0
-Short upper lip	1	1.0
-Profound global developmental delay	1	0.9365079365079365
+Abnormality of blood and blood-forming tissues	1	0.8333333333333334
+Encephalitis	1	0.6591154261057174
+Increased circulating ACTH level	1	0.8504398826979472
+Neutropenia	1	0.3516275548826647
+Bronchospasm	1	0.9696969696969697
+Iron deficiency anemia	1	0.8357771260997068
+Coxa valga	1	0.5030193236714976
+Abnormal hemoglobin	1	0.8636363636363636
+Hemoglobin H	1	0.9696969696969697
+Absent frontal sinuses	1	0.9487179487179488
+Reduced alpha/beta synthesis ratio	1	0.9534883720930232
+Bowel urgency	1	0.9902912621359223
+Perimembranous ventricular septal defect	1	0.9813084112149534
+Chronic noninfectious lymphadenopathy	1	0.9026217228464419
+Right ventricular failure	1	0.9500000000000001
+Short upper lip	1	0.8802395209580839
+Profound global developmental delay	1	0.7354085603112841
 Lack of bowel sounds	1	1.0
-Triangular nasal tip	1	1.0
-Cardiogenic shock	1	1.0
-Hematemesis	1	0.96875
-Melena	1	0.9615384615384615
+Triangular nasal tip	1	0.9841269841269842
+Cardiogenic shock	1	0.9811320754716982
+Hematemesis	1	0.9174757281553397
+Melena	1	0.9064039408866996
 Hypoplastic philtrum	1	1.0
-Facial telangiectasia	1	1.0
-Hypochromic microcytic anemia	1	1.0
-Spastic paraplegia	1	0.801452784503632
+Facial telangiectasia	1	0.9637681159420289
+Hypochromic microcytic anemia	1	0.8900709219858157
+Spastic paraplegia	1	0.4010743061772605
 Dermatological manifestations of systemic disorders	1	1.0
 Atypical pulmonary carcinoid tumor	1	1.0
-Zollinger-Ellison syndrome	1	0.9591836734693877
-Central hypothyroidism	1	0.98
-Optic disc hypoplasia	1	0.9032258064516129
-Abnormality of the hypothalamus-pituitary axis	1	0.8151898734177215
-Abdominal distention	1	0.838785046728972
-Abnormality of the palpebral fissures	1	1.0
-Abnormality of the umbilicus	1	1.0
-Hypoplastic male external genitalia	1	0.98
-Weak cry	1	0.8983957219251336
-Ectopic kidney	1	0.9094827586206896
-Duplication of internal organs	1	1.0
-Phocomelia	1	1.0
-Short sternum	1	0.9615384615384615
-Hand oligodactyly	1	1.0
-Hypoplastic radial head	1	1.0
-Elbow flexion contracture	1	0.872463768115942
-Malrotation of colon	1	1.0
+Zollinger-Ellison syndrome	1	0.8867924528301887
+Central hypothyroidism	1	0.8888888888888888
+Optic disc hypoplasia	1	0.7050183598531212
+Abnormality of the hypothalamus-pituitary axis	1	0.42780748663101603
+Abdominal distention	1	0.3812316715542522
+Abnormality of the palpebral fissures	1	0.9523809523809523
+Abnormality of the umbilicus	1	0.992
+Hypoplastic male external genitalia	1	0.9144144144144144
+Weak cry	1	0.6391650099403579
+Ectopic kidney	1	0.616412213740458
+Duplication of internal organs	1	0.9710144927536231
+Phocomelia	1	0.9282051282051282
+Short sternum	1	0.9219512195121952
+Hand oligodactyly	1	0.8999999999999999
+Hypoplastic radial head	1	0.961038961038961
+Elbow flexion contracture	1	0.4951807228915663
+Malrotation of colon	1	0.9710144927536231
 Reduced renal corticomedullary differentiation	1	1.0
-Hiatus hernia	1	0.8874172185430463
-Pulmonary valve atresia	1	1.0
+Hiatus hernia	1	0.7125668449197861
+Pulmonary valve atresia	1	0.9692307692307691
 Low-set nipples	1	1.0
-Aplastic clavicle	1	0.9775280898876405
-Clubbing of toes	1	0.9382716049382716
-Erythema	1	0.7797619047619048
-Aplasia/Hypoplasia of the phalanges of the hand	1	0.972972972972973
-Long foot	1	0.9487179487179488
-Aplasia/Hypoplasia of the nipples	1	0.9518072289156626
-Violent behavior	1	0.9090909090909091
-Aplasia/Hypoplasia of the phalanges of the toes	1	1.0
-Acute lymphoblastic leukemia	1	0.9638554216867469
-Duplicated collecting system	1	0.9846153846153847
-Skin ulcer	1	0.7764932562620424
-Hypotrichosis	1	0.8452380952380952
-Large for gestational age	1	0.9347826086956522
-Gastrointestinal atresia	1	1.0
-Long palm	1	1.0
-Dysplastic corpus callosum	1	1.0
-Deep plantar creases	1	0.9772727272727272
-Intestinal atresia	1	1.0
+Aplastic clavicle	1	0.7961335676625659
+Clubbing of toes	1	0.6723940435280642
+Erythema	1	0.34029528267915016
+Aplasia/Hypoplasia of the phalanges of the hand	1	0.93717277486911
+Long foot	1	0.7713717693836978
+Aplasia/Hypoplasia of the nipples	1	0.8087167070217918
+Violent behavior	1	0.9841269841269842
+Aplasia/Hypoplasia of the phalanges of the toes	1	0.9500000000000001
+Acute lymphoblastic leukemia	1	0.8148148148148148
+Duplicated collecting system	1	0.8551532033426184
+Skin ulcer	1	0.34211476001443525
+Hypotrichosis	1	0.48990498812351546
+Large for gestational age	1	0.773156899810964
+Gastrointestinal atresia	1	0.9850746268656717
+Long palm	1	0.9568965517241379
+Dysplastic corpus callosum	1	0.8983050847457628
+Deep plantar creases	1	0.8796296296296297
+Intestinal atresia	1	0.9272727272727274
 Abnormality of the proximal phalanx of the thumb	1	1.0
-Anisocoria	1	1.0
-Flared nostrils	1	1.0
-Oval face	1	1.0
+Anisocoria	1	0.9383561643835616
+Flared nostrils	1	0.9684210526315791
+Oval face	1	0.9014778325123154
 No social interaction	1	1.0
-Syringomyelia	1	0.9662921348314606
-Chronic kidney disease	1	0.8947368421052632
+Syringomyelia	1	0.8137931034482758
+Chronic kidney disease	1	0.7909270216962525
 Moderate receptive language delay	1	1.0
-Rod-cone dystrophy	1	0.7082228116710876
-Wide nasal base	1	0.9500000000000001
-Decreased palmar creases	1	1.0
-Cerebral palsy	1	0.8928571428571428
-Diastasis recti	1	0.9866666666666666
-Anterior open-bite malocclusion	1	1.0
-Stenosis of the external auditory canal	1	0.9160305343511451
-Difficulty walking	1	0.772
-Recurrent infections in infancy and early childhood	1	1.0
-Hand tremor	1	0.9529411764705883
-Functional respiratory abnormality	1	1.0
-Cat cry	1	1.0
+Rod-cone dystrophy	1	0.2403233708966193
+Wide nasal base	1	0.944
+Decreased palmar creases	1	0.9361702127659575
+Cerebral palsy	1	0.6744704570791527
+Diastasis recti	1	0.8147321428571428
+Anterior open-bite malocclusion	1	0.9476744186046513
+Stenosis of the external auditory canal	1	0.7291666666666666
+Difficulty walking	1	0.3351063829787234
+Recurrent infections in infancy and early childhood	1	0.972972972972973
+Hand tremor	1	0.7991169977924945
+Functional respiratory abnormality	1	0.9690721649484536
+Cat cry	1	0.9473684210526315
 Oppositional defiant disorder	1	1.0
-Sparse axillary hair	1	0.9149999999999999
-Sparse pubic hair	1	0.8944723618090452
-Posterior scalloping of vertebral bodies	1	1.0
-Neurodegeneration	1	0.8639455782312926
-Anonychia	1	0.893854748603352
-Absent axillary hair	1	1.0
-Abnormal palate morphology	1	0.9019607843137255
-Narrow iliac wings	1	0.9782608695652175
-Hip contracture	1	0.9454545454545454
-Posterior polar cataract	1	1.0
+Sparse axillary hair	1	0.5822368421052632
+Sparse pubic hair	1	0.5795644891122278
+Posterior scalloping of vertebral bodies	1	0.9911504424778761
+Neurodegeneration	1	0.4836711711711712
+Anonychia	1	0.6689419795221843
+Absent axillary hair	1	0.935483870967742
+Abnormal palate morphology	1	0.5991304347826086
+Narrow iliac wings	1	0.8864628820960698
+Hip contracture	1	0.6804123711340206
+Posterior polar cataract	1	0.904
 Superiorly displaced ears	1	1.0
-Generalized osteoporosis	1	1.0
-Irregular vertebral endplates	1	0.9345794392523364
-Knee flexion contracture	1	0.8683274021352314
-Distal amyotrophy	1	0.7946611909650924
+Generalized osteoporosis	1	0.8312342569269521
+Irregular vertebral endplates	1	0.7726523887973641
+Knee flexion contracture	1	0.5331964407939768
+Distal amyotrophy	1	0.3433975991269552
 Calcification of the auricular cartilage	1	1.0
-Bilateral cryptorchidism	1	0.9777777777777777
+Bilateral cryptorchidism	1	0.7964071856287425
 Increased size of the mandible	1	1.0
-Absent facial hair	1	1.0
-Basilar impression	1	0.9677419354838709
-Broad columella	1	1.0
-Abnormal aortic morphology	1	0.9096774193548388
-Tracheomalacia	1	0.924812030075188
-Pain insensitivity	1	0.9444444444444444
-Supernumerary nipple	1	0.9517241379310345
-Gastroschisis	1	1.0
-Postaxial foot polydactyly	1	0.905511811023622
-Atrioventricular canal defect	1	0.9181286549707602
-Pulmonary hypoplasia	1	0.8023715415019763
-Cholestatic liver disease	1	1.0
-Bifid tongue	1	0.9473684210526315
+Absent facial hair	1	0.9743589743589742
+Basilar impression	1	0.9520958083832335
+Broad columella	1	0.9387755102040816
+Abnormal aortic morphology	1	0.6737588652482269
+Tracheomalacia	1	0.7251908396946565
+Pain insensitivity	1	0.9042145593869733
+Supernumerary nipple	1	0.6974483596597812
+Gastroschisis	1	0.9904761904761905
+Postaxial foot polydactyly	1	0.5721077654516641
+Atrioventricular canal defect	1	0.7042606516290727
+Pulmonary hypoplasia	1	0.32857142857142857
+Cholestatic liver disease	1	0.9190283400809717
+Bifid tongue	1	0.7909090909090909
 Elevated 7-dehydrocholesterol	1	1.0
-Breech presentation	1	0.9651162790697675
-Hip subluxation	1	1.0
+Breech presentation	1	0.797979797979798
+Hip subluxation	1	0.9072164948453608
 Severe photosensitivity	1	1.0
-Aplasia/Hypoplasia affecting the eye	1	0.9523809523809523
-Septate vagina	1	1.0
-Postaxial hand polydactyly	1	0.7799999999999999
-Advanced eruption of teeth	1	0.9571428571428572
-Abnormality of the gallbladder	1	0.9791666666666667
-Hypoplasia of the frontal lobes	1	0.944
-Broad alveolar ridges	1	0.9705882352941176
-Mesomelia	1	0.9642857142857143
-Tracheal stenosis	1	0.9680000000000001
-Clitoral hypertrophy	1	0.8610271903323262
-Facial capillary hemangioma	1	1.0
-Hammertoe	1	0.8793103448275862
-Excessive daytime somnolence	1	0.910828025477707
-Ulnar deviation of finger	1	0.9293478260869565
-Microtia, first degree	1	1.0
-Anteriorly placed anus	1	0.9253731343283582
-Abnormality of the rib cage	1	0.9555555555555555
-Multiple joint contractures	1	0.9313725490196079
+Aplasia/Hypoplasia affecting the eye	1	0.9651162790697675
+Septate vagina	1	0.9378531073446328
+Postaxial hand polydactyly	1	0.35356200527704484
+Advanced eruption of teeth	1	0.8779761904761905
+Abnormality of the gallbladder	1	0.9166666666666667
+Hypoplasia of the frontal lobes	1	0.7317744154057771
+Broad alveolar ridges	1	0.904382470119522
+Mesomelia	1	0.7791932059447984
+Tracheal stenosis	1	0.7702265372168284
+Clitoral hypertrophy	1	0.46622369878183834
+Facial capillary hemangioma	1	0.9821428571428572
+Hammertoe	1	0.6161048689138576
+Excessive daytime somnolence	1	0.6842105263157895
+Ulnar deviation of finger	1	0.644398766700925
+Microtia, first degree	1	0.9684210526315791
+Anteriorly placed anus	1	0.7711267605633804
+Abnormality of the rib cage	1	0.801255230125523
+Multiple joint contractures	1	0.7654109589041096
 Facial wrinkling	1	1.0
-Partial agenesis of the corpus callosum	1	0.937984496124031
+Partial agenesis of the corpus callosum	1	0.7171314741035857
 Abnormally folded helix	1	1.0
-Abnormality of the genitourinary system	1	1.0
-Delayed closure of the anterior fontanelle	1	0.9578947368421052
-Deep philtrum	1	0.9156626506024097
-Impaired social interactions	1	1.0
-Long ear	1	1.0
-Abnormal eating behavior	1	1.0
-Reduced dihydropyrimidine dehydrogenase activity	1	1.0
+Abnormality of the genitourinary system	1	0.8617886178861788
+Delayed closure of the anterior fontanelle	1	0.7648148148148147
+Deep philtrum	1	0.676056338028169
+Impaired social interactions	1	0.9883720930232559
+Long ear	1	0.9821428571428572
+Abnormal eating behavior	1	0.9836065573770493
+Reduced dihydropyrimidine dehydrogenase activity	1	0.9841269841269842
 Shyness	1	1.0
-Lethargy	1	0.7630331753554502
-Thickened helices	1	0.9440993788819877
-Abnormality iris morphology	1	0.9191919191919192
-Coronary artery stenosis	1	1.0
-Left ventricular failure	1	0.9160305343511451
-Impaired visuospatial constructive cognition	1	0.9523809523809523
-Celiac disease	1	0.9866666666666666
-Aortic root aneurysm	1	0.9111111111111111
-Ischemic stroke	1	0.9351851851851851
-Bowel diverticulosis	1	0.9411764705882353
-Coronary artery atherosclerosis	1	0.9246575342465754
-Myxomatous mitral valve degeneration	1	1.0
-Early onset of sexual maturation	1	1.0
-Sudden death	1	0.9696969696969697
-Descending aortic dissection	1	0.9333333333333333
-Small nail	1	0.9025270758122743
-Incoordination	1	0.9381443298969072
-Abnormality of the face	1	0.9431818181818181
-Enuresis	1	1.0
-Pulmonary artery stenosis	1	0.8907103825136612
-Ascending aortic dissection	1	0.9217391304347825
-Premature skin wrinkling	1	0.9622641509433961
-Peripheral arterial stenosis	1	0.9276315789473685
-Descending thoracic aorta aneurysm	1	0.9333333333333333
-Hypovolemia	1	0.9162011173184357
-Carotid artery dilatation	1	0.9270833333333334
-Dural ectasia	1	0.92
-Cutis laxa	1	0.8901098901098901
-Cystic medial necrosis of the aorta	1	0.9333333333333333
-Soft skin	1	0.9057971014492753
-Paroxysmal dyspnea	1	0.9333333333333333
-Abdominal aortic aneurysm	1	0.9405940594059407
-Posterior helix pit	1	1.0
-Overbite	1	1.0
-Preeclampsia	1	0.9848484848484849
+Lethargy	1	0.275320970042796
+Thickened helices	1	0.6985294117647058
+Abnormality iris morphology	1	0.8273684210526316
+Coronary artery stenosis	1	0.957983193277311
+Left ventricular failure	1	0.7351598173515982
+Impaired visuospatial constructive cognition	1	0.9593495934959348
+Celiac disease	1	0.8354978354978355
+Aortic root aneurysm	1	0.6637069922308546
+Ischemic stroke	1	0.8068833652007648
+Bowel diverticulosis	1	0.8864628820960698
+Coronary artery atherosclerosis	1	0.7255172413793103
+Myxomatous mitral valve degeneration	1	0.9759036144578312
+Early onset of sexual maturation	1	0.9821428571428572
+Sudden death	1	0.740625
+Descending aortic dissection	1	0.85
+Small nail	1	0.5345303867403315
+Incoordination	1	0.7626262626262627
+Abnormality of the face	1	0.811529933481153
+Enuresis	1	0.8770226537216828
+Pulmonary artery stenosis	1	0.658787255909558
+Ascending aortic dissection	1	0.7889733840304183
+Premature skin wrinkling	1	0.8668941979522184
+Peripheral arterial stenosis	1	0.6905940594059407
+Descending thoracic aorta aneurysm	1	0.85
+Hypovolemia	1	0.6670353982300885
+Carotid artery dilatation	1	0.8387096774193549
+Dural ectasia	1	0.8359908883826879
+Cutis laxa	1	0.6426512968299711
+Cystic medial necrosis of the aorta	1	0.85
+Soft skin	1	0.7142857142857143
+Paroxysmal dyspnea	1	0.85
+Abdominal aortic aneurysm	1	0.8162839248434237
+Posterior helix pit	1	0.9061032863849766
+Overbite	1	0.9389312977099238
+Preeclampsia	1	0.843915343915344
 Abnormality of branched chain family amino acid metabolism	1	1.0
-Encephalocele	1	0.7837837837837838
-Chordee	1	0.9830508474576272
-Bicoronal synostosis	1	1.0
-Abnormal bone ossification	1	1.0
-Limb undergrowth	1	0.9253731343283582
-Abnormal nasolacrimal system morphology	1	0.9444444444444444
-Cloverleaf skull	1	1.0
+Encephalocele	1	0.4079892280071813
+Chordee	1	0.8770764119601329
+Bicoronal synostosis	1	0.9682539682539683
+Abnormal bone ossification	1	0.9859154929577465
+Limb undergrowth	1	0.8290816326530612
+Abnormal nasolacrimal system morphology	1	0.750733137829912
+Cloverleaf skull	1	0.93048128342246
 Multiple unerupted teeth	1	1.0
-Tricuspid valve prolapse	1	0.9803921568627451
-Unerupted tooth	1	1.0
-Meckel diverticulum	1	0.91875
-Abnormal cartilage morphology	1	1.0
-Broad metacarpals	1	0.9818181818181817
-Nasal obstruction	1	0.9743589743589742
-Short middle phalanx of toe	1	1.0
-Lobar holoprosencephaly	1	0.9549549549549549
-Bronchomalacia	1	0.953125
-Cartilaginous trachea	1	1.0
+Tricuspid valve prolapse	1	0.9067796610169493
+Unerupted tooth	1	0.975206611570248
+Meckel diverticulum	1	0.6829268292682927
+Abnormal cartilage morphology	1	0.9838709677419355
+Broad metacarpals	1	0.9037037037037037
+Nasal obstruction	1	0.952662721893491
+Short middle phalanx of toe	1	0.9302325581395349
+Lobar holoprosencephaly	1	0.796844181459566
+Bronchomalacia	1	0.8885135135135135
+Cartilaginous trachea	1	0.984375
 Pseudoarthrosis	1	1.0
-Brachyturricephaly	1	1.0
-Broad metatarsal	1	0.9750000000000001
+Brachyturricephaly	1	0.9316239316239316
+Broad metatarsal	1	0.9358288770053477
 Lumbar hemivertebrae	1	1.0
-Osteochondrosis	1	1.0
-Bowing of the long bones	1	0.867435158501441
-Coronal craniosynostosis	1	0.9333333333333333
+Osteochondrosis	1	0.9727272727272729
+Bowing of the long bones	1	0.4626373626373626
+Coronal craniosynostosis	1	0.769100169779287
 Hypoplasia of the frontal bone	1	1.0
-Abnormality of the clavicle	1	0.945273631840796
-Broad phalanx	1	1.0
-Linear hyperpigmentation	1	1.0
-Short hallux	1	0.9323308270676692
-Paralysis	1	0.8987341772151898
-Hallux varus	1	1.0
+Abnormality of the clavicle	1	0.5814138204924543
+Broad phalanx	1	0.9444444444444444
+Linear hyperpigmentation	1	0.9838709677419355
+Short hallux	1	0.7432624113475177
+Paralysis	1	0.545201668984701
+Hallux varus	1	0.9603960396039604
 Lipomas of the central neryous system	1	1.0
-Ectrodactyly	1	1.0
-Somatic mosaicism	1	1.0
-Lipodystrophy	1	0.9130434782608695
-Dysostosis multiplex	1	0.9333333333333333
-Calcaneonavicular fusion	1	1.0
-Choanal stenosis	1	0.9411764705882353
-Shortening of all middle phalanges of the fingers	1	1.0
-Xanthomatosis	1	0.9607843137254901
-Muscle stiffness	1	0.9181034482758621
-Humeroradial synostosis	1	0.9852941176470588
-Retinopathy	1	0.793713163064833
-Non-midline cleft lip	1	0.9574468085106382
-Elbow ankylosis	1	0.9710144927536231
+Ectrodactyly	1	0.9454545454545454
+Somatic mosaicism	1	0.8707224334600762
+Lipodystrophy	1	0.6376518218623481
+Dysostosis multiplex	1	0.7925170068027211
+Calcaneonavicular fusion	1	0.984375
+Choanal stenosis	1	0.8308668076109936
+Shortening of all middle phalanges of the fingers	1	0.9035087719298246
+Xanthomatosis	1	0.8706293706293706
+Muscle stiffness	1	0.5679012345679012
+Humeroradial synostosis	1	0.8765822784810127
+Retinopathy	1	0.3305203938115331
+Non-midline cleft lip	1	0.8028455284552846
+Elbow ankylosis	1	0.9051383399209486
 Loss of ability to walk in first decade	1	1.0
-Photosensitive tonic-clonic seizures	1	1.0
-Abnormality of the foot	1	0.9069767441860465
-Neuronal loss in central nervous system	1	0.9175824175824177
-Abnormality of the nose	1	1.0
-Reticulocytosis	1	0.9302325581395349
+Photosensitive tonic-clonic seizures	1	0.9506172839506173
+Abnormality of the foot	1	0.5907590759075908
+Neuronal loss in central nervous system	1	0.6240384615384615
+Abnormality of the nose	1	0.9330543933054394
+Reticulocytosis	1	0.6894803548795944
 Endopolyploidy on chromosome studies of bone marrow	1	1.0
 Reduced activity of N-acetylglucosaminyltransferase II	1	1.0
-Anemia of inadequate production	1	1.0
+Anemia of inadequate production	1	0.9363057324840763
 Ductal carcinoma in situ	1	1.0
-Macroorchidism, postpubertal	1	1.0
-Inertia	1	1.0
-Premature ovarian insufficiency	1	0.876
-Resting tremor	1	0.9090909090909091
-Bradykinesia	1	0.8494318181818181
-Urinary bladder sphincter dysfunction	1	0.9503105590062112
-Dysdiadochokinesis	1	0.8878504672897196
-Increased circulating gonadotropin level	1	0.9044943820224718
-Postural tremor	1	0.9050632911392406
-Saccadic smooth pursuit	1	0.9550561797752809
-Abnormal head movements	1	1.0
-Pollakisuria	1	1.0
-Diffuse cerebellar atrophy	1	1.0
+Macroorchidism, postpubertal	1	0.9836065573770493
+Inertia	1	0.9576271186440677
+Premature ovarian insufficiency	1	0.5541579315164221
+Resting tremor	1	0.6628029504741834
+Bradykinesia	1	0.4515789473684211
+Urinary bladder sphincter dysfunction	1	0.6956018518518519
+Dysdiadochokinesis	1	0.5928449744463373
+Increased circulating gonadotropin level	1	0.6854304635761589
+Postural tremor	1	0.6202158979391561
+Saccadic smooth pursuit	1	0.7597864768683275
+Abnormal head movements	1	0.9440993788819877
+Pollakisuria	1	0.9482758620689656
+Diffuse cerebellar atrophy	1	0.9390243902439025
 Congenital macroorchidism	1	1.0
-Diffuse cerebral atrophy	1	0.9324324324324323
-Disinhibition	1	0.9405940594059407
-Impaired distal vibration sensation	1	0.9722222222222223
+Diffuse cerebral atrophy	1	0.8154205607476636
+Disinhibition	1	0.7598116169544741
+Impaired distal vibration sensation	1	0.9349999999999999
 Folate-dependent fragile site at Xq28	1	1.0
-Sinusitis	1	0.9289099526066351
-Areflexia	1	0.6749156355455568
-Everted upper lip vermilion	1	1.0
-Abnormality of the thyroid gland	1	0.9514563106796117
-Abnormality of the urinary system	1	0.9565217391304348
-Speech apraxia	1	0.9722222222222223
+Sinusitis	1	0.585345545378851
+Areflexia	1	0.20643153526970953
+Everted upper lip vermilion	1	0.8969957081545065
+Abnormality of the thyroid gland	1	0.7797202797202798
+Abnormality of the urinary system	1	0.6443556443556443
+Speech apraxia	1	0.8829268292682926
 Head-banging	1	1.0
-Abnormality of the immune system	1	0.93
-Abnormality of the forearm	1	1.0
-Morphological abnormality of the middle ear	1	1.0
-Organic aciduria	1	1.0
-Gowers sign	1	0.8790697674418604
-Atrial standstill	1	1.0
-Endocardial fibroelastosis	1	1.0
-Premature atrial contractions	1	1.0
-Atrial fibrillation	1	0.8770491803278689
-First degree atrioventricular block	1	1.0
+Abnormality of the immune system	1	0.7572156196943973
+Abnormality of the forearm	1	0.9838709677419355
+Morphological abnormality of the middle ear	1	0.9182692307692307
+Organic aciduria	1	0.8428246013667425
+Gowers sign	1	0.5594781273983116
+Atrial standstill	1	0.880952380952381
+Endocardial fibroelastosis	1	0.9023255813953488
+Premature atrial contractions	1	0.9711538461538461
+Atrial fibrillation	1	0.5130039011703511
+First degree atrioventricular block	1	0.9556962025316456
 Atrial cardiomyopathy	1	1.0
-Pulverulent cataract	1	1.0
-Corneal dystrophy	1	0.8971428571428571
-Posterior subcapsular cataract	1	1.0
-Abnormal bleeding	1	0.893939393939394
-Increased mean platelet volume	1	0.9743589743589742
-Menorrhagia	1	0.9411764705882353
-Prolonged bleeding time	1	0.9030612244897959
-Uplifted earlobe	1	1.0
-Hair-pulling	1	1.0
-Delayed CNS myelination	1	0.9864864864864864
-Episodic vomiting	1	0.9574468085106382
-Recurrent skin infections	1	0.9242424242424242
-Cellulitis	1	0.9135802469135803
-Toenail dysplasia	1	0.9622641509433961
-Palpebral edema	1	0.9568965517241379
-Hyperorality	1	1.0
-Abnormality of the periventricular white matter	1	0.9236641221374047
-Cerebellar cortical atrophy	1	0.9545454545454545
-Tongue thrusting	1	0.9444444444444444
-Concave nasal ridge	1	1.0
+Pulverulent cataract	1	0.9352941176470588
+Corneal dystrophy	1	0.6049270072992701
+Posterior subcapsular cataract	1	0.8666666666666667
+Abnormal bleeding	1	0.5205570291777188
+Increased mean platelet volume	1	0.8798283261802576
+Menorrhagia	1	0.7567567567567568
+Prolonged bleeding time	1	0.581953642384106
+Uplifted earlobe	1	0.9612403100775194
+Hair-pulling	1	0.9821428571428572
+Delayed CNS myelination	1	0.801255230125523
+Episodic vomiting	1	0.888030888030888
+Recurrent skin infections	1	0.6144814090019569
+Cellulitis	1	0.6728167281672817
+Toenail dysplasia	1	0.9163179916317992
+Palpebral edema	1	0.7677419354838709
+Hyperorality	1	0.8823529411764706
+Abnormality of the periventricular white matter	1	0.7371512481644641
+Cerebellar cortical atrophy	1	0.9540229885057472
+Tongue thrusting	1	0.9479166666666666
+Concave nasal ridge	1	0.9036144578313253
 Recurrent pyelonephritis	1	1.0
-Heat intolerance	1	0.935483870967742
-Hypoalbuminemia	1	0.9120370370370371
-Conjunctival telangiectasia	1	0.9666666666666666
+Heat intolerance	1	0.8542274052478134
+Hypoalbuminemia	1	0.553125
+Conjunctival telangiectasia	1	0.7445141065830722
 Enlarged vertebral pedicles	1	1.0
-Hematochezia	1	0.9772727272727272
-Intussusception	1	1.0
-Laryngotracheal stenosis	1	1.0
-Intestinal pseudo-obstruction	1	0.9846153846153847
-Epispadias	1	0.9361702127659575
-Multiple gastric polyps	1	1.0
-Extrahepatic cholestasis	1	0.9714285714285715
-Cholecystitis	1	0.9466666666666668
-Venous thrombosis	1	0.872093023255814
-Neoplasm of the liver	1	0.9682539682539683
-Retinal telangiectasia	1	1.0
-Hypokalemia	1	0.9123711340206186
-Back pain	1	0.943089430894309
-Limitation of joint mobility	1	0.8310502283105023
-Abnormality of the pubic bone	1	1.0
-Stiff skin	1	0.9411764705882353
-Cerebral arteriovenous malformation	1	1.0
-Gastrointestinal carcinoma	1	1.0
-Large iliac wings	1	1.0
-Duodenal adenocarcinoma	1	1.0
-Broad ribs	1	1.0
-Skeletal muscle hypertrophy	1	0.9826086956521739
-Functional intestinal obstruction	1	1.0
+Hematochezia	1	0.8654970760233918
+Intussusception	1	0.9583333333333334
+Laryngotracheal stenosis	1	0.9540229885057472
+Intestinal pseudo-obstruction	1	0.8498498498498499
+Epispadias	1	0.7095541401273885
+Multiple gastric polyps	1	0.9538461538461539
+Extrahepatic cholestasis	1	0.8406862745098039
+Cholecystitis	1	0.7709163346613547
+Venous thrombosis	1	0.5311871227364185
+Neoplasm of the liver	1	0.7412790697674418
+Retinal telangiectasia	1	0.8798283261802576
+Hypokalemia	1	0.6310408921933086
+Back pain	1	0.7331378299120234
+Limitation of joint mobility	1	0.3584758942457231
+Abnormality of the pubic bone	1	0.942857142857143
+Stiff skin	1	0.9649122807017544
+Cerebral arteriovenous malformation	1	0.9555555555555555
+Gastrointestinal carcinoma	1	0.9900990099009901
+Large iliac wings	1	0.9248554913294798
+Duodenal adenocarcinoma	1	0.9235668789808917
+Broad ribs	1	0.8218623481781376
+Skeletal muscle hypertrophy	1	0.7559055118110236
+Functional intestinal obstruction	1	0.8934426229508197
 Generalized muscle hypertrophy	1	1.0
-Chronic fatigue	1	1.0
-Pulmonary arteriovenous malformation	1	1.0
-Hepatosplenomegaly	1	0.8876404494382022
-Pericardial effusion	1	0.9516129032258064
-External genital hypoplasia	1	0.9280575539568346
-Hepatic arteriovenous malformation	1	1.0
+Chronic fatigue	1	0.8934426229508197
+Pulmonary arteriovenous malformation	1	0.9528301886792453
+Hepatosplenomegaly	1	0.509840098400984
+Pericardial effusion	1	0.8519417475728156
+External genital hypoplasia	1	0.7061728395061728
+Hepatic arteriovenous malformation	1	0.9528301886792453
 Juvenile gastrointestinal polyposis	1	1.0
-Submucous cleft hard palate	1	0.8983050847457628
-Peripheral arteriovenous fistula	1	0.9830508474576272
-Clubbing	1	0.9629629629629629
-Short long bone	1	0.9565217391304348
-Gingival cleft	1	1.0
-Unilateral cleft lip	1	1.0
-Peritoneal abscess	1	1.0
-Esophageal varix	1	0.9607843137254901
-Spontaneous hematomas	1	0.9814814814814815
-Abnormality of the antihelix	1	0.9326923076923077
-Abnormal T-wave	1	1.0
+Submucous cleft hard palate	1	0.5412186379928315
+Peripheral arteriovenous fistula	1	0.8741258741258742
+Clubbing	1	0.7575757575757576
+Short long bone	1	0.6709265175718849
+Gingival cleft	1	0.9811320754716982
+Unilateral cleft lip	1	0.9281767955801106
+Peritoneal abscess	1	0.8812949640287769
+Esophageal varix	1	0.725258493353028
+Spontaneous hematomas	1	0.834375
+Abnormality of the antihelix	1	0.7919075144508672
+Abnormal T-wave	1	0.9701492537313434
 Intermittent hyperventilation	1	1.0
-Spastic gait	1	0.8940092165898618
-Encephalopathy	1	0.8551136363636362
-Chorea	1	0.8721311475409835
+Spastic gait	1	0.5726495726495727
+Encephalopathy	1	0.43638221768012264
+Chorea	1	0.4881546134663342
 Gait apraxia	1	1.0
-Acrocyanosis	1	0.9726027397260274
-Prolonged QTc interval	1	0.9629629629629629
-Slow progression	1	0.7083870967741935
-Progressive spasticity	1	1.0
-Abnormality of the antitragus	1	1.0
-Excessive salivation	1	0.9459459459459459
+Acrocyanosis	1	0.8271604938271605
+Prolonged QTc interval	1	0.8671328671328671
+Slow progression	1	0.21631051024858264
+Progressive spasticity	1	0.8941176470588235
+Abnormality of the antitragus	1	0.9033613445378151
+Excessive salivation	1	0.8727272727272728
 Thin fingernail	1	1.0
-Central hypoventilation	1	0.9512195121951219
-Hernia of the abdominal wall	1	1.0
-Muscular hypotonia of the trunk	1	0.791497975708502
-Narrow foot	1	1.0
-Short 2nd finger	1	0.98
-Sparse eyebrow	1	0.9565217391304348
-Short 5th finger	1	0.9827586206896551
-Short middle phalanx of finger	1	0.9662921348314606
-Increased mean corpuscular volume	1	0.978723404255319
-Macrodontia	1	1.0
-Single median maxillary incisor	1	0.9750000000000001
-Colpocephaly	1	0.9629629629629629
-Abnormal hair pattern	1	0.9577464788732394
+Central hypoventilation	1	0.9300411522633745
+Hernia of the abdominal wall	1	0.9292035398230089
+Muscular hypotonia of the trunk	1	0.3392920986771541
+Narrow foot	1	0.942857142857143
+Short 2nd finger	1	0.920704845814978
+Sparse eyebrow	1	0.8259740259740259
+Short 5th finger	1	0.8598901098901098
+Short middle phalanx of finger	1	0.7747440273037542
+Increased mean corpuscular volume	1	0.8364611260053619
+Macrodontia	1	0.9111111111111111
+Single median maxillary incisor	1	0.8723404255319149
+Colpocephaly	1	0.8984962406015038
+Abnormal hair pattern	1	0.8481012658227848
 Vertebral arch anomaly	1	1.0
-Cervical ribs	1	1.0
-Pulmonary sequestration	1	1.0
-Medullary thyroid carcinoma	1	1.0
-Abnormality of the pleura	1	1.0
-Abnormality of the hair	1	0.8544061302681992
-Spontaneous pneumothorax	1	1.0
+Cervical ribs	1	0.9120879120879121
+Pulmonary sequestration	1	0.9807692307692308
+Medullary thyroid carcinoma	1	0.9770114942528736
+Abnormality of the pleura	1	0.8996282527881041
+Abnormality of the hair	1	0.5765345765345765
+Spontaneous pneumothorax	1	0.9746835443037974
 Fibrofolliculoma	1	1.0
 Receptive language delay	1	1.0
 Telangiectasia of the oral mucosa	1	1.0
-Increased urinary O-linked sialopeptides	1	1.0
-Axonal degeneration	1	0.9629629629629629
-Vertigo	1	0.8406593406593407
-Aminoaciduria	1	0.8978102189781022
+Increased urinary O-linked sialopeptides	1	0.9857142857142857
+Axonal degeneration	1	0.8333333333333334
+Vertigo	1	0.413154238073182
+Aminoaciduria	1	0.4651933701657459
 White mater abnormalities in the posterior periventricular region	1	1.0
-Angiokeratoma corporis diffusum	1	1.0
-Distal sensory impairment of all modalities	1	1.0
-Lip telangiectasia	1	1.0
-Generalized amyotrophy	1	0.9010416666666667
-Distal sensory impairment	1	0.7995910020449897
+Angiokeratoma corporis diffusum	1	0.9807692307692308
+Distal sensory impairment of all modalities	1	0.9722222222222223
+Lip telangiectasia	1	0.9424460431654675
+Generalized amyotrophy	1	0.6179372197309417
+Distal sensory impairment	1	0.34805389221556887
 Vascular neoplasm	1	1.0
 Retinal hole	1	1.0
 Subretinal exudate	1	1.0
 Anterior chamber synechiae	1	1.0
-Exudative vitreoretinopathy	1	0.9743589743589742
-Peripheral vitreous opacities	1	1.0
-Abnormality of the helix	1	0.9658119658119657
-Remnants of the hyaloid vascular system	1	1.0
-Retinal dysplasia	1	0.9534883720930232
-Neoplasm of the eye	1	1.0
+Exudative vitreoretinopathy	1	0.9249999999999999
+Peripheral vitreous opacities	1	0.9863013698630138
+Abnormality of the helix	1	0.7743055555555556
+Remnants of the hyaloid vascular system	1	0.9467455621301776
+Retinal dysplasia	1	0.7314540059347182
+Neoplasm of the eye	1	0.8905660377358492
 Intraretinal exudate	1	1.0
-Ectopia lentis	1	0.9148936170212767
-Retinal neovascularization	1	0.9500000000000001
-Abnormal macular morphology	1	0.9591836734693877
-Shallow anterior chamber	1	1.0
-Falciform retinal fold	1	0.9500000000000001
-Vitreous hemorrhage	1	0.9759036144578312
-Tractional retinal detachment	1	0.9615384615384615
-Abnormality of the retinal vasculature	1	0.7978947368421052
-Reduced visual acuity	1	0.7281399046104928
-Uterine rupture	1	1.0
-Retinal fold	1	1.0
-Abnormal cochlea morphology	1	1.0
-Clonus	1	0.9054054054054054
-Aplasia/Hypoplasia of the lens	1	1.0
+Ectopia lentis	1	0.6891252955082743
+Retinal neovascularization	1	0.963963963963964
+Abnormal macular morphology	1	0.8707482993197279
+Shallow anterior chamber	1	0.9128440366972477
+Falciform retinal fold	1	0.963963963963964
+Vitreous hemorrhage	1	0.8031674208144797
+Tractional retinal detachment	1	0.937062937062937
+Abnormality of the retinal vasculature	1	0.35741590214067276
+Reduced visual acuity	1	0.2667574931880109
+Uterine rupture	1	0.9125000000000001
+Retinal fold	1	0.9782608695652175
+Abnormal cochlea morphology	1	0.8722741433021808
+Clonus	1	0.6903870162297129
+Aplasia/Hypoplasia of the lens	1	0.9861111111111112
 Sutural cataract	1	1.0
 Screwdriver-shaped incisors	1	1.0
-Broad finger	1	0.9500000000000001
-Posterior Y-sutural cataract	1	0.9583333333333334
-Severe visual impairment	1	0.8808290155440415
+Broad finger	1	0.9784946236559141
+Posterior Y-sutural cataract	1	0.9759036144578312
+Severe visual impairment	1	0.7040690505548706
 Supernumerary maxillary incisor	1	1.0
 Disorganization of the anterior cerebellar vermis	1	1.0
-Abnormality of the philtrum	1	1.0
-Retrocerebellar cyst	1	1.0
-Enlarged cisterna magna	1	1.0
-Abnormality of the gingiva	1	1.0
-Hamartoma	1	0.9666666666666666
+Abnormality of the philtrum	1	0.946808510638298
+Retrocerebellar cyst	1	0.9625000000000001
+Enlarged cisterna magna	1	0.9035714285714286
+Abnormality of the gingiva	1	0.9240506329113923
+Hamartoma	1	0.9257142857142858
 Abnormality of buccal mucosa	1	1.0
-Abnormal cranial nerve morphology	1	1.0
-Situs inversus totalis	1	0.7815315315315315
-Retinal dystrophy	1	0.8214285714285714
-Synotia	1	1.0
-Cyclopia	1	1.0
-Aplasia/Hypoplasia involving the nose	1	0.9750000000000001
-Mandibular aplasia	1	0.9866666666666666
-Absent nares	1	1.0
+Abnormal cranial nerve morphology	1	0.8105515587529977
+Situs inversus totalis	1	0.40607127144742633
+Retinal dystrophy	1	0.40061565523306947
+Synotia	1	0.9830508474576272
+Cyclopia	1	0.9642857142857143
+Aplasia/Hypoplasia involving the nose	1	0.9037656903765691
+Mandibular aplasia	1	0.8293838862559242
+Absent nares	1	0.9754098360655739
 Maternal hyperphenylalaninemia	1	1.0
-Lack of skin elasticity	1	0.9469026548672567
-Increased level of hippuric acid in urine	1	1.0
+Lack of skin elasticity	1	0.7319277108433735
+Increased level of hippuric acid in urine	1	0.8894472361809046
 Reduced phenylalanine hydroxylase activity	1	1.0
-Scleroderma	1	0.9655172413793103
+Scleroderma	1	0.9130434782608695
 Phenylpyruvic acidemia	1	1.0
-Hyperphenylalaninemia	1	1.0
-Hypermelanotic macule	1	0.8865546218487395
-Overgrowth	1	0.9509803921568627
-Capillary malformation	1	1.0
-Urinary tract neoplasm	1	1.0
-Spinal dysraphism	1	1.0
+Hyperphenylalaninemia	1	0.9305555555555556
+Hypermelanotic macule	1	0.4908647990255786
+Overgrowth	1	0.7577639751552795
+Capillary malformation	1	0.9705882352941176
+Urinary tract neoplasm	1	0.8284023668639053
+Spinal dysraphism	1	0.9477611940298508
 Abnormal venous morphology	1	1.0
-Hyperparakeratosis	1	1.0
-Ovarian serous cystadenoma	1	1.0
-Enlarged kidney	1	0.9746835443037974
-Basal cell carcinoma	1	0.9125683060109289
-Asymmetric growth	1	1.0
-Cardiac diverticulum	1	1.0
-Agnosia	1	0.9848484848484849
-Abnormality of the cerebral vasculature	1	0.9705882352941176
-Megalencephaly	1	1.0
-Cavum septum pellucidum	1	1.0
-Cranial hyperostosis	1	1.0
-Verrucae	1	0.9310344827586206
-Leukemia	1	0.9398496240601504
-Alveolar cell carcinoma	1	0.9565217391304348
-Hepatocellular carcinoma	1	0.9302325581395349
-Micronodular cirrhosis	1	0.98
-Glioblastoma multiforme	1	1.0
-Abnormality of the lymphatic system	1	0.9099999999999999
-Subacute progressive viral hepatitis	1	1.0
-Hernia	1	0.9684210526315791
-2-4 toe syndactyly	1	1.0
-Benign neoplasm of the central nervous system	1	0.978021978021978
-Sertoli cell neoplasm	1	0.9545454545454545
-Histiocytoma	1	1.0
-Adrenal hyperplasia	1	0.925531914893617
+Hyperparakeratosis	1	0.9508196721311476
+Ovarian serous cystadenoma	1	0.9821428571428572
+Enlarged kidney	1	0.7345399698340874
+Basal cell carcinoma	1	0.5993179880647911
+Asymmetric growth	1	0.9276315789473685
+Cardiac diverticulum	1	0.8284023668639053
+Agnosia	1	0.777292576419214
+Abnormality of the cerebral vasculature	1	0.8174904942965779
+Megalencephaly	1	0.8631284916201117
+Cavum septum pellucidum	1	0.8172043010752689
+Cranial hyperostosis	1	0.8984375
+Verrucae	1	0.7620632279534111
+Leukemia	1	0.7223926380368099
+Alveolar cell carcinoma	1	0.8068181818181819
+Hepatocellular carcinoma	1	0.5522609340252038
+Micronodular cirrhosis	1	0.7965779467680608
+Glioblastoma multiforme	1	0.8259668508287292
+Abnormality of the lymphatic system	1	0.789980732177264
+Subacute progressive viral hepatitis	1	0.9083969465648855
+Hernia	1	0.7159420289855073
+2-4 toe syndactyly	1	0.9830508474576272
+Benign neoplasm of the central nervous system	1	0.7504393673110721
+Sertoli cell neoplasm	1	0.9892473118279569
+Histiocytoma	1	0.9893617021276596
+Adrenal hyperplasia	1	0.8243243243243243
 Thyroid follicular hyperplasia	1	1.0
 Bacterial endocarditis	1	1.0
 Pulmonic valve myxoma	1	1.0
 Abnormality of circulating adrenocorticotropin level	1	1.0
-Mood changes	1	1.0
-Striae distensae	1	0.96875
-Primary hypercortisolism	1	1.0
-Pigmented micronodular adrenocortical disease	1	1.0
-Increased circulating cortisol level	1	0.958904109589041
-Long hallux	1	0.98
-Easy fatigability	1	0.8534201954397395
-Growth hormone excess	1	0.912621359223301
-Adrenocortical carcinoma	1	0.9824561403508772
-Onset	1	0.944954128440367
-Pituitary prolactin cell adenoma	1	0.9375
+Mood changes	1	0.9281767955801106
+Striae distensae	1	0.80990099009901
+Primary hypercortisolism	1	0.962686567164179
+Pigmented micronodular adrenocortical disease	1	0.9541984732824427
+Increased circulating cortisol level	1	0.8298969072164948
+Long hallux	1	0.8694158075601375
+Easy fatigability	1	0.4975490196078431
+Growth hormone excess	1	0.773356401384083
+Adrenocortical carcinoma	1	0.8398950131233596
+Onset	1	0.7462908011869436
+Pituitary prolactin cell adenoma	1	0.8724832214765101
 Myxoid subcutaneous tumors	1	1.0
-Thromboembolism	1	1.0
-Vestibular Schwannoma	1	1.0
-Peripheral Schwannoma	1	1.0
+Thromboembolism	1	0.8844621513944223
+Vestibular Schwannoma	1	0.9433962264150942
+Peripheral Schwannoma	1	0.9666666666666666
 Neonatal epiphyseal stippling	1	1.0
-Paradoxical increased cortisol secretion on dexamethasone suppression test	1	1.0
-Cardiac myxoma	1	1.0
-Pigmentation of the sclera	1	1.0
-Schwannoma	1	1.0
-Disproportionate short-limb short stature	1	0.94375
-Heart murmur	1	0.9879518072289156
-Freckling	1	0.9070796460176991
-Agitation	1	0.853470437017995
+Paradoxical increased cortisol secretion on dexamethasone suppression test	1	0.9680851063829786
+Cardiac myxoma	1	0.9770114942528736
+Pigmentation of the sclera	1	0.9866666666666666
+Schwannoma	1	0.9666666666666666
+Disproportionate short-limb short stature	1	0.6572052401746725
+Heart murmur	1	0.7982832618025751
+Freckling	1	0.5858995137763371
+Agitation	1	0.39015817223198596
 Blue nevus	1	1.0
 Profuse pigmented skin lesions	1	1.0
-Osteochondroma	1	1.0
-Multiple lentigines	1	0.971830985915493
-Pituitary growth hormone cell adenoma	1	0.9761904761904762
-Mental deterioration	1	0.8493589743589743
-Edema of the lower limbs	1	1.0
-Mild postnatal growth retardation	1	1.0
-Hepatocellular adenoma	1	1.0
-Increased urinary cortisol level	1	0.978723404255319
+Osteochondroma	1	0.9591836734693877
+Multiple lentigines	1	0.8392857142857143
+Pituitary growth hormone cell adenoma	1	0.8801498127340824
+Mental deterioration	1	0.46434403919433864
+Edema of the lower limbs	1	0.8542372881355932
+Mild postnatal growth retardation	1	0.9166666666666667
+Hepatocellular adenoma	1	0.9855072463768116
+Increased urinary cortisol level	1	0.8689138576779025
 Multicentric femoral head ossification	1	1.0
-Hypoplastic facial bones	1	1.0
+Hypoplastic facial bones	1	0.9352941176470588
 Multicentric ossification of proximal humeral epiphyses	1	1.0
-Atlantoaxial instability	1	1.0
-Flat glenoid fossa	1	1.0
-Barrel-shaped chest	1	0.9693877551020407
-Shield chest	1	1.0
-Enlargement of the costochondral junction	1	1.0
-Genu varum	1	0.8798283261802576
-Narrow greater sacrosciatic notches	1	1.0
+Atlantoaxial instability	1	0.9659090909090908
+Flat glenoid fossa	1	0.9841269841269842
+Barrel-shaped chest	1	0.7735124760076775
+Shield chest	1	0.8727810650887574
+Enlargement of the costochondral junction	1	0.9556962025316456
+Genu varum	1	0.5935374149659864
+Narrow greater sacrosciatic notches	1	0.8884615384615384
 Multicentric ossification of proximal femoral epiphyses	1	1.0
 Abnormality of the ilium	1	1.0
-Disproportionate short-trunk short stature	1	0.9380530973451326
-Short thorax	1	0.8914728682170543
-Hypoplastic acetabulae	1	0.9642857142857143
-Metaphyseal irregularity	1	0.9490445859872613
-Iliac crest serration	1	1.0
-Waddling gait	1	0.821505376344086
-Sloping forehead	1	0.7444444444444444
-Irregular epiphyses	1	0.9682539682539683
-Beaking of vertebral bodies	1	0.972972972972973
-Carpal bone hypoplasia	1	1.0
-Flat acetabular roof	1	0.9479166666666666
-Hypoplasia of the odontoid process	1	0.9473684210526315
-Wide pubic symphysis	1	1.0
-Prominent sternum	1	0.9722222222222223
+Disproportionate short-trunk short stature	1	0.7579113924050633
+Short thorax	1	0.5416068866571019
+Hypoplastic acetabulae	1	0.9782608695652175
+Metaphyseal irregularity	1	0.7239263803680981
+Iliac crest serration	1	0.9574468085106382
+Waddling gait	1	0.3741883116883117
+Sloping forehead	1	0.28060640732265446
+Irregular epiphyses	1	0.8320000000000001
+Beaking of vertebral bodies	1	0.8285714285714286
+Carpal bone hypoplasia	1	0.8353293413173652
+Flat acetabular roof	1	0.7854477611940298
+Hypoplasia of the odontoid process	1	0.7555555555555555
+Wide pubic symphysis	1	0.9935483870967742
+Prominent sternum	1	0.9440993788819877
 Deformed sella turcica	1	1.0
-Shoulder dislocation	1	0.9642857142857143
+Shoulder dislocation	1	0.9826086956521739
 Delayed femoral head ossification	1	1.0
-Uveal melanoma	1	1.0
-Abnormality of the vasculature	1	1.0
+Uveal melanoma	1	0.9827586206896551
+Abnormality of the vasculature	1	0.9756097560975611
 Atypical nevus	1	1.0
-Absent thumb	1	0.9193548387096774
+Absent thumb	1	0.7165109034267914
 Atypical nevi in non-sun exposed areas	1	1.0
-Abnormality of the optic nerve	1	1.0
-Heterochromia iridis	1	0.9552238805970149
-Intracranial hemorrhage	1	0.9119999999999999
-Angina pectoris	1	0.9478260869565218
-Neoplasm of the breast	1	0.946808510638298
-Primary peritoneal carcinoma	1	0.9855072463768116
-Abnormal large intestine morphology	1	1.0
-Excessive wrinkled skin	1	0.948051948051948
-Stillbirth	1	0.937007874015748
-Non-medullary thyroid carcinoma	1	1.0
-Abnormality of the fallopian tube	1	0.9322033898305084
-Cutaneous melanoma	1	1.0
-Neoplasm of the adrenal cortex	1	0.9677419354838709
-Squamous cell carcinoma	1	0.9430051813471503
+Abnormality of the optic nerve	1	0.9023569023569025
+Heterochromia iridis	1	0.8373333333333333
+Intracranial hemorrhage	1	0.7106918238993711
+Angina pectoris	1	0.7069182389937106
+Neoplasm of the breast	1	0.8029350104821804
+Primary peritoneal carcinoma	1	0.8423913043478262
+Abnormal large intestine morphology	1	0.9818181818181817
+Excessive wrinkled skin	1	0.6874251497005989
+Stillbirth	1	0.7015306122448979
+Non-medullary thyroid carcinoma	1	0.9883720930232559
+Abnormality of the fallopian tube	1	0.7504187604690117
+Cutaneous melanoma	1	0.8775510204081632
+Neoplasm of the adrenal cortex	1	0.9111111111111111
+Squamous cell carcinoma	1	0.6535269709543569
 Dysplastic gangliocytoma of the cerebellum	1	1.0
 Enlarged cerebellum	1	1.0
-Abnormality of the parathyroid gland	1	1.0
-Acrokeratosis	1	1.0
-Prostate cancer	1	0.9879518072289156
-Abnormal vertebral morphology	1	0.9310344827586206
-Subcutaneous hemorrhage	1	0.961038961038961
-Abnormality of the vertebral column	1	0.9268292682926829
-Hyperostosis	1	1.0
-Radial club hand	1	1.0
-Vertebral clefting	1	1.0
+Abnormality of the parathyroid gland	1	0.9545454545454545
+Acrokeratosis	1	0.9836065573770493
+Prostate cancer	1	0.7860082304526749
+Abnormal vertebral morphology	1	0.6717112922002327
+Subcutaneous hemorrhage	1	0.8312020460358056
+Abnormality of the vertebral column	1	0.7672413793103448
+Hyperostosis	1	0.9054054054054054
+Radial club hand	1	0.9714285714285715
+Vertebral clefting	1	0.9700000000000001
 Conotruncal defect	1	1.0
-Natal tooth	1	0.9666666666666666
-Persistence of primary teeth	1	0.9629629629629629
-Cerebral cortical hemiatrophy	1	0.9473684210526315
-Tracheobronchomalacia	1	0.9375
-Apathy	1	0.9425287356321839
-Hypsarrhythmia	1	0.8471337579617835
-Horizontal nystagmus	1	0.9264705882352942
-Abnormality of lateral ventricle	1	1.0
-Global brain atrophy	1	0.9677419354838709
-Poor head control	1	0.8803088803088802
-Type I transferrin isoform profile	1	0.9418604651162791
-Periodontitis	1	0.9523809523809523
+Natal tooth	1	0.766025641025641
+Persistence of primary teeth	1	0.8780487804878049
+Cerebral cortical hemiatrophy	1	0.936046511627907
+Tracheobronchomalacia	1	0.9896907216494845
+Apathy	1	0.6061452513966481
+Hypsarrhythmia	1	0.4957317073170731
+Horizontal nystagmus	1	0.6758373205741627
+Abnormality of lateral ventricle	1	0.9827586206896551
+Global brain atrophy	1	0.8281938325991189
+Poor head control	1	0.5241660993873383
+Type I transferrin isoform profile	1	0.8248337028824834
+Periodontitis	1	0.7233766233766233
 Reduction of neutrophil motility	1	1.0
-Widow's peak	1	0.979591836734694
-Abnormality of the integument	1	1.0
-Bronchiolitis	1	1.0
-Gaze-evoked nystagmus	1	0.9722222222222223
+Widow's peak	1	0.9145299145299145
+Abnormality of the integument	1	0.9609374999999999
+Bronchiolitis	1	0.9411764705882353
+Gaze-evoked nystagmus	1	0.7340116279069767
 Normal interictal EEG	1	1.0
-Epileptic encephalopathy	1	0.8592375366568915
-Reduced consciousness/confusion	1	0.9651162790697675
-Paroxysmal choreoathetosis	1	1.0
-Paroxysmal dyskinesia	1	1.0
-Episodic hypertension	1	1.0
-Uterine leiomyoma	1	1.0
-Elevated urinary catecholamines	1	0.9636363636363636
+Epileptic encephalopathy	1	0.4611141753998897
+Reduced consciousness/confusion	1	0.8303964757709251
+Paroxysmal choreoathetosis	1	0.9756097560975611
+Paroxysmal dyskinesia	1	0.93006993006993
+Episodic hypertension	1	0.9846153846153847
+Uterine leiomyoma	1	0.937984496124031
+Elevated urinary catecholamines	1	0.9109311740890689
 Elevated circulating catecholamine level	1	1.0
 Loss of voice	1	1.0
-Nephrotic syndrome	1	0.7686274509803922
-Abnormal lymphocyte morphology	1	0.98
-Severe combined immunodeficiency	1	0.9850746268656717
-Eosinophilia	1	0.9527027027027027
-Desquamation of skin soon after birth	1	0.9571428571428572
-Cleft lip	1	0.9848484848484849
-Sepsis	1	0.8431952662721894
-Edema	1	0.8159340659340659
-Pruritus	1	0.8050314465408805
-Chronic diarrhea	1	0.919047619047619
-Erythroderma	1	0.8989898989898989
-Vitamin B1 deficiency	1	1.0
-Abnormal glucose tolerance	1	1.0
-Polygenic inheritance	1	0.9876543209876544
-Decreased resting energy expenditure	1	1.0
-Misalignment of teeth	1	0.9393939393939394
-Postural hypotension with compensatory tachycardia	1	1.0
-Aplasia/Hypoplasia of the abdominal wall musculature	1	0.9375
-Thin ribs	1	0.891566265060241
-Lateral clavicle hook	1	1.0
-Minimal subcutaneous fat	1	1.0
-Metaphyseal widening	1	0.9438775510204082
-Hyperextensible skin	1	0.8999999999999999
+Nephrotic syndrome	1	0.3266643670231114
+Abnormal lymphocyte morphology	1	0.8411764705882353
+Severe combined immunodeficiency	1	0.8026315789473684
+Eosinophilia	1	0.6828703703703703
+Desquamation of skin soon after birth	1	0.8046875000000001
+Cleft lip	1	0.8513513513513513
+Sepsis	1	0.45737265415549594
+Edema	1	0.4169811320754717
+Pruritus	1	0.3237092391304348
+Chronic diarrhea	1	0.5715396578538102
+Erythroderma	1	0.5894206549118388
+Vitamin B1 deficiency	1	0.9318181818181818
+Abnormal glucose tolerance	1	0.9636363636363636
+Polygenic inheritance	1	0.8518518518518517
+Decreased resting energy expenditure	1	0.9672131147540984
+Misalignment of teeth	1	0.7909604519774012
+Postural hypotension with compensatory tachycardia	1	0.9846153846153847
+Aplasia/Hypoplasia of the abdominal wall musculature	1	0.6747252747252748
+Thin ribs	1	0.6756465517241379
+Lateral clavicle hook	1	0.8916967509025271
+Minimal subcutaneous fat	1	0.9711538461538461
+Metaphyseal widening	1	0.6082121471343028
+Hyperextensible skin	1	0.5115830115830116
 C1-C2 vertebral abnormality	1	1.0
-Abnormality of neutrophils	1	0.8215223097112861
+Abnormality of neutrophils	1	0.40820929183581417
 Abnormal left ventricle morphology	1	1.0
-Left ventricular noncompaction	1	0.9270833333333334
+Left ventricular noncompaction	1	0.790650406504065
 Impaired ability to form peer relationships	1	1.0
-Hypothalamic hamartoma	1	0.979591836734694
-Spastic tetraplegia	1	0.8502994011976048
-Vertebral hypoplasia	1	1.0
-Spastic diplegia	1	0.9343065693430657
-Butterfly vertebrae	1	0.98
-Panhypopituitarism	1	0.9666666666666666
-EEG with centrotemporal focal spike waves	1	1.0
-Malar prominence	1	1.0
-Abnormality of the thymus	1	1.0
-Displacement of the external urethral meatus	1	0.9903846153846154
+Hypothalamic hamartoma	1	0.900763358778626
+Spastic tetraplegia	1	0.4741573033707865
+Vertebral hypoplasia	1	0.96875
+Spastic diplegia	1	0.773095623987034
+Butterfly vertebrae	1	0.8766666666666667
+Panhypopituitarism	1	0.9363636363636364
+EEG with centrotemporal focal spike waves	1	0.9857142857142857
+Malar prominence	1	0.8841201716738197
+Abnormality of the thymus	1	0.9659863945578232
+Displacement of the external urethral meatus	1	0.8092369477911647
 Parathyroid agenesis	1	1.0
-Hypoplastic left heart	1	0.963963963963964
-Abnormality of the endocrine system	1	0.98
-Right aortic arch with mirror image branching	1	0.9767441860465117
-Abnormality of the ear	1	0.9316239316239316
-Abnormality of the middle ear	1	1.0
-Complete atrioventricular canal defect	1	0.9552238805970149
-Unilateral primary pulmonary dysgenesis	1	1.0
-Postaxial polydactyly	1	0.8855721393034826
+Hypoplastic left heart	1	0.8035714285714286
+Abnormality of the endocrine system	1	0.8879310344827587
+Right aortic arch with mirror image branching	1	0.943502824858757
+Abnormality of the ear	1	0.7242424242424242
+Abnormality of the middle ear	1	0.9548387096774192
+Complete atrioventricular canal defect	1	0.8790560471976401
+Unilateral primary pulmonary dysgenesis	1	0.9658119658119657
+Postaxial polydactyly	1	0.6157989228007181
 Anterior creases of earlobe	1	1.0
-Pierre-Robin sequence	1	1.0
-Mood swings	1	0.9565217391304348
-Paranoia	1	1.0
-Late onset	1	0.9777777777777777
-Multiple glomerular cysts	1	1.0
-Glycosuria	1	0.8970588235294118
+Pierre-Robin sequence	1	0.8770949720670391
+Mood swings	1	0.9032258064516129
+Paranoia	1	0.872463768115942
+Late onset	1	0.8810975609756097
+Multiple glomerular cysts	1	0.9473684210526315
+Glycosuria	1	0.5762845849802372
 Atretic vas deferens	1	1.0
 Abnormality of alkaline phosphatase activity	1	1.0
-Pancreatic hypoplasia	1	0.96875
-Maturity-onset diabetes of the young	1	0.9444444444444444
-Reduced sperm motility	1	1.0
-Biliary tract abnormality	1	0.9435483870967741
-Elevated serum creatinine	1	0.9565217391304348
+Pancreatic hypoplasia	1	0.8706199460916443
+Maturity-onset diabetes of the young	1	0.8687150837988826
+Reduced sperm motility	1	0.9220779220779219
+Biliary tract abnormality	1	0.7328859060402685
+Elevated serum creatinine	1	0.8654434250764526
 Decreased numbers of nephrons	1	1.0
-Abnormality of exocrine pancreas physiology	1	1.0
-Abnormality of endocrine pancreas physiology	1	1.0
-Stage 5 chronic kidney disease	1	0.8931034482758621
-Aplasia/Hypoplasia of the pancreas	1	1.0
-Absent vas deferens	1	1.0
-Renal Fanconi syndrome	1	0.9629629629629629
-Gout	1	0.9636363636363636
+Abnormality of exocrine pancreas physiology	1	0.9870129870129871
+Abnormality of endocrine pancreas physiology	1	0.9714285714285715
+Stage 5 chronic kidney disease	1	0.4788235294117647
+Aplasia/Hypoplasia of the pancreas	1	0.927007299270073
+Absent vas deferens	1	0.9633027522935779
+Renal Fanconi syndrome	1	0.7965779467680608
+Gout	1	0.8734567901234569
 Epididymal cyst	1	1.0
-Acute kidney injury	1	1.0
-Conical tooth	1	0.9195402298850576
-Incomprehensible speech	1	1.0
-Nail dysplasia	1	0.7840909090909092
-Metacarpal synostosis	1	0.9818181818181817
-Abnormality of the respiratory system	1	1.0
+Acute kidney injury	1	0.8769230769230769
+Conical tooth	1	0.8197802197802199
+Incomprehensible speech	1	0.9846153846153847
+Nail dysplasia	1	0.4016941596076683
+Metacarpal synostosis	1	0.8586956521739131
+Abnormality of the respiratory system	1	0.9285714285714286
 Projection of scalp hair onto lateral cheek	1	1.0
-Premature chromatid separation	1	1.0
-Hypomelanotic macule	1	1.0
+Premature chromatid separation	1	0.9807692307692308
+Hypomelanotic macule	1	0.9886363636363635
 Limb tremor	1	1.0
-Progressive gait ataxia	1	0.953125
-Primary gonadal insufficiency	1	0.9633027522935779
-Sideroblastic anemia	1	1.0
-Progressive cerebellar ataxia	1	0.8753894080996885
-Testicular atrophy	1	1.0
-Gastric ulcer	1	1.0
-Dysuria	1	0.9500000000000001
+Progressive gait ataxia	1	0.8474576271186441
+Primary gonadal insufficiency	1	0.7547723935389133
+Sideroblastic anemia	1	0.8698224852071006
+Progressive cerebellar ataxia	1	0.42365487154629183
+Testicular atrophy	1	0.876865671641791
+Gastric ulcer	1	0.9702970297029704
+Dysuria	1	0.8639053254437871
 Abnormality of mesentery morphology	1	1.0
-Central apnea	1	0.9365079365079365
-Abnormality of the upper urinary tract	1	1.0
-Hydroureter	1	0.8698224852071006
+Central apnea	1	0.8302872062663185
+Abnormality of the upper urinary tract	1	0.9504132231404959
+Hydroureter	1	0.473376243417203
 Limited mobility of proximal interphalangeal joint	1	1.0
-Central diabetes insipidus	1	1.0
-Stroke-like episode	1	1.0
-Megaloblastic anemia	1	1.0
-Cardiomyopathy	1	0.7704918032786885
-Nephropathy	1	0.8066037735849058
+Central diabetes insipidus	1	0.9627329192546583
+Stroke-like episode	1	0.9253731343283582
+Megaloblastic anemia	1	0.785425101214575
+Cardiomyopathy	1	0.30159225725881983
+Nephropathy	1	0.37691352916839055
 Low-frequency sensorineural hearing impairment	1	1.0
-Abnormality of the distal phalanx of finger	1	1.0
-Recurrent pneumonia	1	0.9039301310043668
-Otitis media	1	0.9444444444444444
-Subcapsular cataract	1	0.9818181818181817
-Progressive visual loss	1	0.875
-Chronic hepatic failure	1	0.9852941176470588
-Abnormality of the urethra	1	1.0
-Pulmonary fibrosis	1	0.8947368421052632
-Decreased HDL cholesterol concentration	1	0.9264705882352942
-Cone/cone-rod dystrophy	1	0.8999999999999999
-Abnormal adipose tissue morphology	1	1.0
-Tubulointerstitial nephritis	1	0.9833333333333334
-Chronic active hepatitis	1	0.9393939393939394
-Acanthosis nigricans	1	0.9095744680851064
-Atherosclerosis	1	0.9565217391304348
-Insulin-resistant diabetes mellitus	1	0.9078947368421053
-Hyperostosis frontalis interna	1	1.0
+Abnormality of the distal phalanx of finger	1	0.984251968503937
+Recurrent pneumonia	1	0.56656346749226
+Otitis media	1	0.6842105263157895
+Subcapsular cataract	1	0.8540372670807453
+Progressive visual loss	1	0.47679083094555874
+Chronic hepatic failure	1	0.8772455089820359
+Abnormality of the urethra	1	0.9186046511627907
+Pulmonary fibrosis	1	0.5324137931034483
+Decreased HDL cholesterol concentration	1	0.8542199488491049
+Cone/cone-rod dystrophy	1	0.6577540106951872
+Abnormal adipose tissue morphology	1	0.9271523178807948
+Tubulointerstitial nephritis	1	0.8554913294797688
+Chronic active hepatitis	1	0.952662721893491
+Acanthosis nigricans	1	0.609845031905196
+Atherosclerosis	1	0.6772908366533864
+Insulin-resistant diabetes mellitus	1	0.7891791044776119
+Hyperostosis frontalis interna	1	0.9743589743589742
 Multinodular goiter	1	1.0
-Photophobia	1	0.6263736263736264
-Constriction of peripheral visual field	1	0.8832116788321168
-Nephritis	1	0.978723404255319
-Generalized myoclonic seizures	1	0.8885135135135135
-Abnormality of eye movement	1	0.9388888888888888
+Photophobia	1	0.17482517482517484
+Constriction of peripheral visual field	1	0.5231874591770085
+Nephritis	1	0.8643533123028391
+Generalized myoclonic seizures	1	0.48360166964818124
+Abnormality of eye movement	1	0.663135593220339
