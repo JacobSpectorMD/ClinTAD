@@ -30,7 +30,7 @@ def get_100_variants(request, chromosome, start, end, phenotypes):
     end = end.replace(',', '')
 
     variant_list = []
-    while len(variant_list) <= 100:
+    while len(variant_list) < 100:
         sim_chr, sim_start, sim_end = generate_CNV(int(end)-int(start))
         result = json.loads(GetTADs(request, '', sim_chr, sim_start, sim_end, phenotypes, 0, source_function='single'))
         variant_list.append(Variant(chromosome, result['cnv_start'], result['cnv_end'], result['hpo_matches'],
