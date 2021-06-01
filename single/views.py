@@ -1,16 +1,11 @@
-import datetime
-from datetime import timedelta
 from urllib.parse import unquote
 
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
-from django.utils import timezone
-from django.views.generic import TemplateView
 
 from home.forms import *
 from home.clintad import get_single_data
 from home.clintad import hpo_lookup
-from home.clintad import GetTADs
 from home.models import SingleViewer
 from home.statistics import get_100_variants, get_one_variant
 
