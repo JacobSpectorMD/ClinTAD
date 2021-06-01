@@ -1,5 +1,4 @@
 *.gtf
-polygenic.py
 *database_backup.json
 
 commands/
