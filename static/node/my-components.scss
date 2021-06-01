@@ -1,0 +1,32 @@
+@use "node_modules/@material/button";
+@use "node_modules/@material/ripple";
+@include button.core-styles;
+
+.mdc-top-app-bar {
+  background-color: white;
+  color: var(--dark-grey);
+  top: 0;
+  left: 0;
+}
+
+body, main {
+  background: #fafafa;
+}
+
+.mdc-top-app-bar--fixed-adjust {
+  margin-top: 64px;
+  padding-top: 0px;
+}
+
+.nav-button {
+  height: 100%;
+  color: var(--dark-grey);
+  background-colo: red;
+  @include button.ink-color(var(--dark-grey));
+  @include ripple.states-base-color(red);
+}
+
+.nav-button:before,
+.nav-button:after {
+  background-color: red; /* RGBA of #2D5DCC */
+}
