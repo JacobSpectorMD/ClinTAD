@@ -1,9 +1,11 @@
-import os
-import json
 import io
-from home.models import Chromosome, Enhancer, Gene, TAD, Track, UT, Variant
-from home.forms import SingleForm
+import json
+import os
+
 from django.db.models import Q
+
+from home.helper import parse_coordinates, parse_phenotypes
+from home.models import Chromosome, Enhancer, Gene, TAD, Track, UT, Variant
 
 module_dir = os.path.dirname(__file__)  # get current directory
 hpo_path = os.path.join(module_dir, 'files/hpo_list.txt')
@@ -32,10 +34,11 @@ class TempGene:
 
 
 def get_single_data(request):
-    data_str = GetTADs(request, '', request.session['chromosome'], request.session['start'], request.session['end'],
-                       request.session['phenotypes'], request.session['zoom'])
-    data = json.loads(data_str)
+    chromosome, start, end = parse_coordinates(request.session['coordinates'])
+    phenotypes = parse_phenotypes(request.session['phenotypes'])
 
+    data_str = GetTADs(request, '', chromosome, start, end, phenotypes, request.session['zoom'])
+    data = json.loads(data_str)
 
     data['tracks'] = []
     if request.user.is_authenticated:
@@ -114,16 +117,8 @@ def GetTADs(request, case_id, chromosome_input, CNV_start, CNV_end, phenotypes, 
 
     # Process phenotype input
     phenotype_list = []
-    phenotypes_split = phenotypes.split(',')
-    for i in range(len(phenotypes_split)):
-        try:
-            if "HP" in phenotypes_split[i].upper():
-                x = phenotypes_split[i].split(':')
-                phenotype_list.append(int(x[1]))
-            else:
-                phenotype_list.append(int(phenotypes_split[i]))
-        except:
-            continue
+    for phenotype in phenotypes:
+        phenotype_list.append(phenotype)
 
     # Get enhancers
     enhancers = Enhancer.objects.filter(Q(start__range=(minimum_coordinate, maximum_coordinate)) |

@@ -27,6 +27,7 @@
     "@babel/core": "^7.13.16",
     "@babel/preset-env": "^7.13.15",
     "@material/feature-targeting": "^11.0.0",
+    "@material/select": "^6.0.0",
     "@material/touch-target": "^11.0.0",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.2.6",

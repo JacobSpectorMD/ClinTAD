@@ -1,16 +1,47 @@
+main {
+    display: flex;
+    flex-direction: column;
+}
+
 td {padding-right: 0.5em;}
+
+#input-cards-div {margin-bottom: 16px;}
+
+#multiple-input-card {
+    flex: 1;
+    margin-right: 16px;
+}
+
+#inputs-div {
+    display: flex;
+    flex-direction: row;
+}
+
+#text-area-div {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+#data-div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-right: 16px;
+}
+
+#results-card {
+    padding: 0px;
+    flex: 1;
+}
+
 #accordion2 {margin-top: 1em;}
 
 #width-div {width: 85%; margin: auto;}
 #case-toggle-div {    
     color: black;
-    border-radius: 2px;
-    border: thin solid black;
     cursor: pointer;
     display: inline-block;
-    padding: 2px 7px 2px 7px;
-    margin-right: 0.5em;
-    margin-bottom: 1em;
 }
 #multiple_regions_text {opacity: 0.5;}
 

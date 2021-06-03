@@ -1,9 +1,11 @@
+import json
 from urllib.parse import unquote
 
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 
 from home.forms import *
+from home.helper import parse_coordinates, parse_phenotypes
 from home.clintad import get_single_data
 from home.clintad import hpo_lookup
 from home.models import SingleViewer
@@ -18,54 +20,30 @@ def single(request):
     show_feedback = request.session.get('show_feedback')
 
     if request.method == 'GET':
-        initial = {}
-        for var in ['chromosome', 'start', 'end', 'phenotypes']:
-            if request.session.get(var, None):
-                initial[var] = request.session[var]
-        form = SingleForm(initial=initial)
+        coordinates = request.session.get('coordinates', 'null')
+        phenotypes = request.session.get('phenotypes', '')
+        return render(request, template_name, {'coordinates': coordinates, 'phenotypes': phenotypes, 'navbar': 'single',
+                                               'show_feedback': show_feedback})
 
-        return render(request, template_name, {'form': form, 'navbar': 'single', 'show_feedback': show_feedback})
 
-    elif request.method == 'POST':
-        if request.POST.get('action') == "Submit":
-            request.session['zoom'] = 0
+def submit_query(request):
+    """
+    Updates the coordinates and phenotypes using data posted by the user, then returns the gene/TAD data for their 
+    request.
 
-            ip_address = get_client_ip(request)
-            if not ip_address:
-                ip_address = 'No IP'
-
-            viewer = SingleViewer.objects.filter(ip_address=ip_address).first()
-            if not viewer:
-                viewer = SingleViewer.objects.create(ip_address=ip_address)
-            viewer.views += 1
-            viewer.save()
-        elif request.POST.get('action') == "out":
-            try:
-                request.session['zoom'] += 1
-            except:
-                request.session['zoom'] = 0
-        elif request.POST.get('action') == "in":
-            try:
-                request.session['zoom'] -= 1
-            except:
-                request.session['zoom'] = 0
-        if request.session['zoom'] < 0:
-            request.session['zoom'] = 0
-
-        form = SingleForm(request.POST)
-
-        if form.is_valid():
-            if form.cleaned_data['chromosome'] != "":
-                request.session['chromosome'] = form.cleaned_data['chromosome']
-                request.session['phenotypes'] = form.cleaned_data['phenotypes']
-            if form.cleaned_data['start'] != "":
-                request.session['start'] = form.cleaned_data['start']
-            if form.cleaned_data['end'] != "":
-                request.session['end'] = form.cleaned_data['end']
-
-        form = SingleForm(request.POST)
-        args = {'form': form, 'navbar': 'single', 'show_feedback': show_feedback}
-        return render(request, template_name, args)
+    Request Parameters
+        coordinates: str
+            Chromosome coordinates in UCSC format, e.g. "chr1:1000000-2000000"
+        phenotypes: str
+            A list of HPO IDs in integer and/or HPO ID format separated by commas, e.g. "HP:0410034, 717"
+    """
+    coordinates = request.POST.get('coordinates', None)
+    if not coordinates:
+        return JsonResponse({})
+    request.session['coordinates'] = request.POST.get('coordinates', None)
+    request.session['phenotypes'] = request.POST.get('phenotypes', '')
+    request.session['zoom'] = 1
+    return get_genes(request)
 
 
 def get_client_ip(request):
@@ -78,7 +56,7 @@ def get_client_ip(request):
 
 
 def get_genes(request):
-    if request.session.get('chromosome', None) and request.session.get('start', None) and request.session.get('end', None):
+    if request.session.get('coordinates', None):
         data = get_single_data(request)
         return JsonResponse(data, safe=False)
     else:
@@ -97,28 +75,36 @@ def hide_feedback(request):
 
 
 def statistics(request):
-    chromosome = request.GET.get('chr')
-    start = request.GET.get('start')
-    end = request.GET.get('end')
-    phenotypes = request.GET.get('phenotypes')
-    form = SingleForm(initial={'chromosome': chromosome, 'start': start, 'end': end, 'phenotypes': phenotypes})
-    return render(request, 'statistics.html', {'chromosome': chromosome, 'start': start, 'end': end,
-                                               'phenotypes': phenotypes, 'form': form})
+    coordinates = request.GET.get('coordinates', 'null')
+    phenotypes = request.GET.get('phenotypes', '')
+    return render(request, 'statistics.html', {'coordinates': coordinates, 'phenotypes': phenotypes})
 
 
 def get_variant(request):
-    chromosome = request.POST.get('chromosome')
-    start = request.POST.get('start')
-    end = request.POST.get('end')
-    phenotypes = request.POST.get('phenotypes')
-    response = get_one_variant(request, chromosome, start, end, phenotypes)
+    coordinates = request.POST.get('coordinates', None)
+    phenotypes = request.POST.get('phenotypes', '')
+    response = get_one_variant(request, coordinates, phenotypes)
     return JsonResponse(response, safe=False)
 
 
 def get_variants(request):
-    chromosome = request.POST.get('chromosome')
-    start = request.POST.get('start')
-    end = request.POST.get('end')
-    phenotypes = request.POST.get('phenotypes')
-    response = get_100_variants(request, chromosome, start, end, phenotypes)
+    coordinates = request.POST.get('coordinates', None)
+    phenotypes = request.POST.get('phenotypes', '')
+    response = get_100_variants(request, coordinates, phenotypes)
     return JsonResponse(response, safe=False)
+
+
+def zoom(request):
+    direction = request.POST.get('zoom', None)
+    if not direction:
+        return JsonResponse({})
+
+    if direction == 'in':
+        if request.session['zoom'] == 1:
+            return JsonResponse({})
+        request.session['zoom'] -= 1
+    elif direction == 'out':
+        request.session['zoom'] += 1
+
+    print(request.session['zoom'])
+    return get_genes(request)

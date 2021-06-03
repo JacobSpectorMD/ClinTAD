@@ -2,9 +2,7 @@ from django import forms
 
 
 class SingleForm(forms.Form):
-    chromosome = forms.CharField(required=True, label="Chromosome: ")
-    start = forms.CharField(required=True, label="Start: ")
-    end = forms.CharField(required=True, label="End: ")
+    coordinates = forms.CharField(required=True, label="Coordinates: ")
     phenotypes = forms.CharField(required=False, label="Phenotypes: ")
 
 
