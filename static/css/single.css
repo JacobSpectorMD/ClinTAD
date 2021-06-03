@@ -1,3 +1,47 @@
+input {
+    height: 32px;
+}
+
+.mdc-card:not(#selected-data-card) {
+    margin-bottom: 16px;
+}
+
+#svg-card {
+    padding: 0;
+}
+
+#container {
+    width: 100%;
+    overflow-x: scroll;
+    padding: 0px;
+}
+
+#svg-info-div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    padding-left: 8px;
+    font-size: var(--mdc-typography-button-font-size, 0.875rem);
+    color: var(--mdc-theme-primary);
+    font-weight: 500;
+}
+
+#svg-buttons {
+    display: flex;
+    align-items: center;
+}
+
+#svg-buttons button {
+    height: 32px;
+}
+
+#svg-buttons .mdc-button__ripple {
+    border-radius: 0px;
+}
+
 .match {
     background-color: orange;
     margin-right: 4px;
@@ -14,4 +58,18 @@
 
 #accordion-feedback {
     margin-bottom: 7px;
+}
+
+#loading-div {
+    position: absolute;
+    right: 0px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 8px;
+}
+
+.loading-gif {
+    height: 28px;
 }

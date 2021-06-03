@@ -6,21 +6,17 @@ function open_statistics(){
 
 var dataList = document.getElementById('HPO');
 window.onload = function(){
-    //Search for phenotype when the user fills the "HPO Phenotype Lookup" form and presses enter
-    document.getElementById('HPO_lookup').onkeypress = function(e) {
-        var event = e || window.event;
-        var charCode = event.which || event.keyCode;
-        var input = document.getElementById('HPO_lookup').value;
-
+    //Search for phenotype when the user focuses on #hpo-lookup-input and presses enter
+    document.getElementById('hpo-lookup-input').onkeypress = function(e) {
         if (charCode == '13') {
             lookup_HPO();
         };
     }
 
-    document.getElementById('HPO').onkeypress = function(e) {
+    // Add the HPO when the user focuses on #add-hpo-select and presses enter
+    document.getElementById('add-hpo-select').onkeypress = function(e) {
         var event = e || window.event;
         var charCode = event.which || event.keyCode;
-        var input = document.getElementById('HPO_lookup').value;
         if (charCode == '13') {
             add_HPO();
         };
@@ -28,9 +24,10 @@ window.onload = function(){
 }
 
 function lookup_HPO(){
-    document.getElementById("HPO").innerHTML = "";
-    var input_text = document.getElementById('HPO_lookup').value;
-    var inputs = input_text.split(" ");
+    const add_hpo_select = document.querySelector('#add-hpo-select');
+    // document.getElementById("HPO").innerHTML = "";
+    const input_text = $('#hpo-lookup-input').val();
+    const inputs = input_text.split(" ");
     data = {inputs: inputs};
     $.getJSON("/single/get_phenotypes/", input_text, function(phenotypes){
         var phenotypelist = phenotypes;
@@ -38,7 +35,7 @@ function lookup_HPO(){
             var option = document.createElement('option');
             option.value = item;
             option.text = item;
-            HPO.appendChild(option);
+            add_hpo_select.appendChild(option);
         });
     });
     document.getElementById('HPO').focus();

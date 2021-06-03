@@ -1,51 +1,111 @@
 {% load static %}
 
 {% block head %}
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.ico' %}"/>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.ico' %}"/>
 {% endblock %}
 
 {% block styles %}
-  <link rel="stylesheet" href="{% static 'css/material.css' %}">
+<link rel="stylesheet" href="{% static 'css/material.css' %}">
 {#    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">#}
-  <link rel="stylesheet" href="{% static 'css/base.css' %}">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 {#    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">#}
 {% endblock styles %}
 
 <header class="mdc-top-app-bar mdc-top-app-bar--fixed">
-  <div class="mdc-top-app-bar__row">
-    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-      <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button" aria-label="Open navigation menu">menu</button>
-      <img src="{% static 'admin/img/ClinTAD_icon.svg' %}">
-      <button class="mdc-button nav-button">
-        <span class="mdc-button__ripple mdc-ripple-surface--primary"></span>
-        <i class="material-icons mdc-button__icon" aria-hidden="true">change_history</i>
-        <span class="mdc-button__label">Single</span>
-      </button>
-      <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Search">search</button>
-      <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Options">more_vert</button>
-    </section>
-    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
-
-    </section>
-  </div>
+    <div class="mdc-top-app-bar__row">
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+            <img id="navbar-icon" src="{% static 'admin/img/ClinTAD_icon.svg' %}">
+        </section>
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-center" role="toolbar">
+            <a href="/">
+                <button class="mdc-button nav-button">
+                    <span class="mdc-button__ripple mdc-ripple-surface--primary"></span>
+                    <i class="material-icons mdc-button__icon" aria-hidden="true">home_outlined</i>
+                    <span class="mdc-button__label">Home</span>
+                </button>
+            </a>
+            <a href="/single">
+                <button class="mdc-button nav-button">
+                    <span class="mdc-button__ripple mdc-ripple-surface--primary"></span>
+                    <i class="material-icons mdc-button__icon" aria-hidden="true">change_history</i>
+                    <span class="mdc-button__label">Single</span>
+                </button>
+            </a>
+            <a href="/multiple">
+                <button class="mdc-button nav-button">
+                    <span class="mdc-button__ripple mdc-ripple-surface--primary"></span>
+                    <i class="material-icons mdc-button__icon" aria-hidden="true">widgets</i>
+                    <span class="mdc-button__label">Multiple</span>
+                </button>
+            </a>
+            <a href="/about">
+                <button class="mdc-button nav-button">
+                    <span class="mdc-button__ripple mdc-ripple-surface--primary"></span>
+                    <i class="material-icons mdc-button__icon" aria-hidden="true">help_outline</i>
+                    <span class="mdc-button__label">About</span>
+                </button>
+            </a>
+        </section>
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
+            {% if user.is_authenticated %}
+            <button class="mdc-button nav-button mdc-menu-surface--anchor" id="settings-button">
+                <span class="mdc-button__ripple mdc-ripple-surface--primary"></span>
+                <i class="material-icons mdc-button__icon" aria-hidden="true">settings</i>
+                <span class="mdc-button__label">Settings</span>
+            </button>
+            {% else %}
+            <a href="/user/login">
+                <button class="mdc-button nav-button">
+                    <span class="mdc-button__ripple mdc-ripple-surface--primary"></span>
+                    <i class="material-icons mdc-button__icon" aria-hidden="true">login</i>
+                    <span class="mdc-button__label">Login</span>
+                </button>
+            </a>
+            {% endif %}
+        </section>
+    </div>
 </header>
+
+<div id="settings-menu" class="mdc-menu mdc-menu-surface">
+    <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
+        <a href="/user/tracks/">
+            <li class="mdc-list-item" role="menuitem">
+                <span class="mdc-list-item__ripple"></span>
+                <span class="mdc-list-item__graphic mdc-menu__selection-group-icon">
+                    <i class="material-icons mdc-button__icon" aria-hidden="true">tune</i>
+                </span>
+                <span class="mdc-list-item__text">Tracks</span>
+            </li>
+        </a>
+        <a href="/user/logout/">
+            <li class="mdc-list-item" role="menuitem">
+                <span class="mdc-list-item__ripple"></span>
+                <span class="mdc-list-item__graphic mdc-menu__selection-group-icon">
+                    <i class="material-icons mdc-button__icon" aria-hidden="true">logout</i>
+                </span>
+                <span class="mdc-list-item__text">Logout</span>
+            </li>
+        </a>
+    </ul>
+</div>
 
 <main class="mdc-top-app-bar--fixed-adjust">
     {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-            {% endfor %}
-        </ul>
+    <ul class="messages">
+        {% for message in messages %}
+        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
     {% endif %}
 
     {% block content %}{% endblock content %}
 </main>
 
 {% block scripts %}
+    <script src="{% static 'js/utilities.js' %}" type="module"></script>
     <script src="{%  static 'js/material.js' %}"></script>
     <script src="{%  static 'dist/base.js' %}"></script>
     <script src="https://d3js.org/d3.v3.min.js"></script>
