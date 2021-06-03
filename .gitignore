@@ -1,5 +1,6 @@
 *.gtf
 *database_backup.json
+node_modules/*
 
 commands/
 commands/*
