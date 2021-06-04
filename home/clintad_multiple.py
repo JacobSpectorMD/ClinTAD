@@ -1,6 +1,9 @@
 import os
 import json
+
 from home.clintad import GetTADs
+from home.helper import parse_coordinates, parse_phenotypes
+
 
 class Gene:
     def __init__(self, symbol, start, end):
@@ -24,7 +27,7 @@ class Patient:
 
 def sort_genes(gene_list):
     changed = True
-    
+
     while changed:
         changed = False
         for i in range(len(gene_list)-1):
@@ -34,9 +37,12 @@ def sort_genes(gene_list):
 
     return None
 
+
 def process_multiple_patients(request):
-    choice = request.POST.get('cases_or_regions')
-    text = request.POST.get('text')
+    choice = request.POST.get('cases_or_regions', None)
+    text = request.POST.get('text', None)
+    if not text or not choice:
+        return []
     lines = text.split('\n')
 
     if choice == 'cases':
@@ -53,21 +59,18 @@ def process_multiple_patients(request):
         if choice == 'cases':
             col = line.split('\t')
 
-            case_ID = col[0].strip()
-            phenotypes = col[2].strip()
-            coordinates = col[1].upper().strip().split(':')
-            chromosome = coordinates[0].replace('CHR', '')
-            start = coordinates[1].split('-')[0]
-            end = coordinates[1].split('-')[1]
+            case_id = col[0].strip()
+            coordinate_string = col[1]
+            chromosome, start, end = parse_coordinates(coordinate_string)
+            phenotypes = parse_phenotypes(col[2].strip())
         elif choice == 'regions':
-            case_ID = 'Patient1'
-            phenotypes = lines[0]
-            coordinates = line.upper().strip().split(':')
-            chromosome = coordinates[0].replace('CHR', '')
-            start = coordinates[1].split('-')[0]
-            end = coordinates[1].split('-')[1]
+            case_id = 'Case 1'
+            phenotypes = parse_phenotypes(lines[0].strip())
+            coordinate_string = line.strip()
+            chromosome, start, end = parse_coordinates(coordinate_string)
 
-        line_data = json.loads(GetTADs(request, case_ID, chromosome, start, end, phenotypes, 0, source_function='multiple'))
+        line_data = json.loads(GetTADs(request, case_id, chromosome, start, end, phenotypes, 0,
+                                       source_function='multiple'))
         clintad_data.append(line_data)
     return clintad_data
 

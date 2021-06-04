@@ -1,8 +1,18 @@
+import {MDCTextField} from "@material/textfield";
+
+import { addHpoFunctions } from './utilities';
 import { csrftoken } from '../js/utilities.js';
 
-var toggle_choice = 'cases';
-var multiple_cases_placeholder = "Separate data by tabs and cases by returns, e.g. &#10;Case 1  chr1:80000-90000  HP:0410034, 717&#10;Case 2  chr2:70000-90000  1863, 717";
-var multiple_regions_placeholder = "Enter phenotypes on the first line separated by commas. Enter coordinates on subsequent lines. For example:&#10;7, 10, 512&#10;Chr1:5,000,000-8,500,000"
+const elements = addHpoFunctions();
+const select = elements.select;
+const phenotypesField = elements.phenotypesField;
+const coordinatesField = new MDCTextField(document.querySelector('#coordinates-field'));
+const dataField = new MDCTextField(document.querySelector('#data-field'));
+const caseField = new MDCTextField(document.querySelector('#case-field'));
+
+let toggle_choice = 'cases';
+const multiple_cases_placeholder = "Separate data by tabs and cases by returns, e.g. &#10;Case 1  chr1:80000-90000  HP:0410034, 717&#10;Case 2  chr2:70000-90000  1863, 717";
+const multiple_regions_placeholder = "Enter phenotypes on the first line separated by commas. Enter coordinates on subsequent lines. For example:&#10;7, 10, 512&#10;Chr1:5,000,000-8,500,000"
 
 $(document).on('click', '#case-toggle-div', function(){
     move_toggle();
@@ -25,7 +35,9 @@ function move_toggle(){
 
     var cases_text = d3.select('#multiple_cases_text');
     var regions_text = d3.select('#multiple_regions_text');
-
+    
+    dataField.value = '';
+    
     // Switch between inputs for multiple cases and multiple regions
     if (toggle_choice == 'cases'){
         // Roll the triangle and fade text on the toggle button
@@ -53,61 +65,18 @@ function move_toggle(){
         cases_text.transition().duration(1000).style("opacity", 1);
         regions_text.transition().duration(1000).style("opacity", 0.5);
 
-        // Switch information displayed near toggle button
-        $('#multiple_cases_info').delay(875).fadeIn(1000);
-        $('#multiple_regions_info').fadeOut(840);
-
-        // Add 'active' class to phenotype_input being shown
-        $('#multiple_regions_div .phenotype_input').removeClass('active');
-        $('#multiple_cases_div .phenotype_input').addClass('active');
-
-        // Fade out current inputs, and fade in new ones
-        console.log($('#multiple_cases_div').height(), $('#multiple_cases_div').innerHeight() );
-        $('#cases_and_regions_div').animate({height: $('#multiple_cases_div').innerHeight()}, 550);
-        $('#multiple_regions_div').fadeOut(500);
-        $('#multiple_cases_div').delay(600).fadeIn(500);
-        $('#multiple-textarea').attr("placeholder", multiple_cases_placeholder);
+        $('#case-div').fadeIn(840);
 
         toggle_choice = 'cases';
     }
 
 }
 
-function lookup_HPO(){
-    document.getElementById("HPO").innerHTML = "";
-    var input_text = document.getElementById('HPO_lookup').value;
-    var inputs = input_text.split(" ");
-    data = {inputs: inputs};
-    $.getJSON("/single/get_phenotypes/", input_text, function(phenotypes){
-        var phenotypelist = phenotypes;
-        phenotypelist.forEach(function(item){
-            var option = document.createElement('option');
-            option.value = item;
-            option.text = item;
-            HPO.appendChild(option);
-        });
-    });
-    document.getElementById('HPO').focus();
-};
 
-function add_HPO(){
-    var hpo_value = document.getElementById("HPO").value;
-    hpo_value = hpo_value.split("-");
-    var hpo_value_split = hpo_value[0];
+$(document).on('click', '#submit-data-button', function() { submit_multiple() })
 
-    var current_phenotype_val = $('.phenotype_input.active').val();
-    if(current_phenotype_val != ""){
-        $('.phenotype_input').val(current_phenotype_val + ", " + hpo_value_split);
-    }
-    else if(current_phenotype_val == ""){
-        $('.phenotype_input').val(hpo_value_split);
-    }
-    document.getElementById("HPO_lookup").value = "";
-    document.getElementById("HPO").innerHTML = "";
-};
-
-function submit_multiple(){
-    var text = $('#multiple-textarea').val();
+function submit_multiple (){
+    var text = dataField.value;
 
     var multiple_data = {'cases_or_regions': toggle_choice, 'text': text};
 
@@ -127,48 +96,55 @@ function submit_multiple(){
     })
 }
 
-function display_results(result){
-    var table = document.getElementById('results_table');
+const inheritance = {
+    'autosomal-dominant': '',
+    'autosomal-recessive': '',
+    'x-linked-dominant': '',
+    'x-linked-recessive': '',
+}
+
+function display_results(result) {
+    var table = document.getElementById('results-table-body');
     var row = table.insertRow(-1);
-    row.className = "result_row";
+    row.className = "result-row";
 
-    var id_cell = row.insertCell(0);
-    id_cell.innerHTML = result.case_id;
+    var idCell = row.insertCell(0);
+    idCell.innerHTML = result.case_id;
 
-    var coordinate_cell = row.insertCell(1);
-    coordinate_cell.innerHTML = 'Chr'+result.chromosome+':'+result.cnv_start+'-'+result.cnv_end;
+    var coordinateCell = row.insertCell(1);
+    coordinateCell.innerHTML = 'chr' + result.chromosome+ ':' + result.cnv_start + '-' + result.cnv_end;
 
-    var phenotypes_cell = row.insertCell(2);
-    phenotypes_cell.innerHTML = result.phenotypes;
+    var phenotypesCell = row.insertCell(2);
+    phenotypesCell.innerHTML = result.phenotypes;
 
-    var gene_matches_cell = row.insertCell(3);
-    var gene_matches_list = [];
+    var geneMatchesCell = row.insertCell(3);
+    var geneMatchesList = [];
     result.genes.forEach(function(gene){
         if (gene.matches.length == 0){return}
-        var match_list = []
+        const matchList = []
         gene.matches.forEach(function(match){
-            match_list.push(match.hpo);
+            matchList.push(match.hpo);
         })
-        gene_matches_list.push(gene.name+'('+match_list.join(',')+')');
+        geneMatchesList.push(gene.name+'('+matchList.join(',')+')');
     })
-    gene_matches_cell.innerHTML = gene_matches_list.join(', ');
+    geneMatchesCell.innerHTML = geneMatchesList.join(', ');
 
     // Fill in the inheritance cells
-    var autosomal_dominant_cell = row.insertCell(4);
-    autosomal_dominant_cell.className = "autosomal_dominant";
-    autosomal_dominant_cell.innerHTML = get_inheritance(result, 'autosomal_dominant');
+    var autosomalDominantCell = row.insertCell(4);
+    autosomalDominantCell.className = `autosomal-dominant ${inheritance['autosomal-dominant']}`;
+    autosomalDominantCell.innerHTML = get_inheritance(result, 'autosomal_dominant');
 
-    var autosomal_recessive_cell = row.insertCell(5);
-    autosomal_recessive_cell.className = "autosomal_recessive";
-    autosomal_recessive_cell.innerHTML = get_inheritance(result, 'autosomal_recessive');
+    var autosomalRecessiveCell = row.insertCell(5);
+    autosomalRecessiveCell.className = `autosomal-recessive ${inheritance['autosomal-recessive']}`;
+    autosomalRecessiveCell.innerHTML = get_inheritance(result, 'autosomal_recessive');
 
-    var x_linked_dominant_cell = row.insertCell(6);
-    x_linked_dominant_cell.className = "x_linked_dominant";
-    x_linked_dominant_cell.innerHTML = get_inheritance(result, 'x_linked_dominant');
+    var xLinkedDominantCell = row.insertCell(6);
+    xLinkedDominantCell.className = `x-linked-dominant ${inheritance['x-linked-dominant']}`;
+    xLinkedDominantCell.innerHTML = get_inheritance(result, 'x_linked_dominant');
 
-    var x_linked_recessive_cell = row.insertCell(7);
-    x_linked_recessive_cell.className = "x_linked_recessive";
-    x_linked_recessive_cell.innerHTML = get_inheritance(result, 'x_linked_recessive');
+    var xLinkedRecessiveCell = row.insertCell(7);
+    xLinkedRecessiveCell.className = `x-linked-recessive ${inheritance['x-linked-recessive']}`;
+    xLinkedRecessiveCell.innerHTML = get_inheritance(result, 'x_linked_recessive');
 }
 
 function get_inheritance(result, inheritance){
@@ -185,73 +161,53 @@ function get_inheritance(result, inheritance){
 }
 
 // Add the inputs in multiple cases inputs to the textarea
-$(document).on('click', '#add-input-button', function(){
-    var case_id = $('#case-id-input').val();
-    var coordinates = $('#coordinates-input').val();
-    var phenotypes = $('#phenotypes-input').val();
-    var new_text = case_id+'\t'+coordinates+'\t'+phenotypes;
+$(document).on('click', '#add-case-button', function() {
+    const coordinates = coordinatesField.value;
+    const phenotypes = phenotypesField.value;
+    
+    if (toggle_choice === 'cases') {
+        add_case(coordinates, phenotypes);
+    } else if (toggle_choice === 'regions') {
+        add_region(coordinates, phenotypes);
+    }
 
+    caseField.value = '';
+    coordinatesField.value = '';
+})
+
+function add_case(coordinates, phenotypes) {
     if (coordinates == ''){
         alert('Please enter valid coordinates');
         return;
     }
+    const caseId = caseField.value;
+    dataField.value += `${caseId}\t${coordinates}\t${phenotypes}\n`;
+    phenotypesField.value = '';
+}
 
-    var current_text = $('#multiple-textarea').val();
-    if (current_text != ''){
-        $('#multiple-textarea').val(current_text+'\n'+new_text);
-    } else {
-        $('#multiple-textarea').val(new_text);
-    }
-
-    $('#case-id-input').val('');
-    $('#coordinates-input').val('');
-    $('#phenotypes-input').val('');
-})
-
-// Add the coordinates for input box in the multiple regions section
-$(document).on('click', '#regions-add-button', function(){
-    var coordinates = $('#regions-coordinates-input').val();
-    if (coordinates == ''){
-        alert('Please enter valid coordinates');
-        return;
-    }
-
-    var current_text = $('#multiple-textarea').val();
-    if (current_text != ''){
-        $('#multiple-textarea').val(current_text+'\n'+coordinates);
-    } else {
-        $('#multiple-textarea').val(coordinates);
-    }
-
-    $('#regions-coordinates-input').val('');
-})
-
-// When "Set Phenotypes" button is clicked, add the content to the textarea
-$(document).on('click', '#set-phenotypes-button', function(){
-    var phenotypes = $('#regions-phenotypes-input > input').val();
-
-    var current_text = $('#multiple-textarea').val();
-    if (current_text != ''){
-        var old_lines = current_text.split("\n");
-        var new_lines = [];
-
-        // If the first line is not phenotypes already, put phenotypes there and move everything else down
-        if (old_lines[0].includes(':')){
-            new_lines.push(phenotypes);
-            old_lines.forEach(function(line){new_lines.push(line)});
-        }
-        // Otherwise, just replace first line
-        else {
-            old_lines[0] = phenotypes;
-            old_lines.forEach(function(line){new_lines.push(line)});
+// Adds a region to #data-field based on user input. Updates the phenotypes to whatever is in phenotypesField.
+function add_region(coordinates, phenotypes) {
+    if (dataField.value === '') {
+        dataField.value = `${phenotypes}\n${coordinates}\n`;
+    }   else {
+        const currentText = dataField.value.split('\n');
+        const newRegions = [];
+        newRegions.push(phenotypes);
+        
+        // Keep the old coordinates that were entered
+        for (let i = 1; i < currentText.length; i++) {
+            let region = currentText[i];
+            if (region !== '') {newRegions.push(region);}
         }
 
-        var new_text = new_lines.join("\n");
-        $('#multiple-textarea').val(new_text);
-    } else {
-        $('#multiple-textarea').val(phenotypes);
+        // If coordinates are blank, just update the phenotypes
+        if (coordinates !== '') {
+            newRegions.push(coordinates);
+        }
+
+        dataField.value = newRegions.join('\n');
     }
-})
+}
 
 // Show or hide result columns when the column options buttons are clicked
 $(document).on('click', '#results-options-div > button', function(){
@@ -284,4 +240,27 @@ $(document).on('click', '#save_as_text_button', function (){
     document.body.appendChild(element);
     element.click();
     document.body.removeChild(element);
+})
+
+
+// Highlight the inheritance columns when the header is hovered
+$(document).on('mouseover', '.toggle-col', function() {
+    const toggleClass = $(this).data('toggle-class');
+    $('.'+toggleClass).css('background-color', 'var(--mdc-theme-primary-50)');
+})
+
+$(document).on('mouseout', '.toggle-col', function() {
+    const toggleClass = $(this).data('toggle-class');
+    $('.'+toggleClass).css('background-color', 'unset');
+})
+
+// Turn off inheritance columns when the header is clicked
+$(document).on('click', '.toggle-col', function() {
+    const toggleClass = $(this).data('toggle-class');
+    $('.'+toggleClass).toggleClass('hidden');
+    if (inheritance[toggleClass] === '') {
+        inheritance[toggleClass] = 'hidden';
+    } else {
+        inheritance[toggleClass] = '';
+    }
 })
