@@ -7,22 +7,14 @@
 {% endblock %}
 
 {% block styles %}
-<<<<<<< HEAD
 <link rel="stylesheet" href="{% static 'css/material.css' %}">
 {#    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">#}
 <link rel="stylesheet" href="{% static 'css/base.css' %}">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-=======
-  <link rel="stylesheet" href="{% static 'css/material.css' %}">
-{#    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">#}
-  <link rel="stylesheet" href="{% static 'css/base.css' %}">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
->>>>>>> f6fa18ae355d8ad6a694faaf6b402d82cc8b86e9
 {#    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">#}
 {% endblock styles %}
 
 <header class="mdc-top-app-bar mdc-top-app-bar--fixed">
-<<<<<<< HEAD
     <div class="mdc-top-app-bar__row">
         <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
             <img id="navbar-icon" src="{% static 'admin/img/ClinTAD_icon.svg' %}">
@@ -54,6 +46,13 @@
                     <span class="mdc-button__ripple mdc-ripple-surface--primary"></span>
                     <i class="material-icons mdc-button__icon" aria-hidden="true">help_outline</i>
                     <span class="mdc-button__label">About</span>
+                </button>
+            </a>
+            <a href="/contact">
+                <button class="mdc-button nav-button">
+                    <span class="mdc-button__ripple mdc-ripple-surface--primary"></span>
+                    <i class="material-icons mdc-button__icon" aria-hidden="true">email</i>
+                    <span class="mdc-button__label">Contact</span>
                 </button>
             </a>
         </section>
@@ -108,44 +107,12 @@
         {% endfor %}
     </ul>
     {% endif %}
-
-=======
-  <div class="mdc-top-app-bar__row">
-    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-      <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button" aria-label="Open navigation menu">menu</button>
-      <img src="{% static 'admin/img/ClinTAD_icon.svg' %}">
-      <button class="mdc-button nav-button">
-        <span class="mdc-button__ripple mdc-ripple-surface--primary"></span>
-        <i class="material-icons mdc-button__icon" aria-hidden="true">change_history</i>
-        <span class="mdc-button__label">Single</span>
-      </button>
-      <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Search">search</button>
-      <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Options">more_vert</button>
-    </section>
-    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
-
-    </section>
-  </div>
-</header>
-
-<main class="mdc-top-app-bar--fixed-adjust">
-    {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
-
->>>>>>> f6fa18ae355d8ad6a694faaf6b402d82cc8b86e9
+    
     {% block content %}{% endblock content %}
 </main>
 
 {% block scripts %}
-<<<<<<< HEAD
     <script src="{% static 'js/utilities.js' %}" type="module"></script>
-=======
->>>>>>> f6fa18ae355d8ad6a694faaf6b402d82cc8b86e9
     <script src="{%  static 'js/material.js' %}"></script>
     <script src="{%  static 'dist/base.js' %}"></script>
     <script src="https://d3js.org/d3.v3.min.js"></script>

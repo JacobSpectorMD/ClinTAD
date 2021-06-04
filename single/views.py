@@ -42,7 +42,7 @@ def submit_query(request):
         return JsonResponse({})
     request.session['coordinates'] = request.POST.get('coordinates', None)
     request.session['phenotypes'] = request.POST.get('phenotypes', '')
-    request.session['zoom'] = 1
+    request.session['zoom'] = 0
     return get_genes(request)
 
 
@@ -100,11 +100,10 @@ def zoom(request):
         return JsonResponse({})
 
     if direction == 'in':
-        if request.session['zoom'] == 1:
+        if request.session['zoom'] == 0:
             return JsonResponse({})
         request.session['zoom'] -= 1
     elif direction == 'out':
         request.session['zoom'] += 1
 
-    print(request.session['zoom'])
     return get_genes(request)
