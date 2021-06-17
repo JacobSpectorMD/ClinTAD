@@ -83,6 +83,9 @@ class Track(models.Model):
     details = models.CharField(default='', max_length=2000)
     subscribers = models.ManyToManyField(User)
 
+    def to_dict(self):
+        return {'build': self.build, 'creator_id': self.creator_id, 'details': self.details, 'label': self.label}
+
 
 class Element(models.Model):
     track = models.ForeignKey(Track, on_delete=models.CASCADE, related_name='elements')
