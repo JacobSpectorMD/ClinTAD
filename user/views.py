@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import EmailMessage
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.views.generic import CreateView, FormView
 from django.shortcuts import render, redirect
 from django.contrib.sites.shortcuts import get_current_site
@@ -138,7 +138,8 @@ def tracks(request):
 
 
 def new_track(request):
-    return create_track(request)
+    data = create_track(request)
+    return JsonResponse(data)
 
 
 def edit_track(request):
