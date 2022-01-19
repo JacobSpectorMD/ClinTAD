@@ -6,21 +6,17 @@ function open_statistics(){
 
 var dataList = document.getElementById('HPO');
 window.onload = function(){
-    //Search for phenotype when the user fills the "HPO Phenotype Lookup" form and presses enter
-    document.getElementById('HPO_lookup').onkeypress = function(e) {
-        var event = e || window.event;
-        var charCode = event.which || event.keyCode;
-        var input = document.getElementById('HPO_lookup').value;
-
+    //Search for phenotype when the user focuses on #hpo-lookup-input and presses enter
+    document.getElementById('hpo-lookup-input').onkeypress = function(e) {
         if (charCode == '13') {
             lookup_HPO();
         };
     }
 
-    document.getElementById('HPO').onkeypress = function(e) {
+    // Add the HPO when the user focuses on #add-hpo-select and presses enter
+    document.getElementById('add-hpo-select').onkeypress = function(e) {
         var event = e || window.event;
         var charCode = event.which || event.keyCode;
-        var input = document.getElementById('HPO_lookup').value;
         if (charCode == '13') {
             add_HPO();
         };
@@ -28,9 +24,10 @@ window.onload = function(){
 }
 
 function lookup_HPO(){
-    document.getElementById("HPO").innerHTML = "";
-    var input_text = document.getElementById('HPO_lookup').value;
-    var inputs = input_text.split(" ");
+    const add_hpo_select = document.querySelector('#add-hpo-select');
+    // document.getElementById("HPO").innerHTML = "";
+    const input_text = $('#hpo-lookup-input').val();
+    const inputs = input_text.split(" ");
     data = {inputs: inputs};
     $.getJSON("/single/get_phenotypes/", input_text, function(phenotypes){
         var phenotypelist = phenotypes;
@@ -38,7 +35,7 @@ function lookup_HPO(){
             var option = document.createElement('option');
             option.value = item;
             option.text = item;
-            HPO.appendChild(option);
+            add_hpo_select.appendChild(option);
         });
     });
     document.getElementById('HPO').focus();
@@ -64,6 +61,7 @@ const numberWithCommas = (x) => {
 
 d3.json("/single/get_genes/", function(response){
     data = JSON.parse(response);
+    if (!data){return}
     console.log(data);
     var width=$(window).width()*1.03,
         start_coord = data.minimum['coord'],
@@ -694,14 +692,16 @@ function draw_boundaries(svg, scale, tads, y1, start_coord, end_coord, boundarie
         var right = tads[i]['end'];
         var mid = (left+right)/2;
 
-        if (!boundaries_only){
+        if (boundaries_only==false){
+            console.log(mid);
             //Draws a triangle path to represent the TAD
             layer.append("path")
-            .attr("d", "M "+scale(left)+" 110"+"L "+scale(mid)+" 10"
-                  +"L "+scale(right)+" 110")
+            .attr("d", "M "+scale(left)+" 110 "+
+                       "L "+scale(mid)+" 10 "+
+                       "L "+scale(right)+" 110")
             .style("stroke", "red")
             .style("stroke-width", 3)
-            .style("fill", "none")
+            .style("fill", "none");
         }
 
         //Draws dashed lines at the boundary coordinates
@@ -726,3 +726,13 @@ function track_color(num_tracks){
         return {'fill': 'var(--light-blue)', 'text': 'white'}
     }
 }
+
+$(document).on('click', '#hide-feedback-button', function(){
+    $.ajax({
+        type: "GET",
+        url: "/single/hide_feedback/",
+        success: function(response){
+            $('#accordion-feedback').remove();
+        },
+    })
+})

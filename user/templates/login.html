@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% load static %}{% load widget_tweaks %}
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/user.css' %}">
+{% endblock %}
+
+{% block content %}
+<head>
+    <title>ClinTAD | Login</title>
+</head>
+
+<div class="outlined" style="width: 100%">
+<div class="form">
+    <h2>Login</h2>
+    <div class="form-inputs">
+        <form method="post">
+            {% csrf_token %}
+            <span class="form-label">{{ form.email.label }}</span>
+            {{ form.email|add_class:"form-control" }}
+            <span class="form-label">{{ form.password.label }}</span>
+            {{ form.password|add_class:"form-control" }}
+            <button type="submit" class="form-button">Submit</button>
+        </form>
+    </div>
+
+    Don't have an account yet? <a href="/user/register/">Register</a><br><br>
+    Forgot your password? <a href="/user/password_reset/">Reset Password</a>
+</div>
+</div>
+{% endblock %}

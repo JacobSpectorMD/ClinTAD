@@ -1,17 +1,15 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
-from datetime import datetime
 
 
 class UserManager(BaseUserManager):
     def create_user(self, email, name, password=None, editor=False, admin=False):
+        print('creating user!!')
         if not email:
             raise ValueError("Please enter an email address.")
         if not password:
             raise ValueError("Please enter a password.")
-        user = self.model(
-            email = self.normalize_email(email)
-        )
+        user = self.model(email=self.normalize_email(email))
         user.set_password(password)
         user.name = name
         user.editor = editor
@@ -39,8 +37,9 @@ class User(AbstractBaseUser):
     staff = models.BooleanField(default=False)
     admin = models.BooleanField(default=False)
     timestamp = models.DateTimeField(auto_now_add=True)
-    is_active = models.BooleanField(default=True)
+    is_active = models.BooleanField(default=False)
     last_login = models.DateTimeField(auto_now_add=True)
+    token = models.CharField(max_length=500, default='')
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['name']

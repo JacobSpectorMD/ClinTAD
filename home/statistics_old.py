@@ -53,7 +53,7 @@ def GetStatistics(request, chromosome, CNV_start, CNV_end, phenotypes, zoom):
                 phenotype_list.append(int(phenotypes_split[i]))  
         except:
             continue
-    
+
     #Get results with the actual CNV first
     matched= []
     genes, genes_with_matches, total_phenotype_score, weighted_score, unique_matches\
@@ -63,9 +63,9 @@ def GetStatistics(request, chromosome, CNV_start, CNV_end, phenotypes, zoom):
             for k in range(len(gene_phenotypes)):
                 if gene_phenotypes[k] in phenotype_list:
                     matched.append(str(genes[j].name.strip()) + "(" + str(gene_phenotypes[k]) + ")")
-        
+
     number_of_matches = len(genes_with_matches)
-    
+
     result = result + str(chromosome)+"\t"+str(start)+"\t"+str(end)+"\t"+\
         str(number_of_matches)+"\t"+str(total_phenotype_score)+"\t"+str(weighted_score)+\
         "\t"+str(unique_matches)+"\t"+str(matched)+"\r\n\r\n"

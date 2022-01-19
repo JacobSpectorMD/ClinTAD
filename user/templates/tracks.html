@@ -1,15 +1,18 @@
 {% extends 'base.html' %}
 {% load static %} {% load widget_tweaks %}
 
-{% block head %}
+{% block scripts %}
     {{ block.super }}
-    <script src="{% static 'js/tracks.js' %}"></script>
+    <script src="{% static 'js/tracks.js' %}" type="module"></script>
+    <script src="{% static 'dist/tracks.js' %}" type="module"></script>
 {% endblock %}
+
 
 {% block styles %}
     {{ block.super }}
     <link rel="stylesheet" href="{% static 'css/tracks.css' %}">
 {% endblock styles %}
+
 
 {% block content %}
 <head>
@@ -17,30 +20,116 @@
 </head>
 
 <script>
-    window.onload = function(){
-        var tracks = {{tracks|safe}};
-        initialize_tracks(tracks);
-    };
+    var tracks = {{tracks|safe}};
 </script>
 
-<div class="track-header">Create New Track</div>
-<form method="post" enctype="multipart/form-data" action="/user/new_track/">
-    {% csrf_token %}
-    <div class="outlined">
-        <div class="row">
-            <div class="col">Build<br>{{ form.build }}</div>
-            <div class="col">Track Name/Label<br>{{ form.label }}</div>
-            <div class="col">Track Type<br>{{ form.track_type }}</div>
-            <div class="col-4">Details/Comments<br>{{ form.details }}</div>
-            <div class="col">File<br>{{ form.uploaded_file }}</div>
-        </div>
-        <div class="row">
-            <div style="width:20%; height: 5%; margin: 0 auto; margin-top: 0.4em;">
-                <button type="submit" style="width: 100%; height: 100%;">Submit</button>
+<div class="mdc-card">
+    <div class="card-top-div">
+        <div class="card-title">Create New Track</div>
+    </div>
+    <div id="inputs-div">
+        <div class="mdc-select mdc-select--outlined mdc-select--filled" id="build-select">
+            <div class="mdc-select__anchor"
+                 role="button"
+                 aria-labelledby="outlined-select-label"
+                 aria-haspopup="listbox"
+            >
+                <input type="text" name="build" readonly class="mdc-select__selected-text" id="build-select-input">
+                <i class="mdc-select__dropdown-icon"></i>
+                <span class="mdc-notched-outline">
+              <span class="mdc-notched-outline__leading"></span>
+              <span class="mdc-notched-outline__notch">
+                <span id="outlined-select-label" class="mdc-floating-label mdc-floating-label--float-above">Build</span>
+              </span>
+              <span class="mdc-notched-outline__trailing"></span>
+          </span>
+            </div>
+
+            <div class="mdc-select__menu mdc-menu mdc-menu-surface" >
+                <ul class="mdc-list" id="add-hpo-ul" role="listbox">
+                    <li class="mdc-list-item" role="option" data-value="hg18 / 36.1" tab-index="-1">
+                        <span class="mdc-list-item__text">hg18 / 36.1</span>
+                    </li>
+                    <li class="mdc-list-item" role="option" data-value="hg19 / GRCh37" tab-index="0" aria-selected="true">
+                        <span class="mdc-list-item__text">hg19 / GRCh37</span>
+                    </li>
+                    <li class="mdc-list-item" role="option" data-value="hg38 / GRCh38" tab-index="-1">
+                        <span class="mdc-list-item__text">hg38 / GRCh38</span>
+                    </li>
+                </ul>
             </div>
         </div>
+        <label id="track-name-field" class="mdc-text-field mdc-text-field--outlined">
+          <span class="mdc-notched-outline">
+            <span class="mdc-notched-outline__leading"></span>
+            <span class="mdc-notched-outline__notch">
+              <span class="mdc-floating-label" id="name-label">Track Name / Label</span>
+            </span>
+            <span class="mdc-notched-outline__trailing"></span>
+          </span>
+            <input id="track-name-input" name="label" type="text" class="mdc-text-field__input">
+        </label>
+
+
+        <div class="mdc-select mdc-select--outlined mdc-select--filled" id="track-type-select">
+            <div class="mdc-select__anchor"
+                 role="button"
+                 aria-labelledby="outlined-select-label"
+                 aria-haspopup="listbox"
+            >
+                <input type="text" readonly name="track_type" class="mdc-select__selected-text" id="track-type-select-input">
+                <i class="mdc-select__dropdown-icon"></i>
+                <span class="mdc-notched-outline">
+              <span class="mdc-notched-outline__leading"></span>
+              <span class="mdc-notched-outline__notch">
+                <span id="track-type-label" class="mdc-floating-label mdc-floating-label--float-above">Track Type</span>
+              </span>
+              <span class="mdc-notched-outline__trailing"></span>
+          </span>
+            </div>
+
+            <div class="mdc-select__menu mdc-menu mdc-menu-surface" >
+                <ul class="mdc-list" role="listbox">
+                    <li class="mdc-list-item" role="option" data-value="CNV" tab-index="-1">
+                        <span class="mdc-list-item__text">CNV</span>
+                    </li>
+                    <li class="mdc-list-item" role="option" data-value="Enhancer" tab-index="0" aria-selected="true">
+                        <span class="mdc-list-item__text">Enhancer</span>
+                    </li>
+                    <li class="mdc-list-item" role="option" data-value="TAD" tab-index="-1">
+                        <span class="mdc-list-item__text">TAD</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <label id="details-field" class="mdc-text-field mdc-text-field--outlined">
+          <span class="mdc-notched-outline">
+            <span class="mdc-notched-outline__leading"></span>
+            <span class="mdc-notched-outline__notch">
+              <span class="mdc-floating-label" id="details-label">Details / Comments</span>
+            </span>
+            <span class="mdc-notched-outline__trailing"></span>
+          </span>
+            <input id="details-input" name="details" type="text" class="mdc-text-field__input">
+        </label>
+        
+        <div id="file-upload-div">
+            <div id="upload-button">
+                <i class="material-icons mdc-button__icon" aria-hidden="true">attach_file</i>
+            </div>
+            <div id="uploaded-file-name">Click to upload file</div>
+            {{ form.uploaded_file }}
+        </div>
+
+        <button type="button" id="submit-track-button" class="mdc-button mdc-button--touch mdc-button--raised">
+            <div class="mdc-button__ripple"></div>
+            <div class="mdc-button__label">Submit</div>
+            <div class="mdc-button__touch"></div>
+        </button>
     </div>
-</form>
+</div>
+
 
 <div class="track-header">TAD Tracks</div>
 <div class="track-row col-titles">
