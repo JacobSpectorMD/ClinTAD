@@ -1,0 +1,22 @@
+main .home-card:not(:last-child) {
+    margin-bottom: 32px;
+}
+
+.home-card {
+    background-color: white;
+    padding: 32px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.home-card .home-card-title {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.home-card p {
+    font-size: 16px;
+    line-height: 26px;
+    word-wrap: break-word;
+    hyphens: auto;
+}

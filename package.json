@@ -1,0 +1,49 @@
+{
+  "name": "clintad",
+  "version": "1.0.0",
+  "description": "A web application for analyzing copy number variants",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start": "webpack-dev-server",
+    "watch": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JacobSpectorMD/ClinTAD.git"
+  },
+  "author": "Jacob Spector",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JacobSpectorMD/ClinTAD/issues"
+  },
+  "homepage": "https://github.com/JacobSpectorMD/ClinTAD#readme",
+  "dependencies": {
+    "@material/icon-button": "^6.0.0",
+    "@material/top-app-bar": "^6.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.16",
+    "@babel/preset-env": "^7.13.15",
+    "@material/animation": "^6.0.0",
+    "@material/checkbox": "^11.0.0",
+    "@material/chips": "^11.0.0",
+    "@material/data-table": "^6.0.0",
+    "@material/density": "^6.0.0",
+    "@material/feature-targeting": "^11.0.0",
+    "@material/select": "^6.0.0",
+    "@material/touch-target": "^11.0.0",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.2.6",
+    "extract-loader": "^5.1.0",
+    "file-loader": "^6.2.0",
+    "glob": "^7.1.6",
+    "material-components-web": "^6.0.0",
+    "mini-css-extract-plugin": "^1.5.0",
+    "sass": "^1.32.11",
+    "sass-loader": "^11.1.1",
+    "webpack": "^5.35.0",
+    "webpack-cli": "^4.6.0"
+  }
+}

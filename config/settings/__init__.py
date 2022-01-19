@@ -1,9 +1,4 @@
-from .local import *
-# from .dev import *
-# from .production import *
-# from .digital_ocean import *
+from .base import *
 
-#try:
-#   from .local import *
-#except:
-#   pass
+from .local import *
+# from .production import *

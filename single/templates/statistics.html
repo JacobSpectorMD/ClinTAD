@@ -1,25 +1,65 @@
 {% extends 'base.html' %}
-
 {% load static %}
+
 
 {% block head %}
     {{ block.super }}
     <title>ClinTAD | Statistics</title>
-    <script src="{% static 'js/statistics.js' %}"></script>
 {% endblock %}
 
+
+{% block styles %}
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{% static 'css/statistics.css' %}">
+{% endblock styles %}
+
+
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static 'js/statistics.js' %}"></script>
+    <script src="{% static 'dist/statistics.js' %}" type="module"></script>
+{% endblock %}
+
+
 {% block content %}
-<div id="form-div" style="margin-top: 15px;">
-    {{form}}
-    <input type="button" onclick="draw_statistics()" value="Statistics">
-</div>
+    <div id="input-cards-div">
+        <div id="input-card" class="mdc-card">
+            <div class="card-heading">Patient Data (Statistics)</div>
+            {% include 'coordinates_hpo_input.html' %}
+        </div>
+        <div id="hpo-card" class="mdc-card">
+            <div class="card-heading">HPO Phenotype Lookup</div>
+            {% include 'hpo_lookup_input.html' %}
+        </div>
+    </div>
+    
+    <div class="mdc-card graph-card">
+        <div class="card-top-div">
+            <div class="card-title">Gene Matches</div>
+            <div class="loading-div"><img class="loading-gif" src="{% static 'img/loading.gif' %}"></div>
+        </div>
+        <svg id='gene-matches' width="100%" data-label="Gene Matches" data-ticks="10" height="315"></svg>
+    </div>
 
-<div class='svg-div' style="margin-top: 20px;">
-    <svg id='gene-matches' width="100%" data-label="Gene Matches" data-ticks="10" height="315"></svg>
-    <svg id='hpo-matches' width="100%" data-label="HPO Matches" data-ticks="15" height="315"></svg>
-    <svg id='weighted-scores' width="100%" data-label="Weighted Scores" data-ticks="20" height="320"></svg>
-</div>
+    <div class="mdc-card graph-card">
+        <div class="card-top-div">
+            <div class="card-title">HPO Matches</div>
+            <div class="loading-div"><img class="loading-gif" src="{% static 'img/loading.gif' %}"></div>
+        </div>
+        <svg id='hpo-matches' width="100%" data-label="HPO Matches" data-ticks="15" height="315"></svg>
+    </div>
 
-<script>window.onload = draw_statistics();</script>
+    <div id="weighted-card" class="mdc-card graph-card">
+        <div class="card-top-div">
+            <div class="card-title">Weighted Scores</div>
+            <div class="loading-div"><img class="loading-gif" src="{% static 'img/loading.gif' %}"></div>        
+        </div>
+        <svg id='weighted-scores' width="100%" data-label="Weighted Scores" data-ticks="20" height="320"></svg>
+    </div>
+    
+    <script>
+        let coordinates = "{{coordinates|safe}}";
+        let phenotypes = "{{phenotypes|safe}}";
+    </script>
 {% endblock content %}
 

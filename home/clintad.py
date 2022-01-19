@@ -1,9 +1,11 @@
-import os
-import json
 import io
-from home.models import Chromosome, Enhancer, Gene, TAD, Track, UT, Variant
-from home.forms import SingleForm
+import json
+import os
+
 from django.db.models import Q
+
+from home.helper import parse_coordinates, parse_phenotypes
+from home.models import Chromosome, Enhancer, Gene, TAD, Track, UT, Variant
 
 module_dir = os.path.dirname(__file__)  # get current directory
 hpo_path = os.path.join(module_dir, 'files/hpo_list.txt')
@@ -11,23 +13,31 @@ hpo_path = os.path.join(module_dir, 'files/hpo_list.txt')
 
 class TempGene:
     def __init__(self, name, start, end):
-        self.name = name
-        self.start = start
+        self.autosomal_dominant = {}
+        self.autosomal_recessive = {}
         self.end = end
+        self.name = name
+        self.matches = []
         self.phenotypes = []
         self.phenotype_score = 0
+        self.start = start
         self.weighted_score = 0
-        self.matches = []
+        self.x_linked_dominant = {}
+        self.x_linked_recessive = {}
 
     def to_dict(self):
-        return {'name': self.name, 'start': self.start, 'end': self.end, 'phenotypes': self.phenotypes,
+        return {'autosomal_recessive': self.autosomal_recessive, 'autosomal_dominant': self.autosomal_dominant,
+                'name': self.name, 'start': self.start, 'end': self.end, 'phenotypes': self.phenotypes,
                 'phenotype_score': self.phenotype_score, 'matches': self.matches,
-                'weighted_score': self.weighted_score}
+                'weighted_score': self.weighted_score, 'x_linked_recessive': self.x_linked_recessive,
+                'x_linked_dominant': self.x_linked_dominant}
 
 
 def get_single_data(request):
-    data_str = GetTADs(request, request.session['chromosome'], request.session['start'], request.session['end'],
-                       request.session['phenotypes'], request.session['zoom'])
+    chromosome, start, end = parse_coordinates(request.session['coordinates'])
+    phenotypes = parse_phenotypes(request.session['phenotypes'])
+
+    data_str = GetTADs(request, '', chromosome, start, end, phenotypes, request.session['zoom'])
     data = json.loads(data_str)
 
     data['tracks'] = []
@@ -57,14 +67,13 @@ def get_track_data(ut, chromosome_number, minimum_coordinate, maximum_coordinate
     return {'label': ut.track.label, 'color': ut.color, 'elements': element_list}
 
 
-def GetTADs(request, chromosome_input, CNV_start, CNV_end, phenotypes, zoom):
-    chromosome_input = chromosome_input.upper()
+def GetTADs(request, case_id, chromosome_input, CNV_start, CNV_end, phenotypes, zoom, source_function='single'):
+    chromosome_input = chromosome_input.upper().strip().replace("CHR", "")
     chromosome = Chromosome.objects.filter(number=chromosome_input).first()
     chromosome_length = chromosome.length
-
     patient_CNV_start = int(CNV_start.replace(',', ''))
     patient_CNV_end = int(CNV_end.replace(',', ''))
-    
+
     # If the user zooms -> increase search distance
     if zoom > 0:
         search_distance = 1000000 * (2 ** zoom)
@@ -90,7 +99,7 @@ def GetTADs(request, chromosome_input, CNV_start, CNV_end, phenotypes, zoom):
     else:
         left_tad = TAD.objects.filter(start__lte=search_start, chromosome=chromosome).order_by('start').last()
         right_tad = TAD.objects.filter(end__gte=search_end, chromosome=chromosome).order_by('end').first()
-    
+
     # If the CNV start/end is less than/greater than the TAD boundaries, use the start/end of the chromosome
     if left_tad is None:
             minimum_coordinate = 0
@@ -98,7 +107,7 @@ def GetTADs(request, chromosome_input, CNV_start, CNV_end, phenotypes, zoom):
     else:
         minimum_coordinate = left_tad.start
         min_type = "boundary"
-    
+
     if right_tad is None:
         maximum_coordinate = chromosome_length
         max_type = "chromosome"
@@ -107,17 +116,9 @@ def GetTADs(request, chromosome_input, CNV_start, CNV_end, phenotypes, zoom):
         max_type = "boundary"
 
     # Process phenotype input
-    phenotype_list=[]
-    phenotypes_split = phenotypes.split(',')
-    for i in range (len(phenotypes_split)):
-        try:
-            if "HP" in phenotypes_split[i].upper():
-                x = phenotypes_split[i].split(':')
-                phenotype_list.append(int(x[1]))
-            else:
-                phenotype_list.append(int(phenotypes_split[i]))
-        except:
-            continue
+    phenotype_list = []
+    for phenotype in phenotypes:
+        phenotype_list.append(phenotype)
 
     # Get enhancers
     enhancers = Enhancer.objects.filter(Q(start__range=(minimum_coordinate, maximum_coordinate)) |
@@ -157,6 +158,19 @@ def GetTADs(request, chromosome_input, CNV_start, CNV_end, phenotypes, zoom):
                 new_gene.phenotype_score += 1
                 new_gene.weighted_score += hpo.weight
                 hpo_matches += 1
+
+                # Only get OMIM and inheritance data for multiple
+                if source_function == 'multiple':
+                    for omim in hpo.omims.filter(genes=gene).all():
+                        print(omim)
+                        if omim.autosomal_recessive:
+                            new_gene.autosomal_recessive[str(omim.omim_number)] = True
+                        if omim.autosomal_dominant:
+                            new_gene.autosomal_dominant[str(omim.omim_number)] = True
+                        if omim.x_linked_recessive:
+                            new_gene.x_linked_recessive[str(omim.omim_number)] = True
+                        if omim.x_linked_dominant:
+                            new_gene.x_linked_dominant[str(omim.omim_number)] = True
         gene_list.append(new_gene.to_dict())
 
     gene_matches = 0
@@ -166,17 +180,22 @@ def GetTADs(request, chromosome_input, CNV_start, CNV_end, phenotypes, zoom):
             gene_matches += 1
             total_weighted_score += gene['weighted_score']
 
-    gene_dict = {'tads': [tad.to_dict() for tad in tads],
-                 'cnv_start': patient_CNV_start,
-                 'cnv_end': patient_CNV_end,
-                 'minimum': {'coord': minimum_coordinate, 'type': min_type},
-                 'maximum': {'coord': maximum_coordinate, 'type': max_type},
-                 'genes': gene_list,
-                 'variants': variant_list,
-                 'enhancers': enhancer_list,
-                 'hpo_matches': hpo_matches,
-                 'gene_matches': gene_matches,
-                 'weighted_score': total_weighted_score}
+    gene_dict = {
+        'case_id': case_id,
+        'chromosome': chromosome.number,
+        'cnv_start': patient_CNV_start,
+        'cnv_end': patient_CNV_end,
+        'enhancers': enhancer_list,
+        'gene_matches': gene_matches,
+        'genes': gene_list,
+        'hpo_matches': hpo_matches,
+        'minimum': {'coord': minimum_coordinate, 'type': min_type},
+        'maximum': {'coord': maximum_coordinate, 'type': max_type},
+        'phenotypes': ', '.join([str(phenotype) for phenotype in phenotype_list]),
+        'tads': [tad.to_dict() for tad in tads],
+        'variants': variant_list,
+        'weighted_score': total_weighted_score
+    }
     return json.dumps(gene_dict)
 
 
