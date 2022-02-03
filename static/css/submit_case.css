@@ -1,0 +1,14 @@
+.mdc-card {
+    padding:0;
+    max-width: 900px;
+}
+
+.card-text form{
+    display:flex;
+    flex-direction:column;
+    margin-block-end:0em;
+}
+
+.card-text form > label:not(:last-child){
+    margin-bottom: 16px;
+}
