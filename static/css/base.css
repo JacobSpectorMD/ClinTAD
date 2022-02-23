@@ -290,3 +290,8 @@ border-radius: 0 !important;
     align-items: center;
     padding-right: 8px;
 }
+
+.card-w-title .card-text {
+    padding: 16px;
+    line-height: 26px;
+}

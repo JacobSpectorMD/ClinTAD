@@ -11,6 +11,8 @@ from home.clintad import hpo_lookup
 from home.models import SingleViewer
 from home.statistics import get_100_variants, get_one_variant
 
+from single.models import Case
+
 
 def single(request):
     template_name = 'single.html'
@@ -24,6 +26,27 @@ def single(request):
         phenotypes = request.session.get('phenotypes', '')
         return render(request, template_name, {'coordinates': coordinates, 'phenotypes': phenotypes, 'navbar': 'single',
                                                'show_feedback': show_feedback})
+def submit_case(request):
+    print("case")
+    template_name = 'submit_case.html'
+    # if 'show_feedback' not in request.session.keys():
+    #     request.session['show_feedback'] = True
+    # show_feedback = request.session.get('show_feedback')
+
+    if request.method == 'POST':
+        print(request.POST)
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        coordinates = request.POST.get('coordinates')
+        phenotypes = request.POST.get('phenotype')
+        comments = request.POST.get('comments')
+
+        case = Case(name_text=name, email_text=email, coordinates_text=coordinates, phenotypes_text=phenotypes, comments_text=comments)
+        case.save()
+        return JsonResponse({})
+        #return render(request, template_name, {'name': name, 'email': email, 'coordinates': coordinates, 'phenotypes': phenotypes, 'comments': comments, 'navbar': 'single',
+        #                                       'show_feedback': show_feedback})
+    return render(request, template_name)
 
 
 def submit_query(request):

@@ -9,6 +9,7 @@ textFieldEls.forEach(function(textFieldEl) {
     let textField = new MDCTextField(textFieldEl);
 })
 
+console.log("Hello World!");
 const topAppBarEl = document.querySelector('.mdc-top-app-bar');
 const topAppBar = new MDCTopAppBar(topAppBarEl);
 const main = document.querySelector('main');
