@@ -3,10 +3,13 @@ from django.contrib import admin
 from config import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
+from django.urls import path
+from single.admin import case_admin_site
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    #url(r'^case_admin_site/', case_admin_site.urls),
     url(r'', include('home.urls')),
     url(r'^user/', include('user.urls')),
     url(r'^password_reset/$',
@@ -22,3 +25,4 @@ urlpatterns = [
       auth_views.PasswordResetCompleteView.as_view(template_name='password_reset_complete.html'),
       name='password_reset_complete'),
     ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    

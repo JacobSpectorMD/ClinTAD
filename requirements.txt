@@ -28,9 +28,7 @@ olefile==0.44
 parso==0.8.2
 pexpect==4.8.0
 pickleshare==0.7.5
-Pillow==4.3.0
 prompt-toolkit==3.0.18
-psycopg2==2.7.3.2
 ptyprocess==0.7.0
 Pygments==2.9.0
 python-dateutil==2.6.1
