@@ -1,3 +1,7 @@
+.mdc-card {
+    padding: 0px;
+}
+
 #id_details {width: 100%; rows: 2;}
 
 .track-row {
@@ -16,3 +20,58 @@
 .col-titles {background-color: lightgrey;}
 .track-row:nth-child(even) {background-color: lightgrey;}
 .tracks {margin-bottom: 1em; }
+
+#file-upload-div {
+    position: relative;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    height: 56px;
+    cursor: pointer;
+}
+
+#file-upload-div input {
+    position: absolute;
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    top: 0;
+    cursor: pointer;
+}
+
+#upload-button {
+    display: flex;
+    background-color: var(--mdc-theme-primary-300);
+    color: white;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 8px 0px 8px;
+    border-radius: 4px 0px 0px 4px;
+}
+
+#uploaded-file-name {
+    border: medium solid var(--mdc-theme-primary-200);
+    border-left: none;
+    border-radius: 0px 4px 4px 0px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+    color: var(--mdc-theme-primary-700);
+}
+
+#inputs-div {
+    display: flex;
+    flex-direction: row;
+    padding: 16px;
+}
+
+#inputs-div > div, #inputs-div > label {
+    margin-right: 16px;
+}
+
+#details-field {
+    flex: 1;
+}

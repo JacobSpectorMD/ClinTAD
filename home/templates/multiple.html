@@ -13,6 +13,7 @@
 
 {% block scripts %}
     {{ block.super }}
+    <script src="{% static 'dist/multiple.js' %}" type="module"></script>
     <script src="{% static 'js/multiple.js' %}" type="module"></script>
 {% endblock scripts %}
 
@@ -155,22 +156,18 @@
     <div class="card-top-div">
         <div class="card-title">Results</div>
         <div class="card-buttons">
-            <button id="autosomal-dominant-button" class="mdc-button">
-                <span class="mdc-button__ripple"></span>
-                <span class="mdc-button__label">Autosomal Dominant</span>
-            </button>
-            <button id="autosomal-recessive-button" class="mdc-button">
-                <span class="mdc-button__ripple"></span>
-                <span class="mdc-button__label">Autosomal Recessive</span>
-            </button>
-            <button id="x-linked-dominant-button" class="mdc-button">
-                <span class="mdc-button__ripple"></span>
-                <span class="mdc-button__label">X-linked Dominant</span>
-            </button>
-            <button id="x-linked-recessive-button" class="mdc-button">
-                <span class="mdc-button__ripple"></span>
-                <span class="mdc-button__label">X-linked Recessive</span>
-            </button>
+            <div id="autosomal-dominant-button" class="autosomal-dominant hidden toggle-col" data-toggle-class="autosomal-dominant">
+                Autosomal Dominant
+            </div>
+            <div id="autosomal-recessive-button" class="autosomal-recessive hidden toggle-col" data-toggle-class="autosomal-recessive">
+                Autosomal Recessive
+            </div>
+            <div id="x-linked-dominant-button" class="x-linked-dominant hidden toggle-col" data-toggle-class="x-linked-dominant">
+                X-linked Dominant
+            </div>
+            <div id="x-linked-recessive-button" class="x-linked-recessive hidden toggle-col" data-toggle-class="x-linked-recessive">
+                X-linked Recessive
+            </div>
         </div>
         <div class="card-top-right">
             <button id="save-as-text-button" class="mdc-button">
@@ -180,13 +177,28 @@
             </button>
         </div>
     </div>
+        
+    <table id="results-table">
+        <thead><tr>
+            <th>Case</th>
+            <th>Coordinates</th>
+            <th>Phenotypes</th>
+            <th>Gene Matches</th>
+            <th class="toggle-col autosomal-dominant" data-toggle-class="autosomal-dominant">Autosomal Dominant</th>
+            <th class="toggle-col autosomal-recessive" data-toggle-class="autosomal-recessive">Autosomal Recessive</th>
+            <th class="toggle-col x-linked-dominant" data-toggle-class="x-linked-dominant">X-linked Dominant</th>
+            <th class="toggle-col x-linked-recessive" data-toggle-class="x-linked-recessive">X-linked Recessive</th>
+        </tr></thead>
+        <tbody id="results-table-body"></tbody>
+
+    </table>
 </div>
  
 <script type="text/javascript">
     var multipleInput = document.getElementById("data-input");
-    if(multipleInput.addEventListener ) {
+    if (multipleInput.addEventListener) {
         multipleInput.addEventListener('keydown',this.keyHandler, false);
-    } else if(multipleInput.attachEvent ) {
+    } else if (multipleInput.attachEvent) {
         multipleInput.attachEvent('onkeydown', this.keyHandler);
     }
 
