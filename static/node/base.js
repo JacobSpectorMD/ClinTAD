@@ -1,7 +1,5 @@
-// import {MDCChipSet} from '@material/chips/chip-set';
 import {MDCMenuSurface} from '@material/menu-surface';
 import {MDCRipple} from '@material/ripple';
-import {MDCSelect} from '@material/select';
 import {MDCTopAppBar} from '@material/top-app-bar';
 import {MDCTextField} from "@material/textfield";
 

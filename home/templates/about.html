@@ -1,21 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
 
+
+{% block styles %}
+    {{block.super}}
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock styles %}
+
+
 {% block content %}
 
 <head>
     <title>ClinTAD | About</title>
 </head>
-
-<style>
-    .directory{
-        border: 1px solid grey;
-        padding-left: 9.5%;
-        width: 35%;
-        padding-top: 20px;
-        padding-bottom: 20px; 
-    }
-</style>
 
 <script>
 function clear_data(){
@@ -25,147 +22,175 @@ function clear_data(){
 }
 </script>
 
-<ol class="directory">
-    <b>Installation</b>
-        <li><a href="#python-installation">Python Installation</a></li>
-        <li><a href="#clintad-installation">ClinTAD Installation</a></li>
+<div class="mdc-card">
+    <ol class="directory">
+        <b>Installation</b>
+            <li><a href="#python-installation">Python Installation</a></li>
+            <li><a href="#clintad-installation">ClinTAD Installation</a></li>
+    
+        <br>
+        <b>Getting Started</b>
+            <li><a href="#custom-tracks">Custom Tracks</a></li>
+    
+        <br>
+        <b>How It Works</b>
+        <li><a href="#basics">Basics</a></li>
+        <li><a href="#files-used">Files Used</a></li>
+            <ol type="a">
+                <li><a href="#tad-boundaries">TAD Boundary Files</a></li>
+                <li><a href="#hpo-file">Human Phenotype Ontology File</a></li>
+            </ol>
+        <br>
+        <b><a href="#citation">Citation</a></b><br>
+        <b><a href="#troubleshooting">Troubleshooting</a></b><br>
+        <b><a href="#planned-features">Planned features</a></b>
+            
+    </ol>
+</div>
 
-    <br>
-    <b>Getting Started</b>
-        <li><a href="#custom-tracks">Custom Tracks</a></li>
 
-    <br>
-    <b>How It Works</b>
-    <li><a href="#basics">Basics</a></li>
-    <li><a href="#files-used">Files Used</a></li>
-        <ol type="a">
-            <li><a href="#tad-boundaries">TAD Boundary Files</a></li>
-            <li><a href="#hpo-file">Human Phenotype Ontology File</a></li>
-        </ol>
-    <br>
-    <b><a href="#citation">Citation</a></b><br>
-    <b><a href="#troubleshooting">Troubleshooting</a></b><br>
-    <b><a href="#planned-features">Planned features</a></b>
-        
-</ol>
+<div class="mdc-card">
+    <div class="card-top-div">
+        <div class="card-title">Installation</div>
+    </div>
+    <div class="card-text">
+        <b><span id="python-installation">1. Python Installation</span></b><br>
+        In order to run ClinTAD locally, you must install Python. ClinTAD was developed using
+        Python version 3.6.4, but most versions of Python 3 should work. When installing Python, please check
+        the box to add Python to PATH.<br><br>
+        <b><span id="clintad-installation">2. ClinTAD Installation</span></b><br>
+        The <a href="https://github.com/JacobSpectorMD/ClinTAD">code for ClinTAD can be found on Github <img src="{% static '/img/GitHub-Mark-32px.png' %}" height="14em" width="auto">.</a>
+    </div>
+</div>
 
-<div class='home'>
-<p style="padding-top:20px">
+<div class="mdc-card">
+    <div class="card-top-div">
+        <div class="card-title">Getting Started</div>
+    </div>
+    
+    <div class="card-text">
+        <b><span id="custom-tracks">3. Custom Tracks</span></b><br>
+        Click on the Login button on the top right side of the website, create an account if needed, and login.
+        Once you are logged in, click on the settings button at the top right and then click on the Tracks button in the
+        dropdown menu. Fill out the Create New Track form, upload the file with your data, and click submit.  The required
+        file format is shown below with examples (columns are separated by tabs):<br><br>
+        <b>TADs</b><br>
+        <table cellpadding="10">
+            <tr>
+                <td>Chromosome Number</td>
+                <td>Start Coordinate</td>
+                <td>End Coordinate</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1000000</td>
+                <td>2000000</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2000000</td>
+                <td>3500000</td>
+            </tr>
+        </table><br>
 
-<b><u>Installation</u></b><br>
-<b><span id="python-installation">1. Python Installation</span></b><br>
-    In order to run ClinTAD locally, you must install Python. ClinTAD was developed using
-    Python version 3.6.4, but most versions of Python 3 should work. When installing Python, please check
-    the box to add Python to PATH.<br><br>
-<b><span id="clintad-installation">2. ClinTAD Installation</span></b><br>
-    The <a href="https://github.com/JacobSpectorMD/ClinTAD">code for ClinTAD can be found on Github
-    <img src="{% static '/img/GitHub-Mark-32px.png' %}" height="14em" width="auto">.
-
-    </a>
-    Instructions(including a video tutorial) for local installation to be posted soon.
-
-<br><br>
-<b><u>Getting Started</u></b><br>
-<b><span id="custom-tracks">3. Custom Tracks</span></b><br>
-Once you have ClinTAD running locally, adding custom tracks is easy.  Click on the Login button on the top right side
-of the website, create an account if needed, and login. Once you are logged in, click on your name in the top right
-and then click on the Tracks button in the dropdown menu. Fill out the Create New Track form, upload the file with your
-data, and click submit.  The required file format is shown below with examples (columns are separated by tabs):
-<br><br>
-<b>TADs</b><br>
-<table cellpadding="10">
-    <tr>
-        <td>Chromosome Number</td>
-        <td>Start Coordinate</td>
-        <td>End Coordinate</td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>1000000</td>
-        <td>2000000</td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>2000000</td>
-        <td>3500000</td>
-    </tr>
-</table><br>
-
-<b>CNVs and Enhancers</b><br>
-<table cellpadding="10">
-    <tr>
-        <td>Chromosome Number</td>
-        <td>Start Coordinate</td>
-        <td>End Coordinate</td>
-        <td>Element ID, Name, or Label</td>
-        <td>Element Details</td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>1000000</td>
-        <td>1009000</td>
-        <td>Element 1</td>
-        <td>Element 1 is a very important element!</td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>2000000</td>
-        <td>2050000</td>
-        <td>Element 2</td>
-        <td>Element 2 is important for gene expression in several tissues!</td>
-    </tr>
-</table>
-<div class="video" style="width:100%; text-align:center;">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/7LT-TcgFjhw" frameborder="0" allow="accelerometer;
+        <b>CNVs and Enhancers</b><br>
+        <table cellpadding="10">
+            <tr>
+                <td>Chromosome Number</td>
+                <td>Start Coordinate</td>
+                <td>End Coordinate</td>
+                <td>Element ID, Name, or Label</td>
+                <td>Element Details</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1000000</td>
+                <td>1009000</td>
+                <td>Element 1</td>
+                <td>Element 1 is a very important element!</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2000000</td>
+                <td>2050000</td>
+                <td>Element 2</td>
+                <td>Element 2 is important for gene expression in several tissues!</td>
+            </tr>
+        </table>
+        <div class="video" style="width:100%; text-align:center;">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/7LT-TcgFjhw" frameborder="0" allow="accelerometer;
     autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+
+<div class="mdc-card">
+    <div class="card-top-div">
+        <div class="card-title">How It Works</div>
+    </div>
+    
+    <div class="card-text">
+        <b><span id="basics">4. Basics</span></b><br>
+        <b><span id="files-used">5. Files Used</span></b><br>
+        <b><span id="tad-boundaries">a. TAD Boundary Files</span></b><br>
+        The default TAD boundary file was provided by Jesse Dixon. The boundaries are derived from human embryonic
+        stem cell data described in <a href="https://www.ncbi.nlm.nih.gov/pubmed/25693564" target="_blank">Chromatin architecture
+        reorganization during stem cell differentiation</a>, using the HG19 genome build, a bin size of 40kb, and
+        a window size of 2Mb.<br>
+        <br>
+        <b><span id="hpo-file">b. Human Phenotype Ontology File</span></b><br>
+        The phenotype file used for this website is a modified version of the hp.obo file
+        from <a href="http://human-phenotype-ontology.github.io/downloads.html" target="_blank">Human Phenotype ontology</a>,
+        which was downloaded on December 2, 2017. Of note, the modified file used for this site is a list of
+        combined ID fields and name fields from the original hp.obo file. Currently, the <b>HPO Phenotype Lookup</b>
+        form only searches for matches between the input string and the hp.obo name field. Searching for matches in the
+        "def" and "comment" field of the hp.obo file may be added in the future.
+    </div>
 </div>
 
 
-<br><br>
-<p>
-<b><u>How It Works</u></b><br>
-<b><span id="basics">4. Basics</span></b><br>
-<b><span id="files-used">5. Files Used</span></b><br>
-<b><span id="tad-boundaries">a. TAD Boundary Files</span></b><br>
-The default TAD boundary file was provided by Jesse Dixon. The boundaries are derived from human embryonic
-stem cell data described in <a href="https://www.ncbi.nlm.nih.gov/pubmed/25693564" target="_blank">Chromatin architecture 
-reorganization during stem cell differentiation</a>, using the HG19 genome build, a bin size of 40kb, and 
-a window size of 2Mb.<br>
-<br>
-<b><span id="hpo-file">b. Human Phenotype Ontology File</span></b><br>
-The phenotype file used for this website is a modified version of the hp.obo file 
-from <a href="http://human-phenotype-ontology.github.io/downloads.html" target="_blank">Human Phenotype ontology</a>, 
-which was downloaded on December 2, 2017. Of note, the modified file used for this site is a list of
-combined ID fields and name fields from the original hp.obo file. Currently, the <b>HPO Phenotype Lookup</b>
-form only searches for matches between the input string and the hp.obo name field. Searching for matches in the 
-"def" and "comment" field of the hp.obo file may be added in the future.
-
-
-<br><br>
-<span id="citation"><b><u>Citation</u></b><br></span>
-This tool was developed at the University of California San Francisco by Jacob Spector, MD and Arun Wiita, MD PhD.<br>
-Citation: to be posted soon
-
-<br><br>
-<span id="troubleshooting"><b><u>Troubleshooting</u></b><br></span>
-<b>Problem:</b> The <span class="tab">Single</span> tab is not loading or is causing the browser to crash.<br>
-<b>Resolution:</b> This can happen due to invalid inputs into one of the forms. Click the button
-below to clear the data, then try using the <span class="tab">Single</span> tab again.<br>
-<br> 
-<button type="submit" onclick=clear_data()>Clear Data</button><br>
-<br>
-
-<span id="planned-features"><b><u>Planned Features</u></b></span><br>
-1. Implement a <span class="tab">Settings</span> tab.<br>
-2. Allow for selection of what TAD boundary file to use. Currently, a default TAD 
-boundary file in the HG19 build is used.<br>
-3. Add tracks<br>
-&nbsp&nbsp&nbsp&nbspa. CTCF binding sites<br>
-&nbsp&nbsp&nbsp&nbspb. CNV depletion (how frequent CNVs are at location)<br>
-&nbsp&nbsp&nbsp&nbspc. Benign and pathogenic CNVs
-</p>
+<div class="mdc-card" id="citation">
+    <div class="card-top-div">
+        <div class="card-title">Citation</div>
+    </div>
+    <div class="card-text">
+        This tool was developed at the University of California San Francisco by Jacob Spector, MD and Arun Wiita, MD PhD. Please cite:<br><br>
+        Spector JD, Wiita AP. ClinTAD: a tool for copy number variant interpretation in the context of topologically associated domains. J Hum Genet. 2019;64(5):437-443. doi:10.1038/s10038-019-0573-9
+    </div>
 </div>
 
+
+<div id="troubleshooting" class="mdc-card">
+    <div class="card-top-div">
+        <div class="card-title">Troubleshooting</div>
+    </div>
+    
+    <div class="card-text">
+        <b>Problem:</b> The Single page is not loading or is causing the browser to crash.<br>
+        <b>Resolution:</b> This can happen due to invalid inputs into one of the forms. Click the button
+        below to clear the data, then try using the Single page again.<br>
+        <br>
+        <button type="submit" onclick=clear_data()>Clear Data</button><br>
+        <br>
+    </div>
+</div>
+
+
+<div id="planned-features" class="mdc-card">
+    <div class="card-top-div">
+        <div class="card-title">Planned Features</div>
+    </div>
+    
+    <div class="card-text">
+        1. Add tracks<br>
+        &nbsp&nbsp&nbsp&nbspa. CTCF binding sites<br>
+        &nbsp&nbsp&nbsp&nbspb. CNV depletion (how frequent CNVs are at location)<br>
+        2. Case Repository<br>
+        &nbsp&nbsp&nbsp&nbspa. Create a page where users can add interesting cases<br>
+        3. Machine Learning Model<br>
+        &nbsp&nbsp&nbsp&nbspa. Determine if machine learning can assist with determining pathogenicity of variants based on phenotype matches<br>
+    </div>
+</div>
 
 {% endblock content %}
 

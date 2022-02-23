@@ -6,16 +6,17 @@ from user.forms import TrackForm
 
 def create_track(request):
     user = request.user
-    form = TrackForm(request.POST, request.FILES)
-    if form.is_valid():
-        build = form.cleaned_data['build']
-        label = form.cleaned_data['label']
-        track_type = form.cleaned_data['track_type']
-        details = form.cleaned_data['details']
-        uploaded_file = form.cleaned_data['uploaded_file']
+    build = request.POST.get('build', None)
+    label = request.POST.get('label', None)
+    track_type = request.POST.get('trackType', None)
+    details = request.POST.get('details', '')
+    uploaded_file = request.FILES.get('file', None)
+    if not build or not label or not track_type or not uploaded_file:
+        return {}
 
-        track = Track.objects.create(creator_id=user.id, build=build, label=label, track_type=track_type,
-                                     details=details)
+    track = Track.objects.create(creator_id=user.id, build=build, label=label, track_type=track_type,
+                                 details=details)
+    try:
         track.subscribers.add(user)
         UT.objects.create(user=user, track=track)
         file_data = uploaded_file.read().decode("utf-8")
@@ -44,4 +45,9 @@ def create_track(request):
             element_list.append(Element(track=track, chromosome=chromosome, start=start, end=end, label=label,
                                              details=details))
         Element.objects.bulk_create(element_list)
-    return redirect('/user/tracks/')
+        return track.to_dict()
+    except Exception as e:
+        print(e)
+        track.delete()
+        return {}
+    return {}

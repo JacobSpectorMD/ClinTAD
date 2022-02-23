@@ -162,6 +162,7 @@ def GetTADs(request, case_id, chromosome_input, CNV_start, CNV_end, phenotypes, 
                 # Only get OMIM and inheritance data for multiple
                 if source_function == 'multiple':
                     for omim in hpo.omims.filter(genes=gene).all():
+                        print(omim)
                         if omim.autosomal_recessive:
                             new_gene.autosomal_recessive[str(omim.omim_number)] = True
                         if omim.autosomal_dominant:

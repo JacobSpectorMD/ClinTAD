@@ -1,24 +1,24 @@
 {% extends 'base.html' %}
-
 {% load static %}
+
+
+{% block styles %}
+    {{block.super}}
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+{% endblock styles %}
+
+
 {% block content %}
 
 <head>
     <title>ClinTAD | Contact</title>
 </head>
-<style>
-    p {
-      font-size:140%;
-      padding: 20px;
-      }
-</style> 
 
-<div class='home'>
-<p style='text-align: center;'>
-<br>
-<a href="mailto:clinicalTAD@gmail.com" style='color:black;'>ClinicalTAD@gmail.com</a><br><br>
-<img src="{% static 'admin/img/ladybug.svg' %}">
-</p>
+<div class="mdc-card">
+    <div class="card-top-div">
+        <a href="mailto:clinicalTAD@gmail.com">ClinicalTAD@gmail.com</a><br><br>
+    </div>
+    <img src="{% static 'admin/img/ladybug.svg' %}">
 </div>
 {% endblock content %}
 

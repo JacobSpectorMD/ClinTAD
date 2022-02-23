@@ -26,6 +26,11 @@
   "devDependencies": {
     "@babel/core": "^7.13.16",
     "@babel/preset-env": "^7.13.15",
+    "@material/animation": "^6.0.0",
+    "@material/checkbox": "^11.0.0",
+    "@material/chips": "^11.0.0",
+    "@material/data-table": "^6.0.0",
+    "@material/density": "^6.0.0",
     "@material/feature-targeting": "^11.0.0",
     "@material/select": "^6.0.0",
     "@material/touch-target": "^11.0.0",
