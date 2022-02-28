@@ -36,11 +36,12 @@ td {padding-right: 0.5em;}
 }
 
 #width-div {width: 85%; margin: auto;}
+
 #case-toggle-div {    
-    color: black;
     cursor: pointer;
     display: inline-block;
 }
+
 #multiple_regions_text {opacity: 0.5;}
 
 .multiple-input-row {

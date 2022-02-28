@@ -281,6 +281,15 @@ border-radius: 0 !important;
     font-weight: 500;
 }
 
+.card-top-div.title-large {
+    height: 40px;
+    font-size: 24px;
+}
+
+.card-top-div.title-large .card-title {
+    padding-top: 4px;
+}
+
 .card-top-div .card-top-right {
     position: absolute;
     right: 0;
@@ -289,6 +298,10 @@ border-radius: 0 !important;
     display: flex;
     align-items: center;
     padding-right: 8px;
+}
+
+.card-w-title {
+    padding: 0px;
 }
 
 .card-w-title .card-text {
