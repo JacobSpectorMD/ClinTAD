@@ -18,12 +18,13 @@ ALLOWED_HOSTS = ['127.0.0.1', 'clintad.herokuapp.com', 'www.clintad.com']
 
 # For users who want to run ClinTAD locally on their own computer
 # DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
+#      'default': {
+#          'ENGINE': 'django.db.backends.sqlite3',
+#          'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#      }
+#  }
 
+#DONT MESS AROUND THIS LINES
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',

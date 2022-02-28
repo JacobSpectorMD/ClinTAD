@@ -1,10 +1,9 @@
-main .home-card:not(:last-child) {
+.card-w-title:not(:last-child) {
     margin-bottom: 32px;
 }
 
-.home-card {
+.card-w-title {
     background-color: white;
-    padding: 32px;
     max-width: 900px;
     margin: 0 auto;
 }

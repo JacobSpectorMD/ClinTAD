@@ -1,7 +1,9 @@
+import {MDCDataTable} from '@material/data-table';
 import {MDCSelect} from "@material/select";
 import {MDCTextField} from "@material/textfield";
 
 import { csrftoken } from "../js/utilities.js";
+
 
 const buildSelect = new MDCSelect(document.querySelector('#build-select'));
 const trackTypeSelect = new MDCSelect(document.querySelector('#track-type-select'));

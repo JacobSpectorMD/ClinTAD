@@ -1,23 +1,34 @@
 @use "node_modules/@material/button";
+@use "node_modules/@material/button/styles" as button-styles;
+
 @use "node_modules/@material/ripple";
 @use "node_modules/@material/card";
 
-@use "node_modules/@material/list/mdc-list";
 @use "node_modules/@material/menu-surface/mdc-menu-surface";
 @use "node_modules/@material/menu/mdc-menu";
 @use "node_modules/@material/list";
+@use "node_modules/@material/list/mdc-list";
+
+// Textfield
 @use "node_modules/@material/floating-label/mdc-floating-label";
 @use "node_modules/@material/line-ripple/mdc-line-ripple";
 @use "node_modules/@material/notched-outline/mdc-notched-outline";
 @use "node_modules/@material/textfield";
+
 @use "node_modules/@material/select";
+@use "node_modules/@material/select/styles";
+
+@use "node_modules/@material/checkbox";
+@use "node_modules/@material/icon-button";
+@use "node_modules/@material/icon-button/styles" as icon-button-styles;
+@use "node_modules/@material/data-table/data-table";
 
 
-@include button.core-styles;
 @include card.core-styles;
-@include list.core-styles;
 @include textfield.core-styles;
-
+@include checkbox.core-styles;
+@include data-table.core-styles;
+@include data-table.theme-baseline;
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
 $mdc-typography-font-family: unquote("Roboto, sans-serif");

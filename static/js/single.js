@@ -77,6 +77,11 @@ function zoom (direction) {
 }
 
 function get_genes () {
+
+    if (!coordinates || coordinates == 'null'){
+        return;
+    }
+
     set_svg_info(coordinates);
     show_loading();
 
@@ -402,6 +407,7 @@ function draw_enhancers(data, scale){
     return svg;
 }
 
+
 function draw_cnvs(data, scale, num_tracks){
     var height = 40;
     var width = data.width;
@@ -664,6 +670,7 @@ function draw_track(data, track, scale, num_tracks){
     return svg;
 }
 
+
 function draw_boundaries(data, svg, scale, tads, y1, start_coord, end_coord, boundaries_only=true){
     var layer = svg.select('.g_0');
     
@@ -722,7 +729,7 @@ function draw_boundaries(data, svg, scale, tads, y1, start_coord, end_coord, bou
     // Draw dashed line for chromosome end if necessary
     if (data.minimum['type']=='chromosome'){draw_dashed(start_coord, "l", true);}
     if (data.maximum['type']=='chromosome'){draw_dashed(end_coord, "r", true);}
-} // End of draw_boundaries
+}
 
 function track_color(num_tracks){
     if (num_tracks%2==0){
@@ -731,6 +738,7 @@ function track_color(num_tracks){
         return {'fill': 'var(--mdc-theme-primary-100)', 'text': 'var(--mdc-theme-primary-500)'}
     }
 }
+
 
 $(document).on('click', '#hide-feedback-button', function(){
     $.ajax({

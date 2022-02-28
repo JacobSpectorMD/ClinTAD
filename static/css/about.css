@@ -1,5 +1,21 @@
 main {
-    display: block;
+    display: grid;
+    grid-template-columns: 1fr 300px 700px 1fr;
+    grid-column-gap: 32px;
+}
+
+.mdc-card:not(#index-card) {
+    grid-column: 3 / 4;
+}
+
+#index-card {
+    position: fixed;
+    width: 300px;
+}
+
+#left-column {
+    grid-column: 2 / 3;
+    position: relative;
 }
 
 .mdc-card {
@@ -16,3 +32,4 @@ main .mdc-card:not(:last-child) {
     padding: 16px;
     line-height: 26px;
 }
+
