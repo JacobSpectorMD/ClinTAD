@@ -10,7 +10,7 @@ const select = elements.select;
 const phenotypesField = elements.phenotypesField;
 
 $(document).ready(function () {
-    if (coordinates) {
+    if (coordinates && coordinates != 'null') {
         coordinatesField.value = coordinates;
     }
     
