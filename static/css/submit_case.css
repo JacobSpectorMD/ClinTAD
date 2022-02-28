@@ -1,0 +1,21 @@
+main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mdc-card {
+    padding:0;
+    width: 900px;
+}
+
+.card-text {
+    display:flex;
+    flex-direction:column;
+    margin-block-end:0em;
+}
+
+.card-text label:not(:last-child){
+    margin-bottom: 16px;
+}

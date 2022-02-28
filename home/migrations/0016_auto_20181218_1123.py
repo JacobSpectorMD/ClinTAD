@@ -20,14 +20,14 @@ class Migration(migrations.Migration):
             old_name='start',
             new_name='inner_start',
         ),
-        migrations.RemoveField(
-            model_name='variant',
-            name='gains',
-        ),
-        migrations.RemoveField(
-            model_name='variant',
-            name='losses',
-        ),
+        # migrations.RemoveField(
+        #     model_name='variant',
+        #     name='gains',
+        # ),
+        # migrations.RemoveField(
+        #     model_name='variant',
+        #     name='losses',
+        # ),
         migrations.AddField(
             model_name='variant',
             name='frequency',

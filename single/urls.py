@@ -1,8 +1,12 @@
-from django.conf.urls import url, include
+from django.conf.urls import url
 import single.views as views
+
+from single.admin import case_admin_site
 
 urlpatterns = [
     url(r'^$', views.single, name="single"),
+    url(r'admin/', case_admin_site.urls, name='admin'),
+    url(r'^submit_case/', views.submit_case, name="submit_case"),
     url(r'^get_genes/', views.get_genes, name='get_genes'),
     url(r'^get_one_variant/$', views.get_variant, name='get_variant'),
     url(r'^get_variants/$', views.get_variants, name='get_variants'),

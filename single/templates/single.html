@@ -41,14 +41,22 @@
   {% endif %}
     
   <div id="input-cards-div">
-      <div id="input-card" class="mdc-card">
-          <div class="card-heading">Patient Data (Single)</div>
-          
-          {% include 'coordinates_hpo_input.html' %}
+      <div id="input-card" class="mdc-card card-w-title">
+          <div class="card-top-div">
+              <div class="card-title">Patient Data</div>
+          </div>
+
+          <div class="card-text">
+              {% include 'coordinates_hpo_input.html' %}
+          </div>
       </div>
-      <div id="hpo-card" class="mdc-card">
-          <div class="card-heading">HPO Phenotype Lookup</div>
-          {% include 'hpo_lookup_input.html' %}
+      <div id="hpo-card" class="mdc-card card-w-title">
+          <div class="card-top-div">
+              <div class="card-title">HPO Phenotype Lookup</div>
+          </div>
+          <div class="card-text">
+              {% include 'hpo_lookup_input.html' %}
+          </div>
       </div>
   </div>
   
@@ -86,9 +94,11 @@
     <div id="container"></div>
 </div>
 
-<div id="selected-data-card" class="mdc-card">
-    <div class="card-heading">Selected Data</div>
-    <div class="panel-body" id="patient-data-display"></div>
+<div id="selected-data-card" class="mdc-card card-w-title">
+    <div class="card-top-div">
+        <div class="card-title">Selected Data</div>
+    </div>
+    <div class="card-text" id="patient-data-display"></div>
 </div>
 
 </body>
