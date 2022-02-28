@@ -17,19 +17,23 @@
 
 </style>
 
-<div class="home-card mdc-card">
-    <p class="home-card-text">
-        <span class="home-card-title">About ClinTAD</span><br>
+<div class="card-w-title mdc-card">
+    <div class="card-top-div title-large">
+        <div class="card-title">About ClinTAD</div>
+    </div>
+    <div class="card-text">
         ClinTAD is a tool to quickly evaluate the clinical relevance of copy number
         variants (CNVs) in the context of topologically associated domains (TADs). Instructions
         for using the tool are below.
-    </p>
+    </div>
 </div>
 
 
-<div class="home-card mdc-card">
-    <p class="home-card-text">
-        <span class="home-card-title">The Single Page</span><br>
+<div class="card-w-title mdc-card">
+    <div class="card-top-div title-large">
+        <div class="card-title">The Single Page</div>
+    </div>
+    <div class="card-text">
         If you have data for a single patient, the Single page can be used to visualize
         the relationship between a copy number variant and nearby TADs. Fill out the following fields appropriately
         and submit your query to see the TADs.<br><br>
@@ -44,23 +48,26 @@
         example if your patient has a cleft lip, enter "cleft" and press the lookup button. A list of HPO IDs with
         the word "cleft" in the name, def, or comment field will then be added to the dropdown menu. Press the add
         button once a phenotype is selected to move the ID to the <b>Phenotypes</b> form.<br><br>
-        
+
         The following video demonstrates the use of the Single page.
     </p>
-    
-    <div class="video" style="width:100%; text-align:center;">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/CCNPZsWgCoM?rel=0" frameborder="0"
-                allow="autoplay; encrypted-media" allowfullscreen></iframe><br><br></span>
+
+        <div class="video" style="width:100%; text-align:center;">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/CCNPZsWgCoM?rel=0" frameborder="0"
+                    allow="autoplay; encrypted-media" allowfullscreen></iframe><br><br></span>
+        </div>
     </div>
 </div>
 
-<div class="home-card mdc-card">
-    <p class="home-card-text">
-        <span class="home-card-title">The Multiple Page</span><br>
-        If you have data for multiple patients or a single patient with multiple variants/regions, the 
-        Multiple page can be used to more quickly analyze this data. Phenotypes must be seperated by commas, and each patient/case should be on it's own line. 
-        Input is in the following format:<br>
-    </p>
+<div class="card-w-title mdc-card">
+    <div class="card-top-div title-large">
+        <div class="card-title">The Multiple Page</div>
+    </div>
+    <div class="card-text">
+        If you have data for multiple patients or a single patient with multiple variants/regions, the
+        Multiple page can be used to more quickly analyze this data.
+    </div>
 </div>
+
 {% endblock content %}
 

@@ -3,16 +3,19 @@
   $on-primary: white,
 );
 
+@use "@material/top-app-bar/mdc-top-app-bar";
+@use "@material/card";
+
 @import "my-theme";
 
+@import "@material/checkbox";
+@import "@material/data-table";
+@import "@material/select";
+@import "@material/top-app-bar";
 @import "@material/icon-button";
-@import "@material/select/mdc-select";
-@import "@material/top-app-bar/mdc-top-app-bar";
 @import "@material/button";
-
-
-//@use "node_modules/@material/chips/chip";
-//@include button.core-styles;
-//@include icon-button.core-styles;
+@import "@material/select/styles";
 
 @import "my-components";
+
+
