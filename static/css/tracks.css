@@ -2,6 +2,27 @@
     padding: 0px;
 }
 
+main .mdc-card:not(:last-child) {
+    margin-bottom: 16px;
+}
+
+.mdc-data-table, .mdc-data-table__table {
+    width: 100%;
+}
+
+.use-track-cell {
+    width: 100px;
+}
+
+.label-cell, .build-cell {
+    width: 200px;
+}
+
+
+.description-cell {
+    max-width: 100%;
+}
+
 #id_details {width: 100%; rows: 2;}
 
 .track-row {
@@ -20,6 +41,10 @@
 .col-titles {background-color: lightgrey;}
 .track-row:nth-child(even) {background-color: lightgrey;}
 .tracks {margin-bottom: 1em; }
+
+#submit-track-button {
+    height: 56px;
+}
 
 #file-upload-div {
     position: relative;
