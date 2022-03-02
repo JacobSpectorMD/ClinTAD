@@ -7,17 +7,23 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 
 # Application definition
 INSTALLED_APPS = [
+    # Django
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # My Apps
     'home',
     'single',
     'user',
+
+    # Packages
+    'anymail',
+    'axes',
     'widget_tweaks',
-    'axes'
 ]
 
 AUTH_USER_MODEL = 'user.User'
@@ -130,3 +136,12 @@ AXES_LOCKOUT_TEMPLATE = 'account_locked.html'
 AXES_USERNAME_FORM_FIELD = 'email'
 AXES_ONLY_USER_FAILURES = False
 AXES_RESET_ON_SUCCESS = True
+
+
+# SendGrid Email Settings
+EMAIL_BACKEND = 'anymail.backends.sendgrid.EmailBackend'
+ANYMAIL = {
+    'SENDGRID_API_KEY': os.environ.get('SENDGRID_API_KEY'),
+}
+DEFAULT_FROM_EMAIL = 'clinicaltad@gmail.com'
+SERVER_EMAIL = 'clinicaltad@gmail.com'
