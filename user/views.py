@@ -4,7 +4,7 @@ from axes.decorators import axes_dispatch
 from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.tokens import default_token_generator
-from django.core.mail import EmailMessage
+from django.core.mail import EmailMessage, EmailMultiAlternatives
 from django.http import HttpResponse, JsonResponse
 from django.views.generic import CreateView, FormView
 from django.shortcuts import render, redirect
@@ -49,6 +49,7 @@ def login_view(request):
         return render(request, 'login.html', {'form': form})
     if request.method == 'POST':
         form = LoginForm(request.POST)
+        print(form)
         if form.is_valid():
             email = form.cleaned_data.get('email')
             raw_password = form.cleaned_data.get('password')
@@ -74,49 +75,38 @@ def register(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
-            name = form.cleaned_data['name']
             email = form.cleaned_data['email']
+            name = form.cleaned_data['name']
             raw_password = form.cleaned_data['password1']
-            user = User.objects.create_user(name=name, email=email, password=raw_password)
+            user = User.objects.create_user(email=email, name=name, password=raw_password)
 
             Profile.objects.create(user=user)
             TrackManager.objects.create(user=user)
+
+            domain = get_current_site(request).domain
+            uid = urlsafe_base64_encode(force_bytes(user.id))
             token = default_token_generator.make_token(user)
-            user.token = token
-            user.save()
-            mail_subject = 'Activate your ClinTAD account'
-            current_site = get_current_site(request)
-            message = render_to_string('activation_email.html',
-                                       {'user': user, 'domain': current_site.domain,
-                                        'uid': urlsafe_base64_encode(force_bytes(user.id)).decode(),
-                                        'token': token})
-            email = EmailMessage(mail_subject, message, to=[user.email])
-            email.send()
-            messages.add_message(request, messages.INFO, 'An email has been sent to your email address. Please click on'
-                                                         ' the link to activate your account.')
-        return redirect('/user/login')
+            activation_link = "http://{domain}/user/activate/{uid}/{token}/".format(domain=domain, uid=uid, token=token)
+
+            msg = EmailMultiAlternatives(
+                subject="Account Activation - ClinTAD",
+                body="Please click on the following link to activate your account: \n" + activation_link,
+                from_email="ClinTAD <clinicaltad@gmail.com>",
+                to=[email],
+                reply_to=["ClinTAD <clinicaltad@gmail.com>"])
+            html = render_to_string('activation_email.html', {
+                'activation_link': activation_link,
+            })
+
+            msg.attach_alternative(html, "text/html")
+            msg.send()
+            return redirect('/user/registration_sent/')
+        else:
+            return render(request, 'register.html', {'form': form})
 
 
-# def reset_password(request):
-#     if request.method == 'GET':
-#         form = PasswordResetForm()
-#         return render(request, 'register.html', {'form': form})
-#     if request.method == 'POST':
-#         form = PasswordResetForm(request.POST)
-#         if form.is_valid():
-#             email = form.cleaned_data['email']
-#             user = User.objects.get(email=email)
-#             token = default_token_generator.make_token(user)
-#             user.token = token
-#             user.save()
-#             mail_subject = 'Reset your ClinTAD password'
-#             current_site = get_current_site(request)
-#             message = render_to_string('activation_email.html',
-#                                        {'user': user, 'domain': current_site.domain,
-#                                         'uid': urlsafe_base64_encode(force_bytes(user.id)).decode(),
-#                                         'token': token})
-#             email = EmailMessage(mail_subject, message, to=[user.email])
-#             email.send()
+def registration_sent(request):
+    return render(request, 'registration_sent.html')
 
 
 def activate(request, uidb64, token):
