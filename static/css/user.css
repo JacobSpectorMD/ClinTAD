@@ -44,3 +44,7 @@ main {
     font-size: 14px;
     margin-bottom: 8px;
 }
+
+.error {
+    color: #c62828;
+}

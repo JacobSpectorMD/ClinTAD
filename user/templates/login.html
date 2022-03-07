@@ -11,9 +11,11 @@
     <title>ClinTAD | Login</title>
 </head>
 
-<div id="login-card" class="mdc-card">
-    <div class="form">
-        <h2>Login</h2>
+<div id="login-card" class="mdc-card card-w-title">
+    <div class="card-top-div title-large">
+        <div class="card-title">Login</div>
+    </div>
+    <div class="form card-text">
         <form method="post">
             {% csrf_token %}
             <label class="mdc-text-field mdc-text-field--outlined">

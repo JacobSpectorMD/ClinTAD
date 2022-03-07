@@ -1,6 +1,8 @@
 *.gtf
 *database_backup.json
 node_modules/*
+*.sqlite3
+db*.json
 
 commands/
 commands/*
