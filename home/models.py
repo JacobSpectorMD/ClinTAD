@@ -78,6 +78,7 @@ class Enhancer(models.Model):
 class Track(models.Model):
     creator_id = models.IntegerField(default=-1)
     label = models.CharField(default='', max_length=200)
+    creator = models.ForeignKey('user.User', on_delete=models.CASCADE)
     build = models.CharField(default='', max_length=30)
     track_type = models.CharField(default='', max_length=100)
     details = models.CharField(default='', max_length=2000)
