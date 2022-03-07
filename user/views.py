@@ -3,7 +3,6 @@ from axes.decorators import axes_dispatch
 
 from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
-from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import EmailMessage, EmailMultiAlternatives
 from django.http import HttpResponse, JsonResponse
 from django.views.generic import CreateView, FormView
@@ -18,28 +17,6 @@ from .tokens import account_activation_token
 from user.forms import RegisterForm, LoginForm, TrackForm
 from user.models import Profile, TrackManager, User
 from user.track_creator import create_track
-
-
-class RegisterView(CreateView):
-    form_class = RegisterForm
-    template_name = 'register.html'
-    success_url = '/user/login/'
-
-
-class LoginView(FormView):
-    form_class = LoginForm
-    template_name = 'login.html'
-    success_url = '/'
-
-    def form_valid(self, form):
-        request = self.request
-        email = form.cleaned_data.get('email')
-        raw_password = form.cleaned_data.get('password1')
-        user = authenticate(username=email, password=raw_password)
-        if user is not None:
-            login(request, user)
-            return redirect('/')
-        return super(LoginView, self).form_invalid(form)
 
 
 @axes_dispatch
@@ -85,9 +62,9 @@ def register(request):
 
             domain = get_current_site(request).domain
             uid = urlsafe_base64_encode(force_bytes(user.id))
-            token = default_token_generator.make_token(user)
+            token = account_activation_token.make_token(user)
             activation_link = "http://{domain}/user/activate/{uid}/{token}/".format(domain=domain, uid=uid, token=token)
-
+            print(activation_link)
             msg = EmailMultiAlternatives(
                 subject="Account Activation - ClinTAD",
                 body="Please click on the following link to activate your account: \n" + activation_link,
@@ -115,10 +92,12 @@ def activate(request, uidb64, token):
         user = User.objects.get(id=uid)
     except(TypeError, ValueError, OverflowError, User.DoesNotExist):
         user = None
-    if user is not None and user.token == token:
+
+    print(account_activation_token.check_token(user, token))
+    if user is not None and account_activation_token.check_token(user, token):
         user.is_active = True
         user.save()
-        login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+        login(request, user, backend='axes.backends.AxesBackend')
         return redirect('/')
 
 

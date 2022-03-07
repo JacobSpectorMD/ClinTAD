@@ -9,6 +9,8 @@ def create_track(request):
     build = request.POST.get('build', None)
     label = request.POST.get('label', None)
     track_type = request.POST.get('trackType', None)
+
+    print(track_type)
     details = request.POST.get('details', '')
     uploaded_file = request.FILES.get('file', None)
     if not build or not label or not track_type or not uploaded_file:

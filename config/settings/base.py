@@ -37,6 +37,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'axes.middleware.AxesMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -78,7 +79,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTHENTICATION_BACKENDS = [
-    'axes.backends.AxesModelBackend',
+    'axes.backends.AxesBackend',
     'django.contrib.auth.backends.ModelBackend',
 ]
 
@@ -145,3 +146,5 @@ ANYMAIL = {
 }
 DEFAULT_FROM_EMAIL = 'clinicaltad@gmail.com'
 SERVER_EMAIL = 'clinicaltad@gmail.com'
+
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'

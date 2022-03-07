@@ -3,6 +3,10 @@ main {
     flex-direction: column;
 }
 
+.mdc-button {
+    height: 56px;
+}
+
 td {padding-right: 0.5em;}
 
 #input-cards-div {margin-bottom: 16px;}
@@ -20,7 +24,7 @@ td {padding-right: 0.5em;}
 #text-area-div {
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
+    align-items: center;
 }
 
 #data-div {
