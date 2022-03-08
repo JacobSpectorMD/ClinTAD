@@ -16,7 +16,7 @@ def create_track(request):
     if not build or not label or not track_type or not uploaded_file:
         return {}
 
-    track = Track.objects.create(creator_id=user.id, build=build, label=label, track_type=track_type,
+    track = Track.objects.create(creator_id=user.id, build=build, label=label, creator=user, track_type=track_type,
                                  details=details)
     try:
         track.subscribers.add(user)
@@ -25,11 +25,11 @@ def create_track(request):
         lines = file_data.split("\n")
         element_list = []
         for line in lines:
-            if "NUMBER" in line.upper() or "START" in line.upper():
-                continue
             line = line.strip()
+            if not line or "NUMBER" in line.upper() or "START" in line.upper():
+                continue
             col = line.split('\t')
-            chromosome_num = col[0].replace('CHR', '').upper()
+            chromosome_num = col[0].upper().replace('CHR', '')
             chromosome = Chromosome.objects.get(number=chromosome_num)
             start = int(col[1].replace(',', ''))
             if col[2] != '':
