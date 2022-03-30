@@ -177,7 +177,11 @@ function clear_data(){
         <b>Resolution:</b> This can happen due to invalid inputs into one of the forms. Click the button
         below to clear the data, then try using the Single page again.<br>
         <br>
-        <button type="submit" onclick=clear_data()>Clear Data</button><br>
+        <button type="button" onclick="clear_data()" class="mdc-button mdc-button--touch mdc-button--raised">
+            <div class="mdc-button__ripple"></div>
+            <div class="mdc-button__label">Clear Data</div>
+            <div class="mdc-button__touch"></div>
+        </button>
         <br>
     </div>
 </div>

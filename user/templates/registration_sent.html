@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/user.css' %}">
+{% endblock styles %}
+
+{% block content %}
+<div id="login-card" class="mdc-card card-w-title">
+    <div class="card-top-div title-large">
+        <div class="card-title">Activation Email Sent</div>
+    </div>
+    <div class="form card-text">
+        An email has been sent to you with an an activation link. Please click on the link to confirm your email
+        and activate your account.
+    </div>
+</div>
+{% endblock content %}
