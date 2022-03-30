@@ -131,8 +131,9 @@ def get_phenotypes(request):
 
 
 def clear_data(request):
-    del request.session['genes']
-    return JsonResponse('Data cleared', safe=False);
+    if 'genes' in request.session:
+        del request.session['genes']
+    return JsonResponse({'status': 'Success'}, safe=False);
 
 
 def statistics(request):

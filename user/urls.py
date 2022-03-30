@@ -1,13 +1,15 @@
 from django.conf.urls import url, include
 from django.contrib.auth import views as auth_views
+from django.urls import path
 
 from user.views import *
 
 urlpatterns = [
     # path(r'', include('django.contrib.auth.urls')),
-    url(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
-        activate, name='activate'),
+    path('activate/<str:uidb64>/<str:token>/', activate, name='activate'),
     url(r'^register/$', register, name='register'),
+    url(r'^registration_sent/$', registration_sent, name='registration_sent'),
+
     url(r'^login/$', login_view, name='login'),
     url(r'^logout/$', logout_view, name='logout'),
     url(r'^tracks/$', tracks, name='tracks'),
@@ -19,12 +21,12 @@ urlpatterns = [
     url(r'^default_cnvs/$', default_cnvs, name='default_cnvs'),
 
     url(r'^password_reset/$', auth_views.PasswordResetView.as_view(template_name='password_reset_form.html'),
-        {'extra_context':{'navbar':'reset'}}, name='password_reset'),
+        {'extra_context': {'navbar': 'reset'}}, name='password_reset'),
     url(r'^password_reset/done/$', auth_views.PasswordResetDoneView.as_view(template_name='password_reset_done.html'),
-        {'extra_context':{'navbar':'reset'}}, name='password_reset_done'),
-    url(r'^reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
+        {'extra_context': {'navbar': 'reset'}}, name='password_reset_done'),
+    path('password_reset_confirm/<str:uidb64>/<str:token>/',
         auth_views.PasswordResetConfirmView.as_view(template_name='password_reset_confirm.html'),
-        {'extra_context':{'navbar':'reset'}}, name='password_reset_confirm'),
+        {'extra_context': {'navbar': 'reset'}}, name='password_reset_confirm'),
     url(r'^reset/done/$', auth_views.PasswordResetCompleteView.as_view(template_name='password_reset_complete.html'),
-        {'extra_context':{'navbar':'reset'}}, name='password_reset_complete'),
+        {'extra_context': {'navbar': 'reset'}}, name='password_reset_complete'),
 ]

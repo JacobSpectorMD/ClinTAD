@@ -6,7 +6,6 @@ import { addHpoFunctions } from "./utilities";
 const coordinatesField = new MDCTextField(document.querySelector('#coordinates-field'));
 
 const elements = addHpoFunctions();
-const select = elements.select;
 const phenotypesField = elements.phenotypesField;
 
 $(document).ready(function () {

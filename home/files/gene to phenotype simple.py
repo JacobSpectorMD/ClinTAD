@@ -13,4 +13,3 @@ with open('weighted.txt', 'r') as f:
 
 output.close()
 f.close()
-            

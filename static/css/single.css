@@ -2,6 +2,10 @@ input {
     height: 32px;
 }
 
+.mdc-button {
+    height: 56px;
+}
+
 .mdc-card:not(#selected-data-card) {
     margin-bottom: 16px;
 }
