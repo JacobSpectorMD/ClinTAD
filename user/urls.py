@@ -24,7 +24,7 @@ urlpatterns = [
         {'extra_context': {'navbar': 'reset'}}, name='password_reset'),
     url(r'^password_reset/done/$', auth_views.PasswordResetDoneView.as_view(template_name='password_reset_done.html'),
         {'extra_context': {'navbar': 'reset'}}, name='password_reset_done'),
-    path('password_reset_confirm/<str:uidb64>/<str:token>/$',
+    path('password_reset_confirm/<str:uidb64>/<str:token>/',
         auth_views.PasswordResetConfirmView.as_view(template_name='password_reset_confirm.html'),
         {'extra_context': {'navbar': 'reset'}}, name='password_reset_confirm'),
     url(r'^reset/done/$', auth_views.PasswordResetCompleteView.as_view(template_name='password_reset_complete.html'),
