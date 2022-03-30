@@ -100,3 +100,12 @@ main .mdc-card:not(:last-child) {
 #details-field {
     flex: 1;
 }
+
+.mdc-data-table__row.wrap td {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.mdc-data-table__row td:not(.use-track-cell) {
+    cursor: pointer;
+}

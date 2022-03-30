@@ -6,7 +6,7 @@ window.onload = function() {
     get_genes();
 
     // Add the HPO when the user focuses on #add-hpo-select and presses enter
-    document.getElementById('add-hpo-select').onkeypress = function(e) {
+    document.getElementById('hpo-select').onkeypress = function(e) {
         var event = e || window.event;
         var charCode = event.which || event.keyCode;
         if (charCode == '13') {
