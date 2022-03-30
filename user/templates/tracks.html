@@ -123,16 +123,16 @@
 
       <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
         <ul class="mdc-list" role="listbox">
-            <li class="mdc-list-item" role="option" data-value="CNV" tab-index="-1">
+            <li class="mdc-list-item" role="option" data-value="cnv" tab-index="-1">
                 <span class="mdc-list-item__text">CNV</span>
             </li>
-            <li class="mdc-list-item" role="option" data-value="Enhancer" tab-index="0" aria-selected="true">
+            <li class="mdc-list-item" role="option" data-value="enhancer" tab-index="0" aria-selected="true">
                 <span class="mdc-list-item__text">Enhancer</span>
             </li>
             <li class="mdc-list-item" role="option" data-value="other" tab-index="0" aria-selected="true">
                 <span class="mdc-list-item__text">Other</span>
             </li>
-            <li class="mdc-list-item" role="option" data-value="TAD" tab-index="-1">
+            <li class="mdc-list-item" role="option" data-value="tad" tab-index="-1">
                 <span class="mdc-list-item__text">TAD</span>
             </li>
         </ul>
@@ -187,7 +187,7 @@
                   <th class="mdc-data-table__header-cell description-cell" role="columnheader" scope="col">Description</th>
                 </tr>
               </thead>
-              <tbody class="mdc-data-table__content">
+              <tbody class="mdc-data-table__content" id="tad">
                       <tr class="mdc-data-table__row">
                           <td class="mdc-data-table__cell use-track-cell">
                               <div class="mdc-touch-target-wrapper">
@@ -209,12 +209,14 @@
                               </div>
                           </td>
                           <td class="mdc-data-table__cell label-cell">Default TADs</td>
+                          <td class="mdc-data-table__cell label-cell">Jacob</td>
                           <td class="mdc-data-table__cell build-cell">hg19 / GRCh37</td>
                           <td class="mdc-data-table__cell description-cell">The default TAD boundary set was provided by Dr. Jesse Dixon (University of California,
                             San Diego). The data was generated using H1 human embryonic stem cells (hESCs),
                             chromosome build GRCh37, a bin size of 40kb, and a window size of 2Mb. Please see the About section
                             for reference and details.
                           </td>
+                          
                       </tr>
               </tbody>
             </table>
@@ -314,7 +316,7 @@
                   <th class="mdc-data-table__header-cell description-cell" role="columnheader" scope="col">Description</th>
                 </tr>
               </thead>
-              <tbody class="mdc-data-table__content">
+              <tbody class="mdc-data-table__content" id="cnv">
                       <tr class="mdc-data-table__row">
                           <td class="mdc-data-table__cell use-track-cell">
                               <div class="mdc-touch-target-wrapper">
@@ -423,26 +425,128 @@
     </div>
 </div>
 
-<div class="track-header">Enhancer Tracks</div>
-<div class="track-row col-titles">
-    <div class="toggle-col"><b>Use Track</b></div>
-    <div class="label-col"><b>Track Label</b></div>
-    <div class="build-col"><b>Build</b></div>
-    <div class="color-col"><b>Color</b></div>
-    <div class="details-col"><b>Details</b></div>
-    <div class=""></div>
-</div>
-<div class="tracks" id="Enhancer">
-    <div class="track-row">
-        <div class="toggle-col"><input type="checkbox" class='default' id='enhancer-toggle' data-toggle="toggle" data-on="Yes" data-off="No"></div>
-        <div class="label-col">Default Enhancers</div>
-        <div class="build-col">hg19 / GRCh37</div>
-        <div class="color-col"></div>
-        <div class="details-col">The default set of enhancers is based on data from the VISTA Enhancer Browser. We include
-            only human enhancers that were positive for in vivo enhancer activity as defined by VISTA. Please see
-            the about section for reference and details.</div>
-        <div class=""></div>
-    </div>
-</div>
+<div class="mdc-card card-w-title">
+  <div class="card-top-div">
+      <div class="card-title">Enchancer Tracks</div>
+  </div>
+  <div class="card-text">
+      <div class="mdc-data-table">
+        <div class="mdc-data-table__table-container">
+          <table class="mdc-data-table__table" aria-label="Enhancer Tracks">
+            <thead>
+              <tr class="mdc-data-table__header-row">
+                <th class="mdc-data-table__header-cell use-track-cell" role="columnheader" scope="col">Use Track</th>
+                <th class="mdc-data-table__header-cell label-cell" role="columnheader" scope="col">Label</th>
+                <th class="mdc-data-table__header-cell build-cell" role="columnheader" scope="col">Build</th>
+                <th class="mdc-data-table__header-cell description-cell" role="columnheader" scope="col">Description</th>
+              </tr>
+            </thead>
+            <tbody class="mdc-data-table__content" id="enhancer">
+                    <tr class="mdc-data-table__row">
+                        <td class="mdc-data-table__cell use-track-cell">
+                            <div class="mdc-touch-target-wrapper">
+                              <div class="mdc-checkbox mdc-checkbox--touch">
+                                <input type="checkbox"
+                                         class="mdc-checkbox__native-control"
+                                         id="checkbox-1"/>
+                                <div class="mdc-checkbox__background">
+                                  <svg class="mdc-checkbox__checkmark"
+                                         viewBox="0 0 24 24">
+                                      <path class="mdc-checkbox__checkmark-path"
+                                            fill="none"
+                                            d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                                  </svg>
+                                  <div class="mdc-checkbox__mixedmark"></div>
+                                </div>
+                                <div class="mdc-checkbox__ripple"></div>
+                              </div>
+                            </div>
+                        </td>
+                        <td class="mdc-data-table__cell label-cell">Default Enhancers</td>
+                        <td class="mdc-data-table__cell build-cell">hg19 / GRCh37</td>
+                        <td class="mdc-data-table__cell description-cell">The default set of enhancers is based on data from the VISTA Enhancer Browser. We include
+                            only human enhancers that were positive for in vivo enhancer activity as defined by VISTA. Please see
+                            the about section for reference and details.
+                        </td>
+                    </tr>
+            </tbody>
+          </table>
+        </div>
 
+        <div class="mdc-data-table__pagination">
+          <div class="mdc-data-table__pagination-trailing">
+            <div class="mdc-data-table__pagination-rows-per-page">
+              <div class="mdc-data-table__pagination-rows-per-page-label">
+                Rows per page
+              </div>
+
+              <div class="mdc-select mdc-select--outlined mdc-select--no-label mdc-data-table__pagination-rows-per-page-select">
+                <div class="mdc-select__anchor" role="button" aria-haspopup="listbox"
+                      aria-labelledby="demo-pagination-select" tabindex="0">
+                  <span class="mdc-select__selected-text-container">
+                    <span id="demo-pagination-select" class="mdc-select__selected-text">10</span>
+                  </span>
+                  <span class="mdc-select__dropdown-icon">
+                    <svg
+                        class="mdc-select__dropdown-icon-graphic"
+                        viewBox="7 10 10 5">
+                      <polygon
+                          class="mdc-select__dropdown-icon-inactive"
+                          stroke="none"
+                          fill-rule="evenodd"
+                          points="7 10 12 15 17 10">
+                      </polygon>
+                      <polygon
+                          class="mdc-select__dropdown-icon-active"
+                          stroke="none"
+                          fill-rule="evenodd"
+                          points="7 15 12 10 17 15">
+                      </polygon>
+                    </svg>
+                  </span>
+                  <span class="mdc-notched-outline mdc-notched-outline--notched">
+                    <span class="mdc-notched-outline__leading"></span>
+                    <span class="mdc-notched-outline__trailing"></span>
+                  </span>
+                </div>
+
+                <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth" role="listbox">
+                  <ul class="mdc-list">
+                    <li class="mdc-list-item mdc-list-item--selected" aria-selected="true" role="option" data-value="10">
+                      <span class="mdc-list-item__text">10</span>
+                    </li>
+                    <li class="mdc-list-item" role="option" data-value="25">
+                      <span class="mdc-list-item__text">25</span>
+                    </li>
+                    <li class="mdc-list-item" role="option" data-value="100">
+                      <span class="mdc-list-item__text">100</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="mdc-data-table__pagination-navigation">
+              <div class="mdc-data-table__pagination-total">
+                1‑10 of 100
+              </div>
+
+              <button class="mdc-icon-button material-icons mdc-data-table__pagination-button" data-first-page="true" disabled>
+                <div class="mdc-icon-button__ripple"></div>first_page
+              </button>
+              <button class="mdc-icon-button material-icons mdc-data-table__pagination-button" data-prev-page="true" disabled>
+                <div class="mdc-icon-button__ripple"></div>chevron_left
+              </button>
+              <button class="mdc-icon-button material-icons mdc-data-table__pagination-button" data-next-page="true">
+                <div class="mdc-icon-button__ripple"></div>chevron_right
+              </button>
+              <button class="mdc-icon-button material-icons mdc-data-table__pagination-button" data-last-page="true">
+                <div class="mdc-icon-button__ripple"></div>last_page
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
 {% endblock %}

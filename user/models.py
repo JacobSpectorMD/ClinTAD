@@ -40,6 +40,7 @@ class User(AbstractBaseUser):
     is_active = models.BooleanField(default=False)
     last_login = models.DateTimeField(auto_now_add=True)
     token = models.CharField(max_length=500, default='')
+    hide_feedback = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['name']

@@ -38,3 +38,12 @@ function submit_track () {
         processData: false
     });
 }
+
+// Expand the description cells for tracks when they are clicked
+$(document).on('click', '.mdc-data-table__row', function(){
+    if ($(this).hasClass('wrap')) {
+        $(this).removeClass('wrap').find('td').css('white-space', 'nowrap');
+    } else {
+        $(this).addClass('wrap').find('td').css('white-space', 'initial');
+    }
+})

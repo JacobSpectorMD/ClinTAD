@@ -1,5 +1,4 @@
 import os
-import json
 import random
 import re
 import requests
@@ -246,7 +245,7 @@ class Command(BaseCommand):
                             continue
 
                         time.sleep(random.randint(1000, 2000)/1000)
-                        params = {'apiKey': 'O19NeM-5SWqCcP1GLDAWbQ', 'mimNumber': omim_number, 'format': 'json',
+                        params = {'apiKey': os.environ.get('OMIM_API_KEY'), 'mimNumber': omim_number, 'format': 'json',
                                   'include': 'geneMap'}
                         response = requests.get("https://api.omim.org/api/entry", params=params)
                         entry = response.json()['omim']['entryList'][0]['entry']

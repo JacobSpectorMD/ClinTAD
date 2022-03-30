@@ -141,50 +141,32 @@ function color_input(event){
 }
 
 function add_track(track){
-    var row = document.createElement('div');
-    row.setAttribute('class', 'track-row');
-    row.setAttribute('data-ut-id', track.ut_id);
-
-    // Toggle button
-    var col = document.createElement('div');
-    col.setAttribute('class', 'toggle-col');
-    var check = track.active ? 'checked' : '';
-    col.innerHTML = '<input type="checkbox" '+check+' class="track-toggle" data-toggle="toggle" data-on="Yes"'+
-                    'data-off="No" data-ut_id="'+track.ut_id+'">';
-    row.appendChild(col);
-
-    // Label
-    var col = document.createElement('div');
-    col.setAttribute('class', 'label-col');
-    col.innerHTML = track.label;
-    row.appendChild(col);
-
-    // Build
-    var col = document.createElement('div');
-    col.setAttribute('class', 'build-col');
-    col.innerHTML = track.build;
-    row.appendChild(col);
-
-    // Color
-    var col = document.createElement('div');
-    col.setAttribute('class', 'color-col');
-    if (track.track_type == 'TAD'){col.innerHTML = '';}
-    else {col.innerHTML = '<input class="color-picker" type="color" value="'+track.color+'">';}
-    row.appendChild(col);
-
-    // Details
-    var col = document.createElement('div');
-    col.setAttribute('class', 'details-col');
-    col.innerHTML = track.details;
-    row.appendChild(col);
-
-    // Delete button
-    var col = document.createElement('div');
-    col.setAttribute('class', 'delete-col');
-    col.innerHTML = '<button>Delete</button>';
-    row.appendChild(col);
-
-    var table = document.getElementById(track.track_type);
-    table.appendChild(row);
+    $('#' + track.track_type).append(
+    `<tr class="mdc-data-table__row">
+    <td class="mdc-data-table__cell use-track-cell">
+        <div class="mdc-touch-target-wrapper">
+          <div class="mdc-checkbox mdc-checkbox--touch">
+            <input type="checkbox"
+                     class="mdc-checkbox__native-control"
+                     id="checkbox-1"/>
+            <div class="mdc-checkbox__background">
+              <svg class="mdc-checkbox__checkmark"
+                     viewBox="0 0 24 24">
+                  <path class="mdc-checkbox__checkmark-path"
+                        fill="none"
+                        d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+              </svg>
+              <div class="mdc-checkbox__mixedmark"></div>
+            </div>
+            <div class="mdc-checkbox__ripple"></div>
+          </div>
+        </div>
+    </td>
+    <td class="mdc-data-table__cell label-cell">${track.label}</td>
+    <td class="mdc-data-table__cell build-cell">${track.build}</td>
+    <td class="mdc-data-table__cell description-cell">${track.details}</td>
+    <td class="mdc-data-table__cell label-cell">${track.}</td>
+</tr>`)
+    
 }
 
