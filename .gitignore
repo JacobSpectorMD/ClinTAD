@@ -107,4 +107,5 @@ environmental_variables.py
 .mypy_cache/
 
 .idea/
-dev.py
+#Gene file info large file 
+home/management/commands/gene_files/Homo_sapiens.GRCh37.87.gtf
