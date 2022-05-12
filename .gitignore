@@ -1,3 +1,4 @@
+*.gff3
 *.gtf
 *database_backup.json
 node_modules/*
@@ -6,10 +7,9 @@ db*.json
 
 
 home/files/ensembl/*
-home/files/genes/*
-home/files/genes2/*
 home/files/hpo/*
-home/files/omim/*
+home/files/omim/*.txt
+!ReadMe.md
 !load.py
 home/management/commands/polygenic.py
 

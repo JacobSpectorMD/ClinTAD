@@ -41,18 +41,18 @@
                     <span class="mdc-button__label">Multiple</span>
                 </button>
             </a>
+{#            <a href="/cases">#}
+{#                <button class="mdc-button nav-button">#}
+{#                    <span class="mdc-button__ripple mdc-ripple-surface--primary"></span>#}
+{#                    <i class="material-icons mdc-button__icon" aria-hidden="true">folder_shared</i>#}
+{#                    <span class="mdc-button__label">Cases</span>#}
+{#                </button>#}
+{#            </a>#}
             <a href="/about">
                 <button class="mdc-button nav-button">
                     <span class="mdc-button__ripple mdc-ripple-surface--primary"></span>
                     <i class="material-icons mdc-button__icon" aria-hidden="true">help_outline</i>
                     <span class="mdc-button__label">About</span>
-                </button>
-            </a>
-            <a href="/contact">
-                <button class="mdc-button nav-button">
-                    <span class="mdc-button__ripple mdc-ripple-surface--primary"></span>
-                    <i class="material-icons mdc-button__icon" aria-hidden="true">email</i>
-                    <span class="mdc-button__label">Contact</span>
                 </button>
             </a>
         </section>
@@ -111,13 +111,35 @@
     {% block content %}{% endblock content %}
 </main>
 
+<aside class="mdc-snackbar announcement">
+  <div class="mdc-snackbar__surface" role="status" aria-relevant="additions">
+    <div class="mdc-snackbar__label" aria-atomic="false">
+        <span class="announcement-title">ClinTAD Upgrade (Please Excuse the Mess)</span><br><br>
+
+        ClinTAD is currently undergoing major upgrades. Many pages on the site are changing in appearance and functionality.
+        Some features may be slower and/or unavailable intermittently over the next few weeks.<br><br>
+
+        We are working hard to improve ClinTAD, but our development time is limited due to clinical responsibilities.    </div>
+    <div class="mdc-snackbar__actions" aria-atomic="true">
+      <button type="button" class="mdc-button mdc-snackbar__action">
+        <div class="mdc-button__ripple"></div>
+        <span class="mdc-button__label" style="color: var(--mdc-theme-primary);">Close</span>
+      </button>
+    </div>
+  </div>
+</aside>
+
+<script>
+    const announcement = {% if 'announcement' in request.session %}false{% else %}true{% endif %};
+</script>
+
 {% block scripts %}
     <script src="{% static 'js/utilities.js' %}" type="module"></script>
     <script src="{%  static 'js/material.js' %}"></script>
-    <script src="{%  static 'dist/base.js' %}"></script>
     <script src="https://d3js.org/d3.v3.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <script src="{%  static 'dist/base.js' %}"></script>
 {% endblock scripts %}
 </body>

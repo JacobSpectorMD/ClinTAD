@@ -1,66 +1,9 @@
 import { csrftoken } from './utilities.js';
 
 
-window.onload = function(){
-    initialize_tracks(tracks);
-};
-
-function initialize_tracks(tracks){
-    console.log(tracks);
-    // Add all of the user's tracks to their section
-    tracks.tracks.forEach(function(track){
-        add_track(track);
-    })
-
-    $('.track-toggle').bootstrapToggle();
-    if (tracks.default_tads) {$('#tad-toggle').bootstrapToggle('on');}
-    if (tracks.default_enhancers){$('#enhancer-toggle').bootstrapToggle('on');}
-    if (tracks.default_cnvs){$('#cnv-toggle').bootstrapToggle('on');}
-
-    // Turn off default tads when clicked
-    $('#tad-toggle').change(function(){
-        if ($('#tad-toggle').parent().hasClass('off')) {var active = false}
-        else {var active = true}
-
-        $.ajax({
-            type: 'POST',
-            url: '/user/default_tads/',
-            headers: {'X-CSRFToken': csrftoken},
-            data: {'active': active},
-            success: function(data){}
-        });
-    })
-
-    // Turn off default enhancers when clicked
-    $('#enhancer-toggle').change(function(){
-        if ($('#enhancer-toggle').parent().hasClass('off')) {var active = false}
-        else {var active = true}
-
-        $.ajax({
-            type: 'POST',
-            url: '/user/default_enhancers/',
-            headers: {'X-CSRFToken': csrftoken},
-            data: {'active': active},
-            success: function(data){}
-        });
-    })
-
-        // Turn off default enhancers when clicked
-    $('#cnv-toggle').change(function(){
-        if ($('#cnv-toggle').parent().hasClass('off')) {var active = false}
-        else {var active = true}
-
-        $.ajax({
-            type: 'POST',
-            url: '/user/default_cnvs/',
-            headers: {'X-CSRFToken': csrftoken},
-            data: {'active': active},
-            success: function(data){}
-        });
-    })
-
-    color_listener();
-}
+// window.onload = function(){
+//     initialize_tracks(tracks);
+// };
 
 
 $(document).on('click', '.delete-col button', function(){
@@ -78,13 +21,6 @@ $(document).on('click', '.delete-col button', function(){
     });
 })
 
-function color_listener(){
-    var colorPicker = document.getElementsByClassName('color-picker');
-
-    for (var i = 0 ; i < colorPicker.length; i++) {
-        colorPicker[i].addEventListener("input", color_input, false);
-    }
-}
 
 $(document).on('click', '.toggle', function(){
     var toggle = $(this).parent();
@@ -120,28 +56,10 @@ $(document).on('click', '.toggle', function(){
     }
 })
 
-function color_input(event){
-    var row = $(event.target).parent().parent();
-    var color = event.target.value;
-    event.target.setAttribute('value', event.target.value);
-
-    var ut_id = $(row).data('ut-id');
-    var toggle = $(row).find('.toggle');
-
-    if ($(toggle).hasClass('off')) {var active = false}
-    else {var active = true}
-
-    $.ajax({
-        type: 'POST',
-        url: '/user/edit_track/',
-        headers: {'X-CSRFToken': csrftoken},
-        data: {'ut_id': ut_id, 'color': color, 'active': active},
-        success: function(data){}
-    });
-}
-
 function add_track(track){
-    $('#' + track.track_type).append(
+    const trackDisplay = {'tad': 'TAD', 'cnv': 'CNV', 'enhancer': 'Enhancer', 'other': 'Other'};
+
+    $('#my-tracks-tbody').append(
     `<tr class="mdc-data-table__row">
     <td class="mdc-data-table__cell use-track-cell">
         <div class="mdc-touch-target-wrapper">
@@ -163,9 +81,9 @@ function add_track(track){
         </div>
     </td>
     <td class="mdc-data-table__cell label-cell">${track.label}</td>
+    <td class="mdc-data-table__cell user-cell">${trackDisplay[track.track_type]}</td>
     <td class="mdc-data-table__cell build-cell">${track.build}</td>
     <td class="mdc-data-table__cell description-cell">${track.details}</td>
-    <td class="mdc-data-table__cell label-cell">${track.}</td>
 </tr>`)
     
 }

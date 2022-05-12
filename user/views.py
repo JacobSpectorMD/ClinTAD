@@ -12,7 +12,7 @@ from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 
-from home.models import UT
+from home.models import Track, UT
 from .tokens import account_activation_token
 from user.forms import RegisterForm, LoginForm, TrackForm
 from user.models import Profile, TrackManager, User
@@ -36,7 +36,7 @@ def login_view(request):
                 return redirect('/user/tracks')
             else:
                 messages.add_message(request, messages.INFO, "The login information you entered was invalid. "
-                                     "After 5 unsuccessful login attempts your account will be locked for 1 hour.")
+                                                             "After 5 unsuccessful login attempts your account will be locked for 1 hour.")
                 return redirect('/user/login')
 
 
@@ -59,12 +59,15 @@ def register(request):
 
             Profile.objects.create(user=user)
             TrackManager.objects.create(user=user)
+            default_tracks = Track.objects.filter(default=True)
+            for track in default_tracks:
+                UT.objects.create(active=True, track=track, user=user)
 
             domain = get_current_site(request).domain
             uid = urlsafe_base64_encode(force_bytes(user.id))
             token = account_activation_token.make_token(user)
             activation_link = "http://{domain}/user/activate/{uid}/{token}/".format(domain=domain, uid=uid, token=token)
-            print(activation_link)
+
             msg = EmailMultiAlternatives(
                 subject="Account Activation - ClinTAD",
                 body="Please click on the following link to activate your account: \n" + activation_link,
@@ -102,7 +105,9 @@ def activate(request, uidb64, token):
 
 
 def tracks(request):
+    public_tracks = [track.to_dict() for track in Track.objects.filter(public=True)]
     return render(request, 'tracks.html', {'form': TrackForm,
+                                           'public_tracks': public_tracks,
                                            'tracks': json.dumps(request.user.track_manager.track_json())})
 
 
@@ -125,35 +130,33 @@ def delete_track(request):
     return HttpResponse('')
 
 
-def default_enhancers(request):
-    active = request.POST.get('active')
-    if active == 'true':
-        request.user.track_manager.default_enhancers = True
-    else:
-        request.user.track_manager.default_enhancers = False
-    request.user.track_manager.save()
-    return HttpResponse('')
+def add_track(request):
+    track_id = request.POST.get('id')
+    track = Track.objects.get(id=track_id)
+    user_track = UT.objects.filter(track=track, user=request.user).first()
+    if not user_track:
+        user_track = UT.objects.create(track=track, user=request.user)
+    return JsonResponse(user_track.to_dict())
 
 
-def default_cnvs(request):
-    active = request.POST.get('active')
-    if active == 'true':
-        request.user.track_manager.default_cnvs = True
-    else:
-        request.user.track_manager.default_cnvs = False
-    request.user.track_manager.save()
-    return HttpResponse('')
+def update_user_track(request):
+    user_track_id = request.POST.get('user_track_id')
+    active = json.loads(request.POST.get('active'))
 
+    user_track = UT.objects.get(id=user_track_id)
+    if request.user != user_track.user:
+        return
 
-def default_tads(request):
-    active = request.POST.get('active')
-    if active == 'true':
-        request.user.track_manager.default_tads = True
-    else:
-        request.user.track_manager.default_tads = False
-    other_tads = UT.objects.filter(user=request.user, track__track_type='TAD').all()
-    for track in other_tads:
-        track.active = False
-        track.save()
-    request.user.track_manager.save()
-    return HttpResponse('')
+    if active:
+        user_track.active = True
+    elif not active:
+        user_track.active = False
+
+    # Make tracks of different builds inactive if the track is a TAD track
+    if user_track.track.track_type == 'tad' and active:
+        other_build_tracks = UT.objects.filter(user=request.user, active=True).exclude(
+            track__build=user_track.track.build)
+        other_build_tracks.update(active=False)
+    user_track.save()
+
+    return JsonResponse(user_track.to_dict())

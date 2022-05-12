@@ -87,5 +87,4 @@ class TrackManager(models.Model):
 
     def track_json(self):
         tracks = [track.to_dict() for track in self.user.tracks.all()]
-        return {'default_tads': self.default_tads, 'default_enhancers': self.default_enhancers,
-                'default_cnvs': self.default_cnvs, 'tracks': tracks}
+        return tracks

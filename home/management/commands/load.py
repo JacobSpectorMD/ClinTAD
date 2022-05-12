@@ -1,3 +1,10 @@
+"""
+    This command is used to load all of the default data into the database, or to update the data if new files are
+    obtained, e.g. a new file from Human Phenotype Ontology (HPO).
+
+    To run this file use 'python manage.py load' in your virtual environment in the root directory for the project.
+"""
+
 import os
 import random
 import re
@@ -10,7 +17,7 @@ from django.core.management.base import BaseCommand
 from django.db import transaction
 
 
-class HPO_temp:
+class HpoTemp:
     def __init__(self):
         self.id = 0
         self.name = ''
@@ -26,6 +33,7 @@ class Command(BaseCommand):
         options['elements'] = [x.lower() for x in options['elements']]
         if 'all' in options['elements']:
             print('Loading all required data.')
+            self.create_builds()
             self.load_chromosomes()
             self.load_genes()
             self.load_enhancers()
@@ -37,6 +45,8 @@ class Command(BaseCommand):
             self.load_omim_to_hpo()
             print('Finished loading data!!')
         elif len(options['elements']) > 0:
+            if 'builds' in options['elements']:
+                self.create_builds()
             if 'chromosomes' in options['elements']:
                 self.load_chromosomes()
             if 'enhancers' in options['elements']:
@@ -64,39 +74,120 @@ class Command(BaseCommand):
             print('Example: python manage.py load chromosomes')
             print('Example: python manage.py load genes omim_inheritance')
 
+    def create_builds(self):
+        """
+        Create the genome builds.
+        """
+        print('Loading builds.')
+        ncbi36 = Build.objects.filter(name='NCBI36').first()
+        if not ncbi36:
+            Build.objects.create(long_name='hg18/NCBI36', name='NCBI36')
+
+        grch37 = Build.objects.filter(name='GRCh37').first()
+        if not grch37:
+            Build.objects.create(long_name='hg19/GRCh37', name='GRCh37')
+
+        grch38 = Build.objects.filter(name='GRCh38').first()
+        if not grch38:
+            Build.objects.create(long_name='hg38/GRCh38', name='GRCh38')
+        print('Builds loaded.')
+
     def load_chromosomes(self):
+        """
+        This function creates chromosomes and adds/updates their length.
+        """
         print('Loading chromosomes.')
-        Chromosome.objects.all().delete()
-        with open('home/files/chromosomeLengthsHG19.txt', 'r') as infile:
-            for line in infile:
-                col = line.split('\t')
-                chr = col[0].replace('chr', '')
-                print(chr)
-                length = int(col[1])
-                chromosome = Chromosome.objects.filter(number=chr).first()
-                if chromosome is None:
-                    chromosome = Chromosome(number=chr.upper(), length=length)
+        folder = 'home/files/chromosomes'
+        files = os.listdir(folder)
+        for file in files:
+            with open(os.path.join(folder, file)) as infile:
+                for line in infile:
+                    col = line.split('\t')
+                    if line.startswith('#') or len(col) != 3:
+                        continue
+                    number = col[0].replace('chr', '').upper()
+                    build_name = col[1]
+                    build = Build.objects.get(name=build_name)
+                    length = int(col[2].replace(',', ''))
+                    chromosome = Chromosome.objects.filter(build=build, number=number).first()
+                    if not chromosome:
+                        chromosome = Chromosome.objects.create(build=build, number=number)
+                    chromosome.length = length
                     chromosome.save()
         print('Chromosomes loaded.')
 
     def load_genes(self):
+        """
+        This function reads the .gtf files from Ensembl to add genes and coordinates. For more information about the
+        specific files used, see the home/files/genes/ReadMe.md file.
+        """
         print('Loading genes.')
-        path = 'home/files/genes/'
-        files = os.listdir(path)
+        folder = 'home/files/genes/'
+        files = os.listdir(folder)
         for file in files:
-            gene_list = []
-            with open(path+file, 'r') as infile:
+            if '.gtf' not in file:
+                continue
+            build_name = file.split('.')[1]
+            build = Build.objects.get(name__iexact=build_name)
+            gene_dict = {gene.ensembl_id: gene for gene in Gene.objects.filter(build=build)}
+
+            with open(os.path.join(folder, file), 'r') as infile:
                 for line in infile:
-                    col = line.rstrip().split('\t')
+                    if line.startswith('#'):
+                        continue
+                    col = line.strip().split('\t')
+                    element_type = col[2]
+                    if element_type != 'transcript' or len(col) < 8:
+                        continue
+
+                    # Skip anything that is not protein coding
+                    gene_biotype = re.search(r'(?<=gene_biotype ").+?(?=")', line).group(0)
+                    transcript_biotype = re.search(r'(?<=transcript_biotype ").+?(?=")', line).group(0)
+                    if gene_biotype != 'protein_coding' or transcript_biotype != 'protein_coding':
+                        continue
+
+                    ensembl_id = re.search(r'(?<=gene_id ").+?(?=")', line).group(0)
+                    ensembl_id = int(re.sub(r'\D', '', ensembl_id))
+                    gene_search = re.search(r'(?<=gene_name ").+?(?=")', line)
+                    if not gene_search:
+                        gene_name = ''
+                    else:
+                        gene_name = gene_search.group(0)
+
                     chr_number = col[0]
-                    chromosome = Chromosome.objects.get(number=chr_number)
-                    start = col[1]
-                    end = col[2]
-                    name = col[3].strip()
-                    gene = Gene.objects.filter(name=name).first()
+                    start = int(col[3])
+                    end = int(col[4])
+                    chromosome = Chromosome.objects.filter(build=build, number=chr_number).first()
+                    if not chromosome:
+                        continue
+
+                    if ensembl_id in gene_dict:
+                        gene = gene_dict[ensembl_id]
+                    else:
+                        gene = Gene.objects.filter(build=build, ensembl_id=ensembl_id).first()
+                        gene_dict[ensembl_id] = gene
+                    print(build.name, gene_name, ensembl_id)
+
                     if gene is None:
-                        gene_list.append(Gene(chromosome=chromosome, name=name, start=start, end=end))
-            Gene.objects.bulk_create(gene_list)
+                        gene = Gene.objects.create(build=build, chromosome=chromosome, ensembl_id=ensembl_id,
+                                                   name=gene_name,
+                                                   start=start, end=end, updated=True)
+                        gene_dict[ensembl_id] = gene
+                    elif gene:
+                        updated = False
+                        if gene_name and gene.name == '':
+                            gene.name = gene_name
+                            updated = True
+                        if start < gene.start or not gene.updated:
+                            gene.start = start
+                            updated = True
+                        if end > gene.end or not gene.updated:
+                            gene.end = end
+                            updated = True
+
+                        if updated:
+                            gene.updated = True
+                            gene.save()
         print('Genes loaded.')
 
     def load_ensembl_ids(self):
@@ -123,7 +214,11 @@ class Command(BaseCommand):
 
     def load_enhancers(self):
         print('Loading enhancers.')
-        Enhancer.objects.all().delete()
+        build = Build.objects.get(name='GRCh37')
+        track = Track.objects.filter(build=build, default=True, track_type='enhancer')
+        if not track:
+            track = Track.objects.create(build=build, default=True, label='VISTA', track_type='enhancer')
+
         with open('home/files/vista enhancers.txt', 'r') as infile:
             enhancer_list = []
             for line in infile:
@@ -137,55 +232,67 @@ class Command(BaseCommand):
                     start, end = int(coords[0]), int(coords[1])
 
                     vista_element = int(cell[2].replace('element', ''))
-                    chromosome = Chromosome.objects.get(number=chromosome_num)
-                    enhancer_list.append(Enhancer(chromosome=chromosome, start=start, end=end,
-                                                 vista_element=vista_element))
+                    print(vista_element)
+                    chromosome = Chromosome.objects.get(build=build, number=chromosome_num)
+                    enhancer = Enhancer.objects.filter(build=build, vista_element=vista_element).first()
+                    if not enhancer:
+                        enhancer_list.append(
+                            Enhancer(build=build, chromosome=chromosome, start=start, end=end, track=track,
+                                     vista_element=vista_element))
             Enhancer.objects.bulk_create(enhancer_list)
         print('Enhancers loaded.')
 
     def load_hpos(self):
         print('Creating HPO objects.')
-        HPO.objects.all().delete()
-        hpo_list = []
-        hpo_objs = []
-        with open('home/files/hp-obo.txt', 'r') as infile:
-            for i in range(29):
-                infile.readline()
-            for line in infile:
-                if line.rstrip() == '[Term]':
-                    hpo = HPO_temp()
-                    hpo_list.append(hpo)
-                if line[0:2] == 'id':
-                    hpo.id = int(line[7:].rstrip())
-                if line[0:4] == 'name':
-                    hpo.name = line[6:].rstrip()
-                if line[0:3] == 'def':
-                    col = line.rstrip().split('"')
-                    hpo.definition = col[1]
-                if line[0:7] == 'comment':
-                    col = line.rstrip().split(':')
-                    hpo.comment = col[1]
-        for hpo in hpo_list:
-            hpo_objs.append(HPO(hpoid=hpo.id, name=hpo.name, definition=hpo.definition, comment=hpo.comment))
-        HPO.objects.bulk_create(hpo_objs)
+        # HPO.objects.all().delete()
+        # hpo_list = []
+        # hpo_objs = []
+        # with open('home/files/hp-obo.txt', 'r') as infile:
+        #     for i in range(29):
+        #         infile.readline()
+        #     for line in infile:
+        #         if line.rstrip() == '[Term]':
+        #             hpo = HpoTemp()
+        #             hpo_list.append(hpo)
+        #         if line[0:2] == 'id':
+        #             hpo.id = int(line[7:].rstrip())
+        #         if line[0:4] == 'name':
+        #             hpo.name = line[6:].rstrip()
+        #         if line[0:3] == 'def':
+        #             col = line.rstrip().split('"')
+        #             hpo.definition = col[1]
+        #         if line[0:7] == 'comment':
+        #             col = line.rstrip().split(':')
+        #             hpo.comment = col[1]
+        # for hpo in hpo_list:
+        #     hpo_objs.append(HPO(hpoid=hpo.id, name=hpo.name, definition=hpo.definition, comment=hpo.comment))
+        # HPO.objects.bulk_create(hpo_objs)
         print('HPO objects created.')
 
         print('Creating gene to HPO relationships.')
         # Create HPO to gene relationships
-        with open('home/files/ALL_SOURCES_ALL_FREQUENCIES_genes_to_phenotype.txt', 'r') as infile:
+        with open('home/files/hpo/ALL_SOURCES_ALL_FREQUENCIES_genes_to_phenotype.txt', 'r') as infile:
             infile.readline()
+            old_gene_name = ''
+            hpo_list = []
             for line in infile:
                 col = line.split('\t')
                 gene_name = col[1].strip()
-                hpo_id = col[3].split(':')
-                hpo_id = int(hpo_id[1])
-                try:
-                    gene = Gene.objects.get(name=gene_name)
-                    hpo = HPO.objects.get(hpoid=hpo_id)
-                    gene.hpos.add(hpo)
-                    gene.save()
-                except:
-                    print(gene_name+' does not exist.')
+                hpo_id = int(col[3].split(':')[1])
+
+                # If the line represents a different gene, add all of the hpo phenotypes to the previous gene
+                if old_gene_name != gene_name:
+                    print(old_gene_name)
+                    genes = Gene.objects.filter(name__iexact=old_gene_name)
+                    for gene in genes:
+                        gene.hpos.add(*hpo_list)
+                        gene.save()
+                    old_gene_name = gene_name
+                    hpo_list = []
+
+                hpo = HPO.objects.filter(hpoid=hpo_id).first()
+                if hpo:
+                    hpo_list.append(hpo)
             print('Gene to HPO relationships created.')
 
         print('Loading in weighted scores for HPOs.')
@@ -203,6 +310,7 @@ class Command(BaseCommand):
     def load_omim_titles(self):
         with open('home/files/omim/mimTitles.txt', 'r') as infile:
             omims = []
+            omim_dict = {}
             for line in infile:
                 col = line.split('\t')
 
@@ -215,11 +323,20 @@ class Command(BaseCommand):
 
                 omim_number = int(col[1].strip())
                 title = col[2].strip()
-                omim = Omim.objects.filter(title=title).first()
+
+                omim = Omim.objects.filter(omim_number=omim_number).first()
                 if not omim:
+                    # Add new omims to the list to be created
                     new_omim = Omim(omim_number=omim_number, title=title)
-                    omims.append(new_omim) 
+                    omims.append(new_omim)
+                elif omim:
+                    # Make sure exisiting omims are up-to-date
+                    if omim.title != title:
+                        omim.title = title
+                        omim.save()
+
             Omim.objects.bulk_create(omims)
+            infile.close()
 
     def load_omim_inheritance(self):
         with open('home/files/omim/genemap2.txt', 'r') as infile:
@@ -240,11 +357,11 @@ class Command(BaseCommand):
                         if not omim:
                             continue
                         if omim.autosomal_recessive or omim.autosomal_dominant or omim.digenic_recessive or \
-                        omim.digenic_dominant or omim.digenic or omim.multifactorial or omim.x_linked_recessive or \
-                        omim.x_linked_dominant or omim.x_linked or omim.y_linked:
+                                omim.digenic_dominant or omim.digenic or omim.multifactorial or omim.x_linked_recessive or \
+                                omim.x_linked_dominant or omim.x_linked or omim.y_linked:
                             continue
 
-                        time.sleep(random.randint(1000, 2000)/1000)
+                        time.sleep(random.randint(1000, 2000) / 1000)
                         params = {'apiKey': os.environ.get('OMIM_API_KEY'), 'mimNumber': omim_number, 'format': 'json',
                                   'include': 'geneMap'}
                         response = requests.get("https://api.omim.org/api/entry", params=params)
@@ -321,86 +438,165 @@ class Command(BaseCommand):
                 if line[0] == '#':
                     continue
                 col = line.split('\t')
+                if len(col) < 13:
+                    # Skip rows without phenotypes
+                    continue
 
-                ensembl_id = col[10]
+                symbols = col[6]
+                if len(col) >= 9:
+                    approved_symbols = col[8]
+                else:
+                    approved_symbols = ''
+                all_symbols = symbols + approved_symbols
+
+                if len(col) >= 11:
+                    ensembl_id = col[10]
+                else:
+                    ensembl_id = None
+                genes = None
                 if ensembl_id:
                     ensembl_id = int(ensembl_id.replace('ENSG', ''))
-                else:
+                    genes = Gene.objects.filter(ensembl_id=ensembl_id)
+                elif approved_symbols:
+                    genes = Gene.objects.filter(name=approved_symbols)
+
+                if not genes:
                     continue
 
-                gene = Gene.objects.filter(ensembl_id=ensembl_id).first()
-                if not gene:
-                    continue
-                symbols = col[6]
-                approved_symbols = col[8]
-                all_symbols = symbols + approved_symbols
-                if gene.name.lower() not in all_symbols.lower():
-                    print('\033[91mWARNING - gene name ('+gene.name+') is not in the symbols column.\033[0m')
+                if genes.first().name.lower() not in all_symbols.lower():
+                    print('\033[91mWARNING - gene name (' + gene.name + ') is not in the symbols column.\033[0m')
                     print(col)
 
                 phenotypes = col[12].split(';')
+
+                print('\n', approved_symbols, '(', ensembl_id, ')', end=' - ')
                 for phenotype in phenotypes:
                     omim_search = re.search(r'\d{6}', phenotype)
                     if omim_search:
                         omim_number = omim_search.group(0)
+                        print(omim_number)
                     else:
                         continue
 
                     omim = Omim.objects.filter(omim_number=omim_number).first()
                     if not omim:
-                        print('\033[91mWARNING - OMIM number '+omim_number+' does not exist.\033[0m')
+                        print('\033[91mWARNING - OMIM number ' + omim_number + ' does not exist.\033[0m')
                         continue
-                    if omim not in gene.omims.all():
-                        gene.omims.add(omim)
-                        gene.save()
+
+                    for gene in genes:
+                        if omim not in gene.omims.all():
+                            gene.omims.add(omim)
+                            gene.save()
 
     def load_tads(self):
         print('Loading in TAD boundaries.')
         # Load TAD boundaries
-        TAD.objects.all().delete()
-        tad_list = []
-        with open('home/files/boundary.txt', 'r') as infile:
-            for line in infile:
-                col = line.split('\t')
-                chr_num = col[0].strip().replace('chr', '')
-                chromosome = Chromosome.objects.get(number=chr_num)
-                start = int(col[1])
-                end = int(col[2])
-                tad_list.append(TAD(chromosome=chromosome, start=start, end=end))
-        TAD.objects.bulk_create(tad_list)
+        folder = 'home/files/tads'
+        files = os.listdir(folder)
+        for file in files:
+            if 'hg19_hESC_default' not in file or '.txt' not in file:
+                continue
+            file_name = file.replace('.txt', '')
+            print(file_name)
+            build_name = file.split('_')[0]
+            build = Build.objects.get(long_name__icontains=build_name)
+
+            if 'default' in file:
+                track = Track.objects.filter(build=build, default=True, track_type='tad').first()
+                if not track:
+                    track = Track.objects.create(build=build, default=True, track_type='tad', label='TADs')
+            else:
+                track = Track.objects.filter(build=build, long_name=file_name, track_type='tad').first()
+                if not track:
+                    track = Track.objects.create(build=build, label=file.split('_')[1], long_name=file_name,
+                                                 track_type='tad')
+            has_tads = False
+            if track.tads.count() > 0:
+                has_tads = True
+            with open(folder + '/' + file, 'r') as infile:
+                line_count = 0
+                for line in infile:
+                    if line.strip() != '':
+                        line_count += 1
+
+                if line_count == track.tads.count():
+                    continue
+
+                infile.seek(0, 0)
+                tad_list = []
+                for line in infile:
+                    col = line.split('\t')
+                    if len(col) < 3:
+                        continue
+                    chr_num = col[0].upper().strip().replace('CHR', '')
+                    chromosome = Chromosome.objects.get(build=build, number=chr_num)
+                    start = int(col[1])
+                    end = int(col[2])
+                    if not has_tads:
+                        tad_list.append(TAD(build=build, chromosome=chromosome, start=start, end=end, track=track))
+                    elif has_tads:
+                        tad = TAD.objects.filter(build=build, chromosome=chromosome, start=start, end=end,
+                                                 track=track).first()
+                        if not tad:
+                            tad_list.append(TAD(build=build, chromosome=chromosome, start=start, end=end, track=track))
+                TAD.objects.bulk_create(tad_list)
+                infile.close()
         print('TAD boundaries loaded.')
 
     def load_cnvs(self):
         print('Loading CNVs from DGV.')
-        Variant.objects.all().delete()
-        variant_list = []
-        with open('home/files/Gold Standard Variants.txt', 'r') as infile:
-            # The first line has the column names, skip it
-            infile.readline()
 
-            i = 0
-            for line in infile:
-                line = line.rstrip()
-                col = line.split('\t')
-                variant_acc = col[0]
-                subtype = col[1]
-                chromosome_num = col[2]
-                outer_start = int(col[3])
-                inner_start = int(col[4])
-                inner_end = int(col[5])
-                outer_end = int(col[6])
-                studies = col[7]
-                frequency = float(col[8])
-                sample_size = int(col[9])
-                chromosome = Chromosome.objects.get(number=chromosome_num)
-                variant_list.append(Variant(chromosome=chromosome, outer_start=outer_start, inner_start=inner_start,
-                                    inner_end=inner_end, outer_end=outer_end, subtype=subtype, accession=variant_acc,
-                                    study=studies, frequency=frequency, sample_size=sample_size))
-                if len(variant_list) >= 1000:
-                    print(i+1)
-                    Variant.objects.bulk_create(variant_list)
-                    variant_list = []
-                i += 1
-            if len(variant_list) > 0:
-                Variant.objects.bulk_create(variant_list)
+        folder = 'home/files/cnvs'
+        files = os.listdir(folder)
+        for file in files:
+            if '.gff' not in file:
+                continue
+
+            with open(folder + '/' + file, 'r') as infile:
+                build_name = file.split('.')[-2]
+                build = Build.objects.filter(long_name__icontains=build_name).first()
+                track = Track.objects.filter(build=build, default=True, track_type='cnv').first()
+                if not track:
+                    track = Track.objects.create(build=build, default=True, label='DGV', track_type='cnv')
+
+                i = 0
+                for line in infile:
+                    line = line
+                    col = line.split('\t')
+                    variant_acc = re.search(r'(?<=ID=).+?(?=;)', line).group(0)
+                    subtype = re.search(r'(?<=variant_sub_type=).+?(?=;)', line).group(0).lower()
+                    chromosome_num = col[0].replace('chr', '')
+                    outer_start = int(re.search(r'(?<=outer_start=).+?(?=;)', line).group(0))
+                    inner_start = int(re.search(r'(?<=inner_start=).+?(?=;)', line).group(0))
+                    inner_end = int(re.search(r'(?<=inner_end=).+?(?=;)', line).group(0))
+                    outer_end = int(re.search(r'(?<=outer_end=).+?(?=;)', line).group(0))
+                    studies = re.search(r'(?<=Studies=).+?(?=;)', line).group(0)
+                    frequency = float(re.search(r'(?<=Frequency=).+?(?=%)', line).group(0))
+                    sample_size_search = re.search(r'(?<=Number_of_unique_samples_tested=).+?(?=\s+)', line)
+                    if sample_size_search:
+                        sample_size = int(sample_size_search.group(0))
+                    else:
+                        sample_size = -1
+                    chromosome = Chromosome.objects.get(build=build, number=chromosome_num)
+
+                    variant = Variant.objects.filter(accession=variant_acc, build=build).first()
+                    if not variant:
+                        print(build.name, variant_acc)
+                        Variant.objects.create(accession=variant_acc, build=build, chromosome=chromosome,
+                                               outer_start=outer_start, inner_start=inner_start,
+                                               inner_end=inner_end, outer_end=outer_end,
+                                               subtype=subtype, study=studies, frequency=frequency,
+                                               sample_size=sample_size, track=track)
+                    # else:
+                    #     variant.chromosome = chromosome
+                    #     variant.outer_start = outer_start
+                    #     variant.inner_start = inner_start
+                    #     variant.inner_end = inner_end
+                    #     variant.outer_end = outer_end
+                    #     variant.subtype = subtype
+                    #     variant.study = studies
+                    #     variant.frequency = frequency
+                    #     variant.sample_size = sample_size
+                    #     variant.track = track
+                    #     variant.save()
         print('CNVs from DGV loaded.')

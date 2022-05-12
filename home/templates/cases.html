@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block styles %}
+    {{block.super}}
+    <link rel="stylesheet" href="{% static 'css/cases.css' %}">
+{% endblock styles %}
+
+
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static 'dist/cases.js' %}" type="module"></script>
+{% endblock scripts %}
+
+
+{% block content %}
+    <div class="mdc-card card-w-title cases-card">
+        <div class="card-top-div">
+            <div class="card-title">Cases</div>
+            <button id="about-button" class="info-button" data-modal-id="info-modal">
+                <span class="mdc-button__ripple"></span>
+                <i class="material-icons mdc-button__icon" aria-hidden="true">help</i>
+            </button>
+            <div class="filter-div">
+                <label class="mdc-text-field mdc-text-field--filled mdc-text-field--with-leading-icon" id="filter-field">
+                  <i aria-hidden="true" class="material-icons mdc-text-field__icon" style="margin-left: 8px; margin-right: 8px;">search</i>
+                  <span class="mdc-text-field__ripple"></span>
+                  <span class="mdc-floating-label">Filter</span>
+                  <input class="mdc-text-field__input" type="text" id="filter-input">
+                  <span class="mdc-line-ripple"></span>
+                </label>
+            </div>
+        </div>
+
+        <div class="card-text">
+            <div class="mdc-data-table">
+                <div class="mdc-data-table__table-container">
+                  <table id="cases-table" class="mdc-data-table__table" aria-label="Cases Table">
+                    <thead>
+                      <tr class="mdc-data-table__header-row">
+                        <th class="mdc-data-table__header-cell" role="columnheader" scope="col" data-attribute="status">Status</th>
+                        <th class="mdc-data-table__header-cell" role="columnheader" scope="col" data-attribute="evidence">Evidence</th>
+                        <th class="mdc-data-table__header-cell" role="columnheader" scope="col" data-attribute="submitter">Submitter</th>
+                        <th class="mdc-data-table__header-cell" role="columnheader" scope="col" data-attribute="build">Build</th>
+                        <th class="mdc-data-table__header-cell" role="columnheader" scope="col" data-attribute="coordinates">Coordinates</th>
+                        <th class="mdc-data-table__header-cell" role="columnheader" scope="col" data-attribute="phenotypes">Phenotypes</th>
+                        <th class="mdc-data-table__header-cell" role="columnheader" scope="col" data-attribute="comments">Comments</th>
+                        <th class="mdc-data-table__header-cell" role="columnheader" scope="col" data-sortable="false" data-attribute="link"></th>
+                      </tr>
+                    </thead>
+                    <tbody class="mdc-data-table__content" id="cases-tbody"></tbody>
+                  </table>
+                </div>
+
+                <div class="mdc-data-table__pagination">
+                  <div class="mdc-data-table__pagination-trailing">
+                    <div class="mdc-data-table__pagination-rows-per-page">
+                      <div class="mdc-data-table__pagination-rows-per-page-label">
+                        Rows per page
+                      </div>
+
+                      <div class="mdc-select mdc-select--outlined mdc-select--no-label mdc-data-table__pagination-rows-per-page-select">
+                        <div class="mdc-select__anchor" role="button" aria-haspopup="listbox"
+                              aria-labelledby="demo-pagination-select" tabindex="0">
+                          <span class="mdc-select__selected-text-container">
+                            <span id="demo-pagination-select" class="mdc-select__selected-text">10</span>
+                          </span>
+                          <span class="mdc-select__dropdown-icon">
+                            <svg
+                                class="mdc-select__dropdown-icon-graphic"
+                                viewBox="7 10 10 5">
+                              <polygon
+                                  class="mdc-select__dropdown-icon-inactive"
+                                  stroke="none"
+                                  fill-rule="evenodd"
+                                  points="7 10 12 15 17 10">
+                              </polygon>
+                              <polygon
+                                  class="mdc-select__dropdown-icon-active"
+                                  stroke="none"
+                                  fill-rule="evenodd"
+                                  points="7 15 12 10 17 15">
+                              </polygon>
+                            </svg>
+                          </span>
+                          <span class="mdc-notched-outline mdc-notched-outline--notched">
+                            <span class="mdc-notched-outline__leading"></span>
+                            <span class="mdc-notched-outline__trailing"></span>
+                          </span>
+                        </div>
+
+                        <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth" role="listbox">
+                          <ul class="mdc-list">
+                            <li class="mdc-list-item mdc-list-item--selected" aria-selected="true" role="option" data-value="10">
+                              <span class="mdc-list-item__text">10</span>
+                            </li>
+                            <li class="mdc-list-item" role="option" data-value="25">
+                              <span class="mdc-list-item__text">25</span>
+                            </li>
+                            <li class="mdc-list-item" role="option" data-value="100">
+                              <span class="mdc-list-item__text">100</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="mdc-data-table__pagination-navigation">
+                      <div class="mdc-data-table__pagination-total">
+                        <span class="start-num"></span>-<span class="end-num"></span> of <span class="total-num"></span>
+                      </div>
+
+                      <button class="mdc-icon-button material-icons mdc-data-table__pagination-button" data-first-page="true" disabled>
+                        <div class="mdc-icon-button__ripple"></div>first_page
+                      </button>
+                      <button class="mdc-icon-button material-icons mdc-data-table__pagination-button" data-prev-page="true" disabled>
+                        <div class="mdc-icon-button__ripple"></div>chevron_left
+                      </button>
+                      <button class="mdc-icon-button material-icons mdc-data-table__pagination-button" data-next-page="true">
+                        <div class="mdc-icon-button__ripple"></div>chevron_right
+                      </button>
+                      <button class="mdc-icon-button material-icons mdc-data-table__pagination-button" data-last-page="true">
+                        <div class="mdc-icon-button__ripple"></div>last_page
+                      </button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="modal" id="info-modal" class="info-modal">
+        <div id="about-card" class="mdc-card card-w-title">
+            <div class="card-top-div">
+            <div class="card-title">About Cases</div>
+            </div>
+            <div class="card-text">
+                This page has cases where disruption of TADs or other non-coding elements may be relevant. Generally, these
+                cases come from peer-reviewed publications (strong - weak evidence), but may also represent clinical cases
+                where TAD disruption is suspected (case of interest). <br><br>
+
+                If you known of any peer-reviewed cases of TAD disruption causing phenotypes or have any clinical cases of interest,
+                please submit them here.
+                <button class="mdc-button mdc-button--icon-leading" onclick=" window.open('/single/submit_case/','_blank')">
+                  <span class="mdc-button__ripple"></span>
+                  <i class="material-icons mdc-button__icon" aria-hidden="true"
+                    >open_in_new</i
+                  >
+                  <span class="mdc-button__label">Submit Cases</span>
+                </button>
+            </div>
+        </div>
+    </div>
+<script>
+    const cases = {{ cases | safe }};
+</script>
+{% endblock content %}

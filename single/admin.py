@@ -1,5 +1,5 @@
 from django.contrib import admin
-from single.models import Case
+from home.models import Case
 from home.admin import case_admin_site
 # class EventAdminSite(AdminSite):
 #     site_header = "UMSRA Events Admin"

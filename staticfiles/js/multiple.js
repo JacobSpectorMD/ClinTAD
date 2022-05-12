@@ -1,26 +1,8 @@
-function getCookie(name) {
-    var cookieValue = null;
-    if (document.cookie && document.cookie !== '') {
-        var cookies = document.cookie.split(';');
-        for (var i = 0; i < cookies.length; i++) {
-            var cookie = jQuery.trim(cookies[i]);
-            // Does this cookie string begin with the name we want?
-            if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                break;
-            }
-        }
-    }
-    return cookieValue;
-}
-
-var csrftoken = getCookie('csrftoken');
+import { csrftoken } from './utilities.js';
 
 var toggle_choice = 'cases';
-var multiple_cases_placeholder = "Enter data separated by tabs. For example:\r\nCase1 Chr1:5,000,000-8,500,000 7, 10, 512";
-var multiple_regions_placeholder = "Enter phenotypes on the first line separated by commas. Enter coordinates on subsequent lines. "+
-                                    "For example:\r\n7, 10, 512\r\nChr1:5,000,000-8,500,000"
-
+var multiple_cases_placeholder = "Separate data by tabs and cases by returns, e.g. &#10;Case 1  chr1:80000-90000  HP:0410034, 717&#10;Case 2  chr2:70000-90000  1863, 717";
+var multiple_regions_placeholder = "Enter phenotypes on the first line separated by commas. Enter coordinates on subsequent lines. For example:&#10;7, 10, 512&#10;Chr1:5,000,000-8,500,000"
 
 $(document).on('click', '#case-toggle-div', function(){
     move_toggle();
@@ -43,10 +25,6 @@ function move_toggle(){
     
     var cases_text = d3.select('#multiple_cases_text');
     var regions_text = d3.select('#multiple_regions_text');
-
-    // Clear the phenotype inputs and textarea input
-    $('.phenotype_input').val('');
-    $('#multiple-textarea').val('');
     
     // Switch between inputs for multiple cases and multiple regions
     if (toggle_choice == 'cases'){
@@ -60,19 +38,8 @@ function move_toggle(){
         cases_text.transition().duration(1000).style("opacity", 0.5);
         regions_text.transition().duration(1000).style("opacity", 1);
 
-        // Switch information displayed near toggle button
-        $('#multiple_cases_info').fadeOut(840);
-        $('#multiple_regions_info').delay(875).fadeIn(1000);
-        
-        // Add 'active' class to phenotype_input being shown
-        $('#multiple_regions_div .phenotype_input').addClass('active');
-        $('#multiple_cases_div .phenotype_input').removeClass('active');
-                
-        // Fade out current inputs, and fade in new ones
-        $('#cases_and_regions_div').animate({height: $('#multiple_regions_div').innerHeight()}, 400);
-        $('#multiple_cases_div').fadeOut(500);
-        $('#multiple_regions_div').delay(600).fadeIn(500);
-        $('#multiple-textarea').attr("placeholder", multiple_regions_placeholder);
+        // Hide the case identifier input
+        $('#case-div').fadeOut(840);
         
         toggle_choice = 'regions';
     } else {
