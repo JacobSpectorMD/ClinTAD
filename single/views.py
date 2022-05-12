@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect
 from home.clintad import get_single_data
 from home.clintad import hpo_lookup
 from home.statistics import get_100_variants, get_one_variant
-from single.models import Case
+from home.models import Build, Case
 
 
 def single(request):
@@ -26,22 +26,23 @@ def single(request):
 def submit_case(request):
     template_name = 'submit_case.html'
 
-    # Only allow logged in users to submit cases
-    if request.user.is_anonymous:
-        return redirect('/')
-
     if request.method == 'POST':
-        print(request.POST)
-        name = request.POST.get('name')
-        email = request.POST.get('email')
+        build_name = request.POST.get('build')
         coordinates = request.POST.get('coordinates')
-        phenotypes = request.POST.get('phenotype')
+        phenotypes = request.POST.get('phenotypes')
+        pubmed_ids = request.POST.get('pubmeds')
         comments = request.POST.get('comments')
 
-        case = Case(name_text=name, email_text=email, coordinates_text=coordinates, phenotypes_text=phenotypes, comments_text=comments)
-        case.save()
+        build = Build.objects.get(name=build_name)
+        Case.objects.create(build=build, comments=comments, coordinates=coordinates, phenotypes_text=phenotypes,
+                            pubmed_ids=pubmed_ids, submitter=request.user, submitter_name=request.user.name,
+                            submitter_email=request.user.email)
         return JsonResponse({})
     return render(request, template_name)
+
+
+def submitted_case(request):
+    return render(request, 'submitted_case.html')
 
 
 def submit_query(request):
@@ -125,3 +126,5 @@ def zoom(request):
         request.session['zoom'] += 1
 
     return get_genes(request)
+
+

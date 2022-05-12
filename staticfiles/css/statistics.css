@@ -1,0 +1,26 @@
+.graph-card {
+    padding: 0px;
+}
+
+body .mdc-card:not(#weighted-card) {
+    margin-bottom: 16px;
+}
+
+.card-top-div {
+    align-items: center;
+    color: var(--mdc-theme-primary-700);
+}
+
+.loading-div {
+    position: absolute;
+    right: 0px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 8px;
+}
+
+.loading-gif {
+    height: 28px;
+}

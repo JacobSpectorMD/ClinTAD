@@ -5,7 +5,7 @@ import os
 from django.db.models import Q
 
 from home.helper import parse_coordinates, parse_phenotypes
-from home.models import Chromosome, Enhancer, Gene, TAD, Track, UT, Variant
+from home.models import Build, Chromosome, Enhancer, Gene, TAD, Track, UT, Variant
 
 module_dir = os.path.dirname(__file__)  # get current directory
 hpo_path = os.path.join(module_dir, 'files/hpo_list.txt')
@@ -42,10 +42,10 @@ def get_single_data(request):
 
     data['tracks'] = []
     if request.user.is_authenticated:
-        active_tracks = [ut for ut in UT.objects.filter(user=request.user, active=True)
-                                        .exclude(track__track_type='TAD')]
+        build = UT.objects.filter(user=request.user, active=True, track__track_type='tad').first().track.build
+        active_tracks = UT.objects.filter(user=request.user, active=True).exclude(track__track_type='tad')
         for track in active_tracks:
-            data['tracks'].append(get_track_data(track, request.session['chromosome'], data['minimum']['coord'],
+            data['tracks'].append(get_track_data(build, track, chromosome, data['minimum']['coord'],
                                                  data['maximum']['coord']))
         data['default_enhancers'] = request.user.track_manager.default_enhancers
         data['default_tads'] = request.user.track_manager.default_tads
@@ -58,18 +58,40 @@ def get_single_data(request):
     return json.dumps(data)
 
 
-def get_track_data(ut, chromosome_number, minimum_coordinate, maximum_coordinate):
-    chromosome = Chromosome.objects.get(number=chromosome_number)
+def get_track_data(build, ut, chromosome_number, minimum_coordinate, maximum_coordinate):
+    chromosome = Chromosome.objects.get(build=build, number=chromosome_number)
     elements = ut.track.elements.filter(Q(start__range=(minimum_coordinate, maximum_coordinate)) |
-                                        Q(end__range=(minimum_coordinate, maximum_coordinate)))\
-                                .filter(chromosome=chromosome).all()
+                                        Q(end__range=(minimum_coordinate, maximum_coordinate))) \
+        .filter(chromosome=chromosome).all()
     element_list = [element.to_dict() for element in elements]
     return {'label': ut.track.label, 'color': ut.color, 'elements': element_list}
 
 
 def GetTADs(request, case_id, chromosome_input, CNV_start, CNV_end, phenotypes, zoom, source_function='single'):
+    tad_track = None
+
+    # Use default tracks for anonymous users, and selected/active tracks for logged in users
+    if request.user.is_anonymous or not request.user:
+        build = Build.objects.get(name='GRCh37')
+        enhancer_tracks = Track.objects.filter(build=build, default=True, track_type='enhancer')
+        tad_track = Track.objects.filter(default=True, build__name='GRCh37').first()
+        variant_tracks = Track.objects.filter(build=build, default=True, track_type='cnv')
+    elif request.user.is_authenticated:
+        user_tad_track = UT.objects.filter(active=True, track__track_type='tad').first()
+        if user_tad_track:
+            tad_track = user_tad_track.track
+            build = tad_track.build
+        else:
+            tad_track = Track.objects.filter(default=True, build__name='GRCh37')
+            build = Build.objects.get(name='GRCh37')
+        enhancer_user_tracks = UT.objects.filter(active=True, track__track_type='enhancer', user=request.user)
+        enhancer_tracks = [ut.track for ut in enhancer_user_tracks]
+        variant_user_tracks = UT.objects.filter(active=True, track__track_type='cnv', user=request.user)
+        variant_tracks = [ut.track for ut in variant_user_tracks]
+
+    # Get the chromosome
     chromosome_input = chromosome_input.upper().strip().replace("CHR", "")
-    chromosome = Chromosome.objects.filter(number=chromosome_input).first()
+    chromosome = Chromosome.objects.filter(build=build, number=chromosome_input).first()
     chromosome_length = chromosome.length
     patient_CNV_start = int(CNV_start.replace(',', ''))
     patient_CNV_end = int(CNV_end.replace(',', ''))
@@ -88,22 +110,15 @@ def GetTADs(request, case_id, chromosome_input, CNV_start, CNV_end, phenotypes, 
         search_end = patient_CNV_end
 
     # Finds the nearest left and right TAD boundary
-    custom_tad_track = None
-    if request.user.is_authenticated:
-        custom_tad_track = request.user.get_tad_track()
-    if custom_tad_track:
-        left_tad = custom_tad_track.track.elements.filter(start__lte=search_start, chromosome=chromosome)\
-            .order_by('start').last()
-        right_tad = custom_tad_track.track.elements.filter(end__gte=search_end, chromosome=chromosome)\
-            .order_by('end').first()
-    else:
-        left_tad = TAD.objects.filter(start__lte=search_start, chromosome=chromosome).order_by('start').last()
-        right_tad = TAD.objects.filter(end__gte=search_end, chromosome=chromosome).order_by('end').first()
+    left_tad = tad_track.tads.filter(start__lte=search_start, chromosome=chromosome) \
+        .order_by('start').last()
+    right_tad = tad_track.tads.filter(end__gte=search_end, chromosome=chromosome) \
+        .order_by('end').first()
 
     # If the CNV start/end is less than/greater than the TAD boundaries, use the start/end of the chromosome
     if left_tad is None:
-            minimum_coordinate = 0
-            min_type = "chromosome"
+        minimum_coordinate = 0
+        min_type = "chromosome"
     else:
         minimum_coordinate = left_tad.start
         min_type = "boundary"
@@ -121,29 +136,32 @@ def GetTADs(request, case_id, chromosome_input, CNV_start, CNV_end, phenotypes, 
         phenotype_list.append(phenotype)
 
     # Get enhancers
-    enhancers = Enhancer.objects.filter(Q(start__range=(minimum_coordinate, maximum_coordinate)) |
-                                Q(end__range=(minimum_coordinate, maximum_coordinate))).filter(chromosome=chromosome).all()
-    enhancer_list = [enhancer.to_dict() for enhancer in enhancers]
+    enhancers = []
+    if source_function != 'multiple':
+        for enhancer_track in enhancer_tracks:
+            track_enhancers = enhancer_track.enhancers.filter(chromosome=chromosome) \
+                .filter(Q(start__range=(minimum_coordinate, maximum_coordinate)) |
+                        Q(end__range=(minimum_coordinate, maximum_coordinate)))
+            enhancers.append([enhancer.to_dict() for enhancer in track_enhancers])
 
-    # Get benign variants
-    variants = Variant.objects.filter(Q(outer_start__range=(minimum_coordinate, maximum_coordinate)) |
-                                      Q(outer_end__range=(minimum_coordinate, maximum_coordinate)) |
-                                      Q(outer_start__lte=minimum_coordinate, outer_end__gte=maximum_coordinate))\
-                              .filter(chromosome=chromosome).order_by('outer_start').all()
-    variant_list = [variant.to_dict() for variant in variants]
+    # Get variants
+    variants = []
+    if source_function != 'multiple':
+        for variant_track in variant_tracks:
+            track_vars = variant_track.variants.filter(chromosome=chromosome) \
+                .filter(Q(outer_start__range=(minimum_coordinate, maximum_coordinate)) |
+                        Q(outer_end__range=(minimum_coordinate, maximum_coordinate)) |
+                        Q(outer_start__lte=minimum_coordinate, outer_end__gte=maximum_coordinate)) \
+                .order_by('outer_start').all()
+            variants.append([track_var.to_dict() for track_var in track_vars])
 
     # Get all genes that are within the search area
-    genes = Gene.objects.filter(Q(start__range=(minimum_coordinate, maximum_coordinate)) |
-                                Q(end__range=(minimum_coordinate, maximum_coordinate)) |
-                                Q(start__lte=minimum_coordinate, end__gte=maximum_coordinate))\
-                        .filter(chromosome=chromosome).all()
+    genes = Gene.objects.filter(chromosome=chromosome) \
+        .filter(Q(start__range=(minimum_coordinate, maximum_coordinate)) |
+                Q(end__range=(minimum_coordinate, maximum_coordinate)) |
+                Q(start__lte=minimum_coordinate, end__gte=maximum_coordinate))
 
-    if custom_tad_track:
-        tads = custom_tad_track.track.elements.filter(chromosome=chromosome).filter(start__gte=minimum_coordinate)\
-            .filter(end__lte=maximum_coordinate).all()
-    else:
-        tads = TAD.objects.filter(chromosome=chromosome).filter(start__gte=minimum_coordinate)\
-                  .filter(end__lte=maximum_coordinate).all()
+    tads = tad_track.tads.filter(chromosome=chromosome, end__lte=maximum_coordinate, start__gte=minimum_coordinate)
 
     # For every gene in the area, determine if there are HPO matches
     gene_list = []
@@ -185,7 +203,7 @@ def GetTADs(request, case_id, chromosome_input, CNV_start, CNV_end, phenotypes, 
         'chromosome': chromosome.number,
         'cnv_start': patient_CNV_start,
         'cnv_end': patient_CNV_end,
-        'enhancers': enhancer_list,
+        'enhancers': enhancers,
         'gene_matches': gene_matches,
         'genes': gene_list,
         'hpo_matches': hpo_matches,
@@ -193,7 +211,7 @@ def GetTADs(request, case_id, chromosome_input, CNV_start, CNV_end, phenotypes, 
         'maximum': {'coord': maximum_coordinate, 'type': max_type},
         'phenotypes': ', '.join([str(phenotype) for phenotype in phenotype_list]),
         'tads': [tad.to_dict() for tad in tads],
-        'variants': variant_list,
+        'variants': variants,
         'weighted_score': total_weighted_score
     }
     return json.dumps(gene_dict)
@@ -205,7 +223,7 @@ def hpo_lookup(entered_string):
             self.__dict__ = d
 
     HPOs_to_return = []
-    array_to_return =[]
+    array_to_return = []
     with io.open(hpo_path, 'r', encoding='utf-8-sig') as f:
         list_of_hpo = json.load(f, encoding="ANSI")
     f.close()
@@ -221,7 +239,7 @@ def hpo_lookup(entered_string):
         if score >= len(words):
             HPOs_to_return.append(current_phenotype)
 
-    HPOs_to_return.sort(key = lambda x: x.score, reverse=True)
+    HPOs_to_return.sort(key=lambda x: x.score, reverse=True)
     for HPO in HPOs_to_return:
         array_to_return.append(HPO.id)
 
@@ -233,11 +251,11 @@ def hpo_lookup(entered_string):
                 in_title = True
         if not in_title:
             j = i
-            while j < len(array_to_return)-1:
-                j+=1
+            while j < len(array_to_return) - 1:
+                j += 1
                 for word in words:
                     if word.upper() in array_to_return[j].upper():
                         array_to_return[i], array_to_return[j] = array_to_return[j], array_to_return[i]
                         break
-            
-    return (array_to_return)
+
+    return array_to_return

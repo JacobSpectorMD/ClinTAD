@@ -1,17 +1,51 @@
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+.mdc-button {
+    height: 56px;
+}
+
 td {padding-right: 0.5em;}
-#accordion2 {margin-top: 1em;}
+
+#input-cards-div {margin-bottom: 16px;}
+
+#multiple-input-card {
+    flex: 1;
+    margin-right: 16px;
+}
+
+#inputs-div {
+    display: flex;
+    flex-direction: row;
+}
+
+#text-area-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#data-div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-right: 16px;
+}
+
+#results-card {
+    padding: 0px;
+    flex: 1;
+}
 
 #width-div {width: 85%; margin: auto;}
+
 #case-toggle-div {    
-    color: black;
-    border-radius: 2px;
-    border: thin solid black;
     cursor: pointer;
     display: inline-block;
-    padding: 2px 7px 2px 7px;
-    margin-right: 0.5em;
-    margin-bottom: 1em;
 }
+
 #multiple_regions_text {opacity: 0.5;}
 
 .multiple-input-row {
@@ -24,28 +58,50 @@ td {padding-right: 0.5em;}
 #info-div {}
 #multiple_cases_info, #multiple_regions_info {position: absolute;}
 
-.multiple-input-row input, .multiple-input-row button {width: 100%;}
-#id_multiple, #multiple-textarea {width: 42em;}
-#outline-div {border: thin solid black; padding: 0.5em; border-radius: 2px;}
-.input-inline {display: inline-block;}
+#results-table {
+    margin-top: 16px;
+    padding: 8px;
+    overflow: hidden;
+}
 
-#cases_and_regions_div {margin-bottom: 1em;}
-#multiple_regions_div {display: none;}
-#regions-coordinates-div, #regions-phenotypes-input {width: 15em;}
-#regions-coordinates-div > input, #regions-phenotypes-input > input {width: 100%;}
-
-#results-options-div {background-color: #CCCCCC; margin-left: -0.3em; margin-top: -0.3em; margin-right: -0.3em;
-padding: 0.3em;}
-
-#results_panel_heading {
+#results-table th, .card-buttons > div {
+    color: var(--mdc-theme-primary-600);
     position: relative;
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+.card-buttons {
     display: flex;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
 }
-#results-options-div > button {font-size: 0.75em; }
-#results-options-div > button.show {background-color: green; color: white;}
-#save_as_text_button {right: 0.3em; position: absolute;}
-#save_as_text_button > img {height: 1.5em; cursor: pointer;}
+.card-buttons > div {
+    height: 32px;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 8px;
+}
 
-#table-div {overflow-x: scroll;}
-#table-div > table {width: 150%;}
+.card-buttons > div:not(.hidden) {
+    display: flex;
+}
+
+#results-table tr {
+    color: var(--mdc-theme-primary-500);
+}
+
+#results-table th, #results-table tr {
+    text-align: left;
+    border-bottom: thin solid var(--mdc-theme-primary-50);
+}
+
+.toggle-col {
+    cursor: pointer;
+}
+
+.toggle-col:hover {
+    background-color: var(--mdc-theme-primary-50);
+}

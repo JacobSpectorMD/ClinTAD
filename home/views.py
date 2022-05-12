@@ -10,8 +10,15 @@ from django.db import transaction
 
 from home.forms import *
 from home.clintad import GetTADs, hpo_lookup
+from home.models import Case
 from home.statistics_old import GetStatistics
 from home.clintad_multiple import process_multiple_patients
+
+
+def cases(request):
+    cases = [case.to_dict() for case in Case.objects.all()]
+    return render(request, 'cases.html', {'cases': cases})
+
 
 # Views for the pages home, single, multiple, about and contact
 class home(TemplateView):
@@ -119,7 +126,6 @@ class contact(TemplateView):
 
 
 def get_genes(request):
-    print('gg', request.session.session_key)
     genes = request.session['genes']
     return JsonResponse(genes, safe=False)
 
@@ -164,6 +170,10 @@ def signup(request):
         form = UserCreationForm()
     return render(request, 'signup.html', {'form': form})
 
+
+def set_announcement(request):
+    request.session['announcement'] = False
+    return JsonResponse({})
 
 @login_required(login_url='/login/')
 @transaction.atomic

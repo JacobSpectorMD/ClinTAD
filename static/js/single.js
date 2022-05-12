@@ -36,6 +36,7 @@ function submit_query () {
         url: '/single/submit_query/',
         success: function(response){
             const data = JSON.parse(response);
+            console.log(data);
             if (!data) { return }
             create_svg(data);
             hide_loading();

@@ -11,10 +11,10 @@ main .mdc-card:not(:last-child) {
 }
 
 .use-track-cell {
-    width: 100px;
+    width: 124px;
 }
 
-.label-cell, .build-cell {
+.label-cell, .build-cell, .user-cell {
     width: 200px;
 }
 
@@ -108,4 +108,43 @@ main .mdc-card:not(:last-child) {
 
 .mdc-data-table__row td:not(.use-track-cell) {
     cursor: pointer;
+}
+
+.card-w-title .mdc-tab-bar {
+    width: 50%;
+    border-radius: 4px 0px 0px 0px;
+}
+
+.tabs-and-search {
+    display: flex;
+    height: 56px;
+}
+
+.tabs-and-search button {
+    height: 56px;
+}
+
+.tabs-and-search .mdc-text-field {
+    border-radius: 0px;
+}
+
+.search-div {
+    flex: 1;
+    margin-left: 16px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.search-div .mdc-text-field {
+    width: 66%;
+    border-radius: 0px 4px 0px 0px;
+    margin-right: 0px;
+}
+
+#public-tracks-div {
+    display: none;
+}
+
+#public-filter-field {
+    display: none;
 }

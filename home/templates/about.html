@@ -39,13 +39,9 @@ function clear_data(){
 
                 <br>
                 <b>How It Works</b>
-                <li><a href="#basics">Basics</a></li>
-                <li><a href="#files-used">Files Used</a></li>
-                    <ol type="a">
-                        <li><a href="#tad-boundaries">TAD Boundary Files</a></li>
-                        <li><a href="#hpo-file">Human Phenotype Ontology File</a></li>
-                    </ol>
+                <li><a href="#files-used">Data Sources</a></li>
                 <br>
+                <b><a href="#contact">Contact</a></b><br>
                 <b><a href="#citation">Citation</a></b><br>
                 <b><a href="#troubleshooting">Troubleshooting</a></b><br>
                 <b><a href="#planned-features">Planned features</a></b>
@@ -137,14 +133,23 @@ function clear_data(){
     </div>
     
     <div class="card-text">
-        <b><span id="basics">4. Basics</span></b><br>
-        <b><span id="files-used">5. Files Used</span></b><br>
-        <b><span id="tad-boundaries">a. TAD Boundary Files</span></b><br>
+        <b><span id="files-used">4. Data Sources</span></b><br>
+
+        For details about the specific files used in creating the ClinTAD database, please see the ReadMe.md files in
+        the /home/files folder of the GitHub repository. This folder is broken down into subfolders by type of data and
+        source, e.g there is a folder for genes and a folder for Human Phenotype Ontology (hpo) data.<br><br>
+
+        For the code used to read these files into the database, please refer to the /home/management/commands/load.py file.<br><br>
+
+
+        <b><span id="tad-boundaries">a. TAD Boundaries</span></b><br>
         The default TAD boundary file was provided by Jesse Dixon. The boundaries are derived from human embryonic
         stem cell data described in <a href="https://www.ncbi.nlm.nih.gov/pubmed/25693564" target="_blank">Chromatin architecture
         reorganization during stem cell differentiation</a>, using the HG19 genome build, a bin size of 40kb, and
-        a window size of 2Mb.<br>
-        <br>
+        a window size of 2Mb.
+        <br><br>
+        Other TAD boundaries can be used by logging in and selecting or uploading a different TAD boundary track.
+        <br><br>
         <b><span id="hpo-file">b. Human Phenotype Ontology File</span></b><br>
         The phenotype file used for this website is a modified version of the hp.obo file
         from <a href="http://human-phenotype-ontology.github.io/downloads.html" target="_blank">Human Phenotype ontology</a>,
@@ -163,6 +168,15 @@ function clear_data(){
     <div class="card-text">
         This tool was developed at the University of California San Francisco by Jacob Spector, MD and Arun Wiita, MD PhD. Please cite:<br><br>
         Spector JD, Wiita AP. ClinTAD: a tool for copy number variant interpretation in the context of topologically associated domains. J Hum Genet. 2019;64(5):437-443. doi:10.1038/s10038-019-0573-9
+    </div>
+</div>
+
+<div class="mdc-card" id="contact">
+    <div class="card-top-div">
+        <div class="card-title">Contact</div>
+    </div>
+    <div class="card-text">
+        Please email us at ClinicalTAD@gmail.com with bugs, suggestions, or questions.
     </div>
 </div>
 

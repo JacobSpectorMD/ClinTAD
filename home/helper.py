@@ -3,7 +3,7 @@ import re
 
 def parse_coordinates(coordinates):
     try:
-        coordinates = coordinates.lower().replace(',', '')
+        coordinates = coordinates.lower().replace(',', '').replace('–', '-')
         re.sub(r'\s+', '', coordinates)
         chromosome = coordinates.split(':')[0].replace('chr', '').upper()
         numbers = coordinates.split(':')[1]
