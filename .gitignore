@@ -5,7 +5,6 @@ node_modules/*
 *.sqlite3
 db*.json
 
-
 home/files/ensembl/*
 home/files/hpo/*
 home/files/omim/*.txt
@@ -30,7 +29,7 @@ __pycache__/
 .Python
 build/
 develop-eggs/
-dist/
+
 downloads/
 eggs/
 .eggs/
