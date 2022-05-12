@@ -14,8 +14,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['104.248.217.74', 'clintad.com', '127.0.0.1', 'clintad.herokuapp.com', 'www.clintad.com', 
-                 '167.172.215.35']
+ALLOWED_HOSTS = ['104.248.217.74', 'clintad.com', '127.0.0.1', 'www.clintad.com', '167.172.215.35', '142.93.197.248']
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
