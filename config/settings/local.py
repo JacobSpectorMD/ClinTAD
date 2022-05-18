@@ -28,7 +28,8 @@ INSTALLED_APPS = [
     'home',
     'single',
     'user',
-    'widget_tweaks'
+    'widget_tweaks',
+    'rest_framework'
 ]
 
 AUTH_USER_MODEL = 'user.User'
