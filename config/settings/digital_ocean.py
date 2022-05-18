@@ -32,7 +32,8 @@ INSTALLED_APPS = [
     'home',
     'single',
     'user',
-    'widget_tweaks'
+    'widget_tweaks',
+    'api'
 ]
 
 AUTH_USER_MODEL = 'user.User'

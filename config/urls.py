@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'', include('home.urls')),
     url(r'^user/', include('user.urls')),
+    url(r'^api/', include('api.urls')), 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
