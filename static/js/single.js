@@ -129,29 +129,27 @@ function create_svg (data) {
     draw_boundaries(data, cnv_gene_svg, scale, data.tads, 0, start_coord, end_coord);
     total_height += parseInt(cnv_gene_svg.style('height').replace("px", ""));
 
-    // Enhancer svg
-    if (data.default_enhancers){
-        var enhancer_svg = draw_enhancers(data, scale, num_tracks);
-        draw_boundaries(data, enhancer_svg, scale, data.tads, 0, start_coord, end_coord);
-        num_tracks++;
-        total_height += parseInt(enhancer_svg.style('height').replace("px", ""));
-    }
-
-    // Benign CNV svg (from Database of Genomic Variants)
-    if (data.default_cnvs){
-        var cnv_svg = draw_cnvs(data, scale, num_tracks);
-        draw_boundaries(data, cnv_svg, scale, data.tads, 0, start_coord, end_coord);
-        num_tracks++;
-        total_height += parseInt(cnv_svg.style('height').replace("px", ""));
-    }
-
-    // Draw all of the users custom tracks
+    // Create the other tracks
     data.tracks.forEach(function(track){
-        var track_svg = draw_track(data, track, scale, num_tracks);
+        var track_svg = handle_track(data, track, scale, num_tracks);
         draw_boundaries(data, track_svg, scale, data.tads, 0, start_coord, end_coord);
         num_tracks++;
         total_height += parseInt(track_svg.style('height').replace("px", ""));
     })
+}
+
+function handle_track (data, track, scale, num_tracks, start_coord, end_coord) {
+    console.log('handle track', track);
+    let track_svg;
+
+    // Enhancer
+    if (track.track_type == 'enhancer'){
+        track_svg = draw_enhancers(data, track, scale);
+    } else if (track.track_type == 'cnv'){
+        track_svg = draw_cnvs(data, track, scale, num_tracks);
+    }
+    console.log(track_svg);
+    return track_svg
 }
 
 function draw_tads(data, tads, scale){
@@ -366,7 +364,7 @@ function draw_cnv_genes(data, scale, num_tracks){
     return svg;
 }
 
-function draw_enhancers(data, scale){
+function draw_enhancers(data, track, scale){
     var height = 30;
     var width=data.width;
     var svg = d3.select('#container').append('svg').attr('width', width).attr('height', height);
@@ -375,11 +373,11 @@ function draw_enhancers(data, scale){
         g_2 = svg.append('g').attr('class', 'g_2');
     var background = g_0.append('rect').attr('width', width).attr('height', height).attr('x', 0).attr('y', 0)
                         .attr('fill', 'var(--mdc-theme-primary-50)');
-    var label = g_0.append('text').text('VISTA').attr('y', 3+(height/2)).attr('x', 10).attr('font-size', '2em')
+    var label = g_0.append('text').text(track.label).attr('y', 3+(height/2)).attr('x', 10).attr('font-size', '2em')
                           .attr('fill', 'var(--mdc-theme-primary-500)').attr('pointer-events', 'none').attr('alignment-baseline', 'middle')
                           .attr('class', 'track-label');
 
-    data.enhancers.forEach(function(enhancer){
+    track.elements.forEach(function(enhancer){
         var line = svg.append("line")
             .attr("x1", scale(enhancer.start))
             .attr("x2", function(){
@@ -409,7 +407,7 @@ function draw_enhancers(data, scale){
 }
 
 
-function draw_cnvs(data, scale, num_tracks){
+function draw_cnvs(data, track, scale, num_tracks){
     var height = 40;
     var width = data.width;
     var svg = d3.select('#container').append('svg').attr('width', width).attr('height', height);
@@ -422,7 +420,8 @@ function draw_cnvs(data, scale, num_tracks){
 
     var last_end_point = [0];
     var data_to_display = [];
-    var variants = data.variants;
+
+    let variants = track.elements;
     var max_row = 0;
     for(var i = 0; i < variants.length; i++){
         if (variants[i].subtype == 'gain'){var stroke_color = 'blue'}
@@ -538,7 +537,7 @@ function draw_cnvs(data, scale, num_tracks){
         svg.attr('height', height);
         background.attr('height', height);
     }
-    var label = g_0.append('text').text('DGV').attr('y', 3+(height/2)).attr('x', 10).attr('font-size', '2em')
+    var label = g_0.append('text').text(track.label).attr('y', 3+(height/2)).attr('x', 10).attr('font-size', '2em')
                               .attr('fill', color['text']).attr('pointer-events', 'none')
                               .attr('class', 'track-label').attr('alignment-baseline', 'middle');
     return svg;
