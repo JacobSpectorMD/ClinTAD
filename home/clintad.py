@@ -40,20 +40,20 @@ def get_single_data(request):
     data_str = GetTADs(request, '', chromosome, start, end, phenotypes, request.session['zoom'])
     data = json.loads(data_str)
 
-    data['tracks'] = []
-    if request.user.is_authenticated:
-        build = UT.objects.filter(user=request.user, active=True, track__track_type='tad').first().track.build
-        active_tracks = UT.objects.filter(user=request.user, active=True).exclude(track__track_type='tad')
-        for track in active_tracks:
-            data['tracks'].append(get_track_data(build, track, chromosome, data['minimum']['coord'],
-                                                 data['maximum']['coord']))
-        data['default_enhancers'] = request.user.track_manager.default_enhancers
-        data['default_tads'] = request.user.track_manager.default_tads
-        data['default_cnvs'] = request.user.track_manager.default_cnvs
-    else:
-        data['default_enhancers'] = True
-        data['default_tads'] = True
-        data['default_cnvs'] = True
+    # data['tracks'] = []
+    # if request.user.is_authenticated:
+    #     build = UT.objects.filter(user=request.user, active=True, track__track_type='tad').first().track.build
+    #     active_tracks = UT.objects.filter(user=request.user, active=True).exclude(track__track_type='tad')
+    #     for track in active_tracks:
+    #         data['tracks'].append(get_track_data(build, track, chromosome, data['minimum']['coord'],
+    #                                              data['maximum']['coord']))
+    #     data['default_enhancers'] = request.user.track_manager.default_enhancers
+    #     data['default_tads'] = request.user.track_manager.default_tads
+    #     data['default_cnvs'] = request.user.track_manager.default_cnvs
+    # else:
+    #     data['default_enhancers'] = True
+    #     data['default_tads'] = True
+    #     data['default_cnvs'] = True
 
     return json.dumps(data)
 
@@ -135,25 +135,15 @@ def GetTADs(request, case_id, chromosome_input, CNV_start, CNV_end, phenotypes, 
     for phenotype in phenotypes:
         phenotype_list.append(phenotype)
 
-    # Get enhancers
-    enhancers = []
+    tracks = []
     if source_function != 'multiple':
+        # Get enhancers
         for enhancer_track in enhancer_tracks:
-            track_enhancers = enhancer_track.enhancers.filter(chromosome=chromosome) \
-                .filter(Q(start__range=(minimum_coordinate, maximum_coordinate)) |
-                        Q(end__range=(minimum_coordinate, maximum_coordinate)))
-            enhancers.append([enhancer.to_dict() for enhancer in track_enhancers])
+            tracks.append(enhancer_track.get_elements_by_coordinate(chromosome, minimum_coordinate, maximum_coordinate))
 
-    # Get variants
-    variants = []
-    if source_function != 'multiple':
+        # Get variants
         for variant_track in variant_tracks:
-            track_vars = variant_track.variants.filter(chromosome=chromosome) \
-                .filter(Q(outer_start__range=(minimum_coordinate, maximum_coordinate)) |
-                        Q(outer_end__range=(minimum_coordinate, maximum_coordinate)) |
-                        Q(outer_start__lte=minimum_coordinate, outer_end__gte=maximum_coordinate)) \
-                .order_by('outer_start').all()
-            variants.append([track_var.to_dict() for track_var in track_vars])
+            tracks.append(variant_track.get_elements_by_coordinate(chromosome, minimum_coordinate, maximum_coordinate))
 
     # Get all genes that are within the search area
     genes = Gene.objects.filter(chromosome=chromosome) \
@@ -180,7 +170,6 @@ def GetTADs(request, case_id, chromosome_input, CNV_start, CNV_end, phenotypes, 
                 # Only get OMIM and inheritance data for multiple
                 if source_function == 'multiple':
                     for omim in hpo.omims.filter(genes=gene).all():
-                        print(omim)
                         if omim.autosomal_recessive:
                             new_gene.autosomal_recessive[str(omim.omim_number)] = True
                         if omim.autosomal_dominant:
@@ -203,7 +192,6 @@ def GetTADs(request, case_id, chromosome_input, CNV_start, CNV_end, phenotypes, 
         'chromosome': chromosome.number,
         'cnv_start': patient_CNV_start,
         'cnv_end': patient_CNV_end,
-        'enhancers': enhancers,
         'gene_matches': gene_matches,
         'genes': gene_list,
         'hpo_matches': hpo_matches,
@@ -211,7 +199,7 @@ def GetTADs(request, case_id, chromosome_input, CNV_start, CNV_end, phenotypes, 
         'maximum': {'coord': maximum_coordinate, 'type': max_type},
         'phenotypes': ', '.join([str(phenotype) for phenotype in phenotype_list]),
         'tads': [tad.to_dict() for tad in tads],
-        'variants': variants,
+        'tracks': tracks,
         'weighted_score': total_weighted_score
     }
     return json.dumps(gene_dict)
