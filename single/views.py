@@ -56,11 +56,11 @@ def submit_query(request):
         phenotypes: str
             A list of HPO IDs in integer and/or HPO ID format separated by commas, e.g. "HP:0410034, 717"
     """
-    coordinates = request.POST.get('coordinates', None)
+    coordinates = request.GET.get('coordinates', None)
     if not coordinates:
         return JsonResponse({})
-    request.session['coordinates'] = request.POST.get('coordinates', None)
-    request.session['phenotypes'] = request.POST.get('phenotypes', '')
+    request.session['coordinates'] = request.GET.get('coordinates', None)
+    request.session['phenotypes'] = request.GET.get('phenotypes', '')
     request.session['zoom'] = 0
     return get_genes(request)
 
