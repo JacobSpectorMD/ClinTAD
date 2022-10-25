@@ -109,6 +109,7 @@ env/
 venv/
 ENV/
 environmental_variables.py
+*environmental_variables*
 
 # Spyder project settings
 .spyderproject
