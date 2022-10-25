@@ -13,9 +13,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'clintad.herokuapp.com', 'www.clintad.com']
 
-<<<<<<< HEAD
-=======
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -27,6 +24,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'single',
+    'axes',
     'user',
     'widget_tweaks',
     'rest_framework'
@@ -65,8 +63,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-
->>>>>>> 7385c7641e506fd20f39864ffb7bc77b40e43d88
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
