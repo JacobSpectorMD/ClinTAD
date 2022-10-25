@@ -1,0 +1,46 @@
+<div id="input-div">
+    <div id="coordinates-div">
+        <label class="mdc-text-field mdc-text-field--outlined" id="coordinates-field">
+                  <span class="mdc-notched-outline">
+                    <span class="mdc-notched-outline__leading"></span>
+                    <span class="mdc-notched-outline__notch">
+                      <span class="mdc-floating-label" id="coordinates-label">Coordinates</span>
+                    </span>
+                    <span class="mdc-notched-outline__trailing"></span>
+                  </span>
+            <input id="coordinates-input" type="text" class="mdc-text-field__input" aria-labelledby="coordinates-label" 
+                   aria-controls="coordinates-helper" aria-describedby="coordinates-helper" autocomplete="off">
+        </label>
+        <div class="mdc-text-field-helper-line">
+            <div class="mdc-text-field-helper-text" id="coordinates-helper" aria-hidden="true">
+                Enter your coordinates in UCSC format, e.g. <i>chr5:1000000-2000000</i>
+            </div>
+        </div>
+    </div>
+
+    <div id="phenotypes-parent-div">
+        <div id="phenotypes-div">
+            <label id="phenotypes-field" class="mdc-text-field mdc-text-field--outlined">
+                      <span class="mdc-notched-outline">
+                        <span class="mdc-notched-outline__leading"></span>
+                        <span class="mdc-notched-outline__notch">
+                          <span class="mdc-floating-label" id="phenotypes-label">Phenotypes</span>
+                        </span>
+                        <span class="mdc-notched-outline__trailing"></span>
+                      </span>
+                <input id="phenotypes-input" type="text" class="mdc-text-field__input" aria-labelledby="phenotypes-label" aria-controls="coordinates-helper"
+                       aria-describedby="phenotypes-helper" autocomplete="off">
+            </label>
+            <div class="mdc-text-field-helper-line">
+                <div class="mdc-text-field-helper-text" id="phenotypes-helper" aria-hidden="true">
+                    Enter phenotypes as HPO ID or integer, e.g. <i>HP:0410034, 717</i>
+                </div>
+            </div>
+        </div>
+        <button id="submit-query-button" class="mdc-button mdc-button--touch mdc-button--raised">
+            <div class="mdc-button__ripple"></div>
+            <div class="mdc-button__label">Submit</div>
+            <div class="mdc-button__touch"></div>
+        </button>
+    </div>
+</div>

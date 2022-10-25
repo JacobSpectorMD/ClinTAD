@@ -1,15 +1,18 @@
 {% extends 'base.html' %}
 {% load static %} {% load widget_tweaks %}
 
-{% block head %}
+{% block scripts %}
     {{ block.super }}
-    <script src="{% static 'js/tracks.js' %}"></script>
+    <script src="{% static 'js/tracks.js' %}" type="module"></script>
+    <script src="{% static 'dist/tracks.js' %}" type="module"></script>
 {% endblock %}
+
 
 {% block styles %}
     {{ block.super }}
     <link rel="stylesheet" href="{% static 'css/tracks.css' %}">
 {% endblock styles %}
+
 
 {% block content %}
 <head>
@@ -17,98 +20,398 @@
 </head>
 
 <script>
-    window.onload = function(){
-        var tracks = {{tracks|safe}};
-        initialize_tracks(tracks);
-    };
+    // The data for the user's tracks is json format
+    var tracks = {{tracks|safe}};
+    var publicTracks = {{ public_tracks|safe }};
 </script>
 
-<div class="track-header">Create New Track</div>
-<form method="post" enctype="multipart/form-data" action="/user/new_track/">
-    {% csrf_token %}
-    <div class="outlined">
-        <div class="row">
-            <div class="col">Build<br>{{ form.build }}</div>
-            <div class="col">Track Name/Label<br>{{ form.label }}</div>
-            <div class="col">Track Type<br>{{ form.track_type }}</div>
-            <div class="col-4">Details/Comments<br>{{ form.details }}</div>
-            <div class="col">File<br>{{ form.uploaded_file }}</div>
+<br>
+
+<div class="mdc-card card-w-title">
+    <div class="card-top-div">
+        <div class="card-title">Create New Track</div>
+    </div>
+    <div id="inputs-div">
+
+
+    <div class="mdc-select mdc-select--outlined mdc-select--required" id="build-select">
+      <div class="mdc-select__anchor" aria-labelledby="build-select-label" aria-required="true">
+        <span class="mdc-notched-outline">
+          <span class="mdc-notched-outline__leading"></span>
+          <span class="mdc-notched-outline__notch">
+            <span id="build-select-label" class="mdc-floating-label">Genome Build</span>
+          </span>
+          <span class="mdc-notched-outline__trailing"></span>
+        </span>
+        <span class="mdc-select__selected-text-container">
+          <span id="demo-selected-text" class="mdc-select__selected-text"></span>
+        </span>
+        <span class="mdc-select__dropdown-icon">
+          <svg
+              class="mdc-select__dropdown-icon-graphic"
+              viewBox="7 10 10 5" focusable="false">
+            <polygon
+                class="mdc-select__dropdown-icon-inactive"
+                stroke="none"
+                fill-rule="evenodd"
+                points="7 10 12 15 17 10">
+            </polygon>
+            <polygon
+                class="mdc-select__dropdown-icon-active"
+                stroke="none"
+                fill-rule="evenodd"
+                points="7 15 12 10 17 15">
+            </polygon>
+          </svg>
+        </span>
+      </div>
+
+      <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+        <ul class="mdc-list" id="add-hpo-ul" role="listbox">
+            <li class="mdc-list-item" role="option" data-value="NCBI36" tab-index="-1">
+                <span class="mdc-list-item__text">hg18 / NCBI36</span>
+            </li>
+            <li class="mdc-list-item" role="option" data-value="GRCh37" tab-index="0" aria-selected="true">
+                <span class="mdc-list-item__text">hg19 / GRCh37</span>
+            </li>
+            <li class="mdc-list-item" role="option" data-value="GRCh38" tab-index="-1">
+                <span class="mdc-list-item__text">hg38 / GRCh38</span>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+
+    <label id="track-name-field" class="mdc-text-field mdc-text-field--outlined">
+      <span class="mdc-notched-outline">
+        <span class="mdc-notched-outline__leading"></span>
+        <span class="mdc-notched-outline__notch">
+          <span class="mdc-floating-label" id="name-label">Track Name / Label</span>
+        </span>
+        <span class="mdc-notched-outline__trailing"></span>
+      </span>
+        <input id="track-name-input" name="label" type="text" class="mdc-text-field__input" required>
+    </label>
+
+    <div class="mdc-select mdc-select--outlined mdc-select--required" id="track-type-select">
+      <div class="mdc-select__anchor" aria-labelledby="track-select-label" aria-required="true">
+        <span class="mdc-notched-outline">
+          <span class="mdc-notched-outline__leading"></span>
+          <span class="mdc-notched-outline__notch">
+            <span id="track-select-label" class="mdc-floating-label">Track Type</span>
+          </span>
+          <span class="mdc-notched-outline__trailing"></span>
+        </span>
+        <span class="mdc-select__selected-text-container">
+          <span id="demo-selected-text" class="mdc-select__selected-text"></span>
+        </span>
+        <span class="mdc-select__dropdown-icon">
+          <svg
+              class="mdc-select__dropdown-icon-graphic"
+              viewBox="7 10 10 5" focusable="false">
+            <polygon
+                class="mdc-select__dropdown-icon-inactive"
+                stroke="none"
+                fill-rule="evenodd"
+                points="7 10 12 15 17 10">
+            </polygon>
+            <polygon
+                class="mdc-select__dropdown-icon-active"
+                stroke="none"
+                fill-rule="evenodd"
+                points="7 15 12 10 17 15">
+            </polygon>
+          </svg>
+        </span>
+      </div>
+
+      <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+        <ul class="mdc-list" role="listbox">
+            <li class="mdc-list-item" role="option" data-value="cnv" tab-index="-1">
+                <span class="mdc-list-item__text">CNV</span>
+            </li>
+            <li class="mdc-list-item" role="option" data-value="enhancer" tab-index="0" aria-selected="true">
+                <span class="mdc-list-item__text">Enhancer</span>
+            </li>
+            <li class="mdc-list-item" role="option" data-value="other" tab-index="0" aria-selected="true">
+                <span class="mdc-list-item__text">Other</span>
+            </li>
+            <li class="mdc-list-item" role="option" data-value="tad" tab-index="-1">
+                <span class="mdc-list-item__text">TAD</span>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+
+    <label id="details-field" class="mdc-text-field mdc-text-field--outlined">
+      <span class="mdc-notched-outline">
+        <span class="mdc-notched-outline__leading"></span>
+        <span class="mdc-notched-outline__notch">
+          <span class="mdc-floating-label" id="details-label">Details / Comments</span>
+        </span>
+        <span class="mdc-notched-outline__trailing"></span>
+      </span>
+        <input id="details-input" name="details" type="text" class="mdc-text-field__input">
+    </label>
+
+
+    <div id="file-upload-div">
+        <div id="upload-button">
+            <i class="material-icons mdc-button__icon" aria-hidden="true">attach_file</i>
         </div>
-        <div class="row">
-            <div style="width:20%; height: 5%; margin: 0 auto; margin-top: 0.4em;">
-                <button type="submit" style="width: 100%; height: 100%;">Submit</button>
+        <div id="uploaded-file-name">Click to upload file</div>
+        {{ form.uploaded_file }}
+    </div>
+
+
+        <button type="button" id="submit-track-button" class="mdc-button mdc-button--touch mdc-button--raised">
+            <div class="mdc-button__ripple"></div>
+            <div class="mdc-button__label">Submit</div>
+            <div class="mdc-button__touch"></div>
+        </button>
+    </div>
+</div>
+
+
+<div class="mdc-card card-w-title">
+
+    <div class="tabs-and-search">
+        <div class="mdc-tab-bar" role="tablist">
+          <div class="mdc-tab-scroller">
+            <div class="mdc-tab-scroller__scroll-area">
+              <div class="mdc-tab-scroller__scroll-content">
+                <button id="my-tracks-button" class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0">
+                  <span class="mdc-tab__content">
+                    <span class="mdc-tab__icon material-icons" aria-hidden="true">star</span>
+                    <span class="mdc-tab__text-label">My Tracks</span>
+                  </span>
+                  <span class="mdc-tab-indicator mdc-tab-indicator--active">
+                    <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                  </span>
+                  <span class="mdc-tab__ripple"></span>
+                </button>
+
+                <button id="public-tracks-button" class="mdc-tab" role="tab">
+                  <span class="mdc-tab__content">
+                    <span class="mdc-tab__icon material-icons" aria-hidden="true">tram</span>
+                    <span class="mdc-tab__text-label">Public Tracks</span>
+                  </span>
+                  <span class="mdc-tab-indicator">
+                    <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                  </span>
+                  <span class="mdc-tab__ripple"></span>
+                </button>
+              </div>
             </div>
+          </div>
+
+        </div>
+        <div class="search-div">
+            <label class="mdc-text-field mdc-text-field--filled mdc-text-field--with-leading-icon" id="filter-field">
+              <i aria-hidden="true" class="material-icons mdc-text-field__icon" style="margin-left: 8px; margin-right: 8px;">search</i>
+              <span class="mdc-text-field__ripple"></span>
+              <span class="mdc-floating-label">Filter</span>
+              <input class="mdc-text-field__input" type="text" id="filter-input">
+              <span class="mdc-line-ripple"></span>
+            </label>
+            <label class="mdc-text-field mdc-text-field--filled mdc-text-field--with-leading-icon" id="public-filter-field">
+              <i aria-hidden="true" class="material-icons mdc-text-field__icon" style="margin-left: 8px; margin-right: 8px;">search</i>
+              <span class="mdc-text-field__ripple"></span>
+              <span class="mdc-floating-label">Filter</span>
+              <input class="mdc-text-field__input" type="text" id="public-filter-input">
+              <span class="mdc-line-ripple"></span>
+            </label>
         </div>
     </div>
-</form>
 
-<div class="track-header">TAD Tracks</div>
-<div class="track-row col-titles">
-    <div class="toggle-col"><b>Use Track</b></div>
-    <div class="label-col"><b>Track Label</b></div>
-    <div class="build-col"><b>Build</b></div>
-    <div class="color-col"></div>
-    <div class="details-col"><b>Details</b></div>
-    <div class=""></div>
-</div>
-<div class="tracks" id="TAD">
-    <div class="track-row">
-        <div class="toggle-col">
-            <input class='default' type="checkbox" id="tad-toggle" data-toggle="toggle" data-on="Yes" data-off="No">
+    <div class="card-text">
+
+        <div id="my-tracks-div" class="mdc-data-table">
+          <div class="mdc-data-table__table-container">
+            <table id="my-tracks-table" class="mdc-data-table__table" aria-label="TAD Tracks">
+              <thead>
+                <tr class="mdc-data-table__header-row">
+                  <th data-attribute="use_track" data-sortable=false class="mdc-data-table__header-cell use-track-cell" role="columnheader" scope="col">
+                      Use Track
+                  </th>
+                  <th data-attribute="label" class="mdc-data-table__header-cell label-cell" role="columnheader" scope="col">Label</th>
+                  <th data-attribute="track_type" class="mdc-data-table__header-cell user-cell" role="columnheader" scope="col">Track Type</th>
+                  <th data-attribute="build" class="mdc-data-table__header-cell build-cell" role="columnheader" scope="col">Build</th>
+                  <th data-attribute="details" class="mdc-data-table__header-cell description-cell" role="columnheader" scope="col">Details</th>
+                </tr>
+              </thead>
+              <tbody class="mdc-data-table__content" id="my-tracks-tbody">
+              </tbody>
+            </table>
+          </div>
+
+          <div class="mdc-data-table__pagination">
+            <div class="mdc-data-table__pagination-trailing">
+              <div class="mdc-data-table__pagination-rows-per-page">
+                <div class="mdc-data-table__pagination-rows-per-page-label">
+                  Rows per page
+                </div>
+
+                <div class="mdc-select mdc-select--outlined mdc-select--no-label mdc-data-table__pagination-rows-per-page-select">
+                  <div class="mdc-select__anchor" role="button" aria-haspopup="listbox"
+                        aria-labelledby="demo-pagination-select" tabindex="0">
+                    <span class="mdc-select__selected-text-container">
+                      <span id="demo-pagination-select" class="mdc-select__selected-text">10</span>
+                    </span>
+                    <span class="mdc-select__dropdown-icon">
+                      <svg
+                          class="mdc-select__dropdown-icon-graphic"
+                          viewBox="7 10 10 5">
+                        <polygon
+                            class="mdc-select__dropdown-icon-inactive"
+                            stroke="none"
+                            fill-rule="evenodd"
+                            points="7 10 12 15 17 10">
+                        </polygon>
+                        <polygon
+                            class="mdc-select__dropdown-icon-active"
+                            stroke="none"
+                            fill-rule="evenodd"
+                            points="7 15 12 10 17 15">
+                        </polygon>
+                      </svg>
+                    </span>
+                    <span class="mdc-notched-outline mdc-notched-outline--notched">
+                      <span class="mdc-notched-outline__leading"></span>
+                      <span class="mdc-notched-outline__trailing"></span>
+                    </span>
+                  </div>
+
+                  <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth" role="listbox">
+                    <ul class="mdc-list">
+                      <li class="mdc-list-item mdc-list-item--selected" aria-selected="true" role="option" data-value="10">
+                        <span class="mdc-list-item__text">10</span>
+                      </li>
+                      <li class="mdc-list-item" role="option" data-value="25">
+                        <span class="mdc-list-item__text">25</span>
+                      </li>
+                      <li class="mdc-list-item" role="option" data-value="100">
+                        <span class="mdc-list-item__text">100</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mdc-data-table__pagination-navigation">
+                <div class="mdc-data-table__pagination-total">
+                  <span class="start-num"></span>-<span class="end-num"></span> of <span class="total-num"></span>
+                </div>
+
+                <button class="mdc-icon-button material-icons mdc-data-table__pagination-button" data-first-page="true" disabled>
+                  <div class="mdc-icon-button__ripple"></div>first_page
+                </button>
+                <button class="mdc-icon-button material-icons mdc-data-table__pagination-button" data-prev-page="true" disabled>
+                  <div class="mdc-icon-button__ripple"></div>chevron_left
+                </button>
+                <button class="mdc-icon-button material-icons mdc-data-table__pagination-button" data-next-page="true">
+                  <div class="mdc-icon-button__ripple"></div>chevron_right
+                </button>
+                <button class="mdc-icon-button material-icons mdc-data-table__pagination-button" data-last-page="true">
+                  <div class="mdc-icon-button__ripple"></div>last_page
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="label-col">Default TADs</div>
-        <div class="build-col">hg19 / GRCh37</div>
-        <div class="color-col"></div>
-        <div class="details-col">The default TAD boundary set was provided by Dr. Jesse Dixon (University of California,
-            San Diego). The data was generated using H1 human embryonic stem cells (hESCs),
-            chromosome build GRCh37, a bin size of 40kb, and a window size of 2Mb. Please see the About section
-            for reference and details.</div>
-        <div class=""></div>
+
+        <div id="public-tracks-div" class="mdc-data-table">
+          <div class="mdc-data-table__table-container">
+            <table id="public-tracks-table" class="mdc-data-table__table" aria-label="Public Tracks">
+              <thead>
+                <tr class="mdc-data-table__header-row">
+                  <th data-attribute="add_track_button" data-sortable=false class="mdc-data-table__header-cell label-cell" role="columnheader" scope="col">Add Track</th>
+                  <th data-attribute="label" class="mdc-data-table__header-cell label-cell" role="columnheader" scope="col">Label</th>
+                  <th data-attribute="track_type" class="mdc-data-table__header-cell user-cell" role="columnheader" scope="col">Track Type</th>
+                  <th data-attribute="build" class="mdc-data-table__header-cell build-cell" role="columnheader" scope="col">Build</th>
+                  <th data-attribute="details" class="mdc-data-table__header-cell description-cell" role="columnheader" scope="col">Details</th>
+                </tr>
+              </thead>
+              <tbody class="mdc-data-table__content" id="public-tracks-tbody">
+              </tbody>
+            </table>
+          </div>
+
+          <div class="mdc-data-table__pagination">
+            <div class="mdc-data-table__pagination-trailing">
+              <div class="mdc-data-table__pagination-rows-per-page">
+                <div class="mdc-data-table__pagination-rows-per-page-label">
+                  Rows per page
+                </div>
+
+                <div class="mdc-select mdc-select--outlined mdc-select--no-label mdc-data-table__pagination-rows-per-page-select">
+                  <div class="mdc-select__anchor" role="button" aria-haspopup="listbox"
+                        aria-labelledby="demo-pagination-select" tabindex="0">
+                    <span class="mdc-select__selected-text-container">
+                      <span class="mdc-select__selected-text">10</span>
+                    </span>
+                    <span class="mdc-select__dropdown-icon">
+                      <svg
+                          class="mdc-select__dropdown-icon-graphic"
+                          viewBox="7 10 10 5">
+                        <polygon
+                            class="mdc-select__dropdown-icon-inactive"
+                            stroke="none"
+                            fill-rule="evenodd"
+                            points="7 10 12 15 17 10">
+                        </polygon>
+                        <polygon
+                            class="mdc-select__dropdown-icon-active"
+                            stroke="none"
+                            fill-rule="evenodd"
+                            points="7 15 12 10 17 15">
+                        </polygon>
+                      </svg>
+                    </span>
+                    <span class="mdc-notched-outline mdc-notched-outline--notched">
+                      <span class="mdc-notched-outline__leading"></span>
+                      <span class="mdc-notched-outline__trailing"></span>
+                    </span>
+                  </div>
+
+                  <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth" role="listbox">
+                    <ul class="mdc-list">
+                      <li class="mdc-list-item mdc-list-item--selected" aria-selected="true" role="option" data-value="10">
+                        <span class="mdc-list-item__text">10</span>
+                      </li>
+                      <li class="mdc-list-item" role="option" data-value="25">
+                        <span class="mdc-list-item__text">25</span>
+                      </li>
+                      <li class="mdc-list-item" role="option" data-value="100">
+                        <span class="mdc-list-item__text">100</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mdc-data-table__pagination-navigation">
+                <div class="mdc-data-table__pagination-total">
+                  <span class="start-num"></span>-<span class="end-num"></span> of <span class="total-num"></span>
+                </div>
+
+                <button class="mdc-icon-button material-icons mdc-data-table__pagination-button" data-first-page="true" disabled>
+                  <div class="mdc-icon-button__ripple"></div>first_page
+                </button>
+                <button class="mdc-icon-button material-icons mdc-data-table__pagination-button" data-prev-page="true" disabled>
+                  <div class="mdc-icon-button__ripple"></div>chevron_left
+                </button>
+                <button class="mdc-icon-button material-icons mdc-data-table__pagination-button" data-next-page="true">
+                  <div class="mdc-icon-button__ripple"></div>chevron_right
+                </button>
+                <button class="mdc-icon-button material-icons mdc-data-table__pagination-button" data-last-page="true">
+                  <div class="mdc-icon-button__ripple"></div>last_page
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
 </div>
-
-<div class="track-header">CNV Tracks</div>
-<div class="track-row col-titles">
-    <div class="toggle-col"><b>Use Track</b></div>
-    <div class="label-col"><b>Track Label</b></div>
-    <div class="build-col"><b>Build</b></div>
-    <div class="color-col"><b>Color</b></div>
-    <div class="details-col"><b>Details</b></div>
-    <div class=""></div>
-</div>
-<div class="tracks" id="CNV">
-    <div class="track-row">
-        <div class="toggle-col"><input type="checkbox" class='default' id='cnv-toggle' data-toggle="toggle" data-on="Yes" data-off="No"></div>
-        <div class="label-col">DGV CNVs</div>
-        <div class="build-col">hg19 / GRCh37</div>
-        <div class="color-col"></div>
-        <div class="details-col">The default set of CNVs uses data from DGV (Database of Genomic Variants). The CNVs
-            include those in the "DGV Gold Standard Variants", a curated list of variants from select studies, with some
-            variants merged if they had sufficient overlap.</div>
-        <div class=""></div>
-    </div>
-</div>
-
-<div class="track-header">Enhancer Tracks</div>
-<div class="track-row col-titles">
-    <div class="toggle-col"><b>Use Track</b></div>
-    <div class="label-col"><b>Track Label</b></div>
-    <div class="build-col"><b>Build</b></div>
-    <div class="color-col"><b>Color</b></div>
-    <div class="details-col"><b>Details</b></div>
-    <div class=""></div>
-</div>
-<div class="tracks" id="Enhancer">
-    <div class="track-row">
-        <div class="toggle-col"><input type="checkbox" class='default' id='enhancer-toggle' data-toggle="toggle" data-on="Yes" data-off="No"></div>
-        <div class="label-col">Default Enhancers</div>
-        <div class="build-col">hg19 / GRCh37</div>
-        <div class="color-col"></div>
-        <div class="details-col">The default set of enhancers is based on data from the VISTA Enhancer Browser. We include
-            only human enhancers that were positive for in vivo enhancer activity as defined by VISTA. Please see
-            the about section for reference and details.</div>
-        <div class=""></div>
-    </div>
-</div>
-
 {% endblock %}

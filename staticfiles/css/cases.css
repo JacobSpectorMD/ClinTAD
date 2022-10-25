@@ -1,0 +1,31 @@
+main .mdc-card:not(:last-child) {
+    margin-bottom: 16px;
+}
+
+#about-card {
+    max-width: 700px;
+}
+
+.mdc-data-table {
+    width: 100%;
+}
+
+.cases-card .card-top-div {
+    height: 56px;
+    align-items: center;
+}
+
+.cases-card .card-title {
+    height: 56px !important;
+}
+
+.filter-div {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.filter-div > label {
+    margin-right: 0px;
+    border-radius: 0px 4px 0px 0px;
+}

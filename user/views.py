@@ -1,42 +1,119 @@
-from django.contrib.auth import login, authenticate
+import json
+from axes.decorators import axes_dispatch
+
+from django.contrib import messages
+from django.contrib.auth import login, logout, authenticate
+from django.core.mail import EmailMessage, EmailMultiAlternatives
+from django.http import HttpResponse, JsonResponse
 from django.views.generic import CreateView, FormView
 from django.shortcuts import render, redirect
+from django.contrib.sites.shortcuts import get_current_site
+from django.template.loader import render_to_string
+from django.utils.encoding import force_bytes, force_text
+from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
+
+from home.models import Track, UT
+from .tokens import account_activation_token
 from user.forms import RegisterForm, LoginForm, TrackForm
-from django.http import HttpResponse
+from user.models import Profile, TrackManager, User
 from user.track_creator import create_track
-from home.models import UT
-import json
 
 
-class RegisterView(CreateView):
-    form_class = RegisterForm
-    template_name = 'register.html'
-    success_url = '/user/login/'
+@axes_dispatch
+def login_view(request):
+    if request.method == 'GET':
+        form = LoginForm()
+        return render(request, 'login.html', {'form': form})
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        print(form)
+        if form.is_valid():
+            email = form.cleaned_data.get('email')
+            raw_password = form.cleaned_data.get('password')
+            user = authenticate(request=request, username=email, password=raw_password)
+            if user is not None:
+                login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+                return redirect('/user/tracks')
+            else:
+                messages.add_message(request, messages.INFO, "The login information you entered was invalid. "
+                                                             "After 5 unsuccessful login attempts your account will be locked for 1 hour.")
+                return redirect('/user/login')
 
 
-class LoginView(FormView):
-    form_class = LoginForm
-    template_name = 'login.html'
-    success_url = '/'
+def logout_view(request):
+    logout(request)
+    return redirect('/')
 
-    def form_valid(self, form):
-        request = self.request
-        email = form.cleaned_data.get('email')
-        raw_password = form.cleaned_data.get('password1')
-        user = authenticate(username=email, password=raw_password)
-        if user is not None:
-            login(request, user)
-            return redirect('/')
-        return super(LoginView, self).form_invalid()
+
+def register(request):
+    if request.method == 'GET':
+        form = RegisterForm()
+        return render(request, 'register.html', {'form': form})
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            name = form.cleaned_data['name']
+            raw_password = form.cleaned_data['password1']
+            user = User.objects.create_user(email=email, name=name, password=raw_password)
+
+            Profile.objects.create(user=user)
+            TrackManager.objects.create(user=user)
+            default_tracks = Track.objects.filter(default=True)
+            for track in default_tracks:
+                UT.objects.create(active=True, track=track, user=user)
+
+            domain = get_current_site(request).domain
+            uid = urlsafe_base64_encode(force_bytes(user.id))
+            token = account_activation_token.make_token(user)
+            activation_link = "http://{domain}/user/activate/{uid}/{token}/".format(domain=domain, uid=uid, token=token)
+
+            msg = EmailMultiAlternatives(
+                subject="Account Activation - ClinTAD",
+                body="Please click on the following link to activate your account: \n" + activation_link,
+                from_email="ClinTAD <clinicaltad@gmail.com>",
+                to=[email],
+                reply_to=["ClinTAD <clinicaltad@gmail.com>"])
+            html = render_to_string('activation_email.html', {
+                'activation_link': activation_link,
+            })
+
+            msg.attach_alternative(html, "text/html")
+            msg.send()
+            return redirect('/user/registration_sent/')
+        else:
+            return render(request, 'register.html', {'form': form})
+
+
+def registration_sent(request):
+    return render(request, 'registration_sent.html')
+
+
+def activate(request, uidb64, token):
+    try:
+        uid = force_text(urlsafe_base64_decode(uidb64))
+        user = User.objects.get(id=uid)
+    except(TypeError, ValueError, OverflowError, User.DoesNotExist):
+        user = None
+
+    print(account_activation_token.check_token(user, token))
+    if user is not None and account_activation_token.check_token(user, token):
+        user.is_active = True
+        user.save()
+        login(request, user, backend='axes.backends.AxesBackend')
+        return redirect('/')
 
 
 def tracks(request):
+    public_tracks = [track.to_dict() for track in Track.objects.filter(public=True)]
     return render(request, 'tracks.html', {'form': TrackForm,
+                                           'public_tracks': public_tracks,
                                            'tracks': json.dumps(request.user.track_manager.track_json())})
 
 
 def new_track(request):
-    return create_track(request)
+    data = create_track(request)
+    return JsonResponse(data)
 
 
 def edit_track(request):
@@ -53,35 +130,33 @@ def delete_track(request):
     return HttpResponse('')
 
 
-def default_enhancers(request):
-    active = request.POST.get('active')
-    if active == 'true':
-        request.user.track_manager.default_enhancers = True
-    else:
-        request.user.track_manager.default_enhancers = False
-    request.user.track_manager.save()
-    return HttpResponse('')
+def add_track(request):
+    track_id = request.POST.get('id')
+    track = Track.objects.get(id=track_id)
+    user_track = UT.objects.filter(track=track, user=request.user).first()
+    if not user_track:
+        user_track = UT.objects.create(track=track, user=request.user)
+    return JsonResponse(user_track.to_dict())
 
 
-def default_cnvs(request):
-    active = request.POST.get('active')
-    if active == 'true':
-        request.user.track_manager.default_cnvs = True
-    else:
-        request.user.track_manager.default_cnvs = False
-    request.user.track_manager.save()
-    return HttpResponse('')
+def update_user_track(request):
+    user_track_id = request.POST.get('user_track_id')
+    active = json.loads(request.POST.get('active'))
 
+    user_track = UT.objects.get(id=user_track_id)
+    if request.user != user_track.user:
+        return
 
-def default_tads(request):
-    active = request.POST.get('active')
-    if active == 'true':
-        request.user.track_manager.default_tads = True
-    else:
-        request.user.track_manager.default_tads = False
-    other_tads = UT.objects.filter(user=request.user, track__track_type='TAD').all()
-    for track in other_tads:
-        track.active = False
-        track.save()
-    request.user.track_manager.save()
-    return HttpResponse('')
+    if active:
+        user_track.active = True
+    elif not active:
+        user_track.active = False
+
+    # Make tracks of different builds inactive if the track is a TAD track
+    if user_track.track.track_type == 'tad' and active:
+        other_build_tracks = UT.objects.filter(user=request.user, active=True).exclude(
+            track__build=user_track.track.build)
+        other_build_tracks.update(active=False)
+    user_track.save()
+
+    return JsonResponse(user_track.to_dict())

@@ -1,0 +1,17 @@
+.mdc-card {
+    padding: 0px 0px 16px 0px;
+}
+
+.mdc-card > img {
+    max-height: 400px;
+}
+
+.mdc-card .card-top-div {
+    height: 40px;
+    font-size: 24px;
+}
+
+a {
+    color: var(--mdc-theme-primary-500);
+    text-decoration: none;
+}

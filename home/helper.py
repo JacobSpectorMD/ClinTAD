@@ -1,14 +1,39 @@
-# Turn phenotype input string into array of ints
+import re
+
+
+def parse_coordinates(coordinates):
+    try:
+        coordinates = coordinates.lower().replace(',', '').replace('–', '-')
+        re.sub(r'\s+', '', coordinates)
+        chromosome = coordinates.split(':')[0].replace('chr', '').upper()
+        numbers = coordinates.split(':')[1]
+        start = numbers.split('-')[0]
+        end = numbers.split('-')[1]
+        return chromosome, start, end
+    except:
+        return None
+
+
 def parse_phenotypes(phenotype_string):
-    phenotype_list=[]
-    phenotypes_split = phenotype_string.split(',')
-    for i in range (len(phenotypes_split)):
+    """
+    Parses phenotypes submitted by the user into an array.
+
+    Parameters
+        phenotype_string: str
+            A list of phenotypes in HPO ID and/or integer format, e.g. "HP:0410034, 717".
+    """
+    re.sub(r'\s+', '', phenotype_string)
+    phenotype_list = []
+    if '|' in phenotype_string:
+        phenotypes_split = phenotype_string.split('|')
+    else:
+        phenotypes_split = phenotype_string.split(',')
+
+    for phenotype in phenotypes_split:
         try:
-            if "HP" in phenotypes_split[i].upper():
-                x = phenotypes_split[i].split(':')
-                phenotype_list.append(int(x[1]))
-            else:
-                phenotype_list.append(int(phenotypes_split[i]))
+            phenotype = phenotype.lower().replace('hp:', '')
+            phenotype = int(phenotype)
+            phenotype_list.append(phenotype)
         except:
             continue
     return phenotype_list
