@@ -4,6 +4,7 @@
 node_modules/*
 *.sqlite3
 db*.json
+decipher*.txt
 
 home/files/ensembl/*
 home/files/hpo/*

@@ -1,5 +1,4 @@
-import { csrftoken } from './utilities.js';
-
+import { getCookie } from './utilities.js';
 
 var dataList = document.getElementById('HPO');
 window.onload = function() {
@@ -28,9 +27,10 @@ function submit_query () {
     phenotypes = $('#phenotypes-input').val();
     set_svg_info(coordinates);
     show_loading();
-
+    const csrftoken = getCookie('csrftoken');
+    console.log(csrftoken);
     $.ajax({
-        type: 'POST',
+        type: 'GET',
         headers: {'X-CSRFToken': csrftoken},
         data: {'coordinates': coordinates, 'phenotypes': phenotypes},
         url: '/single/submit_query/',

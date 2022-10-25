@@ -24,7 +24,11 @@ def parse_phenotypes(phenotype_string):
     """
     re.sub(r'\s+', '', phenotype_string)
     phenotype_list = []
-    phenotypes_split = phenotype_string.split(',')
+    if '|' in phenotype_string:
+        phenotypes_split = phenotype_string.split('|')
+    else:
+        phenotypes_split = phenotype_string.split(',')
+
     for phenotype in phenotypes_split:
         try:
             phenotype = phenotype.lower().replace('hp:', '')

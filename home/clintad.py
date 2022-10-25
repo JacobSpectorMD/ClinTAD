@@ -71,7 +71,7 @@ def GetTADs(request, case_id, chromosome_input, CNV_start, CNV_end, phenotypes, 
     tad_track = None
 
     # Use default tracks for anonymous users, and selected/active tracks for logged in users
-    if request.user.is_anonymous or not request.user:
+    if request.user.is_anonymous or 'user' not in request.keys():
         build = Build.objects.get(name='GRCh37')
         enhancer_tracks = Track.objects.filter(build=build, default=True, track_type='enhancer')
         tad_track = Track.objects.filter(default=True, build__name='GRCh37').first()
@@ -156,6 +156,7 @@ def GetTADs(request, case_id, chromosome_input, CNV_start, CNV_end, phenotypes, 
     # For every gene in the area, determine if there are HPO matches
     gene_list = []
     hpo_matches = 0
+    unique_hpo_matches = {}
     for gene in genes:
         new_gene = TempGene(name=gene.name, start=gene.start, end=gene.end)
         hpos = gene.hpos.all()
@@ -165,6 +166,7 @@ def GetTADs(request, case_id, chromosome_input, CNV_start, CNV_end, phenotypes, 
                 new_gene.matches.append({'hpo': hpo.hpoid, 'name': hpo.name})
                 new_gene.phenotype_score += 1
                 new_gene.weighted_score += hpo.weight
+                unique_hpo_matches[hpo.hpoid] = ''
                 hpo_matches += 1
 
                 # Only get OMIM and inheritance data for multiple
@@ -195,6 +197,7 @@ def GetTADs(request, case_id, chromosome_input, CNV_start, CNV_end, phenotypes, 
         'gene_matches': gene_matches,
         'genes': gene_list,
         'hpo_matches': hpo_matches,
+        'unique_matches': unique_hpo_matches,
         'minimum': {'coord': minimum_coordinate, 'type': min_type},
         'maximum': {'coord': maximum_coordinate, 'type': max_type},
         'phenotypes': ', '.join([str(phenotype) for phenotype in phenotype_list]),
