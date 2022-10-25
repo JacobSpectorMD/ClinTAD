@@ -1,3 +1,28 @@
+.mdc-card {
+    padding: 0px;
+}
+
+main .mdc-card:not(:last-child) {
+    margin-bottom: 16px;
+}
+
+.mdc-data-table, .mdc-data-table__table {
+    width: 100%;
+}
+
+.use-track-cell {
+    width: 124px;
+}
+
+.label-cell, .build-cell, .user-cell {
+    width: 200px;
+}
+
+
+.description-cell {
+    max-width: 100%;
+}
+
 #id_details {width: 100%; rows: 2;}
 
 .track-row {
@@ -16,3 +41,110 @@
 .col-titles {background-color: lightgrey;}
 .track-row:nth-child(even) {background-color: lightgrey;}
 .tracks {margin-bottom: 1em; }
+
+#submit-track-button {
+    height: 56px;
+}
+
+#file-upload-div {
+    position: relative;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    height: 56px;
+    cursor: pointer;
+}
+
+#file-upload-div input {
+    position: absolute;
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    top: 0;
+    cursor: pointer;
+}
+
+#upload-button {
+    display: flex;
+    background-color: var(--mdc-theme-primary-300);
+    color: white;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 8px 0px 8px;
+    border-radius: 4px 0px 0px 4px;
+}
+
+#uploaded-file-name {
+    border: medium solid var(--mdc-theme-primary-200);
+    border-left: none;
+    border-radius: 0px 4px 4px 0px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+    color: var(--mdc-theme-primary-700);
+}
+
+#inputs-div {
+    display: flex;
+    flex-direction: row;
+    padding: 16px;
+}
+
+#inputs-div > div, #inputs-div > label {
+    margin-right: 16px;
+}
+
+#details-field {
+    flex: 1;
+}
+
+.mdc-data-table__row.wrap td {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.mdc-data-table__row td:not(.use-track-cell) {
+    cursor: pointer;
+}
+
+.card-w-title .mdc-tab-bar {
+    width: 50%;
+    border-radius: 4px 0px 0px 0px;
+}
+
+.tabs-and-search {
+    display: flex;
+    height: 56px;
+}
+
+.tabs-and-search button {
+    height: 56px;
+}
+
+.tabs-and-search .mdc-text-field {
+    border-radius: 0px;
+}
+
+.search-div {
+    flex: 1;
+    margin-left: 16px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.search-div .mdc-text-field {
+    width: 66%;
+    border-radius: 0px 4px 0px 0px;
+    margin-right: 0px;
+}
+
+#public-tracks-div {
+    display: none;
+}
+
+#public-filter-field {
+    display: none;
+}

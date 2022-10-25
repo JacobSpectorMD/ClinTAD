@@ -1,0 +1,21 @@
+.card-w-title:not(:last-child) {
+    margin-bottom: 32px;
+}
+
+.card-w-title {
+    background-color: white;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.home-card .home-card-title {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.home-card p {
+    font-size: 16px;
+    line-height: 26px;
+    word-wrap: break-word;
+    hyphens: auto;
+}

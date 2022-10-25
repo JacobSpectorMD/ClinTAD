@@ -1,0 +1,23 @@
+@use "node_modules/@material/theme" with (
+  $primary: #78909c,
+  $on-primary: white,
+);
+
+@use "@material/top-app-bar/mdc-top-app-bar";
+@use "@material/card";
+
+@import "my-theme";
+
+@import "@material/checkbox";
+@import "@material/data-table";
+@import "@material/dialog";
+@import "@material/select";
+@import "@material/top-app-bar";
+@import "@material/icon-button";
+@import "@material/button";
+@import "@material/select/styles";
+@import "@material/typography/mdc-typography";
+
+@import "my-components";
+
+

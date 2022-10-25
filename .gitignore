@@ -1,3 +1,20 @@
+*.gff3
+*.gtf
+*database_backup.json
+node_modules/*
+*.sqlite3
+db*.json
+decipher*.txt
+.history/*
+
+
+home/files/ensembl/*
+home/files/hpo/*
+home/files/omim/*.txt
+!ReadMe.md
+!load.py
+home/management/commands/polygenic.py
+
 .DS_Store
 bin/
 include/
@@ -15,7 +32,7 @@ __pycache__/
 .Python
 build/
 develop-eggs/
-dist/
+
 downloads/
 eggs/
 .eggs/
@@ -107,5 +124,12 @@ environmental_variables.py
 .mypy_cache/
 
 .idea/
+<<<<<<< HEAD
+db.sqlite3
+*.sqlite3
+dev.py
+
+=======
 #Gene file info large file 
 home/management/commands/gene_files/Homo_sapiens.GRCh37.87.gtf
+>>>>>>> 7385c7641e506fd20f39864ffb7bc77b40e43d88

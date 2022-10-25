@@ -1,12 +1,14 @@
-.form {
-    width: 50%;
-    margin: 0 auto;
+form {
+    display: flex;
+    flex-direction: column;
 }
 
-.form-inputs {
-    border: 1px solid var(--grey);
-    border-radius: 4px;
-    padding: 0.5em;
+label {
+    margin-bottom: 16px;
+}
+
+#submit-button {
+    height: 56px;
 }
 
 .form-button {
@@ -24,4 +26,25 @@
 .form-button:hover {
     background-color: grey;
     color: white;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login-card {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.instructions {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.error {
+    color: #c62828;
 }

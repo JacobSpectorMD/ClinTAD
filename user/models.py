@@ -1,17 +1,15 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
-from datetime import datetime
 
 
 class UserManager(BaseUserManager):
     def create_user(self, email, name, password=None, editor=False, admin=False):
+        print('creating user!!')
         if not email:
             raise ValueError("Please enter an email address.")
         if not password:
             raise ValueError("Please enter a password.")
-        user = self.model(
-            email = self.normalize_email(email)
-        )
+        user = self.model(email=self.normalize_email(email))
         user.set_password(password)
         user.name = name
         user.editor = editor
@@ -39,8 +37,10 @@ class User(AbstractBaseUser):
     staff = models.BooleanField(default=False)
     admin = models.BooleanField(default=False)
     timestamp = models.DateTimeField(auto_now_add=True)
-    is_active = models.BooleanField(default=True)
+    is_active = models.BooleanField(default=False)
     last_login = models.DateTimeField(auto_now_add=True)
+    token = models.CharField(max_length=500, default='')
+    hide_feedback = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['name']
@@ -87,5 +87,4 @@ class TrackManager(models.Model):
 
     def track_json(self):
         tracks = [track.to_dict() for track in self.user.tracks.all()]
-        return {'default_tads': self.default_tads, 'default_enhancers': self.default_enhancers,
-                'default_cnvs': self.default_cnvs, 'tracks': tracks}
+        return tracks

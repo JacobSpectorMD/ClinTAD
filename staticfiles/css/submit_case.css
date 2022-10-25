@@ -1,0 +1,51 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mdc-card {
+    padding:0;
+    width: 900px;
+}
+
+.card-text {
+    display:flex;
+    flex-direction:column;
+    margin-block-end:0em;
+}
+
+.card-text label:not(:last-child){
+    margin-bottom: 16px;
+}
+
+#hpo-lookup-label, #lookup-parent-div {
+    margin-bottom: 0px;
+}
+
+#add-parent-div {
+    margin-bottom: 16px;
+}
+
+.mdc-button {
+    height: 56px !important;
+}
+
+#build-coordinates-div {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+#build-coordinates-div label {
+    flex: 1;
+}
+
+#build-coordinates-div .mdc-select:first-child {
+    margin-right: 16px;
+}
+
+.text-warning {
+    color: #c62828;
+}

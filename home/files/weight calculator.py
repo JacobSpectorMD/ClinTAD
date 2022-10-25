@@ -8,7 +8,7 @@ with open('genes_to_phenotypes.txt', 'r') as f:
     for line in f:
         line_text = line.split("\t")
         hpo = line_text[3].strip()
-        counts[hpo]+=1
+        counts[hpo] += 1
         
     for key, val in counts.items():
         hpo_id = int(key.split(':')[1])
@@ -23,4 +23,3 @@ with open('genes_to_phenotypes.txt', 'r') as f:
 
 output.close()
 f.close()
-            

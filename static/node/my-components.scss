@@ -1,0 +1,92 @@
+@use "node_modules/@material/button";
+@use "node_modules/@material/button/styles" as button-styles;
+
+@use "node_modules/@material/ripple";
+@use "node_modules/@material/card";
+
+// Menus
+@use "node_modules/@material/menu-surface/mdc-menu-surface";
+@use "node_modules/@material/menu/mdc-menu";
+@use "node_modules/@material/list";
+@use "node_modules/@material/list/mdc-list";
+
+// Textfield
+@use "node_modules/@material/floating-label/mdc-floating-label";
+@use "node_modules/@material/line-ripple/mdc-line-ripple";
+@use "node_modules/@material/notched-outline/mdc-notched-outline";
+@use "node_modules/@material/textfield";
+
+// Select
+@use "node_modules/@material/select";
+@use "node_modules/@material/select/styles";
+
+@use "node_modules/@material/checkbox";
+@use "node_modules/@material/icon-button";
+@use "node_modules/@material/icon-button/styles" as icon-button-styles;
+@use "node_modules/@material/data-table/data-table";
+
+@use "node_modules/@material/dialog";
+
+// Tabs
+@use "node_modules/@material/tab-bar/mdc-tab-bar";
+@use "node_modules/@material/tab-scroller/mdc-tab-scroller";
+@use "node_modules/@material/tab-indicator/mdc-tab-indicator";
+@use "node_modules/@material/tab/mdc-tab";
+
+// Snackbar
+@use "node_modules/@material/snackbar/mdc-snackbar";
+
+@include card.core-styles;
+@include textfield.core-styles;
+@include checkbox.core-styles;
+@include data-table.core-styles;
+@include data-table.theme-baseline;
+@include dialog.core-styles;
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+$mdc-typography-font-family: unquote("Roboto, sans-serif");
+* {
+  font-family: unquote("Roboto, sans-serif");
+}
+
+.mdc-top-app-bar {
+  background-color: white;
+  color: var(--dark-grey);
+  top: 0;
+  left: 0;
+}
+
+body, main {
+  background: #EEF1F3;
+}
+
+.mdc-top-app-bar--fixed-adjust {
+  margin-top: 64px;
+  padding-top: 0px;
+}
+
+button.nav-button {
+  height: 100%;
+  color: var(--dark-grey);
+  @include button.ink-color(var(--dark-grey));
+  @include ripple.states-base-color(red);
+}
+
+.nav-button:before,
+.nav-button:after {
+  background-color: red; /* RGBA of #2D5DCC */
+}
+
+button {
+  height: 32px;
+  @include button.ink-color(var(--dark-grey));
+  @include ripple.states-base-color(red);
+}
+
+.mdc-tab-bar {
+  background-color: white;
+}
+
+.mdc-tab-bar.mdc-ripple-upgraded--background-focused {
+  background: white;
+}

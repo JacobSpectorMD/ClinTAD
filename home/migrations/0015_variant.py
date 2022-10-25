@@ -19,8 +19,6 @@ class Migration(migrations.Migration):
                 ('end', models.IntegerField(default=-1)),
                 ('accession', models.CharField(default='', max_length=200)),
                 ('study', models.CharField(default='', max_length=200)),
-                ('gains', models.IntegerField(default=-1)),
-                ('losses', models.IntegerField(default=-1)),
                 ('sample_size', models.IntegerField(default=-1)),
                 ('chromosome', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='variants', to='home.Chromosome')),
             ],

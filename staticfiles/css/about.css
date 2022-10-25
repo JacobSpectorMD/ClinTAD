@@ -1,0 +1,37 @@
+main {
+    display: grid;
+    grid-template-columns: 1fr 300px 700px 1fr;
+    grid-column-gap: 32px;
+}
+
+.mdc-card:not(#index-card) {
+    grid-column: 3 / 4;
+}
+
+#index-card {
+    position: fixed;
+    width: 300px;
+}
+
+#left-column {
+    grid-column: 2 / 3;
+    position: relative;
+}
+
+.mdc-card {
+    max-width: 900px;
+    padding: 0px;
+    margin: 0 auto;
+    flex: 1;
+    width: 100%;
+}
+
+main .mdc-card:not(:last-child) {
+    margin-bottom: 16px;
+}
+
+.card-text {
+    padding: 16px;
+    line-height: 26px;
+}
+
