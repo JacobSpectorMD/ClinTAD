@@ -19,16 +19,11 @@ INSTALLED_APPS = [
     'home',
     'single',
     'user',
-<<<<<<< HEAD:config/settings/base.py
-
-    # Packages
     'anymail',
     'axes',
     'widget_tweaks',
-=======
-    'widget_tweaks',
+    'rest_framework',
     'api'
->>>>>>> 7385c7641e506fd20f39864ffb7bc77b40e43d88:config/settings/digital_ocean.py
 ]
 
 AUTH_USER_MODEL = 'user.User'

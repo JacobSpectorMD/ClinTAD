@@ -12,7 +12,6 @@ urlpatterns = [
     #url(r'^case_admin_site/', case_admin_site.urls),
     url(r'', include('home.urls')),
     url(r'^user/', include('user.urls')),
-<<<<<<< HEAD
     url(r'^password_reset/$',
       auth_views.PasswordResetView.as_view(template_name='password_reset_form.html'),
       name='password_reset'),
@@ -25,8 +24,5 @@ urlpatterns = [
     url(r'^reset/done/$',
       auth_views.PasswordResetCompleteView.as_view(template_name='password_reset_complete.html'),
       name='password_reset_complete'),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-=======
     url(r'^api/', include('api.urls')), 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
->>>>>>> 7385c7641e506fd20f39864ffb7bc77b40e43d88
