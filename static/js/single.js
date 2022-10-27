@@ -28,7 +28,6 @@ function submit_query () {
     set_svg_info(coordinates);
     show_loading();
     const csrftoken = getCookie('csrftoken');
-    console.log(csrftoken);
     $.ajax({
         type: 'GET',
         headers: {'X-CSRFToken': csrftoken},
@@ -85,6 +84,7 @@ function get_genes () {
 
     set_svg_info(coordinates);
     show_loading();
+    const csrftoken = getCookie('csrftoken');
 
     $.ajax({
         type: 'GET',
