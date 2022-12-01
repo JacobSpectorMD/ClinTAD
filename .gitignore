@@ -14,6 +14,7 @@ home/files/omim/*.txt
 !ReadMe.md
 !load.py
 home/management/commands/polygenic.py
+home/management/commands/*.txt
 
 .DS_Store
 bin/
@@ -125,12 +126,11 @@ environmental_variables.py
 .mypy_cache/
 
 .idea/
-<<<<<<< HEAD
 db.sqlite3
 *.sqlite3
 dev.py
 
-=======
-#Gene file info large file 
+#Gene file info large file
 home/management/commands/gene_files/Homo_sapiens.GRCh37.87.gtf
->>>>>>> 7385c7641e506fd20f39864ffb7bc77b40e43d88
+passwords.txt
+home/management/commands/tableExport.txt

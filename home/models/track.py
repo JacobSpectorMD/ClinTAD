@@ -15,8 +15,8 @@ class Track(models.Model):
     track_type = models.CharField(default='', max_length=100)
 
     def to_dict(self):
-        return {'build': self.build.long_name, 'creator_id': self.creator_id, 'details': self.details, 'id': self.id,
-                'label': self.label, 'track_type': self.track_type}
+        return {'build': self.build.long_name, 'creator_id': self.creator_id, 'default': self.deafult,
+                'details': self.details, 'id': self.id, 'label': self.label, 'track_type': self.track_type}
 
     def get_elements_by_coordinate(self, chromosome, min_coordinate, max_coordinate):
         if self.track_type == 'enhancer':

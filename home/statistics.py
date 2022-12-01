@@ -6,7 +6,7 @@ from home.statistics_old import generate_CNV
 
 
 class Variant:
-    def __init__(self, chromosome, start, end, hpo_matches, gene_matches, tads, weighted_score, unique_matches):
+    def __init__(self, chromosome, start, end, hpo_matches, gene_matches, tads, weighted_score, unique_matches, genes):
         self.chromosome = chromosome
         self.start = start
         self.end = end
@@ -15,6 +15,7 @@ class Variant:
         self.tads = tads
         self.weighted_score = weighted_score
         self.unique_matches = unique_matches
+        self.genes = genes
 
 
 def get_one_variant(request, coordinates, phenotypes, ret='String'):
@@ -25,7 +26,7 @@ def get_one_variant(request, coordinates, phenotypes, ret='String'):
 
     result = json.loads(GetTADs(request, '', chromosome, start, end, phenotypes, 0))
     variant = Variant(chromosome, result['cnv_start'], result['cnv_end'], result['hpo_matches'], result['gene_matches'],
-                      result['tads'], result['weighted_score'], result['unique_matches'])
+                      result['tads'], result['weighted_score'], result['unique_matches'], result['genes'])
     if ret == 'String':
         return json.dumps(variant.__dict__)
     else:
