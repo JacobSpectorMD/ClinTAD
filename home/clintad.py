@@ -73,8 +73,8 @@ def GetTADs(request, case_id, chromosome_input, CNV_start, CNV_end, phenotypes, 
     # Use default tracks for anonymous users, and selected/active tracks for logged in users
     if source_function == 'data analysis':
         build = Build.objects.get(name='GRCh38')
-        tad_track = Track.objects.filter(id=104)
-    elif request.user.is_anonymous or 'user' not in request.keys():
+        tad_track = Track.objects.get(id=104)
+    elif request.user.is_anonymous:
         build = Build.objects.get(name='GRCh37')
         enhancer_tracks = Track.objects.filter(build=build, default=True, track_type='enhancer')
         tad_track = Track.objects.filter(default=True, build__name='GRCh37').first()
@@ -193,6 +193,7 @@ def GetTADs(request, case_id, chromosome_input, CNV_start, CNV_end, phenotypes, 
             total_weighted_score += gene['weighted_score']
 
     gene_dict = {
+        'build': build.long_name.split('/')[0],
         'case_id': case_id,
         'chromosome': chromosome.number,
         'cnv_start': patient_CNV_start,

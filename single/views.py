@@ -1,5 +1,6 @@
 from urllib.parse import unquote
 
+from django.views.decorators.csrf import requires_csrf_token
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 
@@ -9,6 +10,7 @@ from home.statistics import get_100_variants, get_one_variant
 from home.models import Build, Case
 
 
+@requires_csrf_token
 def single(request):
     template_name = 'single.html'
 

@@ -107,7 +107,7 @@ def activate(request, uidb64, token):
 def tracks(request):
     public_tracks = [track.to_dict() for track in Track.objects.filter(public=True)]
     return render(request, 'tracks.html', {'form': TrackForm,
-                                           'public_tracks': public_tracks,
+                                           'public_tracks': json.dumps(public_tracks),
                                            'tracks': json.dumps(request.user.track_manager.track_json())})
 
 

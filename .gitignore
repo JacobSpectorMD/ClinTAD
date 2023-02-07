@@ -5,6 +5,7 @@ node_modules/*
 *.sqlite3
 db*.json
 decipher*.txt
+decipher*.tsv
 .history/*
 
 
@@ -134,3 +135,6 @@ dev.py
 home/management/commands/gene_files/Homo_sapiens.GRCh37.87.gtf
 passwords.txt
 home/management/commands/tableExport.txt
+*tableExport.txt
+home/management/commands/tableExport.txt
+decipher_data_for_ml_12_1_22.tsv

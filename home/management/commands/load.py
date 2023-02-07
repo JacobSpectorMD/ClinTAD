@@ -573,6 +573,9 @@ class Command(BaseCommand):
                     studies = re.search(r'(?<=Studies=).+?(?=;)', line).group(0)
                     frequency = float(re.search(r'(?<=Frequency=).+?(?=%)', line).group(0))
                     sample_size_search = re.search(r'(?<=Number_of_unique_samples_tested=).+?(?=\s+)', line)
+                    if not sample_size_search:
+                        sample_size_search = re.search(r'(?<=num_unique_samples_tested=).+?(?=\s+)', line)
+
                     if sample_size_search:
                         sample_size = int(sample_size_search.group(0))
                     else:
@@ -580,23 +583,23 @@ class Command(BaseCommand):
                     chromosome = Chromosome.objects.get(build=build, number=chromosome_num)
 
                     variant = Variant.objects.filter(accession=variant_acc, build=build).first()
+                    print(build.name, variant_acc)
                     if not variant:
-                        print(build.name, variant_acc)
                         Variant.objects.create(accession=variant_acc, build=build, chromosome=chromosome,
                                                outer_start=outer_start, inner_start=inner_start,
                                                inner_end=inner_end, outer_end=outer_end,
                                                subtype=subtype, study=studies, frequency=frequency,
                                                sample_size=sample_size, track=track)
-                    # else:
-                    #     variant.chromosome = chromosome
-                    #     variant.outer_start = outer_start
-                    #     variant.inner_start = inner_start
-                    #     variant.inner_end = inner_end
-                    #     variant.outer_end = outer_end
-                    #     variant.subtype = subtype
-                    #     variant.study = studies
-                    #     variant.frequency = frequency
-                    #     variant.sample_size = sample_size
-                    #     variant.track = track
-                    #     variant.save()
+                    else:
+                        variant.chromosome = chromosome
+                        variant.outer_start = outer_start
+                        variant.inner_start = inner_start
+                        variant.inner_end = inner_end
+                        variant.outer_end = outer_end
+                        variant.subtype = subtype
+                        variant.study = studies
+                        variant.frequency = frequency
+                        variant.sample_size = sample_size
+                        variant.track = track
+                        variant.save()
         print('CNVs from DGV loaded.')

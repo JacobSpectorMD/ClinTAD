@@ -13,11 +13,11 @@ class Command(BaseCommand):
         # Read in the patient data
         patient_data = read_patient_data()
 
-        # # Get all of the metric for machine learning
-        # add_ml_metrics(patient_data)
-        #
-        # # Write the data to a file
-        # write_data(patient_data)
+        # Get all of the metric for machine learning
+        add_ml_metrics(patient_data)
+
+        # Write the data to a file
+        write_data(patient_data)
 
 
 class Variant:
@@ -36,7 +36,7 @@ class Variant:
         self.pathogenicity = pathogenicity
         self.variant_class = variant_class
 
-        self.genes = None
+        self.genes = []
         self.hpo_matches = -1
         self.unique_matches = -1
         self.unique_over_input = -1
@@ -96,9 +96,7 @@ class Variant:
                     self.unique_matches_per_mb, self.gene_matches_per_mb, self.weighted_score_per_mb,
                     self.num_hi_genes_per_mb,
                     self.num_ts_genes_per_mb, self.num_genes_per_mb]
-        for feature in features:
-            feature = str(feature)
-        return '\t'.join(features)
+        return '\t'.join([str(feature) for feature in features])
 
 
 def read_patient_data():
@@ -143,7 +141,8 @@ def add_ml_metrics(variant_data):
         try:
             coordinates = 'chr' + variant.chr + ':' + variant.start + '-' + variant.end
             print(patient_id)
-            var = get_one_variant({}, coordinates, variant.hpo_accessions, ret='Dictionary')
+            var = get_one_variant({}, coordinates, variant.hpo_accessions, ret='Dictionary',
+                                  source_function='data analysis')
             variant.genes = var['genes']
             variant.hpo_matches = var['hpo_matches']
             variant.unique_matches = len(var['unique_matches'].keys())
@@ -152,6 +151,8 @@ def add_ml_metrics(variant_data):
             variant.tads = var['tads']
             variant.weighted_score = var['weighted_score']
             variant.length = int(variant.end) - int(variant.start)
+
+            read_hi_data()
 
             # Determine if the variant completely overlaps a dosage sensitive region
             variant.overlaps_hi, variant.overlaps_ts = overlaps_dosage_sensitive_region(variant.chr, variant.start,
@@ -165,7 +166,6 @@ def add_ml_metrics(variant_data):
         except Exception as e:
             print(e)
             print('Failed: ' + patient_id)
-            print(var)
             continue
 
 
@@ -205,7 +205,6 @@ def read_hi_data():
     # tableExport.txt is derived from ClinGen Dosage Sensitivity page
     with open('home/management/commands/tableExport.txt', 'r') as infile:
         reader = csv.reader(infile, delimiter=',', quotechar='"')
-        reader.next()
         for row in reader:
             gene_region = 'region'
             if 'G' in row[0]:
@@ -227,9 +226,12 @@ def read_hi_data():
                 if chromosome not in hi_region_data:
                     hi_region_data[chromosome] = []
                 hi_region_data[chromosome].append(region)
+        infile.close()
 
 
 def overlaps_dosage_sensitive_region(chr, start, end):
+    if chr not in hi_region_data:
+        return 0, 0
     regions = hi_region_data[chr]
     haploinsufficient = 0
     triplosensitive = 0
@@ -246,9 +248,9 @@ def number_dosage_sensitive_genes(genes):
     num_hi = 0
     num_ts = 0
     for gene in genes:
-        if gene.name in genes.keys():
-            if 'Sufficient Evidence' in genes[gene.name].hi:
+        if gene['name'] in hi_gene_data.keys():
+            if 'Sufficient Evidence' in hi_gene_data[gene['name']].hi:
                 num_hi += 1
-            if 'Sufficient Evidence' in genes[gene.name].ts:
+            if 'Sufficient Evidence' in hi_gene_data[gene['name']].ts:
                 num_ts += 1
     return num_hi, num_ts

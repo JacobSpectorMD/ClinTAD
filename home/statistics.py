@@ -18,13 +18,13 @@ class Variant:
         self.genes = genes
 
 
-def get_one_variant(request, coordinates, phenotypes, ret='String'):
+def get_one_variant(request, coordinates, phenotypes, ret='String', source_function='Single'):
     chromosome, start, end = parse_coordinates(coordinates)
     phenotypes = parse_phenotypes(phenotypes)
     if not chromosome or not start or not end or not phenotypes:
         return {}
 
-    result = json.loads(GetTADs(request, '', chromosome, start, end, phenotypes, 0))
+    result = json.loads(GetTADs(request, '', chromosome, start, end, phenotypes, 0, source_function=source_function))
     variant = Variant(chromosome, result['cnv_start'], result['cnv_end'], result['hpo_matches'], result['gene_matches'],
                       result['tads'], result['weighted_score'], result['unique_matches'], result['genes'])
     if ret == 'String':
