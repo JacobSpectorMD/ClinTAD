@@ -39,11 +39,12 @@ def get_100_variants(request, coordinates, phenotypes):
     phenotypes = parse_phenotypes(phenotypes)
     print('getting variants...')
     variant_list = []
-    while len(variant_list) < 20:
+    while len(variant_list) < 100:
         sim_chr, sim_start, sim_end = generate_CNV(int(end) - int(start))
         result = json.loads(GetTADs(request, '', sim_chr, sim_start, sim_end, phenotypes, 0, source_function='single'))
         variant_list.append(Variant(chromosome, result['cnv_start'], result['cnv_end'], result['hpo_matches'],
-                                    result['gene_matches'], result['weighted_score']))
+                                    result['gene_matches'], result['tads'], result['weighted_score'],
+                                    result['unique_matches'], result['genes']))
     print(variant_list)
     return json.dumps([variant.__dict__ for variant in variant_list])
 

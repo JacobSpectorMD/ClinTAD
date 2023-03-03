@@ -14,6 +14,8 @@ urlpatterns = [
     url(r'^get_phenotypes/', views.get_phenotypes, name='get_phenotypes'),
     url(r'^hide_feedback/', views.hide_feedback, name='hide_feedback'),
     url(r'^statistics/$', views.statistics, name='statistics'),
+    url(r'^ml_prediction/$', views.ml_prediction, name='ml_prediction'),
+    url(r'^predict/$', views.predict, name='predict'),
     url(r'^submit_query/$', views.submit_query, name='submit_query'),
     url(r'^zoom/$', views.zoom, name='zoom'),
 ]

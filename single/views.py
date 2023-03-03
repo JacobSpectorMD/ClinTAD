@@ -1,3 +1,6 @@
+import numpy as np
+import pickle
+from sklearn.ensemble import GradientBoostingClassifier
 from urllib.parse import unquote
 
 from django.views.decorators.csrf import requires_csrf_token
@@ -113,6 +116,30 @@ def get_variants(request):
     phenotypes = request.POST.get('phenotypes', '')
     response = get_100_variants(request, coordinates, phenotypes)
     return JsonResponse(response, safe=False)
+
+
+def ml_prediction(request):
+    coordinates = request.GET.get('coordinates', 'null')
+    phenotypes = request.GET.get('phenotypes', '')
+    return render(request, 'ml_prediction.html', {'coordinates': coordinates, 'phenotypes': phenotypes})
+
+
+def predict(request):
+    coordinates = request.GET.get('coordinates', 'null')
+    phenotypes = request.GET.get('phenotypes', '')
+    with open('single/cnv_model.sav', 'rb') as model_file:
+        model = pickle.load(model_file)
+    new_array = np.zeros(20)
+    new_array[0] = 500000
+    # print(new_array)
+    # print(model.predict([new_array]), model.predict_proba([new_array]))
+    prediction = model.predict([new_array])
+    if prediction[0] == 1:
+        pathogenicity = 'Pathogenic'
+    else:
+        pathogenicity = 'Not Pathogenic'
+    print(prediction[0])
+    return JsonResponse({'pathogenicity': pathogenicity})
 
 
 def zoom(request):

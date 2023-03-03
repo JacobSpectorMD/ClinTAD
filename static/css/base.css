@@ -281,6 +281,16 @@ border-radius: 0 !important;
     font-weight: 500;
 }
 
+.card-top-div .card-top-icon-r {
+    position: absolute;
+    right: 8px;
+    top: 0;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    color: var(--mdc-theme-primary-500);
+}
+
 .card-top-div.title-large {
     height: 40px;
     font-size: 24px;

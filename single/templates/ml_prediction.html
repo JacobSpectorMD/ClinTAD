@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block head %}
+    {{ block.super }}
+    <title>ClinTAD | Prediction</title>
+{% endblock %}
+
+
+{% block styles %}
+{{ block.super }}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/ml_prediction.css' %}">
+{% endblock styles %}
+
+
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static 'dist/ml_prediction.js' %}" type="module"></script>
+{% endblock %}
+
+{% block content %}
+    <div id="input-cards-div">
+        <div id="input-card" class="mdc-card card-w-title">
+            <div class="card-top-div">
+                <div class="card-title">Patient Data</div>
+                <div>
+                    <i class="material-icons card-top-icon-r">smart_toy</i>
+                </div>
+            </div>
+            {% include 'coordinates_hpo_input.html' %}
+        </div>
+        <div id="hpo-card" class="mdc-card">
+            <div class="card-heading">HPO Phenotype Lookup</div>
+            {% include 'hpo_lookup_input.html' %}
+        </div>
+    </div>
+
+    <button id="predict-button">Predict</button>
+
+    <div class="mdc-card card-w-title">
+        <div class="card-top-div">
+            <div class="card-title">Prediction</div>
+        </div>
+        <div>Overall Prediction <span id="pathogenicity-prediction"></span></div>
+    </div>
+{% endblock content %}

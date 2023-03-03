@@ -1,0 +1,2 @@
+(()=>{"use strict";const t=function(t){var e=null;if(document.cookie&&""!==document.cookie)for(var n=document.cookie.split(";"),o=0;o<n.length;o++){var c=jQuery.trim(n[o]);if(c.substring(0,t.length+1)===t+"="){e=decodeURIComponent(c.substring(t.length+1));break}}return e}("csrftoken");$(document).on("click","#predict-button",(function(){$.ajax({type:"GET",headers:{"X-CSRFToken":t},data:{coordinates:"",phenotypes:""},url:"/single/predict/",success:function(t){$("#pathogenicity-prediction").html(t.pathogenicity)}})}))})();
+//# sourceMappingURL=ml_prediction.js.map
