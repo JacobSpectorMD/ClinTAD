@@ -23,7 +23,7 @@ djangorestframework==3.14.0
 docutils==0.14
 gunicorn==19.7.1
 idna==2.6
-ipython==7.31.1
+ipython==8.10.0
 jedi==0.18.1
 jmespath==0.9.3
 joblib==1.2.0
