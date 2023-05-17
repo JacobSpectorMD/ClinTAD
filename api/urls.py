@@ -1,9 +1,13 @@
-from posixpath import basename
+from rest_framework import routers
+from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+
 from django.urls import path
+from django.conf.urls import include
+
 import api.views as views
 from home.models import Gene
-from rest_framework import routers
-from django.conf.urls import include
+
 
 router = routers.DefaultRouter()
 router.register(r'chromosome', views.ChromosomeViewSet)
@@ -19,4 +23,14 @@ router.register(r'variant', views.VariantViewSet)
 urlpatterns = [
     # path('chromosome/', views.ChromosomeViewSet, name='chromosome'),
     path('', include(router.urls)),
-] 
+    path('auth/', TokenObtainPairView.as_view(), name='auth'),
+    path('auth/refresh/', TokenRefreshView.as_view(), name='auth_refresh'),
+    path('schema/', SpectacularAPIView.as_view(), name="schema"),
+    path(
+        'docs/',
+        SpectacularSwaggerView.as_view(
+            template_name="swagger-ui.html", url_name="schema"
+        ),
+        name="swagger-ui",
+    ),
+]

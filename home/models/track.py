@@ -14,6 +14,11 @@ class Track(models.Model):
     subscribers = models.ManyToManyField('user.User')
     track_type = models.CharField(default='', max_length=100)
 
+    article_name = models.CharField(default='', max_length=500)
+    author_last_name = models.CharField(default='', max_length=100)
+    pubmed_id = models.CharField(default='', max_length=20)
+    year = models.IntegerField(default=None, null=True)
+
     def to_dict(self):
         return {'build': self.build.long_name, 'creator_id': self.creator_id, 'default': self.default,
                 'details': self.details, 'id': self.id, 'label': self.label, 'track_type': self.track_type}

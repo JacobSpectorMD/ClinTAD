@@ -11,15 +11,25 @@ class UT(models.Model):
         unique_together = (("track", "user"),)
 
     def to_dict(self):
-        return {'active': self.active, 'label': self.track.label, 'build': self.track.build.long_name,
-                'details': self.track.details, 'id': self.id, 'ut_id': self.id, 'track_id': self.track.id,
-                'track_type': self.track.track_type, 'color': self.color, 'user': self.track.creator.name}
+        t = self.track
+        return {'active': self.active, 'article_name': t.article_name, 'author_last_name': t.author_last_name,
+                'creator': self.track.creator.name, 'label': self.track.label, 'build': self.track.build.long_name,
+                'details': self.track.details, 'id': self.id, 'pubmed_id': t.pubmed_id, 'ut_id': self.id,
+                'track_id': self.track.id, 'track_type': self.track.track_type, 'year': t.year, 'color': self.color,
+                'user': self.track.creator.name}
 
     def remove(self, request):
+        """
+            Removes the track from the user's list of tracks by deleting the UT object. If the track was originally
+            created by the requesting user and the track is not public, also delete the related track object.
+        """
         track = self.track
-        self.delete()
-        if request.user in track.subscribers.all():
-            track.subscribers.remove(request.user)
+        if track.creator == request.user and not track.public:
+            track.delete()
+        elif request.user == self.user:  # Only allow people to delete their own tracks
+            self.delete()
+            if request.user in track.subscribers.all():
+                track.subscribers.remove(request.user)
 
     def edit(self, request):
         color = request.POST.get('color')

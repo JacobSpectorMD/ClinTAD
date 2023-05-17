@@ -6,22 +6,6 @@ import { csrftoken } from './utilities.js';
 // };
 
 
-$(document).on('click', '.delete-col button', function(){
-    var button = this;
-    var row = $(button).parent().parent();
-    var ut_id = $(row).data('ut-id');
-    $.ajax({
-        type: 'POST',
-        url: '/user/delete_track/',
-        headers: {'X-CSRFToken': csrftoken},
-        data: {'ut_id': ut_id},
-        success: function(data){
-            row.remove();
-        }
-    });
-})
-
-
 $(document).on('click', '.toggle', function(){
     var toggle = $(this).parent();
     var row = $(toggle).parent();

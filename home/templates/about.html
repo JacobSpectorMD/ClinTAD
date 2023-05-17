@@ -41,6 +41,7 @@ function clear_data(){
                 <b>How It Works</b>
                 <li><a href="#files-used">Data Sources</a></li>
                 <br>
+                <b><a href="#api">API Documentation</a></b><br>
                 <b><a href="#contact">Contact</a></b><br>
                 <b><a href="#citation">Citation</a></b><br>
                 <b><a href="#troubleshooting">Troubleshooting</a></b><br>
@@ -171,6 +172,16 @@ function clear_data(){
     </div>
 </div>
 
+<div class="mdc-card" id="api">
+    <div class="card-top-div">
+        <div class="card-title">API Documentation</div>
+    </div>
+    <div class="card-text">
+        ClinTAD has an API that is available to registered users. Up to 500 requests per day can be made. Documentation
+        for the API can be found  <a href="/api/docs/" target="blank">on this page</a>.
+    </div>
+</div>
+
 <div class="mdc-card" id="contact">
     <div class="card-top-div">
         <div class="card-title">Contact</div>
@@ -216,6 +227,8 @@ function clear_data(){
         &nbsp&nbsp&nbsp&nbspa. Determine if machine learning can assist with determining pathogenicity of variants based on phenotype matches<br>
     </div>
 </div>
+
+{% include 'about_help.html' %}
 
 {% endblock content %}
 

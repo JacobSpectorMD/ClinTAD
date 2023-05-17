@@ -29,3 +29,78 @@ main .mdc-card:not(:last-child) {
     margin-right: 0px;
     border-radius: 0px 4px 0px 0px;
 }
+
+.card-text {
+    display: flex;
+    justify-content: center;
+}
+
+#case-list-div {
+    width: 100%;
+}
+
+#create-case-div {
+    display: none;
+    width: 100%;
+    justify-content: center;
+    border: 1px solid rgba(0,0,0,.12);
+    border-radius: 4px;
+}
+
+#create-case-content {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 800px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+}
+
+.text-warning {
+    color: #c62828;
+}
+
+#create-case-content button {
+    height: 56px;
+}
+
+#lookup-parent-div {
+    margin-bottom: 0px;
+}
+
+#evidence-field {
+    display: flex;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
+    padding: 8px;
+    flex-wrap: wrap;
+}
+
+#evidence-title {
+    font-weight: 500;
+}
+
+.checkbox-div {
+    display: flex;
+    align-items: center;
+}
+
+#case-dialog-content {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-row-gap: 4px;
+    grid-column-gap: 8px;
+}
+
+.case-info-header {
+    grid-column: 1 / 3;
+}
+
+.case-info-label {
+    font-weight: bold;
+}
+
+#cases-table .mdc-data-table__row {
+    cursor: pointer;
+}

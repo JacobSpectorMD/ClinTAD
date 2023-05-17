@@ -24,14 +24,16 @@ $(document).on('click', '#submit-query-button', function () {
 })
 
 function submit_query() {
-
-    phenotypes = $('#phenotypes-input').val();
     coordinates = $('#coordinates-input').val();
+    phenotypes = $('#phenotypes-input').val();
+    let source_function = 'single';
+    if (window.location.href.includes('example')) { source_function = 'example'}
+
     show_loading();
     $.ajax({
         type: 'GET',
         headers: {'X-CSRFToken': csrftoken},
-        data: {'coordinates': coordinates, 'phenotypes': phenotypes},
+        data: {build, coordinates, phenotypes, source_function},
         url: '/single/submit_query/',
         success: function (response) {
             const data = JSON.parse(response);

@@ -24,26 +24,48 @@ def single(request):
     if request.method == 'GET':
         coordinates = request.session.get('coordinates', 'null')
         phenotypes = request.session.get('phenotypes', '')
+
         return render(request, template_name, {'coordinates': coordinates, 'phenotypes': phenotypes, 'navbar': 'single',
                                                'show_feedback': show_feedback})
 
 
+@requires_csrf_token
+def example(request):
+    template_name = 'single.html'
+
+    if request.method == 'GET':
+        build = request.GET.get('build', None)
+        coordinates = request.GET.get('coordinates', None)
+        phenotypes = request.GET.get('phenotypes', '')
+
+        if not build or not coordinates:
+            return redirect('/single/')
+
+        return render(request, template_name, {
+            'build': build, 'coordinates': coordinates, 'phenotypes': phenotypes, 'navbar': 'single'
+        })
+
+
 def submit_case(request):
-    template_name = 'submit_case.html'
+    if not request.user.is_authenticated:
+        return JsonResponse({'error': 'You must be logged in to submit a case.'}, status=500)
 
     if request.method == 'POST':
-        build_name = request.POST.get('build')
-        coordinates = request.POST.get('coordinates')
-        phenotypes = request.POST.get('phenotypes')
-        pubmed_ids = request.POST.get('pubmeds')
-        comments = request.POST.get('comments')
-
-        build = Build.objects.get(name=build_name)
-        Case.objects.create(build=build, comments=comments, coordinates=coordinates, phenotypes_text=phenotypes,
-                            pubmed_ids=pubmed_ids, submitter=request.user, submitter_name=request.user.name,
-                            submitter_email=request.user.email)
-        return JsonResponse({})
-    return render(request, template_name)
+        try:
+            build_name = request.POST.get('build')
+            comments = request.POST.get('comments')
+            coordinates = request.POST.get('coordinates')
+            evidence = request.POST.get('evidence')
+            phenotypes = request.POST.get('phenotypes')
+            pubmed_ids = request.POST.get('pubmeds')
+            build = Build.objects.get(name=build_name)
+            case = Case.objects.create(build=build, comments=comments, coordinates=coordinates, evidence=evidence,
+                                       phenotypes_text=phenotypes, pubmed_ids=pubmed_ids, submitter=request.user,
+                                       submitter_name=request.user.name, submitter_email=request.user.email)
+            return JsonResponse(case.to_dict())
+        except:
+            return JsonResponse({'error': 'Something went wrong when processing your case. Please correct any errors '
+                                          'and try again.'}, status=500)
 
 
 def submitted_case(request):
@@ -52,7 +74,7 @@ def submitted_case(request):
 
 def submit_query(request):
     """
-    Updates the coordinates and phenotypes using data posted by the user, then returns the gene/TAD data for their 
+    Updates the coordinates and phenotypes using data posted by the user, then returns the gene/TAD data for their
     request.
 
     Request Parameters
@@ -91,11 +113,6 @@ def get_phenotypes(request):
     entered_string = unquote(request.META['QUERY_STRING'])
     hpo_list = hpo_lookup(entered_string)
     return JsonResponse(hpo_list, safe=False)
-
-
-def hide_feedback(request):
-    request.session['show_feedback'] = False
-    return HttpResponse('', 200)
 
 
 def statistics(request):
@@ -155,5 +172,3 @@ def zoom(request):
         request.session['zoom'] += 1
 
     return get_genes(request)
-
-

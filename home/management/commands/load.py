@@ -290,7 +290,7 @@ class Command(BaseCommand):
                     old_gene_name = gene_name
                     hpo_list = []
 
-                hpo = HPO.objects.filter(hpoid=hpo_id).first()
+                hpo = HPO.objects.filter(hpo_id=hpo_id).first()
                 if hpo:
                     hpo_list.append(hpo)
             print('Gene to HPO relationships created.')
@@ -301,7 +301,7 @@ class Command(BaseCommand):
                 cell = line.split('\t')
                 hpo_id = int(cell[0])
                 hpo_weight = float(cell[1])
-                hpo = HPO.objects.get(hpoid=hpo_id)
+                hpo = HPO.objects.get(hpo_id=hpo_id)
                 hpo.weight = hpo_weight
                 print(hpo)
                 hpo.save()
@@ -420,7 +420,7 @@ class Command(BaseCommand):
                 print(omim_number)
                 hpo_id = int(col[3].strip().replace('HP:', ''))
                 omim = Omim.objects.filter(omim_number=omim_number).first()
-                hpo = HPO.objects.filter(hpoid=hpo_id).first()
+                hpo = HPO.objects.filter(hpo_id=hpo_id).first()
                 if omim and hpo:
                     if hpo not in omim.hpos.all():
                         print('OMIM:', omim_number, 'HPO:', hpo_id)

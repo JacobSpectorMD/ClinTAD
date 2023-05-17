@@ -25,157 +25,8 @@
     var publicTracks = {{ public_tracks | safe }};
 </script>
 
-<br>
 
 <div class="mdc-card card-w-title">
-    <div class="card-top-div">
-        <div class="card-title">Create New Track</div>
-    </div>
-    <div id="inputs-div">
-
-
-    <div class="mdc-select mdc-select--outlined mdc-select--required" id="build-select">
-      <div class="mdc-select__anchor" aria-labelledby="build-select-label" aria-required="true">
-        <span class="mdc-notched-outline">
-          <span class="mdc-notched-outline__leading"></span>
-          <span class="mdc-notched-outline__notch">
-            <span id="build-select-label" class="mdc-floating-label">Genome Build</span>
-          </span>
-          <span class="mdc-notched-outline__trailing"></span>
-        </span>
-        <span class="mdc-select__selected-text-container">
-          <span id="demo-selected-text" class="mdc-select__selected-text"></span>
-        </span>
-        <span class="mdc-select__dropdown-icon">
-          <svg
-              class="mdc-select__dropdown-icon-graphic"
-              viewBox="7 10 10 5" focusable="false">
-            <polygon
-                class="mdc-select__dropdown-icon-inactive"
-                stroke="none"
-                fill-rule="evenodd"
-                points="7 10 12 15 17 10">
-            </polygon>
-            <polygon
-                class="mdc-select__dropdown-icon-active"
-                stroke="none"
-                fill-rule="evenodd"
-                points="7 15 12 10 17 15">
-            </polygon>
-          </svg>
-        </span>
-      </div>
-
-      <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
-        <ul class="mdc-list" id="add-hpo-ul" role="listbox">
-            <li class="mdc-list-item" role="option" data-value="NCBI36" tab-index="-1">
-                <span class="mdc-list-item__text">hg18 / NCBI36</span>
-            </li>
-            <li class="mdc-list-item" role="option" data-value="GRCh37" tab-index="0" aria-selected="true">
-                <span class="mdc-list-item__text">hg19 / GRCh37</span>
-            </li>
-            <li class="mdc-list-item" role="option" data-value="GRCh38" tab-index="-1">
-                <span class="mdc-list-item__text">hg38 / GRCh38</span>
-            </li>
-        </ul>
-      </div>
-    </div>
-
-
-    <label id="track-name-field" class="mdc-text-field mdc-text-field--outlined">
-      <span class="mdc-notched-outline">
-        <span class="mdc-notched-outline__leading"></span>
-        <span class="mdc-notched-outline__notch">
-          <span class="mdc-floating-label" id="name-label">Track Name / Label</span>
-        </span>
-        <span class="mdc-notched-outline__trailing"></span>
-      </span>
-        <input id="track-name-input" name="label" type="text" class="mdc-text-field__input" required>
-    </label>
-
-    <div class="mdc-select mdc-select--outlined mdc-select--required" id="track-type-select">
-      <div class="mdc-select__anchor" aria-labelledby="track-select-label" aria-required="true">
-        <span class="mdc-notched-outline">
-          <span class="mdc-notched-outline__leading"></span>
-          <span class="mdc-notched-outline__notch">
-            <span id="track-select-label" class="mdc-floating-label">Track Type</span>
-          </span>
-          <span class="mdc-notched-outline__trailing"></span>
-        </span>
-        <span class="mdc-select__selected-text-container">
-          <span id="demo-selected-text" class="mdc-select__selected-text"></span>
-        </span>
-        <span class="mdc-select__dropdown-icon">
-          <svg
-              class="mdc-select__dropdown-icon-graphic"
-              viewBox="7 10 10 5" focusable="false">
-            <polygon
-                class="mdc-select__dropdown-icon-inactive"
-                stroke="none"
-                fill-rule="evenodd"
-                points="7 10 12 15 17 10">
-            </polygon>
-            <polygon
-                class="mdc-select__dropdown-icon-active"
-                stroke="none"
-                fill-rule="evenodd"
-                points="7 15 12 10 17 15">
-            </polygon>
-          </svg>
-        </span>
-      </div>
-
-      <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
-        <ul class="mdc-list" role="listbox">
-            <li class="mdc-list-item" role="option" data-value="cnv" tab-index="-1">
-                <span class="mdc-list-item__text">CNV</span>
-            </li>
-            <li class="mdc-list-item" role="option" data-value="enhancer" tab-index="0" aria-selected="true">
-                <span class="mdc-list-item__text">Enhancer</span>
-            </li>
-            <li class="mdc-list-item" role="option" data-value="other" tab-index="0" aria-selected="true">
-                <span class="mdc-list-item__text">Other</span>
-            </li>
-            <li class="mdc-list-item" role="option" data-value="tad" tab-index="-1">
-                <span class="mdc-list-item__text">TAD</span>
-            </li>
-        </ul>
-      </div>
-    </div>
-
-
-    <label id="details-field" class="mdc-text-field mdc-text-field--outlined">
-      <span class="mdc-notched-outline">
-        <span class="mdc-notched-outline__leading"></span>
-        <span class="mdc-notched-outline__notch">
-          <span class="mdc-floating-label" id="details-label">Details / Comments</span>
-        </span>
-        <span class="mdc-notched-outline__trailing"></span>
-      </span>
-        <input id="details-input" name="details" type="text" class="mdc-text-field__input">
-    </label>
-
-
-    <div id="file-upload-div">
-        <div id="upload-button">
-            <i class="material-icons mdc-button__icon" aria-hidden="true">attach_file</i>
-        </div>
-        <div id="uploaded-file-name">Click to upload file</div>
-        {{ form.uploaded_file }}
-    </div>
-
-
-        <button type="button" id="submit-track-button" class="mdc-button mdc-button--touch mdc-button--raised">
-            <div class="mdc-button__ripple"></div>
-            <div class="mdc-button__label">Submit</div>
-            <div class="mdc-button__touch"></div>
-        </button>
-    </div>
-</div>
-
-
-<div class="mdc-card card-w-title">
-
     <div class="tabs-and-search">
         <div class="mdc-tab-bar" role="tablist">
           <div class="mdc-tab-scroller">
@@ -196,6 +47,17 @@
                   <span class="mdc-tab__content">
                     <span class="mdc-tab__icon material-icons" aria-hidden="true">tram</span>
                     <span class="mdc-tab__text-label">Public Tracks</span>
+                  </span>
+                  <span class="mdc-tab-indicator">
+                    <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                  </span>
+                  <span class="mdc-tab__ripple"></span>
+                </button>
+
+                <button id="create-track-button" class="mdc-tab" role="tab">
+                  <span class="mdc-tab__content">
+                    <span class="mdc-tab__icon material-icons" aria-hidden="true">add_circle</span>
+                    <span class="mdc-tab__text-label">Create Track</span>
                   </span>
                   <span class="mdc-tab-indicator">
                     <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
@@ -239,6 +101,7 @@
                   <th data-attribute="track_type" class="mdc-data-table__header-cell user-cell" role="columnheader" scope="col">Track Type</th>
                   <th data-attribute="build" class="mdc-data-table__header-cell build-cell" role="columnheader" scope="col">Build</th>
                   <th data-attribute="details" class="mdc-data-table__header-cell description-cell" role="columnheader" scope="col">Details</th>
+                  <th data-attribute="delete" data-sortable=false class="mdc-data-table__header-cell delete-cell" role="columnheader" scope="col">Delete</th>
                 </tr>
               </thead>
               <tbody class="mdc-data-table__content" id="my-tracks-tbody">
@@ -412,6 +275,204 @@
             </div>
           </div>
         </div>
+
+        <div id="create-track-div" class="mdc-data-table">
+            <div id="inputs-div">
+            <div class="mdc-select mdc-select--outlined mdc-select--required" id="build-select">
+              <div class="mdc-select__anchor" aria-labelledby="build-select-label" aria-required="true">
+                <span class="mdc-notched-outline">
+                  <span class="mdc-notched-outline__leading"></span>
+                  <span class="mdc-notched-outline__notch">
+                    <span id="build-select-label" class="mdc-floating-label">Genome Build</span>
+                  </span>
+                  <span class="mdc-notched-outline__trailing"></span>
+                </span>
+                <span class="mdc-select__selected-text-container">
+                  <span id="demo-selected-text" class="mdc-select__selected-text"></span>
+                </span>
+                <span class="mdc-select__dropdown-icon">
+                  <svg
+                      class="mdc-select__dropdown-icon-graphic"
+                      viewBox="7 10 10 5" focusable="false">
+                    <polygon
+                        class="mdc-select__dropdown-icon-inactive"
+                        stroke="none"
+                        fill-rule="evenodd"
+                        points="7 10 12 15 17 10">
+                    </polygon>
+                    <polygon
+                        class="mdc-select__dropdown-icon-active"
+                        stroke="none"
+                        fill-rule="evenodd"
+                        points="7 15 12 10 17 15">
+                    </polygon>
+                  </svg>
+                </span>
+              </div>
+
+              <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                <ul class="mdc-list" id="add-hpo-ul" role="listbox">
+                    <li class="mdc-list-item" role="option" data-value="NCBI36" tab-index="-1">
+                        <span class="mdc-list-item__text">hg18 / NCBI36</span>
+                    </li>
+                    <li class="mdc-list-item" role="option" data-value="GRCh37" tab-index="0" aria-selected="true">
+                        <span class="mdc-list-item__text">hg19 / GRCh37</span>
+                    </li>
+                    <li class="mdc-list-item" role="option" data-value="GRCh38" tab-index="-1">
+                        <span class="mdc-list-item__text">hg38 / GRCh38</span>
+                    </li>
+                </ul>
+              </div>
+            </div>
+
+
+            <label id="track-name-field" class="mdc-text-field mdc-text-field--outlined">
+              <span class="mdc-notched-outline">
+                <span class="mdc-notched-outline__leading"></span>
+                <span class="mdc-notched-outline__notch">
+                  <span class="mdc-floating-label" id="name-label">Track Name / Label</span>
+                </span>
+                <span class="mdc-notched-outline__trailing"></span>
+              </span>
+                <input id="track-name-input" name="label" type="text" class="mdc-text-field__input" required>
+            </label>
+
+            <div class="mdc-select mdc-select--outlined mdc-select--required" id="track-type-select">
+              <div class="mdc-select__anchor" aria-labelledby="track-select-label" aria-required="true">
+                <span class="mdc-notched-outline">
+                  <span class="mdc-notched-outline__leading"></span>
+                  <span class="mdc-notched-outline__notch">
+                    <span id="track-select-label" class="mdc-floating-label">Track Type</span>
+                  </span>
+                  <span class="mdc-notched-outline__trailing"></span>
+                </span>
+                <span class="mdc-select__selected-text-container">
+                  <span id="demo-selected-text" class="mdc-select__selected-text"></span>
+                </span>
+                <span class="mdc-select__dropdown-icon">
+                  <svg
+                      class="mdc-select__dropdown-icon-graphic"
+                      viewBox="7 10 10 5" focusable="false">
+                    <polygon
+                        class="mdc-select__dropdown-icon-inactive"
+                        stroke="none"
+                        fill-rule="evenodd"
+                        points="7 10 12 15 17 10">
+                    </polygon>
+                    <polygon
+                        class="mdc-select__dropdown-icon-active"
+                        stroke="none"
+                        fill-rule="evenodd"
+                        points="7 15 12 10 17 15">
+                    </polygon>
+                  </svg>
+                </span>
+              </div>
+
+              <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                <ul class="mdc-list" role="listbox">
+                    <li class="mdc-list-item" role="option" data-value="cnv" tab-index="-1">
+                        <span class="mdc-list-item__text">CNV</span>
+                    </li>
+                    <li class="mdc-list-item" role="option" data-value="enhancer" tab-index="0" aria-selected="true">
+                        <span class="mdc-list-item__text">Enhancer</span>
+                    </li>
+                    <li class="mdc-list-item" role="option" data-value="other" tab-index="0" aria-selected="true">
+                        <span class="mdc-list-item__text">Other</span>
+                    </li>
+                    <li class="mdc-list-item" role="option" data-value="tad" tab-index="-1">
+                        <span class="mdc-list-item__text">TAD</span>
+                    </li>
+                </ul>
+              </div>
+            </div>
+
+            <label id="author-last-name-field" class="mdc-text-field mdc-text-field--outlined">
+              <span class="mdc-notched-outline">
+                <span class="mdc-notched-outline__leading"></span>
+                <span class="mdc-notched-outline__notch">
+                  <span class="mdc-floating-label" id="author-last-name-label">Author Last Name</span>
+                </span>
+                <span class="mdc-notched-outline__trailing"></span>
+              </span>
+                <input id="author-last-name-input" name="author-last-name" type="text" class="mdc-text-field__input">
+            </label>
+
+            <label id="pubmed-id-field" class="mdc-text-field mdc-text-field--outlined">
+              <span class="mdc-notched-outline">
+                <span class="mdc-notched-outline__leading"></span>
+                <span class="mdc-notched-outline__notch">
+                  <span class="mdc-floating-label" id="pubmed-id-label">PubMed ID</span>
+                </span>
+                <span class="mdc-notched-outline__trailing"></span>
+              </span>
+                <input id="pubmed-id-input" name="pubmed-id" type="text" class="mdc-text-field__input">
+            </label>
+
+            <div id="file-upload-div">
+                <div id="upload-button">
+                    <i class="material-icons mdc-button__icon" aria-hidden="true">attach_file</i>
+                </div>
+                <div id="uploaded-file-name">Click to upload file</div>
+                {{ form.uploaded_file }}
+            </div>
+
+            <label id="article-name-field" class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea">
+              <span class="mdc-notched-outline">
+                <span class="mdc-notched-outline__leading"></span>
+                <span class="mdc-notched-outline__notch">
+                  <span class="mdc-floating-label" id="article-name-label">Publication Name</span>
+                </span>
+                <span class="mdc-notched-outline__trailing"></span>
+              </span>
+                <textarea id="article-name-input" name="article-name" type="textarea" class="mdc-text-field__input resize"></textarea>
+            </label>
+
+            <label id="details-field" class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea">
+              <span class="mdc-notched-outline">
+                <span class="mdc-notched-outline__leading"></span>
+                <span class="mdc-notched-outline__notch">
+                  <span class="mdc-floating-label" id="details-label">Details / Comments</span>
+                </span>
+                <span class="mdc-notched-outline__trailing"></span>
+              </span>
+                <textarea id="details-input" name="details" type="text" class="mdc-text-field__input resize"></textarea>
+            </label>
+
+                <button type="button" id="submit-track-button" class="mdc-button mdc-button--touch mdc-button--raised">
+                    <div class="mdc-button__ripple"></div>
+                    <div class="mdc-button__label">Submit</div>
+                    <div class="mdc-button__touch"></div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="track-dialog" class="mdc-dialog">
+      <div class="mdc-dialog__container">
+        <div class="mdc-dialog__surface" id="my-dialog-surface" role="alertdialog" aria-modal="true"
+          aria-labelledby="my-dialog-title" aria-describedby="my-dialog-content">
+          <div class="mdc-dialog__content" id="my-dialog-content">
+              <div class="track-info-header"><h2>Track Information</h2></div>
+              <div class="track-info-label">Label:</div><div id="track-label" class="track-info"></div>
+              <div class="track-info-label">Type:</div><div id="track-type" class="track-info"></div>
+              <div class="track-info-label">Build:</div><div id="track-build" class="track-info"></div>
+              <div class="track-info-label">Created By:</div><div id="track-creator" class="track-info"></div>
+              <div class="track-info-label">Details:</div><div id="track-details" class="track-info"></div>
+              <div class="track-info-label">Author:</div><div id="track-author" class="track-info"></div>
+              <div class="track-info-label">Year:</div><div id="track-year" class="track-info"></div>
+              <div class="track-info-label">Publication:</div><div id="track-article" class="track-info"></div>
+              <div class="track-info-label">PubMed:</div><div id="track-pubmed" class="track-info"></div>
+          </div>
+          <div class="mdc-dialog__actions">
+            <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="cancel">
+              <div class="mdc-button__ripple"></div>
+              <span class="mdc-button__label">Close</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="mdc-dialog__scrim"></div>
     </div>
 </div>
 {% endblock %}
