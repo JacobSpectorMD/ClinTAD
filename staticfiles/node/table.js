@@ -286,7 +286,7 @@ function add_item_to_table(table_id, attributes, item) {
 
     attributes.forEach(function (attribute) {
         $(row).append(`
-            <td class="mdc-data-table__cell">${item[attribute]}</td>
+            <td class="mdc-data-table__cell ${attribute}">${item[attribute]}</td>
         `)
     });
 

@@ -48,8 +48,8 @@ function draw_statistics(){
     
     $('.loading-gif').css('display', 'unset');
     
-    for (var i=0; i<=0; i++){
-    // for (var i=0; i<=4; i++){
+    // for (var i=0; i<=0; i++){
+    for (var i=0; i<=4; i++){
             // Get data for 500 random variants
         $.ajax({
             url: '/single/get_variants/',
