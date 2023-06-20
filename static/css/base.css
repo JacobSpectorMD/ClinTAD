@@ -3,6 +3,10 @@
     --green: rgb(84, 138, 73);
     --dark-grey: #263238;
     --light-blue: rgb(212, 235, 254);
+    --mdc-gray-300: #E0E0E0;
+    --mdc-green-500: #4CAF50;
+    --mdc-green-700: #388E3C;
+    --mdc-red-800: #C62828;
     --mdc-theme-primary: #78909c;
     --mdc-theme-primary-50: #F5F7F8;
     --mdc-theme-primary-100: #eceff1;
@@ -205,7 +209,6 @@ border-radius: 0 !important;
     line-height: normal;
     margin: 0;
     transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
-    opacity: 0;
     will-change: opacity;
 }
 
@@ -236,7 +239,6 @@ border-radius: 0 !important;
     margin-right: 16px;
 }
 
-#lookup-parent-div, #coordinates-div {margin-bottom: 8px;}
 #hpo-select .mdc-select__anchor {width: 100%;}
 #lookup-parent-div, #add-parent-div {display: flex; flex-direction: row;}
 #hpo-lookup-div {display: flex; flex-direction: column;}
@@ -457,4 +459,26 @@ th.col_header.parameters-col_description, td.parameters-col_description {
 
 td.parameters-col_description p {
     margin-left: 0 !important;
+}
+
+
+/* Coordinates and phenotype input, HPO lookup */
+#coordinates-div, #hpo-lookup-div {
+    margin-bottom: 24px;
+}
+
+#input-div {
+    padding-bottom: 0px;
+}
+
+#hpo-helper-text {
+    width: 100%;
+}
+
+#add-parent-div {
+    flex-wrap: wrap;
+}
+
+#hpo-helper-text {
+    color: rgba(0, 0, 0, 0.6);
 }

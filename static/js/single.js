@@ -13,6 +13,18 @@ window.onload = function () {
         }
         ;
     }
+
+    // Disable input for example cases
+    if (window.location.href.includes('example')) {
+        // Change the name of the Patient Data card
+        $('#input-card .card-title').html('Example Case');
+        // Remove the submit button
+        $('#submit-query-button').remove();
+        // Add disabled styling
+        $('#coordinates-field, #phenotypes-field, #hpo-lookup-label').addClass('mdc-text-field--disabled');
+        $('#hpo-select').addClass('mdc-select--disabled');
+        $('#input-icon').html('folder_shared');
+    }
 }
 
 const numberWithCommas = (x) => {
@@ -41,6 +53,7 @@ function submit_query() {
                 return
             }
             create_svg(data);
+            $('#patient-data-display').html('');
             hide_loading();
         },
     });
@@ -90,7 +103,9 @@ function get_genes() {
     if (!coordinates || coordinates == 'null') {
         return;
     }
+
     show_loading();
+
     $.ajax({
         type: 'GET',
         headers: {'X-CSRFToken': csrftoken},

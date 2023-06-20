@@ -1,0 +1,26 @@
+#prediction-div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 16px;
+}
+
+.prediction-card {
+    min-height: 6em;
+}
+
+.model-prediction {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    height: 100%;
+}
+
+.model-prediction.benign {
+    color: var(--mdc-green-700);
+}
+
+.model-prediction.pathogenic {
+    color: var(--mdc-red-800);
+}
+

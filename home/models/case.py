@@ -15,9 +15,6 @@ class Case(models.Model):
     submitter_email = models.CharField(max_length=100)
     submitter_name = models.CharField(max_length=100)
 
-    def __str__(self):
-        return ", ".join([self.name_text, self.coordinates_text, self.phenotypes_text, self.comments_text])
-
     def to_dict(self):
         return {
             'build': self.build.long_name,

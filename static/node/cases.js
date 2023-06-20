@@ -33,7 +33,7 @@ const dialog = new MDCDialog(document.querySelector('#case-dialog'));
 addHpoFunctions();
 
 function get_link_html(c){
-    const link = `/single/?build=${c.build}&coordinates=${c.coordinates}&phenotypes=${c.phenotypes}`
+    const link = `/single/example/?build=${c.build}&coordinates=${c.coordinates}&phenotypes=${c.phenotypes}`
 
     const html = `
     <button class="mdc-button mdc-button--icon-leading" onClick="window.open('${link}','_blank')">

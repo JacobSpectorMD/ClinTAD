@@ -14,7 +14,13 @@ class Command(BaseCommand):
         patient_data = read_patient_data()
 
         # Get all of the metric for machine learning
-        add_ml_metrics(patient_data)
+        for patient_id, variant in patient_data.items():
+            try:
+                add_ml_metrics(variant)
+            except Exception as e:
+                print(e)
+                print('Failed: ' + patient_id)
+                continue
 
         # Write the data to a file
         write_data(patient_data)
@@ -136,37 +142,29 @@ def read_patient_data():
     return all_patient_data
 
 
-def add_ml_metrics(variant_data):
-    for patient_id, variant in variant_data.items():
-        try:
-            coordinates = 'chr' + variant.chr + ':' + variant.start + '-' + variant.end
-            print(patient_id)
-            var = get_one_variant({}, coordinates, variant.hpo_accessions, ret='Dictionary',
-                                  source_function='data analysis')
-            variant.genes = var['genes']
-            variant.hpo_matches = var['hpo_matches']
-            variant.unique_matches = len(var['unique_matches'].keys())
-            variant.unique_over_input = variant.unique_matches / variant.num_hpos
-            variant.gene_matches = var['gene_matches']
-            variant.tads = var['tads']
-            variant.weighted_score = var['weighted_score']
-            variant.length = int(variant.end) - int(variant.start)
+def add_ml_metrics(variant):
+        coordinates = 'chr' + variant.chr + ':' + variant.start + '-' + variant.end
+        var = get_one_variant({}, coordinates, variant.hpo_accessions, ret='Dictionary',
+                              source_function='data analysis')
+        variant.genes = var['genes']
+        variant.hpo_matches = var['hpo_matches']
+        variant.unique_matches = len(var['unique_matches'].keys())
+        variant.unique_over_input = variant.unique_matches / variant.num_hpos
+        variant.gene_matches = var['gene_matches']
+        variant.tads = var['tads']
+        variant.weighted_score = var['weighted_score']
+        variant.length = int(variant.end) - int(variant.start)
 
-            read_hi_data()
+        read_hi_data()
 
-            # Determine if the variant completely overlaps a dosage sensitive region
-            variant.overlaps_hi, variant.overlaps_ts = overlaps_dosage_sensitive_region(variant.chr, variant.start,
-                                                                                        variant.end)
-            # Determine the number of dosage sensitive genes within all TADs affected by the variant
-            variant.num_hi_genes, variant.num_ts_genes = number_dosage_sensitive_genes(variant.genes)
+        # Determine if the variant completely overlaps a dosage sensitive region
+        variant.overlaps_hi, variant.overlaps_ts = overlaps_dosage_sensitive_region(variant.chr, variant.start,
+                                                                                    variant.end)
+        # Determine the number of dosage sensitive genes within all TADs affected by the variant
+        variant.num_hi_genes, variant.num_ts_genes = number_dosage_sensitive_genes(variant.genes)
 
-            variant.get_tad_boundaries()
-            variant.create_length_based_parameters()
-
-        except Exception as e:
-            print(e)
-            print('Failed: ' + patient_id)
-            continue
+        variant.get_tad_boundaries()
+        variant.create_length_based_parameters()
 
 
 def write_data(variant_data):

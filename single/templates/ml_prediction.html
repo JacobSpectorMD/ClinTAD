@@ -11,12 +11,15 @@
 {% block styles %}
 {{ block.super }}
     <link rel="stylesheet" type="text/css" href="{% static 'css/ml_prediction.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/single.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/statistics.css' %}">
 {% endblock styles %}
 
 
 {% block scripts %}
     {{ block.super }}
     <script src="{% static 'dist/ml_prediction.js' %}" type="module"></script>
+    <script src="{% static 'dist/statistics.js' %}" type="module"></script>
 {% endblock %}
 
 {% block content %}
@@ -28,20 +31,52 @@
                     <i class="material-icons card-top-icon-r">smart_toy</i>
                 </div>
             </div>
-            {% include 'coordinates_hpo_input.html' %}
+            <div class="card-text">
+                {% include 'coordinates_hpo_input.html' %}
+            </div>
         </div>
-        <div id="hpo-card" class="mdc-card">
-            <div class="card-heading">HPO Phenotype Lookup</div>
-            {% include 'hpo_lookup_input.html' %}
+        <div id="hpo-card" class="mdc-card card-w-title">
+            <div class="card-top-div">
+                <div class="card-title">HPO Phenotype Lookup</div>
+            </div>
+            <div class="card-text">
+                {% include 'hpo_lookup_input.html' %}
+            </div>
         </div>
     </div>
 
-    <button id="predict-button">Predict</button>
-
-    <div class="mdc-card card-w-title">
-        <div class="card-top-div">
-            <div class="card-title">Prediction</div>
+    <div id="prediction-div">
+        <div class="mdc-card card-w-title prediction-card">
+            <div class="card-top-div">
+                <div class="card-title">All Lengths Model</div>
+            </div>
+            <div id="all-lengths" class="model-prediction"></div>
         </div>
-        <div>Overall Prediction <span id="pathogenicity-prediction"></span></div>
+        <div class="mdc-card card-w-title prediction-card">
+            <div class="card-top-div">
+                <div class="card-title">250kb Model</div>
+            </div>
+            <div id="250kb" class="model-prediction"></div>
+        </div>
+        <div class="mdc-card card-w-title prediction-card">
+            <div class="card-top-div">
+                <div class="card-title">500kb Model</div>
+            </div>
+            <div id="500kb" class="model-prediction"></div>
+        </div>
+        <div class="mdc-card card-w-title prediction-card">
+            <div class="card-top-div">
+                <div class="card-title">1Mb Model</div>
+            </div>
+            <div id="1mb" class="model-prediction"></div>
+        </div>
+    </div>
+
+    <div class="mdc-card graph-card">
+        <div class="card-top-div">
+            <div class="card-title">Gene Matches</div>
+            <div class="loading-div"></div>
+        </div>
+        <svg id='gene-matches' width="100%" data-label="Gene Matches" data-ticks="10" height="315"></svg>
     </div>
 {% endblock content %}

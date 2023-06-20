@@ -11,12 +11,11 @@ from home.clintad import get_single_data
 from home.clintad import hpo_lookup
 from home.statistics import get_100_variants, get_one_variant
 from home.models import Build, Case
+from single.prediction import Prediction
 
 
 @requires_csrf_token
 def single(request):
-    template_name = 'single.html'
-
     if 'show_feedback' not in request.session.keys():
         request.session['show_feedback'] = True
     show_feedback = request.session.get('show_feedback')
@@ -25,14 +24,12 @@ def single(request):
         coordinates = request.session.get('coordinates', 'null')
         phenotypes = request.session.get('phenotypes', '')
 
-        return render(request, template_name, {'coordinates': coordinates, 'phenotypes': phenotypes, 'navbar': 'single',
+        return render(request, 'single.html', {'coordinates': coordinates, 'phenotypes': phenotypes, 'navbar': 'single',
                                                'show_feedback': show_feedback})
 
 
 @requires_csrf_token
 def example(request):
-    template_name = 'single.html'
-
     if request.method == 'GET':
         build = request.GET.get('build', None)
         coordinates = request.GET.get('coordinates', None)
@@ -41,7 +38,10 @@ def example(request):
         if not build or not coordinates:
             return redirect('/single/')
 
-        return render(request, template_name, {
+        request.session['coordinates'] = coordinates
+        request.session['phenotypes'] = phenotypes
+
+        return render(request, 'single.html', {
             'build': build, 'coordinates': coordinates, 'phenotypes': phenotypes, 'navbar': 'single'
         })
 
@@ -142,21 +142,34 @@ def ml_prediction(request):
 
 
 def predict(request):
-    coordinates = request.GET.get('coordinates', 'null')
-    phenotypes = request.GET.get('phenotypes', '')
+    coordinates = request.GET.get('coordinates', None)
+    phenotypes = request.GET.get('phenotypes', None)
+    print(coordinates, phenotypes)
+    if not coordinates or not phenotypes:
+        return JsonResponse({}, status=500)
+
     with open('single/cnv_model.sav', 'rb') as model_file:
         model = pickle.load(model_file)
-    new_array = np.zeros(20)
-    new_array[0] = 500000
+
+    pathogenicity = Prediction(coordinates, phenotypes, inheritance=1).predict()
+    # new_array = np.zeros(20)
+    # new_array[0] = 500000
     # print(new_array)
     # print(model.predict([new_array]), model.predict_proba([new_array]))
-    prediction = model.predict([new_array])
-    if prediction[0] == 1:
-        pathogenicity = 'Pathogenic'
-    else:
-        pathogenicity = 'Not Pathogenic'
-    print(prediction[0])
-    return JsonResponse({'pathogenicity': pathogenicity})
+    # prediction = model.predict([new_array])
+    # if prediction[0] == 1:
+    #     pathogenicity = 'Pathogenic'
+    # else:
+    #     pathogenicity = 'Not Pathogenic'
+    # print(prediction[0])
+    return JsonResponse({
+        'models': [
+            {'name': 'all-lengths', 'pathogenicity': pathogenicity},
+            {'name': '250kb', 'pathogenicity': 'Benign'},
+            {'name': '500kb', 'pathogenicity': 'Pathogenic'},
+            {'name': '1mb', 'pathogenicity': 'Pathogenic'}
+        ]
+    })
 
 
 def zoom(request):
