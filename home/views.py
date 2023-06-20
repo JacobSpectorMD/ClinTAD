@@ -21,11 +21,12 @@ def cases(request):
 
 
 # Views for the pages home, single, multiple, about and contact
-class home(TemplateView):
-    template_name = 'home.html'
-
-    def get(self, request):
-        return render(request, self.template_name, {'navbar': 'home'})
+def home(request):
+    return redirect('/single')
+    # template_name = 'home.html'
+    #
+    # def get(self, request):
+    #     return render(request, self.template_name, {'navbar': 'home'})
 
 
 class demonstration(TemplateView):
@@ -174,6 +175,7 @@ def signup(request):
 def set_announcement(request):
     request.session['announcement'] = False
     return JsonResponse({})
+
 
 @login_required(login_url='/login/')
 @transaction.atomic

@@ -19,29 +19,14 @@
     </head>
 
     <body>
-{#    {% if show_feedback %}#}
-{#        <div class="card-w-title mdc-card" id="accordion-feedback">#}
-{#            <div class="card-top-div">#}
-{#                <div class="card-title">Website Feedback</div>#}
-{#            </div>#}
-{##}
-{#            <div class="card-text">#}
-{#                We are looking for feedback on ClinTAD. Please contact us by email at ClinicalTAD@gmail.com and mention:<br>#}
-{#                <span class="feedback-item">1) Feedback on website design</span><br>#}
-{#                <span class="feedback-item">2) Feedback on website features / functionality</span><br>#}
-{#                <span class="feedback-item">3) Can we contact you to discuss the feedback</span>#}
-{#                <br><br>#}
-{#                <button id="hide-feedback-button" type="button" class="mdc-button mdc-button--touch mdc-button--raised">#}
-{#                    Hide This Message#}
-{#                </button>#}
-{#            </div>#}
-{#        </div>#}
-{#    {% endif %}#}
 
     <div id="input-cards-div">
         <div id="input-card" class="mdc-card card-w-title">
             <div class="card-top-div">
                 <div class="card-title">Patient Data</div>
+                <div>
+                    <i id='input-icon' class="material-icons card-top-icon-r">change_history</i>
+                </div>
             </div>
 
             <div class="card-text">
@@ -61,6 +46,7 @@
     <div id="svg-card" class="mdc-card">
         <div id="svg-card-top-div" class="card-top-div">
             <div id="svg-info-div">
+                <div id="svg-build-info"></div>
                 <div id="svg-coordinates-info"></div>
             </div>
             <div id="svg-buttons" class="card-buttons">
@@ -101,6 +87,7 @@
 
     </body>
     <script>
+        let build = "{{build|safe}}"
         let coordinates = "{{coordinates|safe}}";
         let phenotypes = "{{phenotypes|safe}}"
     </script>

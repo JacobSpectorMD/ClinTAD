@@ -12,7 +12,7 @@
                    aria-describedby="coordinates-helper" autocomplete="off">
         </label>
         <div class="mdc-text-field-helper-line">
-            <div class="mdc-text-field-helper-text" id="lookup-helper" aria-hidden="true">
+            <div class="mdc-text-field-helper-text mdc-text-field-helper-text--persistent" id="lookup-helper" aria-hidden="true">
                 Enter text to search for HPO terms, e.g. <i>cleft</i>
             </div>
         </div>
@@ -26,7 +26,9 @@
 
 <div id="add-parent-div">
     <div class="mdc-select mdc-select--outlined" id="hpo-select">
-      <div class="mdc-select__anchor" aria-labelledby="hpo-select-label" aria-required="true">
+      <div class="mdc-select__anchor" aria-labelledby="hpo-select-label" aria-required="true"
+        aria-controls="hpo-helper-text"
+        aria-describedby="hpo-helper-text">
         <span class="mdc-notched-outline">
           <span class="mdc-notched-outline__leading"></span>
           <span class="mdc-notched-outline__notch">
@@ -62,9 +64,11 @@
       </div>
     </div>
 
+
     <button type="button" id="hpo-add-button" class="mdc-button mdc-button--touch mdc-button--raised">
         <div class="mdc-button__ripple"></div>
         <div class="mdc-button__label">Add</div>
         <div class="mdc-button__touch"></div>
     </button>
+    <p id="hpo-helper-text" class="mdc-select-helper-text mdc-select-helper-text--persistent" aria-hidden="true">After lookup, select a phenotype then click add</p>
 </div>

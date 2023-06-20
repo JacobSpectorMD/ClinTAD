@@ -281,6 +281,16 @@ border-radius: 0 !important;
     font-weight: 500;
 }
 
+.card-top-div .card-top-icon-r {
+    position: absolute;
+    right: 8px;
+    top: 0;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    color: var(--mdc-theme-primary-500);
+}
+
 .card-top-div.title-large {
     height: 40px;
     font-size: 24px;
@@ -371,4 +381,80 @@ border-radius: 0 !important;
 .announcement-title {
     font-size: 14px;
     font-weight: 500;
+}
+/*Fix material design resizer not at bottom of textarea*/
+.mdc-text-field--textarea.mdc-text-field--outlined .mdc-text-field__input {
+    margin-bottom: 0px;
+    padding-bottom: 16px;
+}
+
+.mdc-text-field--textarea .mdc-text-field__input.resize {
+    resize: both;
+}
+
+.mdc-snackbar {
+    bottom: 16px !important;
+    left: 16px !important;
+    right: unset !important;
+}
+
+#settings-menu .mdc-list-item {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+/*Tabs at the top of a card with a search field*/
+.tabs-and-search {
+    display: flex;
+    height: 56px;
+}
+
+.tabs-and-search button {
+    height: 56px;
+}
+
+.tabs-and-search .mdc-text-field {
+    border-radius: 0px;
+}
+
+.tabs-and-search .search-div {
+    flex: 1;
+    margin-left: 16px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.tabs-and-search .search-div .mdc-text-field {
+    width: 66%;
+    border-radius: 0px 4px 0px 0px;
+    margin-right: 0px;
+}
+
+/*Hide the tab text for small screens*/
+@media (max-width: 600px) {
+    .tabs-and-search .mdc-tab__text-label {
+        display: none;
+    }
+
+    .mdc-tab {
+        padding-left: 0px;
+        padding-right: 0px;
+        min-width: 60px;
+    }
+}
+
+.card-w-title .mdc-tab-bar {
+    width: 50%;
+    border-radius: 4px 0px 0px 0px;
+}
+
+/*Django Spectacular API Settings*/
+th.col_header.parameters-col_description, td.parameters-col_description {
+    padding-left: 24px !important;
+}
+
+td.parameters-col_description p {
+    margin-left: 0 !important;
 }

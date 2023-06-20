@@ -46,14 +46,19 @@ input {
     border-radius: 0px;
 }
 
+.hpo, .match {
+    margin-right: 4px;
+    padding: 2px;
+    border-radius: 2px;
+    margin-bottom: 2px;
+}
+
 .match {
     background-color: orange;
-    margin-right: 4px;
 }
 
 .hpo {
-    background-color: #A9CCE3;
-    margin-right: 4px;
+    background-color: #E3E0DB;
 }
 
 .feedback-item {
@@ -76,4 +81,9 @@ input {
 
 .loading-gif {
     height: 28px;
+}
+
+#patient-data-display {
+    display: grid;
+    grid-template-columns: 20% auto;
 }

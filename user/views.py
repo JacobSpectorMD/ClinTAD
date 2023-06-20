@@ -4,6 +4,7 @@ from axes.decorators import axes_dispatch
 from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
 from django.core.mail import EmailMessage, EmailMultiAlternatives
+from django.db.models import Q
 from django.http import HttpResponse, JsonResponse
 from django.views.generic import CreateView, FormView
 from django.shortcuts import render, redirect
@@ -107,13 +108,16 @@ def activate(request, uidb64, token):
 def tracks(request):
     public_tracks = [track.to_dict() for track in Track.objects.filter(public=True)]
     return render(request, 'tracks.html', {'form': TrackForm,
-                                           'public_tracks': public_tracks,
+                                           'public_tracks': json.dumps(public_tracks),
                                            'tracks': json.dumps(request.user.track_manager.track_json())})
 
 
 def new_track(request):
     data = create_track(request)
-    return JsonResponse(data)
+    status = 200
+    if 'error' in data.keys():
+        status = 500
+    return JsonResponse(data, status=status)
 
 
 def edit_track(request):
@@ -124,8 +128,14 @@ def edit_track(request):
 
 
 def delete_track(request):
-    ut_id = request.POST.get('ut_id')
-    ut = UT.objects.get(user=request.user, id=int(ut_id))
+    user_track_id = request.GET.get('userTrackId', None)
+    if not user_track_id:
+        return HttpResponse('')
+
+    ut = UT.objects.get(user=request.user, id=int(user_track_id))
+    if request.user != ut.user:  # Only allow users to delete their own tracks
+        return HttpResponse('')
+
     ut.remove(request)
     return HttpResponse('')
 
@@ -152,11 +162,15 @@ def update_user_track(request):
     elif not active:
         user_track.active = False
 
-    # Make tracks of different builds inactive if the track is a TAD track
+    # Make tracks of different builds inactive if the track is a TAD track.
+    # Allow only one TAD track to be active at a time
     if user_track.track.track_type == 'tad' and active:
         other_build_tracks = UT.objects.filter(user=request.user, active=True).exclude(
             track__build=user_track.track.build)
         other_build_tracks.update(active=False)
+        other_tad_tracks = UT.objects.filter(user=request.user, track__track_type='tad').exclude(
+            id=user_track_id)
+        other_tad_tracks.update(active=False)
     user_track.save()
 
     return JsonResponse(user_track.to_dict())

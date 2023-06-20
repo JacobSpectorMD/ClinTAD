@@ -37,23 +37,9 @@ def get_single_data(request):
     chromosome, start, end = parse_coordinates(request.session['coordinates'])
     phenotypes = parse_phenotypes(request.session['phenotypes'])
 
-    data_str = GetTADs(request, '', chromosome, start, end, phenotypes, request.session['zoom'])
+    zoom = request.session.get('zoom', 0)
+    data_str = GetTADs(request, '', chromosome, start, end, phenotypes, zoom)
     data = json.loads(data_str)
-
-    # data['tracks'] = []
-    # if request.user.is_authenticated:
-    #     build = UT.objects.filter(user=request.user, active=True, track__track_type='tad').first().track.build
-    #     active_tracks = UT.objects.filter(user=request.user, active=True).exclude(track__track_type='tad')
-    #     for track in active_tracks:
-    #         data['tracks'].append(get_track_data(build, track, chromosome, data['minimum']['coord'],
-    #                                              data['maximum']['coord']))
-    #     data['default_enhancers'] = request.user.track_manager.default_enhancers
-    #     data['default_tads'] = request.user.track_manager.default_tads
-    #     data['default_cnvs'] = request.user.track_manager.default_cnvs
-    # else:
-    #     data['default_enhancers'] = True
-    #     data['default_tads'] = True
-    #     data['default_cnvs'] = True
 
     return json.dumps(data)
 
@@ -71,10 +57,13 @@ def GetTADs(request, case_id, chromosome_input, CNV_start, CNV_end, phenotypes, 
     tad_track = None
 
     # Use default tracks for anonymous users, and selected/active tracks for logged in users
-    if request.user.is_anonymous or 'user' not in request.keys():
+    if source_function == 'data analysis':
+        build = Build.objects.get(name='GRCh38')
+        tad_track = Track.objects.get(id=104)
+    elif request.user.is_anonymous:
         build = Build.objects.get(name='GRCh37')
         enhancer_tracks = Track.objects.filter(build=build, default=True, track_type='enhancer')
-        tad_track = Track.objects.filter(default=True, build__name='GRCh37').first()
+        tad_track = Track.objects.filter(default=True, build=build).first()
         variant_tracks = Track.objects.filter(build=build, default=True, track_type='cnv')
     elif request.user.is_authenticated:
         user_tad_track = UT.objects.filter(active=True, track__track_type='tad').first()
@@ -136,7 +125,7 @@ def GetTADs(request, case_id, chromosome_input, CNV_start, CNV_end, phenotypes, 
         phenotype_list.append(phenotype)
 
     tracks = []
-    if source_function != 'multiple':
+    if source_function not in ['multiple', 'data analysis']:
         # Get enhancers
         for enhancer_track in enhancer_tracks:
             tracks.append(enhancer_track.get_elements_by_coordinate(chromosome, minimum_coordinate, maximum_coordinate))
@@ -161,12 +150,12 @@ def GetTADs(request, case_id, chromosome_input, CNV_start, CNV_end, phenotypes, 
         new_gene = TempGene(name=gene.name, start=gene.start, end=gene.end)
         hpos = gene.hpos.all()
         for hpo in hpos:
-            new_gene.phenotypes.append({'hpo': hpo.hpoid, 'name': hpo.name})
-            if hpo.hpoid in phenotype_list:
-                new_gene.matches.append({'hpo': hpo.hpoid, 'name': hpo.name})
+            new_gene.phenotypes.append({'hpo': hpo.hpo_id, 'name': hpo.name})
+            if hpo.hpo_id in phenotype_list:
+                new_gene.matches.append({'hpo': hpo.hpo_id, 'name': hpo.name})
                 new_gene.phenotype_score += 1
                 new_gene.weighted_score += hpo.weight
-                unique_hpo_matches[hpo.hpoid] = ''
+                unique_hpo_matches[hpo.hpo_id] = ''
                 hpo_matches += 1
 
                 # Only get OMIM and inheritance data for multiple
@@ -190,6 +179,7 @@ def GetTADs(request, case_id, chromosome_input, CNV_start, CNV_end, phenotypes, 
             total_weighted_score += gene['weighted_score']
 
     gene_dict = {
+        'build': build.long_name.split('/')[0],
         'case_id': case_id,
         'chromosome': chromosome.number,
         'cnv_start': patient_CNV_start,

@@ -17,6 +17,9 @@ main .mdc-card:not(:last-child) {
 .label-cell, .build-cell, .user-cell {
     width: 200px;
 }
+.delete-cell {
+    width: 130px;
+}
 
 
 .description-cell {
@@ -53,6 +56,7 @@ main .mdc-card:not(:last-child) {
     flex-direction: row;
     height: 56px;
     cursor: pointer;
+    width: 100%;
 }
 
 #file-upload-div input {
@@ -85,19 +89,31 @@ main .mdc-card:not(:last-child) {
     align-items: center;
     padding: 4px;
     color: var(--mdc-theme-primary-700);
+    flex: 1;
 }
 
 #inputs-div {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     padding: 16px;
+    white-space: nowrap;
+    flex-wrap: wrap;
+    max-width: 800px;
+    justify-content: space-between;
+    margin: auto;
+    row-gap: 16px;
+}
+
+#inputs-div textarea {
+    min-width: 400px;
+    resize: vertical;
 }
 
 #inputs-div > div, #inputs-div > label {
     margin-right: 16px;
 }
 
-#details-field {
+#details-field, #article-name-field {
     flex: 1;
 }
 
@@ -110,41 +126,33 @@ main .mdc-card:not(:last-child) {
     cursor: pointer;
 }
 
-.card-w-title .mdc-tab-bar {
-    width: 50%;
-    border-radius: 4px 0px 0px 0px;
-}
-
-.tabs-and-search {
-    display: flex;
-    height: 56px;
-}
-
-.tabs-and-search button {
-    height: 56px;
-}
-
-.tabs-and-search .mdc-text-field {
-    border-radius: 0px;
-}
-
-.search-div {
-    flex: 1;
-    margin-left: 16px;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.search-div .mdc-text-field {
-    width: 66%;
-    border-radius: 0px 4px 0px 0px;
-    margin-right: 0px;
-}
-
-#public-tracks-div {
+#public-tracks-div, #create-track-div {
     display: none;
 }
 
 #public-filter-field {
     display: none;
+}
+
+#my-dialog-content {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-row-gap: 4px;
+    grid-column-gap: 8px;
+}
+
+.track-info-header {
+    grid-column: 1 / 3;
+}
+
+.track-info-label {
+    font-weight: bold;
+}
+
+#track-details {
+    white-space: pre-wrap;
+}
+
+#my-dialog-surface {
+    min-width: 340px;
 }

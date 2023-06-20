@@ -1,0 +1,62 @@
+<div class="mdc-dialog help-dialog">
+  <div class="mdc-dialog__container">
+    <div class="mdc-dialog__surface" id="help-dialog-surface" role="alertdialog" aria-modal="true"
+      aria-labelledby="my-dialog-title" aria-describedby="my-dialog-content">
+      <h2 class="mdc-dialog__title">Cases Page Help</h2>
+      <div class="mdc-dialog__content" id="my-dialog-content">
+        <h3 class="help-section-title">Cases Tab</h3>
+        <div class="help-paragraph">
+            The Cases tab contains a list of research and clinical cases that may demonstrate
+            phenotypes due to disruption of TADs or other non-coding elements. Cases can be <b>sorted</b> by clicking on
+            the arrow for each column. Cases can be <b>filtered</b> by clicking on the title of each column (optional),
+            entering text to search for in the Filter form, and then pressing enter.
+            <br><br>
+            Cases have the following properties<br>
+            <ul>
+                <li><b>Status:</b> cases are "Pending" after submitted by users and "Confirmed" after review by a moderator</li>
+                <li><b>Evidence:</b> the evidence supporting pathogenicity</li>
+                <li><b>Submitter:</b> the user who submitted the case to ClinTAD</li>
+                <li><b>Build:</b> the genome build for the case's coordinates</li>
+                <li><b>Coordinates:</b> the chromosome and breakpoints for the CNV</li>
+                <li><b>Phenotypes:</b> a list of HPO terms for the patient/subject associated with the case</li>
+                <li><b>Comments:</b> submitters can enter other important details here</li>
+            </ul>
+        </div>
+
+        <h3 class="help-section-title">Create Case Tab</h3>
+        {% if not user.is_authenticated %}
+        <div class="help-paragraph">Registered users can submit cases on this page.</div>
+        {% else %}
+        <div class="help-paragraph">
+            The Create Case tab can be used to submit cases where patients/subjects are thought to have phenotypes
+            due to disruption of non-coding elements. After submission, these cases will be publicly viewable and should
+            not contain Protected Health Information.
+            <br><br>
+              Cases should have the following information, if available:
+            <ul>
+                <li><b>Build:</b> the genome build for the coordinates</li>
+                <li><b>Coordinates:</b> the chromosome and breakpoints, in UCSC browser format e.g. chr1:5000000-6000000.</li>
+                <li><b>PubMed IDs:</b> the PubMed IDs for any publications that describe the case, if entering multiple separate with commas.</li>
+                <li><b>HPO Phenotypes:</b> the HPO identifiers for the phenotypes associated with the patient/subject.
+                    To lookup IDs, enter a search term in the <i>Lookup HPO Term</i> box and press enter. Then select a term from
+                    the <i>HPO</i> list and press the <i>Add</i> button. Multiple values should be separated by commas.</li>
+                <li><b>Evidence for Case:</b> select any evidence for the case supporting the relationship between patient
+                    phenotypes and disruption of non-coding elements.</li>
+                <li><b>Comments:</b> enter any other information that is relevant to the case.</li>
+            </ul>
+        </div>
+        {% endif %}
+
+      </div>
+
+
+      <div class="mdc-dialog__actions">
+        <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="cancel">
+          <div class="mdc-button__ripple"></div>
+          <span class="mdc-button__label">Close</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="mdc-dialog__scrim"></div>
+</div>

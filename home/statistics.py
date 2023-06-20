@@ -6,7 +6,7 @@ from home.statistics_old import generate_CNV
 
 
 class Variant:
-    def __init__(self, chromosome, start, end, hpo_matches, gene_matches, tads, weighted_score, unique_matches):
+    def __init__(self, chromosome, start, end, hpo_matches, gene_matches, tads, weighted_score, unique_matches, genes):
         self.chromosome = chromosome
         self.start = start
         self.end = end
@@ -15,17 +15,18 @@ class Variant:
         self.tads = tads
         self.weighted_score = weighted_score
         self.unique_matches = unique_matches
+        self.genes = genes
 
 
-def get_one_variant(request, coordinates, phenotypes, ret='String'):
+def get_one_variant(request, coordinates, phenotypes, ret='String', source_function='Single'):
     chromosome, start, end = parse_coordinates(coordinates)
     phenotypes = parse_phenotypes(phenotypes)
     if not chromosome or not start or not end or not phenotypes:
         return {}
 
-    result = json.loads(GetTADs(request, '', chromosome, start, end, phenotypes, 0))
+    result = json.loads(GetTADs(request, '', chromosome, start, end, phenotypes, 0, source_function=source_function))
     variant = Variant(chromosome, result['cnv_start'], result['cnv_end'], result['hpo_matches'], result['gene_matches'],
-                      result['tads'], result['weighted_score'], result['unique_matches'])
+                      result['tads'], result['weighted_score'], result['unique_matches'], result['genes'])
     if ret == 'String':
         return json.dumps(variant.__dict__)
     else:
@@ -38,11 +39,12 @@ def get_100_variants(request, coordinates, phenotypes):
     phenotypes = parse_phenotypes(phenotypes)
     print('getting variants...')
     variant_list = []
-    while len(variant_list) < 20:
+    while len(variant_list) < 100:
         sim_chr, sim_start, sim_end = generate_CNV(int(end) - int(start))
         result = json.loads(GetTADs(request, '', sim_chr, sim_start, sim_end, phenotypes, 0, source_function='single'))
         variant_list.append(Variant(chromosome, result['cnv_start'], result['cnv_end'], result['hpo_matches'],
-                                    result['gene_matches'], result['weighted_score']))
+                                    result['gene_matches'], result['tads'], result['weighted_score'],
+                                    result['unique_matches'], result['genes']))
     print(variant_list)
     return json.dumps([variant.__dict__ for variant in variant_list])
 

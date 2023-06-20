@@ -18,13 +18,6 @@
             <img id="navbar-icon" src="{% static 'admin/img/ClinTAD_icon.svg' %}">
         </section>
         <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-center" role="toolbar">
-            <a href="/">
-                <button class="mdc-button nav-button">
-                    <span class="mdc-button__ripple mdc-ripple-surface--primary"></span>
-                    <i class="material-icons mdc-button__icon" aria-hidden="true">home_outlined</i>
-                    <span class="mdc-button__label">Home</span>
-                </button>
-            </a>
             <a href="/single">
                 <button class="mdc-button nav-button">
                     <span class="mdc-button__ripple mdc-ripple-surface--primary"></span>
@@ -39,17 +32,24 @@
                     <span class="mdc-button__label">Multiple</span>
                 </button>
             </a>
-{#            <a href="/cases">#}
-{#                <button class="mdc-button nav-button">#}
-{#                    <span class="mdc-button__ripple mdc-ripple-surface--primary"></span>#}
-{#                    <i class="material-icons mdc-button__icon" aria-hidden="true">folder_shared</i>#}
-{#                    <span class="mdc-button__label">Cases</span>#}
-{#                </button>#}
-{#            </a>#}
+            <a href="/cases">
+                <button class="mdc-button nav-button">
+                    <span class="mdc-button__ripple mdc-ripple-surface--primary"></span>
+                    <i class="material-icons mdc-button__icon" aria-hidden="true">folder_shared</i>
+                    <span class="mdc-button__label">Cases</span>
+                </button>
+            </a>
+            <span>
+                <button class="mdc-button nav-button" id="help-button">
+                    <span class="mdc-button__ripple mdc-ripple-surface--primary"></span>
+                    <i class="material-icons mdc-button__icon" aria-hidden="true">help_outline</i>
+                    <span class="mdc-button__label">Help</span>
+                </button>
+            </span>
             <a href="/about">
                 <button class="mdc-button nav-button">
                     <span class="mdc-button__ripple mdc-ripple-surface--primary"></span>
-                    <i class="material-icons mdc-button__icon" aria-hidden="true">help_outline</i>
+                    <i class="material-icons mdc-button__icon" aria-hidden="true">info_outline</i>
                     <span class="mdc-button__label">About</span>
                 </button>
             </a>
@@ -109,15 +109,12 @@
     {% block content %}{% endblock content %}
 </main>
 
-<aside class="mdc-snackbar announcement" style="display: none;">
+<aside class="mdc-snackbar announcement">
   <div class="mdc-snackbar__surface" role="status" aria-relevant="additions">
     <div class="mdc-snackbar__label" aria-atomic="false">
-        <span class="announcement-title">ClinTAD Upgrade (Please Excuse the Mess)</span><br><br>
-
-        ClinTAD is currently undergoing major upgrades. Many pages on the site are changing in appearance and functionality.
-        Some features may be slower and/or unavailable intermittently over the next few weeks.<br><br>
-
-        We are working hard to improve ClinTAD, but our development time is limited due to clinical responsibilities.    </div>
+        <span class="announcement-title"></span><br><br>
+        <span class="announcement-text"></span><br><br>
+    </div>
     <div class="mdc-snackbar__actions" aria-atomic="true">
       <button type="button" class="mdc-button mdc-snackbar__action">
         <div class="mdc-button__ripple"></div>
@@ -127,9 +124,7 @@
   </div>
 </aside>
 
-<script>
-    const announcement = {% if 'announcement' in request.session %}false{% else %}true{% endif %};
-</script>
+
 
 {% block scripts %}
     <script src="{% static 'js/utilities.js' %}" type="module"></script>

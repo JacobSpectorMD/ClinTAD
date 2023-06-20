@@ -1,3 +1,4 @@
+import {MDCDialog} from '@material/dialog';
 import {MDCMenuSurface} from '@material/menu-surface';
 import {MDCRipple} from '@material/ripple';
 import {MDCSnackbar} from '@material/snackbar';
@@ -38,18 +39,43 @@ if (settingsTabEl){
     });
 }
 
-const snackbar = new MDCSnackbar(document.querySelector('.mdc-snackbar'));
-snackbar.timeoutMs = -1;
-if (announcement != false) {
+export const snackbar = new MDCSnackbar(document.querySelector('.mdc-snackbar'));
+snackbar.setTitle = function(title) {
+    $(this.surfaceEl).find('.announcement-title').html(title);
+}
+snackbar.setText = function(text) {
+    $(this.surfaceEl).find('.announcement-text').html(text);
+}
+
+export function showSnackbarError(jqXHR, textStatus, errorThrown) {
+    let errorText = 'Something went wrong, please try again'
+    if (jqXHR.responseJSON && jqXHR.responseJSON.error) {
+        errorText = jqXHR.responseJSON.error;
+    }
+    snackbar.setTitle('An Error Occurred');
+    snackbar.setText(errorText);
+    snackbar.timeoutMs = 5000;
     snackbar.open();
 }
 
-$(document).on('click', '.announcement button', function(){
-    $.ajax({
-        type: 'GET',
-        url: '/set_announcement/',
-        headers: {'X-CSRFToken': csrftoken},
-        success: function() {},
-    });
-})
+// Clears text, select, and checkbox fields
+export function clearFields () {
+    for (let i=0; i < arguments.length; i ++){
+        let field = arguments[i];
+        field.value = '';
+        $(field.root).removeClass('mdc-text-field--invalid mdc-select--invalid');
 
+        // Clear checkboxes in .mdc-form-field elements
+        if ($(field.root) && $(field.root).hasClass('mdc-form-field')) {
+            $(field.root).find('input').prop('checked', false);
+        }
+    }
+}
+
+const helpDialogElement = document.querySelector('.help-dialog');
+if (helpDialogElement) {
+   const helpDialog = new MDCDialog(helpDialogElement);
+    $(document).on('click', '#help-button', function() {
+        helpDialog.open();
+    })
+}

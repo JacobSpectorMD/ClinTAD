@@ -20,20 +20,19 @@ $(document).ready(function () {
     }
 })
 
-function draw_statistics(){
+function draw_statistics(coordinates=null, phenotypes=null){
     var svgs = d3.selectAll("svg");
 
-    coordinates = coordinatesField.value;
-    phenotypes = phenotypesField.value;
-    const postData = {'coordinates': coordinates, 'phenotypes': phenotypes};
-    
+    if (!coordinates) { coordinates = coordinatesField.value; }
+    if (!phenotypes) { phenotypes = phenotypesField.value; }
+
     // Get data for actual variant
     var my_variant = {'gene_matches': null, 'hpo_matches': null, 'weighted_score': null};
     $.ajax({
         url: '/single/get_one_variant/',
         type: 'POST',
         headers: {"X-CSRFToken": csrftoken},
-        data: postData,
+        data: {'coordinates': coordinates, 'phenotypes': phenotypes},
         success: function (d) {
             const data = JSON.parse(d);
             my_variant['gene_matches'] = data.gene_matches;
@@ -48,9 +47,8 @@ function draw_statistics(){
     
     $('.loading-gif').css('display', 'unset');
     
-    for (var i=0; i<=0; i++){
-    // for (var i=0; i<=4; i++){
-            // Get data for 500 random variants
+    for (var i=0; i<=4; i++){
+        // Get data for 500 random variants
         $.ajax({
             url: '/single/get_variants/',
             type: 'POST',

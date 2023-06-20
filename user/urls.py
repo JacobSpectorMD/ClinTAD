@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'^update_user_track/$', update_user_track, name='update_user_track'),
 
 
+    # Passwords
     url(r'^password_reset/$', auth_views.PasswordResetView.as_view(template_name='password_reset_form.html'),
         {'extra_context': {'navbar': 'reset'}}, name='password_reset'),
     url(r'^password_reset/done/$', auth_views.PasswordResetDoneView.as_view(template_name='password_reset_done.html'),
